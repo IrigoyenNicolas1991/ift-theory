@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity, Inertia, and Rest Energy as Manifestations of a Single Elastic Medium — Intangible Field Theory</title>
+<meta name="description" content="A field-theoretic formulation of the Intangible Field Theory (TCI): rest energy, gravity, and inertia derived from a single elastic medium. Nicolás Irigoyen.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      tags: 'none',
+      processEscapes: true
+    },
+    chtml: { scale: 1.0, matchFontHeight: false },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+  };
+</script>
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+  :root{
+    --paper:#f7f8fa;
+    --surface:#ffffff;
+    --ink:#16191f;
+    --ink-soft:#3a414b;
+    --muted:#6b7480;
+    --rule:#e3e6ec;
+    --rule-strong:#cdd3db;
+    --accent:#2c6e7f;
+    --accent-deep:#1f5260;
+    --accent-wash:#eef4f5;
+    --measure:46rem;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size:18px;
+    line-height:1.66;
+    font-feature-settings:"onum" 1, "kern" 1, "liga" 1;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  .eyebrow,
+  .meta,
+  .label,
+  .tag-label,
+  .toc-eyebrow,
+  .eqnum,
+  th,
+  .caption,
+  .ref-list{
+    font-family:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-feature-settings:"kern" 1;
+  }
+
+  /* ---------- Header / hero ---------- */
+  .masthead{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--rule);
+    background:
+      radial-gradient(120% 140% at 50% -28%, #ffffff 0%, var(--accent-wash) 34%, var(--paper) 70%);
+  }
+  .masthead::before{
+    /* signature: a faint "void" — depleted centre rising to the medium */
+    content:"";
+    position:absolute;
+    top:-42%;
+    left:50%;
+    width:min(640px, 92vw);
+    height:min(640px, 92vw);
+    transform:translateX(-50%);
+    background:radial-gradient(circle at center,
+      rgba(31,82,96,0.16) 0%,
+      rgba(31,82,96,0.06) 26%,
+      rgba(31,82,96,0.015) 48%,
+      rgba(31,82,96,0) 66%);
+    pointer-events:none;
+  }
+  .masthead-inner{
+    position:relative;
+    max-width:var(--measure);
+    margin:0 auto;
+    padding:4.4rem 1.5rem 3rem;
+  }
+  .eyebrow{
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    font-weight:600;
+    margin:0 0 1.4rem;
+  }
+  h1.title{
+    font-size:clamp(1.85rem, 4.6vw, 2.85rem);
+    line-height:1.16;
+    font-weight:700;
+    letter-spacing:-0.012em;
+    margin:0 0 0.55rem;
+    max-width:34ch;
+  }
+  .subtitle{
+    font-size:clamp(1.05rem,2.2vw,1.28rem);
+    font-weight:400;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin:0 0 2rem;
+    max-width:46ch;
+  }
+  .byline{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .byline .author{ font-weight:600; color:var(--ink); }
+  .byline .aff{ color:var(--muted); }
+  .byline .when{ color:var(--muted); }
+
+  /* ---------- Layout ---------- */
+  main{
+    max-width:var(--measure);
+    margin:0 auto;
+    padding:0 1.5rem 5rem;
+  }
+
+  section{ margin-top:3.2rem; }
+  section:first-of-type{ margin-top:2.6rem; }
+
+  /* ---------- Abstract ---------- */
+  .abstract{
+    margin:2.6rem 0 0;
+    padding:1.6rem 1.7rem;
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--accent);
+    border-radius:2px;
+  }
+  .abstract .label{
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    font-weight:600;
+    margin:0 0 0.7rem;
+  }
+  .abstract p{ margin:0; font-size:0.98rem; line-height:1.62; color:var(--ink-soft); }
+  .keywords{
+    margin:1.1rem 0 0;
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size:0.85rem;
+    color:var(--muted);
+  }
+  .keywords b{ color:var(--ink-soft); font-weight:600; }
+
+  /* ---------- TOC ---------- */
+  .toc{
+    margin:2.4rem 0 0;
+    padding:1.5rem 1.7rem 1.2rem;
+    border:1px solid var(--rule);
+    border-radius:2px;
+    background:linear-gradient(var(--surface), var(--surface));
+  }
+  .toc-eyebrow{
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+    margin:0 0 1rem;
+  }
+  .toc ol{
+    list-style:none;
+    margin:0;
+    padding:0;
+    columns:2;
+    column-gap:2.4rem;
+  }
+  .toc li{ break-inside:avoid; margin:0 0 0.5rem; }
+  .toc a{
+    display:flex;
+    gap:0.7rem;
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    line-height:1.4;
+  }
+  .toc a:hover{ color:var(--accent-deep); }
+  .toc a .n{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-variant-numeric:tabular-nums;
+    color:var(--accent);
+    font-weight:600;
+    min-width:1.5em;
+  }
+  @media (max-width:560px){ .toc ol{ columns:1; } }
+
+  /* ---------- Headings ---------- */
+  h2{
+    font-size:1.5rem;
+    line-height:1.25;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:0 0 1.1rem;
+    padding-bottom:0.6rem;
+    border-bottom:1px solid var(--rule);
+    display:flex;
+    align-items:baseline;
+    gap:0.7rem;
+  }
+  h2 .secnum{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--accent);
+    font-variant-numeric:tabular-nums;
+  }
+  h3{
+    font-size:1.14rem;
+    font-weight:600;
+    letter-spacing:-0.005em;
+    margin:2rem 0 0.7rem;
+    color:var(--ink);
+  }
+  h3 .subnum{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-weight:600;
+    color:var(--muted);
+    margin-right:0.5em;
+    font-variant-numeric:tabular-nums;
+  }
+  h4{
+    font-size:0.95rem;
+    font-weight:600;
+    font-style:italic;
+    color:var(--accent-deep);
+    margin:1.5rem 0 0.5rem;
+  }
+
+  p{ margin:0 0 1.05rem; }
+  a{ color:var(--accent-deep); text-decoration-thickness:1px; text-underline-offset:2px; }
+  a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+
+  /* lettered / numbered inline lists used in the paper */
+  .plist{ margin:0 0 1.05rem; padding-left:1.5rem; }
+  .plist li{ margin:0 0 0.5rem; }
+
+  /* ---------- Theorem-like environments ---------- */
+  .thm{
+    margin:1.4rem 0;
+    padding:1.05rem 1.3rem;
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--rule-strong);
+    border-radius:2px;
+  }
+  .thm.accent{ border-left-color:var(--accent); }
+  .thm .tag-label{
+    font-weight:600;
+    font-style:normal;
+    color:var(--accent-deep);
+    font-size:0.92rem;
+    letter-spacing:0.01em;
+    margin-right:0.4em;
+  }
+  .thm.statement{ font-style:italic; color:var(--ink-soft); }
+  .thm.statement .tag-label{ font-style:normal; }
+  .thm p:last-child{ margin-bottom:0; }
+
+  .proof{
+    margin:1.1rem 0 1.4rem;
+    padding-left:1.1rem;
+    border-left:2px solid var(--rule);
+    color:var(--ink-soft);
+  }
+  .proof .pl{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-style:italic;
+    font-weight:500;
+    color:var(--muted);
+    margin-right:0.3em;
+  }
+  .proof .qed{ float:right; color:var(--muted); }
+
+  /* ---------- Math display: horizontal scroll safety on mobile ---------- */
+  mjx-container[display="true"]{
+    overflow-x:auto;
+    overflow-y:hidden;
+    max-width:100%;
+    padding:0.2rem 0;
+  }
+  mjx-container[display="true"]::-webkit-scrollbar{ height:6px; }
+  mjx-container[display="true"]::-webkit-scrollbar-thumb{ background:var(--rule-strong); border-radius:3px; }
+
+  /* ---------- Tables ---------- */
+  .table-wrap{ overflow-x:auto; margin:1.3rem 0; }
+  table{
+    border-collapse:collapse;
+    width:100%;
+    font-size:0.92rem;
+  }
+  caption{
+    caption-side:top;
+    text-align:left;
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size:0.85rem;
+    color:var(--muted);
+    margin-bottom:0.6rem;
+  }
+  caption b{ color:var(--ink-soft); font-weight:600; }
+  th, td{
+    text-align:left;
+    padding:0.5rem 0.85rem;
+    border-bottom:1px solid var(--rule);
+  }
+  thead th{
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+    border-bottom:1.5px solid var(--rule-strong);
+  }
+  .num-table td{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.86rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .num-table td:first-child{ color:var(--ink); }
+
+  /* ---------- References ---------- */
+  .ref-list{
+    list-style:none;
+    counter-reset:ref;
+    margin:1.2rem 0 0;
+    padding:0;
+    font-size:0.9rem;
+    line-height:1.55;
+    color:var(--ink-soft);
+  }
+  .ref-list li{
+    counter-increment:ref;
+    position:relative;
+    padding-left:2.6rem;
+    margin:0 0 0.7rem;
+  }
+  .ref-list li::before{
+    content:"["counter(ref)"]";
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+  }
+  .ref-list i{ color:var(--ink); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    max-width:var(--measure);
+    margin:0 auto;
+    padding:2.4rem 1.5rem 4rem;
+    border-top:1px solid var(--rule);
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size:0.85rem;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  footer .fauthor{ color:var(--ink-soft); font-weight:600; }
+
+  hr.soft{ border:0; border-top:1px solid var(--rule); margin:2.2rem 0; }
+
+  /* ---------- Print ---------- */
+  @media print{
+    body{ background:#fff; font-size:11pt; }
+    .masthead{ background:#fff; }
+    .masthead::before{ display:none; }
+    .toc, .abstract, .thm{ background:#fff; }
+    a{ color:var(--ink); text-decoration:none; }
+    section{ break-inside:auto; }
+    h2, h3{ break-after:avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Intangible Field Theory · Technical Paper</p>
+    <h1 class="title">Gravity, Inertia, and Rest Energy as Manifestations of a Single Elastic Medium</h1>
+    <p class="subtitle">A Field-Theoretic Formulation of the Intangible Field Theory</p>
+    <p class="byline">
+      <span class="author">Nicolás Irigoyen</span><br>
+      <span class="aff">Independent researcher · La Plata, Argentina</span><br>
+      <span class="when">February 2026</span>
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section class="abstract" aria-label="Abstract">
+    <p class="label">Abstract</p>
+    <p>We present a field-theoretic formulation of the Intangible Field Theory (TCI), in which spacetime is permeated by an elastic medium (the I-medium) of equilibrium density \(\rho_0\) and equation of state \(P=\rho_0 c^2\). Material particles carry a conserved scalar charge \(T\) that repels the I-medium, producing localized density deficits (voids) described by a scalar vacancy field \(\phi\). From this single framework, we derive three results: (i) the rest energy of a particle is \(E=mc^2\), arising as the elastic potential energy stored in the deformed medium; (ii) the gravitational interaction between two particles obeys Newton's inverse-square law, \(F=Gm_1 m_2/r^2\), with \(G\) determined by the medium's parameters; (iii) the inertial mass equals the gravitational mass, with the energy of a moving void given exactly by \(E(v)=\gamma mc^2\). The equivalence of gravitational mass, inertial mass, and \(E/c^2\) is not postulated but follows from the fact that all three quantities measure the same physical property: the deficit of I-medium displaced by the charge \(T\). As a consistency check, we derive the gravitational redshift \(z=-\Delta\Phi/c^2\) from the vacancy field's effect on local clock rates, reproducing the general-relativistic result. The formulation is Lorentz-covariant and reproduces the standard relativistic energy–momentum relation. We discuss the parameter space, connections to the observed vacuum energy density and the MOND acceleration scale, and outline open problems.</p>
+    <p class="keywords"><b>Keywords:</b> modified gravity, scalar field theory, mass–energy equivalence, inertia, equivalence principle, vacuum energy, gravitational redshift</p>
+  </section>
+
+  <nav class="toc" aria-label="Contents">
+    <p class="toc-eyebrow">Contents</p>
+    <ol>
+      <li><a href="#sec1"><span class="n">1</span><span>Introduction</span></a></li>
+      <li><a href="#sec2"><span class="n">2</span><span>Postulates and Field Equations</span></a></li>
+      <li><a href="#sec3"><span class="n">3</span><span>Rest Energy: Derivation of \(E=mc^2\)</span></a></li>
+      <li><a href="#sec4"><span class="n">4</span><span>Gravitational Interaction</span></a></li>
+      <li><a href="#sec5"><span class="n">5</span><span>Inertia: Derivation of \(E(v)=\gamma mc^2\)</span></a></li>
+      <li><a href="#sec6"><span class="n">6</span><span>Parameter Space and Cosmological Connections</span></a></li>
+      <li><a href="#sec7"><span class="n">7</span><span>Discussion</span></a></li>
+      <li><a href="#sec8"><span class="n">8</span><span>Conclusion</span></a></li>
+      <li><a href="#appA"><span class="n">A</span><span>Numerical Verification of \(E(v)=\gamma mc^2\)</span></a></li>
+      <li><a href="#appB"><span class="n">B</span><span>Summary of Notation</span></a></li>
+      <li><a href="#refs"><span class="n">—</span><span>References</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ===================== 1 ===================== -->
+  <section id="sec1">
+    <h2><span class="secnum">1</span>Introduction</h2>
+    <p>Three conceptually distinct quantities in physics turn out to be experimentally identical: the gravitational mass \(m_g\) (the source and response to gravitational fields), the inertial mass \(m_i\) (the resistance to acceleration), and the rest energy \(E_0/c^2\) (the energy content of a body at rest divided by \(c^2\)). Their equality has been verified to extraordinary precision — \(|m_g-m_i|/m_i \lt 10^{-15}\) (Touboul et al., 2022) — yet no widely accepted explanation exists for why they should coincide.</p>
+    <p>Newton observed the proportionality of \(m_g\) and \(m_i\) empirically and verified it with pendulum experiments. Einstein elevated this coincidence to a principle — the Equivalence Principle — asserting that no local experiment can distinguish uniform acceleration from a gravitational field. The relation \(E_0=m_i c^2\) emerged later from the postulates of special relativity. These are descriptions, not explanations: they state that the quantities are equal, not why.</p>
+    <p>In this paper, we propose that the triple equality follows from a single physical mechanism. We introduce a scalar field theory in which:</p>
+    <ol class="plist">
+      <li>Spacetime is filled with an elastic medium (the I-medium) of equilibrium density \(\rho_0\) and equation of state \(P=\rho_0 c^2\).</li>
+      <li>Material particles carry a scalar charge \(T\) that repels the I-medium, creating localized density deficits (voids).</li>
+      <li>The vacancy field \(\phi(\mathbf{x},t)\), measuring the fractional deficit of I-medium, satisfies a sourced Klein–Gordon equation.</li>
+    </ol>
+    <p>From these ingredients, the rest energy \(E=mc^2\), Newton's gravitational law, and the relativistic inertia \(E(v)=\gamma mc^2\) all emerge as consequences of a single quantity: the total I-medium displaced by the charge \(T\).</p>
+    <p>The paper is organized as follows. Section 2 states the postulates and defines the field theory. Section 3 derives \(E=mc^2\) from the elastic energy of the medium. Section 4 derives Newton's law of gravitation. Section 5 derives the relativistic energy–momentum relation and the equivalence of inertial and gravitational mass. Section 6 discusses the parameter space, connections to cosmological observables, and the MOND scale. Section 7 addresses the relationship to prior work, derives the gravitational redshift as a consistency check, and discusses open questions.</p>
+  </section>
+
+  <!-- ===================== 2 ===================== -->
+  <section id="sec2">
+    <h2><span class="secnum">2</span>Postulates and Field Equations</h2>
+
+    <h3><span class="subnum">2.1</span>The I-medium</h3>
+    <div class="thm accent">
+      <span class="tag-label">Postulate 1 (I-medium).</span> Space is permeated by a uniform elastic medium — the I-medium — with equilibrium mass density \(\rho_0\) and equation of state
+      \[ P=\rho_0\,c^2, \tag{1} \]
+      where \(c\) is the speed of propagation of small perturbations in the medium. The I-medium's constituents are mutually repulsive, which maintains the uniform density \(\rho_0\) in the absence of matter.
+    </div>
+    <p>Equation (1) is the standard relation between pressure, density, and sound speed for an elastic medium: \(c_s=\sqrt{P/\rho}\), with \(c_s=c\). The identification of the propagation speed with the speed of light follows from the assumption that electromagnetic waves are perturbations of this medium.</p>
+    <div class="thm">
+      <span class="tag-label">Remark 2.1.</span> The equation of state \(P=\rho c^2\) corresponds to a relativistic stiff fluid. It also arises naturally in the context of a scalar field with canonical kinetic term (Mukhanov, 2005).
+    </div>
+
+    <h3><span class="subnum">2.2</span>The T-charge and the vacancy field</h3>
+    <div class="thm accent">
+      <span class="tag-label">Postulate 2 (T-charge).</span> Material particles possess a conserved scalar charge \(T\) that repels the I-medium. The repulsive interaction decreases with distance as \(1/r^2\), creating a localized density deficit (void) around each particle. The charge \(T\) is proportional to the mass of the particle:
+      \[ T=\frac{K\mu^2}{\rho_0}\,m, \tag{2} \]
+      where \(K\) is the elastic rigidity of the vacancy field and \(\mu\) is an inverse length scale.
+    </div>
+    <div class="thm">
+      <span class="tag-label">Definition 2.2 (Vacancy field).</span> The vacancy field \(\phi(\mathbf{x},t)\) measures the fractional deficit of I-medium density at each point:
+      \[ \phi(\mathbf{x},t)\equiv 1-\frac{\rho_I(\mathbf{x},t)}{\rho_0}, \tag{3} \]
+      where \(\rho_I(\mathbf{x},t)\) is the local I-medium density. Thus \(\phi=0\) corresponds to undisturbed medium, and \(\phi=1\) corresponds to complete absence of I-medium (the core of a void).
+    </div>
+
+    <h3><span class="subnum">2.3</span>Lagrangian and field equation</h3>
+    <p>The dynamics of the vacancy field are governed by the Lagrangian density</p>
+    \[ \mathcal{L}=\frac{K}{2c^2}\left(\frac{\partial\phi}{\partial t}\right)^2-\frac{K}{2}\lvert\nabla\phi\rvert^2-\frac{\Lambda}{2}\phi^2+J(\mathbf{x},t)\,\phi, \tag{4} \]
+    <p>where \(\Lambda=K\mu^2\) is the restoring potential coefficient and \(J(\mathbf{x},t)\) is the source density due to T-charges. For a collection of point particles,</p>
+    \[ J(\mathbf{x},t)=\sum_i T_i\,\delta^3\!\big(\mathbf{x}-\mathbf{x}_i(t)\big). \tag{5} \]
+    <p>The Euler–Lagrange equation yields</p>
+    \[ \frac{1}{c^2}\frac{\partial^2\phi}{\partial t^2}-\nabla^2\phi+\mu^2\phi=\frac{1}{K}\sum_i T_i\,\delta^3\!\big(\mathbf{x}-\mathbf{x}_i(t)\big). \tag{6} \]
+    <p>This is a sourced Klein–Gordon equation. The left-hand side is Lorentz-covariant; the source transforms as a scalar density under Lorentz boosts when the particle worldlines are properly parametrized.</p>
+    <div class="thm">
+      <span class="tag-label">Remark 2.3 (Units and dimensions).</span> The field \(\phi\) is dimensionless. The rigidity \([K]=\mathrm{J/m}\), the mass parameter \([\mu]=\mathrm{m^{-1}}\), the charge \([T]=\mathrm{J}\), and the source \([J]=\mathrm{J/m^3}\).
+    </div>
+
+    <h3><span class="subnum">2.4</span>Static solution for a single particle</h3>
+    <p>For a single particle of charge \(T\) at rest at the origin, the static field equation is</p>
+    \[ -\nabla^2\phi+\mu^2\phi=\frac{T}{K}\,\delta^3(\mathbf{x}). \tag{7} \]
+    <p>The solution with \(\phi\to 0\) as \(r\to\infty\) is the Yukawa profile</p>
+    \[ \phi_0(r)=\frac{T}{4\pi K}\,\frac{e^{-\mu r}}{r}. \tag{8} \]
+    <p>This describes a void centered at the particle: \(\phi\) is maximal near \(r=0\) (where the medium is most depleted) and decays exponentially on a length scale \(\mu^{-1}\).</p>
+
+    <h3><span class="subnum">2.5</span>Mass as medium deficit</h3>
+    <p>The mass of the particle is defined as the total I-medium displaced:</p>
+    \[ m\equiv\rho_0\int\phi_0(\mathbf{x})\,d^3x. \tag{9} \]
+    <p>Substituting the Yukawa solution (8):</p>
+    \[ m=\rho_0\cdot\frac{T}{4\pi K}\int_0^\infty\frac{e^{-\mu r}}{r}\,4\pi r^2\,dr=\frac{\rho_0 T}{K}\int_0^\infty r\,e^{-\mu r}\,dr=\frac{\rho_0 T}{K\mu^2}. \tag{10} \]
+    <p>This confirms the relation \(T=K\mu^2 m/\rho_0\) (Postulate 2) and establishes that the charge and mass are determined by the same physical quantity: the total displacement of I-medium.</p>
+  </section>
+
+  <!-- ===================== 3 ===================== -->
+  <section id="sec3">
+    <h2><span class="secnum">3</span>Rest Energy: Derivation of \(E=mc^2\)</h2>
+
+    <h3><span class="subnum">3.1</span>Thermodynamic argument</h3>
+    <p>The most direct derivation of the rest energy uses the equation of state of the I-medium.</p>
+    <div class="thm statement accent">
+      <span class="tag-label">Theorem 3.1 (Rest energy).</span> The energy required to create a void of mass \(m\) in the I-medium is \(E=mc^2\).
+    </div>
+    <div class="proof">
+      <span class="pl">Proof.</span> Creating a void requires displacing I-medium against its internal pressure. The work required to evacuate a volume \(V\) from a medium at pressure \(P\) is
+      \[ W=P\cdot V. \tag{11} \]
+      Using the equation of state \(P=\rho_0 c^2\) and the effective volume \(V_{\text{eff}}=m/\rho_0\):
+      \[ E=\rho_0 c^2\cdot\frac{m}{\rho_0}=mc^2. \tag{12} \]
+      <span class="qed">∎</span>
+    </div>
+    <p>This argument is independent of the detailed field profile — it depends only on the equation of state and the definition of mass as displaced medium.</p>
+
+    <h3><span class="subnum">3.2</span>Field-theoretic argument: elastic potential energy</h3>
+    <p>The same result can be obtained from the field energy, providing a consistency check.</p>
+    <p>The self-energy of the static field configuration is</p>
+    \[ E_{\text{self}}=\tfrac{1}{2}\,T\,\phi_0(r_0), \tag{13} \]
+    <p>where \(r_0\) is a short-distance cutoff (the core radius of the void) and we evaluate the regularized potential at the source. This is the standard result for the energy of a point source coupled to a scalar field, analogous to \(\tfrac{1}{2}q\Phi(0)\) in electrostatics.</p>
+    <p>Substituting \(\phi_0(r_0)\approx T/(4\pi K r_0)\) (for \(\mu r_0\ll 1\)) and \(T=K\mu^2 m/\rho_0\):</p>
+    \[ E_{\text{self}}=\frac{K\mu^4 m^2}{8\pi\rho_0^2\,r_0}. \tag{14} \]
+    <p>Requiring \(E_{\text{self}}=mc^2\) yields the consistency condition:</p>
+    \[ K\mu^4 r_0^2=6\,\rho_0 c^2 \tag{15} \]
+    <p>(using \(m=\rho_0\cdot\tfrac{4}{3}\pi r_0^3\) for a uniform core of radius \(r_0\)). This relates the four parameters \(K\), \(\mu\), \(\rho_0\), and \(r_0\).</p>
+
+    <h3><span class="subnum">3.3</span>Annihilation interpretation</h3>
+    <p>The energy \(E=mc^2\) has a direct physical interpretation. If the charge \(T\) were suddenly removed (annihilated), the void would collapse: the I-medium rushes inward, and the stored elastic energy is released as waves propagating at speed \(c\). These waves carry the total energy \(mc^2\).</p>
+    <p>Formally, for \(t\gt 0\) after the source vanishes, the field satisfies the free Klein–Gordon equation</p>
+    \[ \frac{1}{c^2}\frac{\partial^2\phi}{\partial t^2}-\nabla^2\phi+\mu^2\phi=0 \tag{16} \]
+    <p>with initial conditions \(\phi(\mathbf{x},0)=\phi_0(r)\) and \(\dot\phi(\mathbf{x},0)=0\). Energy conservation guarantees that the total energy of the outgoing wave packet equals \(E_{\text{self}}=mc^2\).</p>
+    <p>The factor \(c^2\) arises because it is simultaneously (a) the elastic modulus per unit density, \(B/\rho_0=c^2\), which sets the energy stored per unit displaced mass; and (b) the propagation speed at which that energy is released. These are not two coincidences but two aspects of the same property of the medium: its stiffness.</p>
+  </section>
+
+  <!-- ===================== 4 ===================== -->
+  <section id="sec4">
+    <h2><span class="secnum">4</span>Gravitational Interaction</h2>
+
+    <h3><span class="subnum">4.1</span>Two-body interaction energy</h3>
+    <p>Consider two particles with charges \(T_1\) and \(T_2\) at positions \(\mathbf{x}_1\) and \(\mathbf{x}_2\), separated by \(R=|\mathbf{x}_1-\mathbf{x}_2|\gg r_0\). Each generates a Yukawa field; the total field is approximately \(\phi\approx\phi_1+\phi_2\) (superposition in the linearized regime).</p>
+    <p>The Hamiltonian density, including the source–field coupling, is</p>
+    \[ \mathcal{H}=\frac{K}{2}\lvert\nabla\phi\rvert^2+\frac{\Lambda}{2}\phi^2-J\phi. \tag{17} \]
+    <p>The interaction energy is the cross-term:</p>
+    \[ E_{\text{int}}=-T_2\,\phi_1(\mathbf{x}_2)=-\frac{T_1 T_2}{4\pi K}\,\frac{e^{-\mu R}}{R}. \tag{18} \]
+    <p>The negative sign arises from the source–field coupling \(-J\phi\) in the Hamiltonian: placing the second charge in a region where \(\phi_1\gt 0\) lowers the total energy. The interaction is attractive.</p>
+    <div class="thm">
+      <span class="tag-label">Remark 4.1.</span> This sign analysis is the crux of the gravitational mechanism. Unlike electrostatics — where like charges repel because the field energy increases with superposition — here the coupling \(-T\phi\) ensures that placing a void in a region already depleted of I-medium is energetically favorable. Voids attract each other through the medium's pressure differential.
+    </div>
+
+    <h3><span class="subnum">4.2</span>Newton's law</h3>
+    <p>In the gravitational regime, the range \(\mu^{-1}\) far exceeds the inter-particle separation: \(\mu R\ll 1\). Then \(e^{-\mu R}\approx 1\) and:</p>
+    \[ E_{\text{int}}\approx-\frac{T_1 T_2}{4\pi K R}. \tag{19} \]
+    <p>Substituting \(T_i=K\mu^2 m_i/\rho_0\):</p>
+    \[ E_{\text{int}}=-\frac{K\mu^4}{4\pi\rho_0^2}\,\frac{m_1 m_2}{R}. \tag{20} \]
+    <p>The force is</p>
+    \[ F=-\frac{dE_{\text{int}}}{dR}=-\frac{K\mu^4}{4\pi\rho_0^2}\,\frac{m_1 m_2}{R^2}. \tag{21} \]
+    <p>Comparing with Newton's law \(F=-Gm_1 m_2/R^2\), we identify</p>
+    \[ G=\frac{K\mu^4}{4\pi\rho_0^2}. \tag{22} \]
+    <div class="thm statement">
+      <span class="tag-label">Proposition 4.2 (Inverse-square law).</span> The \(1/R^2\) dependence of the gravitational force is a direct consequence of the three-dimensional Laplacian: the Green's function of \(-\nabla^2+\mu^2\) in three spatial dimensions is the Yukawa potential \(e^{-\mu r}/(4\pi r)\), which reduces to the Coulomb form \(1/(4\pi r)\) for \(\mu r\ll 1\).
+    </div>
+
+    <h3><span class="subnum">4.3</span>Why gravity is always attractive</h3>
+    <p>The attractive nature of gravity follows from the structure of the Hamiltonian (17). For positive charges \(T\gt 0\) (all matter repels the I-medium), the coupling \(-J\phi\) is negative wherever the field is positive. Since the Yukawa field of particle 1 is everywhere positive (\(\phi_1\gt 0\)), placing particle 2 at any location lowers the total energy. There is no gravitational repulsion in this framework.</p>
+
+    <h3><span class="subnum">4.4</span>Relation between G and the rest energy condition</h3>
+    <p>Using the consistency condition (15), \(K\mu^4=6\rho_0 c^2/r_0^2\), we can express \(G\) as:</p>
+    \[ G=\frac{3c^2}{2\pi\rho_0 r_0^2}. \tag{23} \]
+    <p>Equivalently,</p>
+    \[ \rho_0=\frac{3c^2}{2\pi G r_0^2}. \tag{24} \]
+    <p>Given \(G\) and \(r_0\) (or equivalently, given two of the four parameters \(K\), \(\mu\), \(\rho_0\), \(r_0\)), the remaining parameters are fully determined.</p>
+  </section>
+
+  <!-- ===================== 5 ===================== -->
+  <section id="sec5">
+    <h2><span class="secnum">5</span>Inertia: Derivation of \(E(v)=\gamma mc^2\)</h2>
+
+    <h3><span class="subnum">5.1</span>Moving void</h3>
+    <p>Consider a charge \(T\) moving at constant velocity \(\mathbf{v}=v\,\hat{\mathbf{x}}\). The field equation in the laboratory frame is</p>
+    \[ \frac{1}{c^2}\frac{\partial^2\phi}{\partial t^2}-\nabla^2\phi+\mu^2\phi=\frac{T}{K}\,\delta^3(\mathbf{x}-\mathbf{v}t). \tag{25} \]
+    <p>In the stationary regime (co-moving frame), the Fourier-space solution is</p>
+    \[ \tilde\phi(\mathbf{k})=\frac{T/K}{k_\perp^2+k_\parallel^2/\gamma^2+\mu^2}, \tag{26} \]
+    <p>where \(\gamma=(1-v^2/c^2)^{-1/2}\), \(k_\parallel\) is the wave number along the direction of motion, and \(k_\perp^2=k_y^2+k_z^2\). The profile is Lorentz-contracted by factor \(1/\gamma\) along the direction of motion.</p>
+
+    <h3><span class="subnum">5.2</span>Self-energy of the moving void</h3>
+    <p>The self-energy is given by \(E=\tfrac{1}{2}T\phi(\mathbf{x}_0)\), where \(\phi(\mathbf{x}_0)\) is the (regularized) field at the particle's position. In Fourier space:</p>
+    \[ \phi(\mathbf{x}_0)=\int\frac{d^3k}{(2\pi)^3}\,\frac{T/K}{k_\perp^2+k_\parallel^2/\gamma^2+\mu^2}. \tag{27} \]
+    <div class="thm statement accent">
+      <span class="tag-label">Theorem 5.1 (Relativistic energy of a void).</span>
+      \[ E(v)=\gamma\,mc^2. \tag{28} \]
+    </div>
+    <div class="proof">
+      <span class="pl">Proof.</span> Perform the change of variable \(k_\parallel'=k_\parallel/\gamma\) in Eq. (27). The Jacobian gives \(dk_\parallel=\gamma\,dk_\parallel'\), so
+      \[ \phi(\mathbf{x}_0)=\gamma\int\frac{d^3k'}{(2\pi)^3}\,\frac{T/K}{k'^2+\mu^2}=\gamma\,\phi_0(0), \tag{29} \]
+      where \(\phi_0(0)\) is the (regularized) field at the source for the particle at rest. Therefore,
+      \[ E(v)=\tfrac{1}{2}T\phi(\mathbf{x}_0)=\gamma\cdot\tfrac{1}{2}T\phi_0(0)=\gamma E(0)=\gamma mc^2. \tag{30} \]
+      <span class="qed">∎</span>
+    </div>
+    <p>The change of variable is valid because the integrand, combined with Lorentz-covariant regularization, is a function of the invariant \(k_\perp^2+k_\parallel^2/\gamma^2+\mu^2=k_\mu k^\mu+\mu^2\) (the four-dimensional invariant mass of the mode).</p>
+    <div class="thm">
+      <span class="tag-label">Remark 5.2 (Covariant regularization).</span> The proof requires that the UV regularization respects Lorentz covariance. A hard cutoff \(|k|\lt\Lambda_{\text{UV}}\) breaks covariance and yields \(E(v)/E(0)\neq\gamma\) at high velocities. With covariant regularization (e.g., \(\exp[-(k_\mu k^\mu+\mu^2)/\Lambda^2]\)), numerical integration confirms \(E(v)/E(0)=\gamma\) to machine precision for all \(v\lt c\) (see Appendix A).
+    </div>
+
+    <h3><span class="subnum">5.3</span>Inertial mass</h3>
+    <p>Expanding for \(v\ll c\):</p>
+    \[ E(v)=\frac{mc^2}{\sqrt{1-v^2/c^2}}\approx mc^2+\tfrac{1}{2}mv^2+\tfrac{3}{8}\frac{mv^4}{c^2}+\cdots \tag{31} \]
+    <p>The kinetic energy \(\tfrac{1}{2}mv^2\) involves the same mass \(m\) that appears in the rest energy and in the gravitational interaction.</p>
+    <p>The four-momentum of the void is</p>
+    \[ p^\mu=(\gamma mc,\ \gamma m\mathbf{v}) \tag{32} \]
+    <p>and Newton's second law in the non-relativistic limit is</p>
+    \[ F=\frac{dp}{dt}=ma\qquad(v\ll c). \tag{33} \]
+
+    <h3><span class="subnum">5.4</span>Physical mechanism of inertia</h3>
+    <p>The result \(E(v)=\gamma mc^2\) has a clear mechanical interpretation. When a void accelerates, the surrounding I-medium must reorganize to accommodate the changing configuration. This reorganization propagates at speed \(c\). At low velocities (\(v\ll c\)), the medium responds quasi-statically and the kinetic energy grows as \(\tfrac{1}{2}mv^2\). As \(v\to c\), the void approaches the propagation speed of the medium, the field becomes increasingly compressed (Lorentz contraction), and the self-energy diverges as \(\gamma mc^2\to\infty\).</p>
+    <p>Inertia is thus the elastic resistance of the I-medium to the reconfiguration required by a change in the void's velocity.</p>
+
+    <h3><span class="subnum">5.5</span>The triple equivalence</h3>
+    <p>We can now state the central result:</p>
+    <div class="thm statement accent">
+      <span class="tag-label">Theorem 5.3 (Triple equivalence).</span> The gravitational mass, inertial mass, and rest energy of a void are determined by the same quantity:
+      \[ m_{\text{grav}}=m_{\text{inert}}=\frac{E_0}{c^2}=\rho_0\int\phi\,d^3x. \tag{34} \]
+    </div>
+    <div class="proof">
+      <span class="pl">Proof.</span> (i) The gravitational mass enters through Eq. (20): \(E_{\text{int}}\propto m_1 m_2\), with \(m_i=\rho_0\int\phi_i\,d^3x\). (ii) The inertial mass enters through Eq. (28): \(E(v)=\gamma mc^2\) with the same \(m=\rho_0\int\phi_0\,d^3x\). (iii) The rest energy is \(E_0=mc^2\) from Theorem 3.1.<br>
+      All three use the definition \(m=\rho_0\int\phi\,d^3x\). The equivalence is not a postulate but a consequence of the fact that there is only one physical property — the I-medium deficit — manifesting in three roles. <span class="qed">∎</span>
+    </div>
+  </section>
+
+  <!-- ===================== 6 ===================== -->
+  <section id="sec6">
+    <h2><span class="secnum">6</span>Parameter Space and Cosmological Connections</h2>
+
+    <h3><span class="subnum">6.1</span>Free parameters</h3>
+    <p>The theory contains four parameters: \(K\) (elastic rigidity), \(\mu\) (inverse range), \(\rho_0\) (medium density), and \(r_0\) (core radius). The consistency condition (15) removes one degree of freedom, leaving three. Newton's constant (22) provides a second relation. The speed of light enters through the equation of state (1).</p>
+    <p>The physically meaningful independent parameters can be taken as \(\rho_0\) and \(r_0\) (with \(K\) and \(\mu\) determined by the consistency and Newton's constant equations).</p>
+
+    <h3><span class="subnum">6.2</span>The MOND connection</h3>
+    <p>In galactic dynamics, a characteristic acceleration scale \(a_0\approx 1.2\times 10^{-10}\ \mathrm{m/s^2}\) separates the Newtonian and anomalous regimes (Milgrom, 1983). In TCI, this scale emerges as</p>
+    \[ a_0=c\sqrt{G\rho_0}, \tag{35} \]
+    <p>yielding</p>
+    \[ \rho_0=\frac{a_0^2}{c^2 G}\approx 2.4\times 10^{-27}\ \mathrm{kg/m^3}. \tag{36} \]
+    <p>This is approximately one proton mass per cubic meter.</p>
+
+    <h3><span class="subnum">6.3</span>Vacuum energy density</h3>
+    <p>The energy density of the I-medium is</p>
+    \[ u=\rho_0 c^2\approx 2.2\times 10^{-10}\ \mathrm{J/m^3}. \tag{37} \]
+    <p>The observed cosmological vacuum energy density is \(u_{\text{obs}}\approx 5.6\times 10^{-10}\ \mathrm{J/m^3}\) (Planck Collaboration, 2020). The ratio is</p>
+    \[ \frac{u}{u_{\text{obs}}}\approx 0.4, \tag{38} \]
+    <p>an agreement to within a factor of \(\sim 2.5\).</p>
+    <div class="thm">
+      <span class="tag-label">Remark 6.1.</span> Quantum field theory predicts \(u_{\text{QFT}}\sim 10^{113}\ \mathrm{J/m^3}\), a discrepancy of 120 orders of magnitude with observation. The TCI estimate, derived from a galactic observable (\(a_0\)), agrees with the cosmological vacuum energy to order of magnitude without fine-tuning.
+    </div>
+
+    <h3><span class="subnum">6.4</span>The cosmic coincidence</h3>
+    <p>The Hubble constant \(H_0\approx 70\ \mathrm{km/s/Mpc}\) gives</p>
+    \[ cH_0\approx 7\times 10^{-10}\ \mathrm{m/s^2}, \tag{39} \]
+    <p>which is of the same order as \(a_0\). In TCI, both scales are connected through \(\rho_0\):</p>
+    \[ a_0=c\sqrt{G\rho_0},\qquad cH_0\sim c\sqrt{G\rho_{\text{crit}}}, \tag{40} \]
+    <p>where \(\rho_{\text{crit}}=3H_0^2/(8\pi G)\) is the critical density. The numerical proximity \(a_0\sim cH_0\) follows from \(\rho_0\sim\rho_{\text{crit}}\), which in TCI is not a coincidence but a reflection of the fact that the I-medium density sets both the galactic and cosmological scales.</p>
+  </section>
+
+  <!-- ===================== 7 ===================== -->
+  <section id="sec7">
+    <h2><span class="secnum">7</span>Discussion</h2>
+
+    <h3><span class="subnum">7.1</span>Relation to the classical aether</h3>
+    <p>The I-medium is not a resurrection of the 19th-century luminiferous aether. Three critical differences apply:</p>
+    <ol class="plist">
+      <li>Matter does not move through the I-medium; it is a perturbation of the medium. There is no aether wind.</li>
+      <li>The field equation (6) is Lorentz-covariant. Measurement instruments are themselves voids in the medium and undergo the same Lorentz contraction and time dilation, rendering the medium's rest frame locally undetectable.</li>
+      <li>TCI reproduces special-relativistic effects (Lorentz factor, energy–momentum relation) rather than contradicting them.</li>
+    </ol>
+
+    <h3><span class="subnum">7.2</span>Relation to prior work</h3>
+    <p>Several frameworks share conceptual elements with TCI:</p>
+    <p><b>Superfluid vacuum theory</b> (Sinha et al., 1968; Zloshchastiev, 2011) models the vacuum as a superfluid. TCI differs in treating the medium as a classical elastic fluid with repulsive self-interaction, not a quantum condensate, and in the specific mechanism of voids-as-matter.</p>
+    <p><b>Emergent gravity</b> (Verlinde, 2011) derives Newtonian gravity from entropic considerations on holographic screens. TCI provides a concrete mechanical substrate rather than an information-theoretic argument.</p>
+    <p><b>Mach's principle</b> and various proposals for inertia as interaction with the vacuum (Haisch et al., 1994; Rueda and Haisch, 2005) share the motivation that inertia should have a physical origin. TCI provides a specific field-theoretic realization.</p>
+
+    <h3><span class="subnum">7.3</span>Gravitational redshift as a consistency check</h3>
+    <p>As a further test of the framework's internal consistency, we derive the gravitational redshift directly from the vacancy field. This derivation requires no additional postulates beyond those stated in Section 2.</p>
+
+    <h4>The vacancy field as gravitational potential</h4>
+    <p>The interaction energy between a test mass \(m\) and a source mass \(M\) (Eq. 18) can be written as</p>
+    \[ E_{\text{int}}=-m c^2\,\phi_M(r), \tag{41} \]
+    <p>where \(\phi_M(r)\) is the vacancy field generated by \(M\), evaluated at the position of the test mass. Comparing with the Newtonian form \(E_{\text{int}}=m\,\Phi(r)\), where \(\Phi(r)=-GM/r\) is the gravitational potential, we obtain the identification</p>
+    \[ \phi(r)=-\frac{\Phi(r)}{c^2}=\frac{GM}{c^2 r}. \tag{42} \]
+    <p>This holds in the gravitational regime (\(\mu r\ll 1\)) and establishes a direct bridge between the TCI vacancy field and the Newtonian potential: \(\phi\) is the dimensionless gravitational potential. Note that \(\phi\gt 0\) everywhere (the medium is depleted), while \(\Phi\lt 0\) for an attractive source, so the relation \(\phi=-\Phi/c^2\) is sign-consistent.</p>
+
+    <h4>Local clock rate</h4>
+    <p>A clock at position \(r\) from a mass \(M\) is itself a collection of voids embedded in a region where the I-medium density is \(\rho_I(r)=\rho_0(1-\phi(r))\). All internal processes of the clock — electromagnetic oscillations, atomic transitions — are perturbations of the local medium. The total energy of a clock of mass \(m_{\text{cl}}\) at position \(r\) is</p>
+    \[ E(r)=m_{\text{cl}}c^2+m_{\text{cl}}\Phi(r)=m_{\text{cl}}c^2\big(1-\phi(r)\big). \tag{43} \]
+    <p>Since the oscillation frequency of any bound system scales with its energy, the proper time interval \(d\tau\) at position \(r\) relates to the coordinate time \(dt\) by</p>
+    \[ d\tau=\big(1-\phi(r)\big)dt=\left(1+\frac{\Phi(r)}{c^2}\right)dt. \tag{44} \]
+    <p>Since \(\Phi\lt 0\) near a mass, \(d\tau\lt dt\): clocks run slower in deeper gravitational wells.</p>
+
+    <h4>Derivation of the redshift</h4>
+    <p>Consider a photon emitted at radial coordinate \(r_e\) (near the source mass) and received at \(r_r\gt r_e\). In a static vacancy field, the coordinate frequency of the photon is conserved along its trajectory (time-translation invariance). The locally measured frequency at any position \(r\) is</p>
+    \[ \nu_{\text{local}}=\frac{\nu_{\text{coord}}}{1-\phi(r)}. \tag{45} \]
+    <p>At emission: \(\nu_{\text{emit}}=\nu_{\text{coord}}/(1-\phi(r_e))\). At reception: \(\nu_{\text{rec}}=\nu_{\text{coord}}/(1-\phi(r_r))\). The ratio is</p>
+    \[ \frac{\nu_{\text{rec}}}{\nu_{\text{emit}}}=\frac{1-\phi(r_e)}{1-\phi(r_r)}. \tag{46} \]
+    <p>In the weak-field regime (\(\phi\ll 1\)), expanding to first order:</p>
+    \[ z\equiv\frac{\nu_{\text{emit}}-\nu_{\text{rec}}}{\nu_{\text{emit}}}=\phi(r_e)-\phi(r_r)=-\frac{\Delta\Phi}{c^2}, \tag{47} \]
+    <p>where \(\Delta\Phi=\Phi(r_e)-\Phi(r_r)\lt 0\). The received frequency is lower than the emitted frequency: the photon is redshifted. This is the standard general-relativistic result in the weak-field limit.</p>
+
+    <h4>Connection to the Schwarzschild metric</h4>
+    <p>Equation (44) is identical to the GR weak-field proper time, \(d\tau_{\text{GR}}=\sqrt{g_{00}}\,dt\approx(1+\Phi/c^2)\,dt\), with the identification</p>
+    \[ g_{00}=(1-\phi)^2\approx 1-2\phi=1+\frac{2\Phi}{c^2}. \tag{48} \]
+    <p>This suggests that the time–time component of the Schwarzschild metric emerges as an effective description of the I-medium's density profile. Extending this correspondence to the full metric tensor — including the spatial components and the strong-field regime — is an important direction for future work.</p>
+
+    <h4>Experimental verification</h4>
+    <p>The Pound–Rebka experiment (1960) measured the gravitational redshift of gamma rays over a height \(h=22.5\ \mathrm{m}\) in Earth's gravitational field. The predicted shift is \(z=gh/c^2\approx 2.46\times 10^{-15}\). In TCI, the vacancy field difference is \(\Delta\phi=gh/c^2\), yielding the same value. The measurement confirmed this to \(\sim 10\%\), with subsequent work by Pound and Snider (1965) reaching \(\sim 1\%\) precision.</p>
+    <p>For GPS satellites at altitude \(h\approx 20{,}200\ \mathrm{km}\), the gravitational blueshift (\(\approx +45.9\ \mu\mathrm{s/day}\)) and the special-relativistic time dilation (\(\approx -7.2\ \mu\mathrm{s/day}\), from the Lorentz factor derived in Section 5) combine to give a net offset of \(\approx +38.7\ \mu\mathrm{s/day}\) — exactly the correction applied in practice, and consistent with the TCI prediction.</p>
+
+    <h3><span class="subnum">7.4</span>Predictions and experimental signatures</h3>
+    <p>The Yukawa form of the interaction (18) predicts a deviation from Newtonian gravity at distances comparable to \(\mu^{-1}\). If \(\mu^{-1}\) is cosmological (comparable to the Hubble radius), deviations appear only at galactic and cosmological scales, potentially connecting to the MOND phenomenology.</p>
+    <p>The theory predicts that the vacuum energy density should be of order \(\rho_0 c^2\), which is confirmed to within a factor of \(\sim 2.5\).</p>
+
+    <h3><span class="subnum">7.5</span>Open questions</h3>
+    <p>Several important issues remain:</p>
+    <ol class="plist">
+      <li><b>Mercury's perihelion precession:</b> Does TCI reproduce the \(43''\)/century anomalous precession? This requires solving the field equation in the post-Newtonian regime.</li>
+      <li><b>Gravitational waves:</b> The free Klein–Gordon equation admits propagating wave solutions at speed \(c\). Detailed comparison with LIGO/Virgo waveforms is needed.</li>
+      <li><b>Light deflection:</b> A detailed derivation of the factor-of-2 enhancement over Newtonian deflection (the full GR value of \(1.75''\)) from the medium's refractive properties.</li>
+      <li><b>Nuclear structure:</b> How do protons, neutrons, and other particles emerge within this framework?</li>
+      <li><b>Quantum regime:</b> The connection between the classical field theory presented here and quantum mechanics.</li>
+      <li><b>Composition of the I-medium:</b> What are the microscopic constituents of the medium, and what determines \(\rho_0\)?</li>
+    </ol>
+  </section>
+
+  <!-- ===================== 8 ===================== -->
+  <section id="sec8">
+    <h2><span class="secnum">8</span>Conclusion</h2>
+    <p>We have presented a field-theoretic formulation of the Intangible Field Theory in which a single elastic medium, characterized by density \(\rho_0\) and equation of state \(P=\rho_0 c^2\), gives rise to three fundamental aspects of mechanics:</p>
+    <ol class="plist">
+      <li><b>Rest energy:</b> \(E=mc^2\) is the elastic energy stored in the density gradient surrounding a void (Section 3).</li>
+      <li><b>Gravity:</b> \(F=Gm_1 m_2/r^2\) arises from the overlap of Yukawa fields generated by two T-charges, with \(G=K\mu^4/(4\pi\rho_0^2)\) (Section 4).</li>
+      <li><b>Inertia:</b> \(E(v)=\gamma mc^2\) follows from the Lorentz-covariant self-energy of the moving void (Section 5).</li>
+    </ol>
+    <p>The triple equivalence \(m_{\text{grav}}=m_{\text{inert}}=E_0/c^2\) is not postulated but derived: all three quantities measure the total I-medium displaced by the particle's T-charge.</p>
+    <p>As a consistency check, the gravitational redshift \(z=-\Delta\Phi/c^2\) was derived from the vacancy field's effect on local clock rates (Section 7.3), reproducing the general-relativistic result and providing a bridge to the Schwarzschild metric through the identification \(g_{00}\approx(1-\phi)^2\).</p>
+    <p>The theory's parameter space is tightly constrained. A single density \(\rho_0\approx 2.4\times 10^{-27}\ \mathrm{kg/m^3}\) — determined by the galactic acceleration scale \(a_0\) — correctly predicts the order of magnitude of the cosmological vacuum energy and connects the galactic (MOND) and cosmological (Hubble) scales.</p>
+    <p>Whether this framework can be extended to reproduce the full phenomenology of general relativity (perihelion precession, gravitational lensing, black holes) and quantum mechanics remains an open and important question. The results presented here — including the recovery of gravitational time dilation — suggest that the attempt is worth pursuing.</p>
+
+    <hr class="soft">
+    <h4>Acknowledgments</h4>
+    <p>The author thanks the independent research community for valuable discussions and feedback.</p>
+  </section>
+
+  <!-- ===================== Appendix A ===================== -->
+  <section id="appA">
+    <h2><span class="secnum">A</span>Numerical Verification of \(E(v)=\gamma mc^2\)</h2>
+    <p>To verify Theorem 5.1 numerically, we compute the ratio \(E(v)/E(0)\) using Fourier-space integration with two regularization schemes:</p>
+    <ol class="plist" type="a">
+      <li><b>Hard cutoff:</b> \(|k|\lt\Lambda_{\text{UV}}\). This breaks Lorentz covariance.</li>
+      <li><b>Covariant regularization:</b> multiply the integrand by \(\exp\!\big[-(k_\perp^2+k_\parallel^2/\gamma^2+\mu^2)/\Lambda^2\big]\), which respects the four-momentum invariant.</li>
+    </ol>
+    <div class="table-wrap">
+      <table class="num-table">
+        <caption><b>Table 1:</b> Energy ratio \(E(v)/E(0)\) for covariant regularization (\(\mu=0.1\), \(\Lambda=10\)).</caption>
+        <thead>
+          <tr>
+            <th>\(\beta=v/c\)</th>
+            <th>\(\gamma\)</th>
+            <th>\(E(v)/E(0)\)</th>
+            <th>\(E(v)/(\gamma E(0))\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0.10</td><td>1.0050</td><td>1.0050</td><td>1.000000</td></tr>
+          <tr><td>0.20</td><td>1.0206</td><td>1.0206</td><td>1.000000</td></tr>
+          <tr><td>0.30</td><td>1.0483</td><td>1.0483</td><td>1.000000</td></tr>
+          <tr><td>0.50</td><td>1.1547</td><td>1.1547</td><td>1.000000</td></tr>
+          <tr><td>0.70</td><td>1.4003</td><td>1.4003</td><td>1.000000</td></tr>
+          <tr><td>0.80</td><td>1.6667</td><td>1.6667</td><td>0.999999</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>With hard cutoff, \(E(v)/(\gamma E(0))\) deviates from unity by up to \(17\%\) at \(\beta=0.8\), confirming that Lorentz covariance of the regularization is essential.</p>
+  </section>
+
+  <!-- ===================== Appendix B ===================== -->
+  <section id="appB">
+    <h2><span class="secnum">B</span>Summary of Notation</h2>
+    <div class="table-wrap">
+      <table>
+        <caption><b>Table 2:</b> Notation and symbols.</caption>
+        <thead>
+          <tr><th>Symbol</th><th>Meaning</th><th>Dimensions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>\(\rho_0\)</td><td>Equilibrium I-medium density</td><td>\(\mathrm{kg/m^3}\)</td></tr>
+          <tr><td>\(\phi\)</td><td>Vacancy field</td><td>Dimensionless</td></tr>
+          <tr><td>\(T\)</td><td>T-charge of a material particle</td><td>\(\mathrm{J}\)</td></tr>
+          <tr><td>\(K\)</td><td>Elastic rigidity of vacancy field</td><td>\(\mathrm{J/m}\)</td></tr>
+          <tr><td>\(\mu\)</td><td>Inverse range of Yukawa interaction</td><td>\(\mathrm{m^{-1}}\)</td></tr>
+          <tr><td>\(\Lambda=K\mu^2\)</td><td>Restoring potential coefficient</td><td>\(\mathrm{J/m^3}\)</td></tr>
+          <tr><td>\(r_0\)</td><td>Core radius of void</td><td>\(\mathrm{m}\)</td></tr>
+          <tr><td>\(c\)</td><td>Speed of perturbations in I-medium</td><td>\(\mathrm{m/s}\)</td></tr>
+          <tr><td>\(G\)</td><td>Newton's gravitational constant</td><td>\(\mathrm{m^3/(kg\cdot s^2)}\)</td></tr>
+          <tr><td>\(a_0\)</td><td>MOND acceleration scale</td><td>\(\mathrm{m/s^2}\)</td></tr>
+          <tr><td>\(\Phi\)</td><td>Newtonian gravitational potential</td><td>\(\mathrm{m^2/s^2}\)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== References ===================== -->
+  <section id="refs">
+    <h2><span class="secnum">—</span>References</h2>
+    <ol class="ref-list">
+      <li>Haisch, B., Rueda, A., and Puthoff, H. E. (1994). Inertia as a zero-point-field Lorentz force. <i>Physical Review A</i>, 49(2):678–694.</li>
+      <li>Milgrom, M. (1983). A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis. <i>The Astrophysical Journal</i>, 270:365–370.</li>
+      <li>Mukhanov, V. (2005). <i>Physical Foundations of Cosmology</i>. Cambridge University Press.</li>
+      <li>Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. <i>Astronomy &amp; Astrophysics</i>, 641:A6.</li>
+      <li>Pound, R. V. and Rebka, G. A. (1960). Apparent weight of photons. <i>Physical Review Letters</i>, 4(7):337–341.</li>
+      <li>Pound, R. V. and Snider, J. L. (1965). Effect of gravity on gamma radiation. <i>Physical Review</i>, 140(3B):B788–B803.</li>
+      <li>Rueda, A. and Haisch, B. (2005). Gravity and the quantum vacuum inertia hypothesis. <i>Annalen der Physik</i>, 14(8):479–498.</li>
+      <li>Sinha, K. P., Sivaram, C., and Sudarshan, E. C. G. (1968). The superfluid as a source of all interactions. <i>Foundations of Physics</i>, 6:717–726.</li>
+      <li>Touboul, P. et al. (2022). MICROSCOPE mission: Final results of the test of the equivalence principle. <i>Physical Review Letters</i>, 129(12):121102.</li>
+      <li>Verlinde, E. (2011). On the origin of gravity and the laws of Newton. <i>Journal of High Energy Physics</i>, 2011(4):29.</li>
+      <li>Zloshchastiev, K. G. (2011). Spontaneous symmetry breaking and mass generation as built-in phenomena in logarithmic nonlinear quantum theory. <i>Acta Physica Polonica B</i>, 42(2):261–292.</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer>
+  <p><span class="fauthor">Nicolás Irigoyen</span> · Independent researcher · La Plata, Argentina · February 2026<br>
+  Intangible Field Theory (TCI) — Field-Theoretic Formulation.</p>
+</footer>
+
+</body>
+</html>
