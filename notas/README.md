@@ -11,6 +11,7 @@ qué queda abierto y qué podría matar la teoría.
 | 3 | [Perihelio: resultado](NOTA-perihelio-resultado-2026-07-02.md) | Mercurio, 42.98″/siglo | La equivalencia aplicada localmente da E = mc²·e^(−φ); la no linealidad vive en el sector temporal |
 | 4 | [Campo fuerte](NOTA-campo-fuerte-2026-07-02.md) | Dónde TCI se separa de Einstein | Sombras de agujeros negros **+4.63%**, ISCO −6.9%; sin horizonte de eventos |
 | 5 | [Ringdown](NOTA-ringdown-2026-07-02.md) | La "campanada" del agujero negro fusionado | Tono y amortiguamiento **−4.42%**, anticorrelados con la sombra; y el riesgo Hulse-Taylor documentado |
+| 6 | [Polarización](NOTA-polarizacion-2026-07-02.md) | ¿TCI radia el tipo de onda que LIGO observa? | **Teorema no-go** para el acoplamiento de densidad; la salida: el mecanismo de la inercia (masa añadida) radia ondas de corte cuadrupolares a 2Ω |
 
 ## Scripts de verificación numérica
 
@@ -26,4 +27,4 @@ relatividad general antes de calcular los de TCI.
 **Calibrado (2 números):** β = 4 (eclipse 1919) y su ubicación temporal (Mercurio).
 **Reproducido/predicho (10 observables):** E=mc², Newton, E(v)=γmc², redshift/GPS, deflexión 1.75″, Shapiro, no-dispersión, perihelio, Nordtvedt, geodética.
 **Predicción propia falsable:** sombras +4.6% / ringdown −4.4% (ngEHT y detectores de 3ª generación deciden).
-**Mayor riesgo abierto:** el sector de radiación gravitacional (el medio debe ser un sólido elástico; patrones de antena pendientes).
+**Mayor riesgo abierto:** el sector de radiación gravitacional. Estado: teorema no-go probado para el acoplamiento ingenuo; canal de corte identificado (la reacción inercial de masa añadida, que radia a 2Ω con estructura cuadrupolar). Quedan los dos cálculos decisivos: patrones de antena vs spin-2 observado, y luminosidad total vs el decaimiento orbital de Hulse-Taylor (~0.2%).
