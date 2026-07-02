@@ -12,6 +12,7 @@ qué queda abierto y qué podría matar la teoría.
 | 4 | [Campo fuerte](NOTA-campo-fuerte-2026-07-02.md) | Dónde TCI se separa de Einstein | Sombras de agujeros negros **+4.63%**, ISCO −6.9%; sin horizonte de eventos |
 | 5 | [Ringdown](NOTA-ringdown-2026-07-02.md) | La "campanada" del agujero negro fusionado | Tono y amortiguamiento **−4.42%**, anticorrelados con la sombra; y el riesgo Hulse-Taylor documentado |
 | 6 | [Polarización](NOTA-polarizacion-2026-07-02.md) | ¿TCI radia el tipo de onda que LIGO observa? | **Teorema no-go** para el acoplamiento de densidad; la salida: el mecanismo de la inercia (masa añadida) radia ondas de corte cuadrupolares a 2Ω |
+| 7 | [Antenas: la falsación](NOTA-antenas-falsacion-2026-07-02.md) | El cálculo decisivo de los patrones de antena | **Resultado adverso**: las ondas de corte son modos vectoriales (spin-1); LIGO midió spin-2 con Bayes >10²⁰ → el sector de radiación elástico-lineal queda falsado. Lo que sobrevive y la cirugía necesaria, documentados |
 
 ## Scripts de verificación numérica
 
@@ -27,4 +28,4 @@ relatividad general antes de calcular los de TCI.
 **Calibrado (2 números):** β = 4 (eclipse 1919) y su ubicación temporal (Mercurio).
 **Reproducido/predicho (10 observables):** E=mc², Newton, E(v)=γmc², redshift/GPS, deflexión 1.75″, Shapiro, no-dispersión, perihelio, Nordtvedt, geodética.
 **Predicción propia falsable:** sombras +4.6% / ringdown −4.4% (ngEHT y detectores de 3ª generación deciden).
-**Mayor riesgo abierto:** el sector de radiación gravitacional. Estado: teorema no-go probado para el acoplamiento ingenuo; canal de corte identificado (la reacción inercial de masa añadida, que radia a 2Ω con estructura cuadrupolar). Quedan los dos cálculos decisivos: patrones de antena vs spin-2 observado, y luminosidad total vs el decaimiento orbital de Hulse-Taylor (~0.2%).
+**Sector falsado (2026-07-02):** la radiación gravitacional en forma elástico-lineal. Un medio elástico isótropo solo produce ondas escalares (P) y vectoriales (S); LIGO/Virgo midieron spin-2 puro con factores de Bayes >10²⁰ (GW170817). Los sectores exitosos no dependen de esta pieza y siguen en pie. **Problema abierto principal:** la completación spin-2 — el medio necesitaría microestructura cuadrupolar (cirugía mayor, no parche). Lección posible: los datos radiativos exigen un campo spin-2 dinámico, y eso converge a Einstein; el medio I quedaría como explicación del sustrato de los sectores estático, óptico y orbital.
