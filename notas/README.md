@@ -13,6 +13,7 @@ qué queda abierto y qué podría matar la teoría.
 | 5 | [Ringdown](NOTA-ringdown-2026-07-02.md) | La "campanada" del agujero negro fusionado | Tono y amortiguamiento **−4.42%**, anticorrelados con la sombra; y el riesgo Hulse-Taylor documentado |
 | 6 | [Polarización](NOTA-polarizacion-2026-07-02.md) | ¿TCI radia el tipo de onda que LIGO observa? | **Teorema no-go** para el acoplamiento de densidad; la salida: el mecanismo de la inercia (masa añadida) radia ondas de corte cuadrupolares a 2Ω |
 | 7 | [Antenas: la falsación](NOTA-antenas-falsacion-2026-07-02.md) | El cálculo decisivo de los patrones de antena | **Resultado adverso**: las ondas de corte son modos vectoriales (spin-1); LIGO midió spin-2 con Bayes >10²⁰ → el sector de radiación elástico-lineal queda falsado. Lo que sobrevive y la cirugía necesaria, documentados |
+| 8 | [Galaxias: test RAR honesto](NOTA-galaxias-RAR-2026-07-02.md) | El sector galáctico con datos SPARC reales (2681 puntos, 144 galaxias) | Se retira un paper previo con datos fabricados; la RAR real se reproduce (a₀=1.17×10⁻¹⁰, 0.13 dex); **TCI lineal falla 5× en baja aceleración** (declarado); a₀ = c√(Gρ₀) queda como coincidencia calibrada, no predicción; camino: elasticidad sub-lineal del medio |
 
 ## Scripts de verificación numérica
 
@@ -22,6 +23,7 @@ relatividad general antes de calcular los de TCI.
 - [`perihelio.py`](perihelio.py) — integra la órbita de Mercurio en cuatro métricas candidatas (RK4, 100 órbitas)
 - [`campo_fuerte.py`](campo_fuerte.py) — sombra (rayos nulos + bisección de captura) e ISCO
 - [`ringdown.py`](ringdown.py) — modos cuasinormales por correspondencia con el anillo de luz
+- [`rar_test.py`](rar_test.py) — test de la Relación de Aceleración Radial sobre el catálogo SPARC real (datos públicos, descarga incluida)
 
 ## Marcador honesto
 
