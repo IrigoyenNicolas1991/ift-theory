@@ -838,6 +838,40 @@ cuentan — el examen de Carlip otra vez). Próximo: cuantificar qué observable
 (GW170817 constriñe velocidad GW vs LUZ — si la luz viaja por el mismo medio con la
 misma anisotropía, el test relativo puede pasar; calcular).
 
+## 23. TEST DE MONOMETRICIDAD INGENUA (`monometricidad_test.py`) — FALSADA (5ª lápida)
+
+Identificación ingenua declarada: "luz" = modos gapless de helicidad ±1 del mismo
+condensado; "GW" = mejor modo TT. Test sobre 400 direcciones:
+
+- **v_GW/v_luz medio = 0.774 ≠ 1** → GW170817 (que exige 1 a 15 decimales) la mata
+  instantáneamente: sectores de Goldstone distintos tienen velocidades distintas de
+  fábrica (1.10 vs 1.42; cocientes de rigideces diferentes).
+- **Peor: las anisotropías NO se cancelan en el cociente — se COMPONEN**: anisotropía
+  del cociente 26.9% > la de cada sector por separado (12.6% / 13.0%). Los perfiles
+  angulares de los dos sectores son distintos (hasta anti-correlacionados).
+
+**VEREDICTO (sin maquillaje): la esperanza "todo es Goldstone del mismo mar ⟹ misma
+métrica efectiva" es FALSA.** La monometricidad NO puede venir de sectores de
+Goldstone independientes del bulk. Muere la versión ingenua de la salida al dragón
+de velocidad (§22) y de la objeción de Carlip.
+
+**La consecuencia constructiva (por qué esta muerte vale oro):**
+1. **La luz NO puede ser un Goldstone del bulk.** El sector EM debe emerger de OTRO
+   lado — y la única ruta con precedente es la de Volovik en ³He-A: fermiones y campos
+   de gauge efectivos emergiendo JUNTOS del mismo punto nodal del espectro, compartiendo
+   UNA métrica efectiva por construcción (no por coincidencia de rigideces). Traducido
+   a TCI 2.0: **la luz y la materia deben vivir en el sector de los DEFECTOS** (modos
+   ligados a los cores — donde ya viven los Majoranas y las corrientes FM/cíclicas de
+   los vortones §21-bis: TODO sigue convergiendo a los núcleos de los nudos), no en
+   los Goldstones del mar liso.
+2. **Silver lining para "sobran 2 vectoriales" (§16)**: si los modos ±1 NO son la luz,
+   quizás tampoco acoplan a los detectores/materia — serían modos "oscuros" del bulk.
+   Su peligro observacional pasa a depender enteramente del cálculo de acople a
+   defectos (pendiente §19.1), no es automático.
+3. El programa queda re-afilado: el examen de Carlip no se aprueba con Goldstones —
+   se aprueba (si se aprueba) con la estructura nodal común del sector de defectos.
+   Ese es ahora el nombre técnico del problema de monometricidad en TCI 2.0.
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
