@@ -748,6 +748,57 @@ término tipo Skyrme de derivadas altas)? Territorio verificado como virgen: nad
 propuso la taxonomía D₄-BN como modelo de materia (los papers son astrofísica de
 magnetares + computación cuántica topológica).
 
+## 21. LA BATALLA DE LOS ANILLOS (2026-07-17) — Derrick pierde de dos maneras distintas
+
+*(Nota de proceso: el 12º agente murió por límite de créditos; la verificación la hice
+a mano con búsqueda web directa — menos profunda que un agente, deudas señaladas.)*
+
+### El juguete (`anillos_toy.py`, en esta carpeta)
+E(R;k) = αR(ln(R/ξ)+c) + βk²/R — tensión de cuerda vs twist atrapado (mecanismo vortón).
+- Control k=0: colapso (Derrick gana sin twist) ✓.
+- k≥1: **mínimo a radio finito** — anillo con tamaño y masa definidos. R₁≈0.76ξ, E₁≈1.87
+  (unidades α=β=ξ=1; solo la FORMA es significativa).
+- Torre E_k con exponente efectivo ~1.25 (superlineal por el log) ⟹ **E₂ > 2E₁: los k
+  altos FISIONAN — el único anillo absolutamente estable es k=±1**. El mar tacaño:
+  una especie estable y su espejo, todo lo demás decae hacia ellas (¿"leptón-like"?).
+
+### La literatura (verificada a mano)
+1. **Vortones: estabilidad clásica CONFIRMADA** — estudio detallado JHEP 2022
+   (arXiv:2112.08066) + simulaciones lattice: lazos de cuerda superconductora se
+   relajan a vortones estables **radiando Goldstones** (el anillo "encuentra su nota"
+   emitiendo — la misma física del electrón cayendo al pozo). Caveat cuántico:
+   disipación de corriente por efectos cuánticos (2209.03223) — vida larga, no eterna,
+   según el modelo.
+2. **Hopfions (π₃, mecanismo Skyrme-Faddeev): E ∝ Q^(3/4)** (cota Vakulenko-Kapitansky
+   + numérica Battye-Sutcliffe hasta Q=8, con tréboles). **SUBLINEAL ⟹ los Q altos se
+   LIGAN** (E(Q=2) < 2E(Q=1)): química opuesta al vortón — torres de compuestos
+   estables ("nuclear-like"). Bonus notable: existen Hopfions del modelo
+   Skyrme-Faddeev-Niemi sobre la VARIEDAD BANDERA F₂ = SU(3)/T² (arXiv:1805.10008) —
+   la bandera de §11 reaparece por el lado de los nudos.
+3. **Laboratorio real**: nudos cuánticos CREADOS en BEC espinorial (Hall-Möttönen,
+   Nature Physics 2016); su decaimiento medido (PRL 123, 163003 (2019)): el nudo decae
+   PERO en un **vórtice de spin polar-core ESTABLE con vida comparable al condensado
+   entero**. Teoría: los nudos son inmunes energéticamente al encogimiento (conservación
+   de energía) pero vulnerables a corrientes de spin; vida ∝ R². Y existe literatura de
+   **anillos de Alice** (lazos cerrados de cuerda HQV — nuestro objeto exacto en el
+   primo polar): PRR 5, 023104 (2023), evolución y decaimiento estudiados.
+4. **Anillo en reposo**: problema abierto señalado — el anillo de vórtice común viaja a
+   velocidad autoinducida (∝ ln R/R); un "anillo-partícula en reposo" necesita
+   contraflujo, twist que cancele la autoinducción, o interpretarse con momento
+   intrínseco (¿inercia gratis? ojo, puede ser bug o feature). Sin verificar a fondo.
+5. **D₄-BN específico**: anillos de HQV en D₄-BN/³P₂ — no encontrado (esperado; sigue
+   virgen).
+
+### Síntesis del frente B tras la batalla
+La conjetura de Kelvin sobrevive su primera prueba **con estructura**: hay DOS
+mecanismos de estabilización con químicas opuestas — twist/vortón (superlineal →
+una sola especie estable ± espejo) y Skyrme/Hopfion (sublineal → compuestos ligados
+en torre). Un mar con ambos términos tendría ambas químicas (¿leptones y núcleos?).
+En el primo de laboratorio los nudos existen, decaen a defectos estables, y los
+anillos de Alice ya tienen literatura propia. Deudas: el anillo en reposo, los
+Majoranas en lazo cerrado, twist D₄ (¿ℤ o ℤ₄?), y TODO el capítulo cuantitativo en
+nuestro condensado específico.
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
