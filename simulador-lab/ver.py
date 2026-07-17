@@ -14,13 +14,14 @@ Teclas:
   ESC      salir
 
 Uso:
-  python ver.py             config exacta del simulador web (720 granos)
-  python ver.py --n 8000    mar 11x mas fino, cancha escalada (EXPERIMENTAL:
-                            regimen no calibrado, el visor mide y se adapta)
+  python ver.py                        config exacta del simulador web (720 granos)
+  python ver.py --motor 2             MOTOR P3M: 60.000 granos en cancha 900
+  python ver.py --motor 2 --n 150000 --lado 1400   el mar que aguante la GPU
 """
 
 import argparse
 import math
+import os
 import time
 
 import numpy as np
@@ -29,8 +30,14 @@ import taichi as ti
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument('--motor', type=int, default=1, choices=[1, 2],
+                    help='1 = exacto O(n^2) (web), 2 = P3M alta densidad')
     ap.add_argument('--n', type=int, default=None,
-                    help='granos del mar (default: 720, el del simulador web)')
+                    help='granos del mar (default: 720 motor 1 / 60000 motor 2)')
+    ap.add_argument('--lado', type=int, default=None,
+                    help='lado de la cancha en px (default: 600 / 900)')
+    ap.add_argument('--r0', type=float, default=None,
+                    help='radio inicial de la orbita (default: lado/4)')
     ap.add_argument('--arch', default='vulkan', choices=['vulkan', 'cpu'])
     ap.add_argument('--semilla', type=int, default=1)
     ap.add_argument('--test', action='store_true',
@@ -38,18 +45,20 @@ def main():
     args = ap.parse_args()
 
     ti.init(arch=getattr(ti, args.arch))
-    from motor import MarTCI
-
-    # cancha escalada para mantener la densidad del simulador web (500 px2/grano)
-    if args.n is None:
-        mar = MarTCI(semilla=args.semilla)          # 600x600, n=720: lo verificado
+    if args.motor == 2:
+        from motor2 import MarTCI2 as Motor
+        n = args.n or 60000
+        lado = args.lado or 900
     else:
-        lado = int((args.n * 500) ** 0.5)
-        mar = MarTCI(W=lado, H=lado, n=args.n, semilla=args.semilla)
+        from motor import MarTCI as Motor
+        n = args.n or 720
+        lado = args.lado or (600 if args.n is None else int((args.n * 500) ** 0.5))
+    mar = Motor(W=lado, H=lado, n=n, semilla=args.semilla)
     lado = mar.W
     escala = lado / 600.0
-    R0 = 150.0 * escala
-    R_CAPTURA, R_ESCAPE = 30.0 * escala, 260.0 * escala
+    R0 = args.r0 or 150.0 * escala
+    R_CAPTURA = 30.0
+    R_ESCAPE = max(260.0 * escala, 1.35 * R0)
     SERVO_K, SERVO_TOPE = 3.0, 0.4
 
     # ---- campos de render (posiciones normalizadas a [0,1]) ----
@@ -57,7 +66,7 @@ def main():
     col = ti.Vector.field(3, ti.f32, mar.n)
     f_sol = ti.Vector.field(2, ti.f32, 1)
     f_pl = ti.Vector.field(2, ti.f32, 1)
-    N_ESTELA = 750
+    N_ESTELA = 1500
     estela = ti.Vector.field(2, ti.f32, N_ESTELA)
 
     @ti.kernel
@@ -76,21 +85,35 @@ def main():
     # ---- estado de la secuencia ----
     st = {}
 
+    def ruta_cache(s):
+        return f"datos/mar_n{mar.n}_l{int(lado)}_s{s}.npz"
+
+    if args.motor == 2:
+        os.makedirs('datos', exist_ok=True)
+
     def reset(semilla):
         mar.reinit(semilla)
         limpiar_estela()
+        # motor 2: mar frio cacheado en disco (cocinarlo lleva minutos);
+        # si no hay cache, se enfria adaptativo (|v|<0.05) y se guarda solo
+        frio_tot = 3500
+        if args.motor == 2:
+            frio_tot = 400 if mar.cargar(ruta_cache(semilla)) else None
         st.update(fase='frio', cont=0, pl=None, fx_acum=0.0, aR=0.0, vc=0.0,
                   L0=0.0, th=0.0, prev=0.0, vueltas=0.0, boost=0.0, pasos_orb=0,
-                  msg='', fin_espera=0, semilla=semilla)
+                  msg='', fin_espera=0, semilla=semilla,
+                  frio_tot=frio_tot, v_mar=-1.0)
 
     reset(args.semilla)
     servo = True
     pausa = False
-    sub = 8            # pasos de fisica por cuadro en orbita
-    pasos_seg = 0.0    # medidor EMA
+    # slow motion deliberado en el motor 2: pocas fisicas por cuadro = giro
+    # lento pero FINO (regla de Nico: suave y continuo antes que rapido)
+    sub = 2 if args.motor == 2 else 8
+    pasos_seg = 0.0                      # medidor EMA
     t_prev = time.perf_counter()
 
-    FRIO_TOT, ACOM_TOT, MEDIR_TOT = 3500, 700, 300
+    ACOM_TOT, MEDIR_TOT = 700, 300
 
     def fisica_del_cuadro():
         f = st['fase']
@@ -98,7 +121,16 @@ def main():
             for _ in range(24):
                 mar.step('frio')
             st['cont'] += 24
-            if st['cont'] >= FRIO_TOT:
+            fin_frio = False
+            if st['frio_tot'] is not None:
+                fin_frio = st['cont'] >= st['frio_tot']
+            elif st['cont'] % 600 == 0:
+                v = float(np.abs(mar.vel.to_numpy()).mean())
+                st['v_mar'] = v
+                if v < 0.05 or st['cont'] >= 60000:
+                    fin_frio = True
+                    mar.guardar(ruta_cache(st['semilla']))
+            if fin_frio:
                 st['pl'] = {'x': mar.cx + R0, 'y': mar.cy,
                             'vx': 0.0, 'vy': 0.0, 'fixed': True}
                 st['fase'], st['cont'] = 'acomodar', 0
@@ -208,7 +240,9 @@ def main():
         # render
         llenar_render(inv)
         canvas.set_background_color((0.03, 0.05, 0.10))
-        canvas.circles(pts, radius=max(0.0012, 2.2 / lado), per_vertex_color=col)
+        esp = (mar.W * mar.H / mar.n) ** 0.5
+        canvas.circles(pts, radius=max(0.0008, min(2.2, 0.42 * esp) / lado),
+                       per_vertex_color=col)
         f_sol[0] = [mar.cx * inv, mar.cy * inv]
         canvas.circles(f_sol, radius=11.0 / lado, color=(1.0, 0.72, 0.25))
         if st['pl'] is not None:
@@ -222,13 +256,19 @@ def main():
 
         # HUD
         with gui.sub_window('TCI', 0.015, 0.015, 0.36, 0.20):
-            nombres = {'frio': 'enfriando el mar...',
+            frio_txt = 'enfriando el mar...'
+            if st['frio_tot'] is None:
+                v_txt = f"{st['v_mar']:.2f}" if st['v_mar'] >= 0 else '...'
+                frio_txt = (f"cocinando mar nuevo (1 sola vez): "
+                            f"|v|={v_txt} -> objetivo 0.05")
+            nombres = {'frio': frio_txt,
                        'acomodar': 'acomodando la huella del planeta...',
                        'medir': 'midiendo el empujon del mar...',
                        'orbita': 'EN ORBITA (pura repulsion)',
                        'fin': st['msg'] + ' - reinicia solo'}
             gui.text(f"fase: {nombres[st['fase']]}")
-            gui.text(f"granos: {mar.n}   cancha: {int(lado)}px   {pasos_seg:.0f} pasos/s")
+            gui.text(f"motor {args.motor} | granos: {mar.n} | "
+                     f"cancha: {int(lado)}px | {pasos_seg:.0f} pasos/s")
             if st['fase'] == 'orbita' or st['fase'] == 'fin':
                 gui.text(f"vueltas: {st['vueltas']:.2f}   v_circ medida: {st['vc']:.3f}")
                 torque = (st['boost'] / max(1, st['pasos_orb'])) * 100

@@ -39,6 +39,10 @@ class MarTCI:
         self.vel = ti.Vector.field(2, ti.f32, self.n)
         self.acc = ti.Vector.field(2, ti.f32, self.n)
         self.fpl = ti.Vector.field(2, ti.f32, shape=())
+        # la reaccion se acumula repartida en 512 slots: n atomicas f32 sobre
+        # UNA sola direccion en vulkan pierden actualizaciones a n grande
+        # (verificado 2026-07-16: a n=28800 el ruido reportado era 10x el real)
+        self.fplpar = ti.Vector.field(2, ti.f32, 512)
         self.reinit(semilla)
 
     def reinit(self, semilla=1):
@@ -69,8 +73,19 @@ class MarTCI:
                 d2p = ti.max(dp.dot(dp), self.mind2)
                 fz = self.ktp / (d2p * ti.sqrt(d2p))
                 a += dp * fz
-                self.fpl[None] += -dp * (fz * self.masa)
+                self.fplpar[i & 511] += -dp * (fz * self.masa)
             self.acc[i] = a
+
+    @ti.kernel
+    def _limpiar_fpl(self):
+        for k in self.fplpar:
+            self.fplpar[k] = ti.Vector([0.0, 0.0])
+
+    @ti.kernel
+    def _reducir_fpl(self):
+        self.fpl[None] = ti.Vector([0.0, 0.0])
+        for k in self.fplpar:
+            self.fpl[None] += self.fplpar[k]
 
     @ti.kernel
     def _mover(self, frio: ti.i32):
@@ -107,8 +122,9 @@ class MarTCI:
         if planeta is None:
             self._fuerzas(0.0, 0.0, 0)
         else:
-            self.fpl[None] = [0.0, 0.0]
+            self._limpiar_fpl()
             self._fuerzas(planeta['x'], planeta['y'], 1)
+            self._reducir_fpl()
         self._mover(1 if modo == 'frio' else 0)
         fx = fy = 0.0
         if planeta is not None:
