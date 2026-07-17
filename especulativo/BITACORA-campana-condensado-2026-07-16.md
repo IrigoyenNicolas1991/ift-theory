@@ -795,9 +795,20 @@ mecanismos de estabilización con químicas opuestas — twist/vortón (superlin
 una sola especie estable ± espejo) y Skyrme/Hopfion (sublineal → compuestos ligados
 en torre). Un mar con ambos términos tendría ambas químicas (¿leptones y núcleos?).
 En el primo de laboratorio los nudos existen, decaen a defectos estables, y los
-anillos de Alice ya tienen literatura propia. Deudas: el anillo en reposo, los
+anillos de Alice ya tienen literatura propia. Deudas: ~~el anillo en reposo~~, los
 Majoranas en lazo cerrado, twist D₄ (¿ℤ o ℤ₄?), y TODO el capítulo cuantitativo en
 nuestro condensado específico.
+
+**ACTUALIZACIÓN (misma jornada): EL ANILLO EN REPOSO — RESUELTO A NIVEL LITERATURA.**
+En BECs de DOS componentes existen anillos de vórtice **estables en reposo** (a
+diferencia de ⁴He donde solo viven en movimiento): la segunda componente condensada
+EN EL NÚCLEO de la cuerda lleva corriente a lo largo del anillo y contrarresta la
+tensión — el paper los llama textualmente "vortons" (cond-mat/0307559, "Vortex Rings
+in two Component Bose-Einstein Condensates"). **Convergencia con §20**: los núcleos de
+nuestros HQV en D₄-BN ya llevan orden ferromagnético/cíclico (Kobayashi-Nitta
+2209.07205) = la segunda componente en el núcleo YA ESTÁ en nuestro sistema. El
+anillo-partícula quieto tiene todos sus ingredientes con precedente publicado; falta
+el cálculo específico D₄ (virgen).
 
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
