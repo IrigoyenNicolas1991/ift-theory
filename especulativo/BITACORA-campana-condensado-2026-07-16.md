@@ -1038,6 +1038,51 @@ superfluido tensorial — Levin-Wen vive en modelos de spin en red; el puente al
 continuo superfluido está sin construir. Virgen, grande, con las dos puntas
 (nuestra taxonomía + su mecanismo) ya publicadas por separado.
 
+## 28. ANATOMÍA DEL EXAMEN HULSE-TAYLOR (2026-07-17, `scaling_cuadrupolo.py`) — la forma está aprobada; el examen real es el coeficiente y el dipolo
+
+### Mitad 1 — LA FORMA: verificada numéricamente (aprobada)
+Binaria de cargas acopladas a un canal sin masa de dispersión lineal, potencia
+radiada integrada sin expansión multipolar (armónicos pares, 200 direcciones):
+**P ∝ Ω^6.000 · d^4.000 · v^−5.000** — los tres exponentes de la fórmula del
+cuadrupolo de Einstein, exactos. (Errata propia #7: mi primer conteo del flujo
+far-field tenía v³ por v¹ en el denominador — el propio fit numérico me delató,
+corregido y documentado en el script.)
+**Conclusión estructural: la forma de Einstein es UNIVERSAL para cualquier canal
+sin masa lineal — Hulse-Taylor (0.16%) no testea la forma; testea el COEFICIENTE.**
+TCI 2.0 pasa la mitad estructural automáticamente por tener el canal TT sin masa.
+
+### Mitad 2 — EL COEFICIENTE: el examen real, desarmado en tres piezas
+1. **Universalidad del acople (G_rad = G_static)**: en RG la binaria radia con la
+   MISMA G que gobierna la estática (una sola métrica). TCI 1.0 ya fijó G_static
+   desde el sector escalar (G = Kμ⁴/4πρ₀², derivación de Newton). El examen exige
+   que la carga del defecto bajo el canal TT reproduzca exactamente esa G — el
+   principio de equivalencia en versión radiativa. CÁLCULO CONCRETO PENDIENTE: la
+   carga de un defecto/anillo en movimiento bajo cada canal de Goldstone, desde la
+   energía GL de la textura móvil (dinámica Magnus/Kelvin de vórtices).
+2. **El factor tensorial (32/5)**: el coeficiente numérico exacto incluye la suma
+   sobre las 2 polarizaciones TT con su estructura angular — distinto del canal
+   escalar. El 0.16% de Weisberg-Huang testea ese factor completo.
+3. **EL PELIGRO DIPOLAR (la pieza que afila todo)**: cualquier canal gapless EXTRA
+   (nuestros 2 vectoriales; escalares) al que los defectos acoplen con momento
+   dipolar no nulo radia a orden MÁS BAJO: P_dip ∝ Ω⁴d²/v³ — DOMINA sobre el
+   cuadrupolo a baja frecuencia y arruinaría el 0.16%. Así mueren las teorías
+   escalar-tensor en los púlsares: las binarias ASIMÉTRICAS (púlsar + enana blanca,
+   p.ej. PSR J1738+0333) son el verdugo del dipolo, porque cargas desiguales no
+   cancelan el momento dipolar. **La batalla del silenciamiento de los vectoriales
+   (§19.1) queda ahora cuantitativamente motivada: o los defectos no acoplan a los
+   vectoriales (modos oscuros, §23), o acoplan con carga proporcional a la masa
+   (dipolo cancelado por equivalencia), o TCI 2.0 muere por dipolo en J1738+0333.**
+   Tres salidas, todas calculables desde el acople defecto-canal.
+
+### El estado del examen final tras esta sección
+- Forma del cuadrupolo: ✓ APROBADA (automática + verificada).
+- Coeficiente: pendiente del cálculo de cargas del defecto (el próximo gran cálculo
+  del programa, común a ambas arquitecturas).
+- Dipolo: el peligro está identificado con púlsar asignado y tres salidas nombradas.
+El examen dejó de ser una consigna ("dar el 0.16%") y pasó a ser una lista de
+tareas concreta. Nico preguntó al principio de todo si la disipación orbital de las
+sims era pista o bug: era pista — y ahora tiene teoría de examen completa.
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
