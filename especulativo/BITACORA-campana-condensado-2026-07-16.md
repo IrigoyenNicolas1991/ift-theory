@@ -872,6 +872,56 @@ de velocidad (§22) y de la objeción de Carlip.
    se aprueba (si se aprueba) con la estructura nodal común del sector de defectos.
    Ese es ahora el nombre técnico del problema de monometricidad en TCI 2.0.
 
+## 24. LA BATALLA NODAL (2026-07-17) — dónde vive la luz: la arquitectura de dos fases
+
+Fuente primaria leída (vía ar5iv): **Mizushima-Masuda-Nitta, "³P₂ Superfluids Are
+Topological" (PRB 95, 140503, arXiv:1607.07266)**.
+
+### Fe de erratas propia #6
+Mi sospecha "el D₄-BN tiene nodos puntuales sobre el eje especial" era FALSA: **las
+fases nemáticas (UN, D₂, D₄) son completamente gapeadas en el bulk** — clase DIII
+(TRS 𝒯²=−1), winding 3D w=1. Verificado textual antes de construir sobre la sospecha
+(el método funcionando).
+
+### Lo que el paper da (textual)
+- Nemáticas (nuestro D₄): bulk gapeado, pero **fermiones de Majorana SIN MASA en las
+  superficies, con dispersión relativista** E=±√(c_x²k_x²+c_y²k_y²) (su ec. 6, con
+  estructura de ecuación de Dirac 2D: ℋ_surf = ψ̄(−iv̄^μγ_μ∂_μ)ψ). En clase DIII los
+  defectos (vórtices) también ligan Majoranas (consistente con §20).
+- **Fase CÍCLICA: 8 puntos de Weyl en configuración tetraédrica** (cargas de monopolo
+  ±1), y el hamiltoniano efectivo cerca de cada nodo es LITERALMENTE el de Volovik:
+  **ℋ = ê^μ_a τ^a(k_μ − qk_{α,μ}) — una TÉTRADA emergente** (su ec. 8). El paquete
+  completo de la ruta Volovik (fermiones de Weyl + tétrada) EXISTE en la familia ³P₂
+  — pero en la fase cíclica, no en la nemática.
+
+### LA ARQUITECTURA DE DOS FASES (hipótesis de síntesis, mía, marcada)
+Juntando §16 + §20 + §21-bis + §23 + esto:
+- **El bulk D₄-BN** pone la GRAVEDAD: las dos polarizaciones TT sin masa (rotación +
+  fonón vestido), bulk fermiónico gapeado (sin especies de luz compitiendo en el mar
+  liso — consistente con §23: la luz NO debe ser del bulk).
+- **Los CORES de los nudos llevan orden FM o CÍCLICO** (Kobayashi-Nitta 2209.07205,
+  ya en §20) — y la fase cíclica es la que tiene los 8 Weyl y la tétrada. **Hipótesis:
+  la luz y la materia relativista viven en los tubos/anillos de fase cíclica que
+  forman los cores de los nudos** — el barrio nodal está DENTRO de los defectos,
+  exactamente donde §23 exigía que estuviera. Recordar además (agente 9): la cíclica
+  está CERCA en energía de las nemáticas en weak coupling ("nearly degenerate...
+  may be replaced by cyclic with strong coupling") — las dos fases de la arquitectura
+  son vecinas de energía, no extrañas.
+- Cuadro completo TCI 2.0 v3: *mar liso D₄ = gravedad; nudos con corazón cíclico =
+  materia + luz + (si Carlip aprueba) la métrica común de la tétrada.* Todo lo que
+  falló por separado encuentra lugar: los Goldstones del bulk no son la luz (✓ §23),
+  los Majoranas de superficie/defecto son relativistas de fábrica (✓ DIII), y la
+  tétrada de Volovik tiene dirección concreta donde buscarse (✓ ec. 8 de 1607.07266).
+
+### Deudas de esta batalla (grandes, declaradas)
+1. ¿Los 8 Weyl de la cíclica sobreviven cuando la cíclica vive solo en un TUBO
+   (core de vórtice) y no en bulk? (Confinamiento discretiza; puede matar o
+   preservar la estructura nodal — cálculo BdG en el core, no hecho que yo sepa.)
+2. ¿La tétrada emergente de los nodos coincide con la métrica efectiva que ven los
+   modos TT del bulk? (ESTA es ahora la forma técnica exacta del examen de Carlip.)
+3. Acople: ¿los modos TT del bulk se acoplan a los Majoranas/Weyl de los cores con
+   la forma del T_μν? (El camino a Hulse-Taylor pasa por acá.)
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
