@@ -994,6 +994,50 @@ propia con ambos caracteres? ¿o A con la luz emergiendo del nivel colectivo de 
 RED de nudos (el hueco que nadie construyó)? El diagrama de fases ³P₂ como espacio
 de búsqueda de TCI 2.0 quedó cartografiado de punta a punta con una sola maquinaria.
 
+## 27. LA LUZ DE LA RED DE NUDOS (2026-07-17) — el precedente existe y se llama string-net
+
+### El mecanismo (Levin-Wen, verificado)
+**String-net condensation** (Levin-Wen, cond-mat/0404617 + "Photons and electrons as
+emergent phenomena" cond-mat/0407140; y Wen, "QUANTUM ETHER: photons and electrons
+from a rotor model", hep-th/0507118 — el título es literal): cuando una red de cuerdas
+cuánticas condensa (las cuerdas proliferan y fluctúan como líquido), sus excitaciones
+colectivas son **bosones de gauge (fotones = vibraciones de la red)** y **fermiones
+(= extremos de cuerda, siempre con carga de gauge)**. En 3D unifica luz y materia de
+un solo mecanismo. Es el marco publicado exacto para "la luz emerge de la red de
+nudos" que la Arquitectura A necesitaba (§25).
+
+### El encastre estructural con nuestra §20 (el hallazgo)
+- Los modelos de Levin-Wen toman como input una **categoría de fusión** (tipos de
+  cuerda + reglas de ramificación). ¿Y qué nos dio la taxonomía del D₄-BN? El **doble
+  cuántico D(D₄\*)** con sus 45 especies y reglas de fusión (Mawson et al., §20) — 
+  exactamente la clase de estructura algebraica que un string-net realiza.
+- Nuestra red NO es de lazos sueltos: es una **red ramificada** — los vórtices
+  no-abelianos que se cruzan quedan unidos por "rungs" (§20, textual) → red con
+  nodos trivalentes = un string-NET genuino, no un gas de anillos.
+- Los extremos/uniones de cuerda de Levin-Wen portan las cargas fermiónicas — y
+  nuestras cuerdas ya llevan Majoranas (§20). π₂=0 dice que nuestras cuerdas no
+  pueden TERMINAR en el vacío (sin monopolos) — pero sí pueden ramificarse (rungs):
+  la carga fermiónica viviría en las UNIONES, no en puntas sueltas.
+- La parte ℤ×_h del π₁ (windings semienteros de fase) es el candidato natural al
+  sector U(1) del fotón.
+
+### La tensión honesta (el problema afilado que queda)
+La condensación de string-nets requiere que las cuerdas PROLIFEREN (tensión efectiva
+→ 0, líquido cuántico de cuerdas); pero la gravedad de A necesita el ORDEN D₄ intacto
+(los TT de §16). Proliferación de defectos normalmente DESTRUYE el orden. La salida a
+investigar: coexistencia de orden topológico y orden roto (concepto conocido — p.ej.
+superconductores tienen ambos), o condensación PARCIAL (solo algunos tipos de cuerda
+del D(D₄\*) condensan, preservando el orden que sostiene la gravedad). **Pregunta
+afilada nueva: ¿qué subconjunto de las 45 especies puede condensar sin matar el D₄?**
+(Las "anyon condensation transitions" de la literatura de fases topológicas son la
+herramienta hecha para esta pregunta.)
+
+### Lo no-hecho (verificado como hueco)
+Nadie construyó una condensación string-net de la red de vórtices HQV de un
+superfluido tensorial — Levin-Wen vive en modelos de spin en red; el puente al
+continuo superfluido está sin construir. Virgen, grande, con las dos puntas
+(nuestra taxonomía + su mecanismo) ya publicadas por separado.
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
