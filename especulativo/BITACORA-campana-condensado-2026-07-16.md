@@ -958,6 +958,42 @@ la primera vez que el hueco de las generaciones tiene una forma posible.
   Nota: la cíclica es vecina de energía de las nemáticas (agente 9) — el diagrama de
   fases entero de ³P₂ podría ser el "multiverso" de arquitecturas de TCI 2.0.
 
+## 26. EL EXAMEN DE LA CÍCLICA (`espectro_ciclico.py`) — dos arquitecturas, dos perfiles complementarios
+
+### Resultados (selector b1|TrA²|² > 0 declarado como rol del strong coupling)
+- Convergencia perfecta desde dos semillas: |autovalores| = (½,½,½) exactos,
+  |TrA²| ~ 10⁻¹², V idéntica. Masas no nulas (1,1,1,4) — la simetría tetraédrica
+  cantando (triplete degenerado + singlete). 4 rotos = 4 gapless ✓.
+- **Gravedad de la cíclica (vía Goldstones): MEDIOCRE.** Sin eje especial limpio:
+  1 modo TT decente en la mayoría de las direcciones (pureza media 0.909 < 0.951 del
+  D₄; mínimo 0.76), el 2º modo pobre (0.485), direcciones (110) todas mezcladas.
+  Anisotropía de velocidad 9.7% (vs 12.6% del D₄ — apenas mejor, mismo orden).
+  CAVEAT declarado: la cíclica rompe T → posible término de Berry de 1er orden que
+  esta maquinaria (2º orden) no captura; primera pasada.
+
+### La lectura correcta (síntesis)
+El examen NO dice "la cíclica es peor" — dice que **en la Arquitectura B la gravedad
+no debe venir de los Goldstones**: en el programa de Volovik la gravedad es la
+dinámica de la TÉTRADA (inducida por loops fermiónicos, Sakharov-style — con su
+deuda conocida de §13: Volovik la postula), no los modos del parámetro de orden.
+Nuestro test confirma que los Goldstones bosónicos de la cíclica no compiten — y
+además son 4 modos gapless extra que B tendría que silenciar.
+
+**Los perfiles finales de las dos arquitecturas (complementarios en espejo):**
+| | Arquitectura A (bulk D₄) | Arquitectura B (bulk cíclico) |
+|---|---|---|
+| Gravedad | ✓✓ calculada (2 TT en eje; §16) | vía tétrada inducida (heredada de Volovik, dinámica sin derivar) |
+| Materia | anillos con niveles internos (§21-25) | fermiones de Weyl de fábrica ✓✓ |
+| Luz | ✗ problema 1D (§25) | ✓✓ estructura de gauge emergente en nodos |
+| Modos sobrantes | 2 vectoriales (¿oscuros? §23) | 4 Goldstones bosónicos + dinámica por derivar |
+| Anisotropía v_TT | 12.6% | 9.7% (Goldstones) |
+
+Ninguna completa; cada una fuerte donde la otra flaquea. Preguntas que esto abre
+(anotadas, sin resolver): ¿interfaz/mezcla de fases? ¿el medio TCI real como fase
+propia con ambos caracteres? ¿o A con la luz emergiendo del nivel colectivo de la
+RED de nudos (el hueco que nadie construyó)? El diagrama de fases ³P₂ como espacio
+de búsqueda de TCI 2.0 quedó cartografiado de punta a punta con una sola maquinaria.
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
