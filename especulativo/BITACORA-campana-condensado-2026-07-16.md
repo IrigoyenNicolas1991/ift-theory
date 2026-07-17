@@ -704,6 +704,59 @@ como materia**.
 - Toda idea nueva paga verificación bibliográfica antes de crecer; toda muerte se
   documenta el mismo día; los scripts reproducen lo publicado antes de calcular lo nuevo.
 
+---
+
+## 20. LA TABLA DE NUDOS DEL D₄-BN (11º agente, 2026-07-17) — rica, no-abeliana… y de cuerdas
+
+### Lo confirmado (fuentes primarias: Masuda-Nitta 1602.07050; Masaki-Mizushima-Nitta
+2107.02448 + 2301.11614; Kobayashi-Nitta 2209.07205; Mawson-Petersen-Simula 1805.10009)
+- Vacío R = [U(1)×SO(3)]/D₄ con el D₄ MEZCLANDO fase y rotación (el elemento (−1, R_π/2):
+  rotar π/2 = cambiar fase π — el "entrelazamiento discreto" anticipado en §17 es
+  estructural). **π₁ = ℤ×_h D₄\* — NO-ABELIANO** (dihedral binario de 16), π₂ = 0,
+  π₃ = ℤ, π₄ = ℤ₂. El π₁ más rico de todo el diagrama de fases nemáticas.
+- **7 familias de vórtices**; los fundamentales son **semicuánticos (HQV)**: circulación
+  ½ atada a rotación π/2 del marco. El vórtice entero DECAE en molécula de dos HQV
+  (separación óptima ≃ 10.7ξ₀); moléculas con "enlaces covalentes" por solitones;
+  fusión = doble cuántico D(D₄\*) (45 especies anyónicas por sector); cada HQV lleva un
+  **Majorana de energía cero** → anyones no-abelianos POR DOS VÍAS (único sistema
+  conocido con esa propiedad, textual 2301.11614).
+
+### Scorecard contra la tabla de partículas (§ pedido del proyecto)
+(a) Cargas aditivas: UNA sola (circulación, en medios-enteros) — pobre vs el Modelo
+Estándar. (b) Anti-clases: ✓ todas; algunas auto-conjugadas (Majorana-like a nivel
+defecto). (c) Aniquilación a vacío: condicional, con canales múltiples y vórtices
+"rung" — realista (e⁺e⁻→γγ también deja algo). (d) Familias tipo e/μ/τ: NO hay nada
+que parezca 3 generaciones. (e) Estabilidad: **el punto más "física de partículas" de
+todos** — jerarquía documentada de decaimientos, estados ligados, moléculas y enlaces,
+con los HQV como objetos absolutamente estables del fondo.
+
+### EL PROBLEMA ESTRUCTURAL (sin suavizar, textual del agente)
+**Los vórtices son defectos de LÍNEA — cuerdas, no partículas puntuales en 3D.**
+Para puntos hace falta π₂ (monopolos) = 0 exacto sin apelación, o π₃ (skyrmions) = ℤ
+— que EXISTE y daría una segunda carga entera aditiva (¡tipo número bariónico!) pero
+sin estabilización calculada en esta fase (Derrick los encoge; nadie lo estudió).
+
+### El giro: KELVIN VUELVE (dirección nueva, la más vieja de todas)
+Si los nudos fundamentales son cuerdas, las partículas puntuales serían **anillos
+cerrados de cuerda HQV** — vistos de lejos: puntos; por dentro: lazos, posiblemente
+anudados/retorcidos (Hopfions ↔ π₃=ℤ). **Eso es literalmente el átomo-vórtice de
+Kelvin (1867) — anillos — con topología no-abeliana moderna.** Precedente experimental:
+solitones-nudo observados en BEC espinoriales (Hall et al. 2016, a verificar la cita).
+Pregunta afilada nueva (paso D actualizado): ¿los anillos de HQV en D₄-BN tienen
+tamaño/energía estables (algo que frene a Derrick: circulación atrapada, twist,
+término tipo Skyrme de derivadas altas)? Territorio verificado como virgen: nadie
+propuso la taxonomía D₄-BN como modelo de materia (los papers son astrofísica de
+magnetares + computación cuántica topológica).
+
+### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
+Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
+moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
+aditiva, y cero generaciones. La piedra angular pasa a ser: **estabilidad y espectro
+de los anillos/skyrmions** — si los anillos se estabilizan con un espectro discreto
+de masas, el cuadro "partícula = anillo anudado" revive a Kelvin con andamiaje real y
+el libro tiene columna vertebral; si Derrick gana, se documenta y la conjetura de
+nudos muere con honores. Anotado como próximo cálculo del Frente B.
+
 ## 6-bis. Estado de las verificaciones pendientes de §6 (cerradas esta noche)
 
 - [x] Zoología NPPR: el medio SL(3) figura (caso 7) y NO da quinteto — Familia F muerta.
