@@ -1083,6 +1083,43 @@ El examen dejó de ser una consigna ("dar el 0.16%") y pasó a ser una lista de
 tareas concreta. Nico preguntó al principio de todo si la disipación orbital de las
 sims era pista o bug: era pista — y ahora tiene teoría de examen completa.
 
+## 29. LA BATALLA DEL ACOPLE (abierta 2026-07-17) — una cuenta, tres tronos
+
+**Elección de rumbo** (pregunta de Nico "¿seguimos con EM u otra cosa?"): la cuenta
+que decide TODO a la vez es **el acople del nudo a los canales** — con qué carga un
+defecto en movimiento habla con cada onda del mar (TT ×2, vectoriales ×2, fonón).
+De ahí salen: (1) el coeficiente de Hulse-Taylor (G_rad vs G_static — §28.2), (2) el
+veredicto dipolar (§28.3, púlsar J1738+0333), (3) si los vectoriales son oscuros
+(§23), y (4) la teoría de interacciones entre nudos = el EM en construcción (la
+respuesta a la pregunta del papá de Nico sobre masa/carga salió entera de estas
+piezas — "la carga cuenta, la masa cobra" — y va a ser sección de la página).
+
+**La caja de herramientas encontrada (reconocimiento a mano):**
+- **Teoría efectiva de cuerdas de vórtice** generalizando Lund-Regge: Horn-Nicolis-
+  Penco arXiv:1507.05635 ("Effective string theory for vortex lines in fluids and
+  superfluids") — worldsheet + acople a modos del bulk, Kelvin waves, anillos. LA
+  plantilla.
+- **Vórtice-fonón resuelto en superfluidos U(1)**: emisión de sonido por vórtices en
+  movimiento como único canal disipativo a T=0, con tasas y reacción de radiación
+  (Kozik-Svistunov cond-mat/0505020; cond-mat/9409046; 1408.5913). **CONTROL DE
+  CALIDAD OBLIGATORIO**: nuestro cálculo debe reproducir estas tasas en el límite
+  U(1) antes de creerle los canales nuevos.
+- Extensión a supersólidos ya existe (2409.04865) — precedente de vórtices acoplados
+  a medios con más estructura.
+
+**Plan de la cuenta (sesión fresca):**
+1. Worldsheet del HQV en el mar D₄ (colectivas: posición + fase + orientación).
+2. Acoples por canal DERIVADOS del funcional GL (K, β, γ — no inventados): el
+   winding de fase → carga fonónica (control U(1)); el winding de marco → carga
+   bajo los canales de orientación (TT y vectoriales).
+3. Radiación de binaria por canal con la maquinaria §28 → G_rad, coeficiente
+   dipolar vectorial.
+4. Confrontar: G_rad vs G_static (equivalencia radiativa), dipolo vs púlsares
+   asimétricos, y el mini-Hulse-Taylor numérico del paper OIST como control
+   cualitativo (§9).
+Criterios de muerte: G_rad ≠ G_static sin salida → se declara; dipolo vectorial no
+nulo con acople no suprimido → TCI 2.0 muere en J1738+0333 y se publica.
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
