@@ -58,8 +58,12 @@ def main():
     # dt estable (CFL de contacto): el motor 2 fino integra con dt<1;
     # los conteos de fases se escalan para simular el mismo tiempo fisico
     DT = mar.dt_estable if args.motor == 2 else 1.0
+    GPU_PL = args.motor == 2   # planeta residente en GPU (sin sync por paso)
     escala = lado / 600.0
-    R0 = args.r0 or 150.0 * escala
+    # r0 default: motor 1 = lado/4 (la web); motor 2 = lado/6 (calibrado en
+    # frio 2026-07-17: a_r(150)=1.43e-3 en cancha 900, banda estable [117,160];
+    # mas lejos la fuerza cae y cerca de las paredes se hace repulsiva)
+    R0 = args.r0 or (lado / 6.0 if args.motor == 2 else 150.0 * escala)
     R_CAPTURA = 30.0
     R_ESCAPE = max(260.0 * escala, 1.35 * R0)
     SERVO_K, SERVO_TOPE = 3.0, 0.4
@@ -136,19 +140,28 @@ def main():
             if fin_frio:
                 st['pl'] = {'x': mar.cx + R0, 'y': mar.cy,
                             'vx': 0.0, 'vy': 0.0, 'fixed': True}
+                if GPU_PL:
+                    mar.pl_set(mar.cx + R0, mar.cy)
                 st['fase'], st['cont'] = 'acomodar', 0
             return 24
         if f == 'acomodar':
-            for _ in range(24):
-                mar.step('frio', st['pl'])
+            if GPU_PL:
+                mar.correr_planeta(24, 'frio', mover=False)
+            else:
+                for _ in range(24):
+                    mar.step('frio', st['pl'])
             st['cont'] += 24
             if st['cont'] >= ACOM_TOT:
                 st['fase'], st['cont'], st['fx_acum'] = 'medir', 0, 0.0
             return 24
         if f == 'medir':
-            for _ in range(8):
-                fx, _ = mar.step('frio', st['pl'])
-                st['fx_acum'] += fx
+            if GPU_PL:
+                fxm, _ = mar.correr_planeta(8, 'frio', mover=False)
+                st['fx_acum'] += fxm * 8
+            else:
+                for _ in range(8):
+                    fx, _ = mar.step('frio', st['pl'])
+                    st['fx_acum'] += fx
             st['cont'] += 8
             if st['cont'] >= MEDIR_TOT:
                 st['aR'] = -st['fx_acum'] / st['cont']
@@ -160,6 +173,8 @@ def main():
                 pl = st['pl']
                 pl['fixed'] = False
                 pl['vx'], pl['vy'] = 0.0, st['vc']
+                if GPU_PL:
+                    mar.pl_set(pl['x'], pl['y'], 0.0, st['vc'])
                 st['L0'] = R0 * st['vc']
                 st['th'] = 0.0
                 st['prev'] = math.atan2(pl['y'] - mar.cy, pl['x'] - mar.cx)
@@ -168,6 +183,33 @@ def main():
             return 8
         if f == 'orbita':
             pl = st['pl']
+            if GPU_PL:
+                # racha entera en GPU; contabilidad por cuadro (sub << periodo)
+                servo_d = ({'aR': st['aR'], 'L0': st['L0'],
+                            'k': SERVO_K, 'tope': SERVO_TOPE}
+                           if servo else None)
+                _, boost_rel = mar.correr_planeta(sub, 'vivo', mover=True,
+                                                  servo=servo_d)
+                x, y, vx, vy = mar.pl_get()
+                pl['x'], pl['y'], pl['vx'], pl['vy'] = x, y, vx, vy
+                st['boost'] += boost_rel * sub
+                st['pasos_orb'] += sub
+                dx, dy = x - mar.cx, y - mar.cy
+                r = math.hypot(dx, dy)
+                a = math.atan2(dy, dx)
+                d = a - st['prev']
+                if d > math.pi:
+                    d -= 2 * math.pi
+                if d < -math.pi:
+                    d += 2 * math.pi
+                st['th'] += d
+                st['prev'] = a
+                st['vueltas'] = abs(st['th']) / (2 * math.pi)
+                if r < R_CAPTURA:
+                    st['fase'], st['msg'] = 'fin', 'CAPTURADO por el sol'
+                elif r > R_ESCAPE:
+                    st['fase'], st['msg'] = 'fin', 'ESCAPO del sistema'
+                return sub
             for _ in range(sub):
                 mar.step('vivo', pl)
                 st['pasos_orb'] += 1
@@ -200,8 +242,13 @@ def main():
                     break
             return sub
         # fin: el mar sigue vivo, y a los ~4s arranca de nuevo
-        for _ in range(sub):
-            mar.step('vivo', st['pl'])
+        if GPU_PL:
+            mar.correr_planeta(sub, 'vivo', mover=True)
+            x, y, vx, vy = mar.pl_get()
+            st['pl'].update(x=x, y=y, vx=vx, vy=vy)
+        else:
+            for _ in range(sub):
+                mar.step('vivo', st['pl'])
         st['fin_espera'] += 1
         if st['fin_espera'] > 240:
             reset(st['semilla'] + 1)

@@ -81,6 +81,12 @@ class MarTCI2:
         self.orden = ti.field(ti.i32, self.n)
         self.mcel = ti.field(ti.f32, (self.gx, self.gy))
         self.com = ti.Vector.field(2, ti.f32, (self.gx, self.gy))
+        # planeta residente en GPU (x, y, vx, vy): permite correr rachas de
+        # pasos SIN sincronizar GPU<->CPU (la lectura de la reaccion por paso
+        # bajaba el motor de ~67 a ~26 pasos/s)
+        self.pl = ti.Vector.field(4, ti.f32, shape=())
+        self.fx_sum = ti.Vector.field(2, ti.f32, shape=())
+        self.boost_sum = ti.field(ti.f32, shape=())
         self.reinit(semilla, init)
 
     def reinit(self, semilla=1, init='grilla'):
@@ -259,6 +265,101 @@ class MarTCI2:
                 v.y *= -0.6
             self.vel[i] = v
             self.pos[i] = p
+
+    @ti.kernel
+    def _fuerzas_pl(self):
+        # como _fuerzas con planeta, pero leyendo self.pl (sin args de host)
+        plx, ply = self.pl[None].x, self.pl[None].y
+        for i in self.pos:
+            xi = self.pos[i]
+            cx, cy = self._celda(xi)
+            a = ti.Vector([0.0, 0.0])
+            for ox, oy in ti.ndrange(self.gx, self.gy):
+                if ti.abs(ox - cx) > 2 or ti.abs(oy - cy) > 2:
+                    mo = self.mcel[ox, oy]
+                    if mo > 0:
+                        dl = xi - self.com[ox, oy]
+                        d2l = dl.dot(dl)
+                        a += dl * (self.kii0 * mo / (d2l * ti.sqrt(d2l)))
+            for ox in range(ti.max(0, cx - 2), ti.min(self.gx, cx + 3)):
+                for oy in range(ti.max(0, cy - 2), ti.min(self.gy, cy + 3)):
+                    c = ox * self.gy + oy
+                    ini = 0
+                    if c > 0:
+                        ini = self.cuenta[c - 1]
+                    for k in range(ini, self.cuenta[c]):
+                        j = self.orden[k]
+                        if j != i:
+                            d = xi - self.pos[j]
+                            d2 = ti.max(d.dot(d), self.mind2)
+                            a += d * (self.kii_m / (d2 * ti.sqrt(d2)))
+            ds = xi - ti.Vector([self.cx, self.cy])
+            d2s = ti.max(ds.dot(ds), MIND2_FUENTE)
+            a += ds * (self.ktsol / (d2s * ti.sqrt(d2s)))
+            dp = xi - ti.Vector([plx, ply])
+            d2p = ti.max(dp.dot(dp), MIND2_FUENTE)
+            fz = self.ktp / (d2p * ti.sqrt(d2p))
+            a += dp * fz
+            self.fplpar[i & (NRED - 1)] += -dp * (fz * self.masa_m)
+            self.acc[i] = a
+
+    @ti.kernel
+    def _paso_planeta(self, dt: ti.f32, mover: ti.i32, servo: ti.i32,
+                      aR: ti.f32, L0: ti.f32, k_servo: ti.f32, tope: ti.f32):
+        # integra el planeta en GPU (y aplica el servo de torque puro);
+        # tambien acumula la fuerza medida en fx_sum para la fase de medicion
+        f = ti.Vector([0.0, 0.0])
+        ti.loop_config(serialize=True)
+        for k in range(NRED):
+            f += self.fplpar[k]
+        self.fx_sum[None] += f
+        if mover == 1:
+            p = self.pl[None]
+            vx, vy = p.z + f.x * dt, p.w + f.y * dt
+            if servo == 1:
+                rx, ry = p.x - self.cx, p.y - self.cy
+                r = ti.max(ti.sqrt(rx * rx + ry * ry), 1e-6)
+                L = rx * vy - ry * vx
+                deficit = (L0 - L) / L0
+                if deficit > 0:
+                    g = aR * ti.min(tope, k_servo * deficit)
+                    vx += g * dt * (-ry / r)
+                    vy += g * dt * (rx / r)
+                    self.boost_sum[None] += g / aR
+            self.pl[None] = ti.Vector([p.x + vx * dt, p.y + vy * dt, vx, vy])
+
+    def correr_planeta(self, pasos, modo='vivo', dt=None, mover=True,
+                       servo=None):
+        """Racha de pasos con el planeta EN GPU, sin sync por paso.
+        servo = dict(aR=..., L0=..., k=3.0, tope=0.4) o None.
+        Antes: cargar el planeta con pl_set(); despues leer con pl_get().
+        Devuelve (fx_media, boost_medio_relativo) de la racha."""
+        if dt is None:
+            dt = self.dt_estable
+        self.fx_sum[None] = [0.0, 0.0]
+        self.boost_sum[None] = 0.0
+        s = servo or {}
+        for _ in range(pasos):
+            self._contar()
+            self._scan_serial()
+            self._preparar_cursor()
+            self._ordenar()
+            self._celdas_stats()
+            self._fuerzas_pl()
+            self._paso_planeta(dt, 1 if mover else 0,
+                               1 if servo else 0,
+                               s.get('aR', 0.0), s.get('L0', 1.0),
+                               s.get('k', 3.0), s.get('tope', 0.4))
+            self._mover(1 if modo == 'frio' else 0, dt, 0.995 ** dt)
+        f = self.fx_sum[None]
+        return (float(f[0]) / pasos, float(self.boost_sum[None]) / pasos)
+
+    def pl_set(self, x, y, vx=0.0, vy=0.0):
+        self.pl[None] = [float(x), float(y), float(vx), float(vy)]
+
+    def pl_get(self):
+        p = self.pl[None]
+        return float(p[0]), float(p[1]), float(p[2]), float(p[3])
 
     def step(self, modo='vivo', planeta=None, dt=None):
         """Un paso de dt unidades de tiempo (default: dt_estable del mar).
