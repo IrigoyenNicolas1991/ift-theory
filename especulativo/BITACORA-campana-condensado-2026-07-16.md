@@ -922,6 +922,42 @@ Juntando §16 + §20 + §21-bis + §23 + esto:
 3. Acople: ¿los modos TT del bulk se acoplan a los Majoranas/Weyl de los cores con
    la forma del T_μν? (El camino a Hulse-Taylor pasa por acá.)
 
+## 25. LA BATALLA DEL TUBO (2026-07-17) — el Weyl 3D no sobrevive; lo que sobrevive es mejor para otra cosa
+
+### Lo verificado (literatura estándar de estados de core)
+- Un core de vórtice hospeda estados discretos **Caroli-de Gennes-Matricon (CdGM)**:
+  escalera de niveles con "minigap" δε ≈ Δ²/E_F, etiquetados por (p_z a lo largo del
+  tubo, n angular) — 1D branches dispersivas a lo largo del tubo, más la rama de
+  **Majorana** protegida en los casos topológicos (coexisten; separarlos
+  experimentalmente es difícil justamente porque el minigap es chico).
+- **Veredicto del tubo**: la estructura Weyl 3D + tétrada del bulk cíclico NO
+  sobrevive tal cual en un tubo delgado (~ξ): el confinamiento transversal la
+  discretiza. Lo que sobrevive es un MUNDO 1D: la escalera CdGM + la rama Majorana.
+
+### El regalo: el anillo tiene NIVELES INTERNOS (candidato a "familias")
+Para un anillo cerrado de circunferencia 2πR, el momento a lo largo del tubo se
+cuantiza (p_n = (n+ν)/R, con ν=0 ó ½ según la fase de Berry del winding — la deuda
+"Majoranas en lazo cerrado" se vuelve una pregunta de condiciones de contorno,
+periódicas vs antiperiódicas). Espectro interno del anillo-partícula, dos torres:
+**E(n,m) ≈ m·(Δ²/E_F) + ħv_∥(n+ν)/R** — una partícula topológica con ESTADOS
+EXCITADOS INTERNOS discretos. **Consecuencia conceptual mayor**: el requisito (d) del
+scorecard §20 (familias tipo e/μ/τ — antes: CERO candidatos) ahora tiene un mecanismo
+candidato: *misma carga topológica, distinto estado interno de los fermiones del
+core = misma partícula, más pesada*. Electrón/muón/tau como el mismo anillo en
+distintos niveles de su escalera interna — ESPECULATIVO AL CUBO, declarado, pero es
+la primera vez que el hueco de las generaciones tiene una forma posible.
+
+### La bifurcación honesta que queda (dos arquitecturas candidatas)
+- **Arquitectura A (la de §24)**: bulk D₄ = gravedad; cores cíclicos = materia.
+  Pendiente duro: la LUZ 3D no puede vivir en tubos 1D — necesitaría emerger a nivel
+  colectivo/red de defectos (no construido) o la arquitectura falla para el fotón.
+- **Arquitectura B (nueva, a explorar)**: bulk CÍCLICO (los 8 Weyl + tétrada de
+  Volovik en 3D pleno = luz y materia relativistas de fábrica) y la pregunta
+  invertida: ¿qué dan los Goldstones de la cíclica ([U(1)×SO(3)]/T, 4 rotos) como
+  gravedad? Su historia GW está SIN explorar — nadie la miró con los ojos de §16.
+  Nota: la cíclica es vecina de energía de las nemáticas (agente 9) — el diagrama de
+  fases entero de ³P₂ podría ser el "multiverso" de arquitecturas de TCI 2.0.
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
