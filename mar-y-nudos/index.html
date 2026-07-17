@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El mar y sus nudos — TCI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --fondo:#071620; --panel:#0b2231; --tinta:#dce8f2; --tenue:#8fa8bb;
+ --azul:#5fa8e6; --verde:#2fbf95; --naranja:#e07b4f; --linea:#1b3a4f;
+}
+body.claro{
+ --fondo:#f7f3ec; --panel:#efe7da; --tinta:#2b2620; --tenue:#7a6f61;
+ --azul:#1d6db8; --verde:#0f7a5c; --naranja:#b35427; --linea:#d8cbb8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);
+ font-family:Lora,Georgia,serif;font-size:19px;line-height:1.75;
+ transition:background .4s,color .4s}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+header.hero{padding:70px 0 30px;text-align:center}
+h1{font-size:44px;margin:0 0 6px;font-weight:600;letter-spacing:.5px}
+.sub{color:var(--tenue);font-family:Inter,sans-serif;font-size:15px;margin:0 0 18px}
+.aviso{background:var(--panel);border:1px solid var(--linea);border-radius:10px;
+ padding:12px 16px;font-family:Inter,sans-serif;font-size:13.5px;color:var(--tenue);
+ line-height:1.55;margin:24px 0}
+.aviso b{color:var(--tinta)}
+h2{font-size:27px;font-weight:600;margin:64px 0 14px}
+h2 .n{color:var(--naranja);font-family:Inter,sans-serif;font-size:15px;
+ vertical-align:middle;margin-right:10px;letter-spacing:2px}
+p{margin:0 0 18px}
+p.capital::first-letter{font-size:52px;float:left;line-height:.85;
+ padding:4px 8px 0 0;color:var(--azul);font-weight:600}
+em{color:var(--verde);font-style:italic}
+.destacado{border-left:3px solid var(--naranja);padding:4px 0 4px 18px;
+ margin:26px 0;font-size:20px;font-style:italic;color:var(--tinta)}
+figure{margin:30px 0}
+canvas{width:100%;height:380px;display:block;background:#04101a;
+ border-radius:12px;border:1px solid var(--linea);touch-action:none;cursor:crosshair}
+body.claro canvas{background:#0a1c29}
+.botones{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+.botones button{font-family:Inter,sans-serif;font-size:13.5px;padding:7px 14px;
+ border-radius:8px;border:1px solid var(--linea);background:var(--panel);
+ color:var(--tinta);cursor:pointer}
+.botones button.on{border-color:var(--naranja);color:var(--naranja)}
+figcaption{font-family:Inter,sans-serif;font-size:13.5px;color:var(--tenue);
+ line-height:1.55;margin-top:10px}
+figcaption b{color:var(--naranja);font-weight:600}
+.marcador{background:var(--panel);border-radius:10px;padding:14px 18px;
+ font-family:Inter,sans-serif;font-size:13.5px;color:var(--tenue);margin:22px 0;line-height:1.6}
+.marcador b{color:var(--verde)}
+.toggle{position:fixed;top:14px;right:14px;z-index:9;font-family:Inter,sans-serif;
+ font-size:13px;padding:7px 12px;border-radius:20px;border:1px solid var(--linea);
+ background:var(--panel);color:var(--tinta);cursor:pointer}
+footer{margin-top:70px;padding-top:24px;border-top:1px solid var(--linea);
+ font-family:Inter,sans-serif;font-size:13.5px;color:var(--tenue);line-height:1.8}
+footer a{color:var(--azul);text-decoration:none}
+</style>
+</head>
+<body>
+<button class="toggle" id="tema">modo claro</button>
+
+<div class="wrap">
+
+<header class="hero">
+ <h1>El mar y sus nudos</h1>
+ <p class="sub">Teoría del Campo Intangible · segunda parte — la materia contada desde el mar</p>
+</header>
+
+<div class="aviso"><b>Aviso de la casa:</b> esto es una etapa especulativa en desarrollo —
+investigación viva, con hipótesis declaradas e ideas que pueden morir. No es el corpus
+publicado de TCI. Cada sección termina con su <b>marcador honesto</b>: qué está calculado,
+qué es apuesta, y cómo podría morir. Sin eso, esta página no sería de esta casa.</div>
+
+<p class="capital">Si leíste «El océano y la huella», conocés el mar: un océano invisible
+que llena todo el espacio, y la huella que la materia deja en él — que resultó ser la
+gravedad. Y conocés el final: <em>nunca hubo intrusa</em> — la materia misma era una forma
+del mar. Este libro empieza donde aquel terminó, con una sola pregunta: si la materia es
+una forma del mar… <em>¿qué forma?</em> Acá está la respuesta que encontramos, contada
+para que se pueda tocar. Literalmente: casi todo en esta página se juega con el dedo.</p>
+
+<!-- ============================================================ -->
+<h2><span class="n">I</span>El mar de almendras</h2>
+
+<p>Primera novedad desde el libro anterior: las partículas del mar no son bolitas.
+Son <em>almendras</em> — granitos con forma, que pueden orientarse. Y ojo con la
+diferencia: una flecha señala hacia un lado (tiene punta y cola); una almendra no —
+si la das vuelta, queda igual. Su orientación no es una dirección: es un <em>eje</em>.</p>
+
+<p>¿Por qué importa tanto? Porque un observatorio del tamaño de una ciudad (LIGO) midió
+que las ondas de gravedad del universo no son empujones ni latigazos: son deformaciones
+<em>en cruz</em> — estiran en una dirección y comprimen en la otra. Ondas de <em>forma</em>.
+Y un mar de bolitas no sabe hacer ondas de forma — lo aprendimos perdiendo: nuestra
+primera versión del mar quedó falsada por esto, y lo publicamos el mismo día. Un mar de
+almendras orientadas, en cambio, sí sabe. Además el mar debe <em>fluir</em> como el
+líquido más perfecto que exista (si fuera sólido, sus ondas nacerían pesadas — otra
+lección pagada con funerales). El resultado: <em>un superfluido de gotas con
+orientación</em>. Fluye como lo más líquido del universo; sostiene su peinado como un
+cristal. La naturaleza fabrica primos de este mar: los cristales líquidos de tu
+pantalla, el helio superfrío, y el corazón de las estrellas de neutrones.</p>
+
+<div class="marcador"><b>Marcador.</b> Que los medios con orientación portan ondas de
+forma: física publicada y verificada. Que el mar del universo sea uno de ellos: la
+apuesta central de esta teoría — declarada y viva.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">II</span>El nudo — la materia sin la intrusa</h2>
+
+<p class="capital">Ahora mirá el mar de almendras de abajo. Cada rayita es una gota
+(sin punta: gota, no flecha). Y en el medio hay un <em>nudo</em>: las almendras dan
+media vuelta alrededor de un centro, y ese peinado <em>no se puede alisar</em> — para
+deshacerlo habría que despeinar el mar entero de un golpe. Los matemáticos llaman a
+esto topología: lo que no se puede cambiar de a poquito. <b>Llevá el nudo con tu dedo</b>
+y mirá cómo viaja: las almendras que lo forman cambian a cada instante — <em>la forma
+persiste</em>. Eso es una partícula: no una cosa metida en el mar, sino un enredo que
+el mar no puede deshacer.</p>
+
+<figure>
+<canvas id="cvNudo"></canvas>
+<div class="botones"><button id="btOcultar">ocultar el centro</button></div>
+<figcaption><b>Jugalo:</b> mové el dedo o el mouse sobre el mar — el nudo te sigue.
+Después apretá «ocultar el centro»: el punto desaparece… y el nudo sigue entero,
+visible en el peinado. El punto era solo señalización, como el ojo del huracán en el
+mapa del pronóstico: no hay «partícula huracán» — hay aire girando. Acá no hay
+«partícula t» — hay mar anudado. Este botón es el final del libro 1, en tu dedo.</figcaption>
+</figure>
+
+<p>Y de yapa, tres misterios de manual que el nudo paga gratis: la <em>carga eléctrica</em>
+viene en unidades exactas porque el número de vueltas de un nudo es un número entero (no
+existe media vuelta y media — o cerró o no cerró); la carga <em>no cambia con la
+velocidad</em> (medido con 21 decimales) porque podés mover un nudo a la velocidad que
+quieras y sigue teniendo una vuelta — los enteros no se deforman; y la <em>masa</em> es
+la factura de deformación que el mar paga por hospedar el enredo.</p>
+
+<div class="marcador"><b>Marcador.</b> Que estos mares tienen nudos con clases exactas,
+espejos y fusiones: matemática publicada. Que el electrón sea uno de esos nudos: la
+apuesta mayor del libro, declarada.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">III</span>El espejo y la aniquilación</h2>
+
+<p>Todo nudo tiene su espejo: el mismo enredo, girado al revés. Un nudo solo no puede
+deshacerse jamás — pero nudo y espejo, juntos, <em>sí</em>: se desenroscan mutuamente, y
+toda la energía de deformación que el mar tenía invertida en los dos sale de golpe, como
+una onda real. En el libro 1 lo llamamos «el rulo y el contra-rulo desanudándose». Se
+llama antimateria, y su encuentro se llama aniquilación — y es la fuente de energía más
+perfecta que existe: la factura entera, cobrada al contado.</p>
+
+<figure>
+<canvas id="cvAniq"></canvas>
+<figcaption><b>Miralo:</b> el nudo verde y su espejo naranja se buscan (giros opuestos
+se atraen). Al tocarse, el enredo se cancela: los dos desaparecen y una onda real sale
+despeinando el mar a su paso. No chocan dos cosas: se desanudan dos formas. La escena
+se repite sola.</figcaption>
+</figure>
+
+<div class="marcador"><b>Marcador.</b> La aniquilación materia-antimateria es física
+medida a diario (así funciona un PET médico). Que su mecanismo sea topología
+cancelándose: la traducción de esta casa.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">IV</span>La molécula de nudos</h2>
+
+<p>Los nudos tienen vida social — y esto no lo dice nuestra imaginación sino los
+cálculos publicados de los superfluidos reales. El nudo de vuelta entera resulta
+inestable: le conviene partirse en <em>dos medios-nudos</em>, y esos dos no se van cada
+uno por su lado — quedan ligados a una distancia preferida, unidos por un puente. Una
+<em>molécula de nudos</em>. El mar tiene química antes de tener átomos.</p>
+
+<figure>
+<canvas id="cvMol"></canvas>
+<figcaption><b>Miralo:</b> dos medios-nudos, ligados por su puente (la banda naranja),
+oscilando alrededor de su distancia de equilibrio mientras la pareja rota. Si ocultaste
+el centro en la sección II, acá va la misma verdad: es <em>un solo patrón</em> del mar,
+con dos remolinos adentro.</figcaption>
+</figure>
+
+<div class="marcador"><b>Marcador.</b> Moléculas de nudos, distancias de equilibrio y
+puentes: literatura publicada de superfluidos (calculada para las estrellas de
+neutrones). La lectura «química antes que átomos»: nuestra.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">V</span>Los anillos y el secreto del twist</h2>
+
+<p>Un nudo estirado es una cuerda; una cuerda cerrada es un <em>anillo</em> — el aro de
+humo del mar. Y los anillos tienen un drama: la tensión de la cuerda quiere encogerlos
+hasta hacerlos desaparecer. ¿Qué los salva? El <em>twist</em>: una torsión atrapada
+adentro del lazo, que no puede escapar (es un número entero de vueltas — otra vez la
+aritmética) y que al comprimirse empuja de vuelta. Tensión contra twist: equilibrio.
+<em>Una partícula con tamaño y masa definidos.</em></p>
+
+<figure>
+<canvas id="cvAnillo"></canvas>
+<div class="botones">
+ <button data-k="0">sin twist</button>
+ <button data-k="1" class="on">twist 1</button>
+ <button data-k="2">twist 2</button>
+</div>
+<figcaption><b>Jugalo:</b> <em>sin twist</em>, la tensión gana y el anillo colapsa.
+Con <em>twist 1</em>, se frena solo en su radio exacto y queda — estable para siempre.
+Con <em>twist 2</em>, vive un rato… y se parte en dos anillos simples, porque pesa más
+que la suma de dos. El mar es tacaño: deja viva <b>una sola especie de anillo estable</b>
+(y su espejo). El universo real es igual de tacaño: de todo el zoológico de partículas,
+las eternas se cuentan con los dedos.</figcaption>
+</figure>
+
+<div class="marcador"><b>Marcador.</b> El mecanismo tensión-contra-twist tiene precedente
+publicado (los «vortones»); nuestro cálculo de juguete reproduce la forma. Que la
+tacañería del mar explique por qué hay tan pocas partículas estables: apuesta declarada.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">VI</span>El átomo: el carozo y la música</h2>
+
+<p class="capital">Ahora sí, armemos un átomo — con las piezas de arriba y nada más.</p>
+
+<p><b>El núcleo es un racimo de nudos pesados.</b> Protones y neutrones son nudos; el
+núcleo es un puñado de ellos, apretados — la molécula de nudos en su versión más
+extrema. Como pesa muchísimo (mucha factura de deformación junta), su sombra sobre el
+mar es honda: excava una <em>huella</em> profunda — la misma huella del libro 1, la que
+curva la luz y hace caer las manzanas. <em>El nudo proyecta la huella: la materia es el
+enredo, la gravedad es su sombra.</em></p>
+
+<p><b>El electrón no nace ahí: cae ahí.</b> Los electrones son nudos livianos que ya
+existen, vagando sueltos. Cuando uno pasa cerca de una huella honda, queda atrapado —
+como las olas del océano real quedan atrapadas dando vueltas alrededor de un monte
+submarino, sin ninguna pared: el desnivel solo alcanza para enjaularlas (fenómeno
+medido de la oceanografía). Y al acomodarse, el electrón suelta un destello de luz —
+el sobrante de energía. Hubo un día en que <em>todos</em> los átomos del universo se
+armaron a la vez, 380.000 años después del Big Bang: el flash colectivo de esa
+acomodada todavía viaja por el cielo, y los satélites lo fotografían. La luz más
+antigua del universo es el sonido de todos los átomos afinándose.</p>
+
+<p><b>¿Y por qué niveles, y no cualquier órbita?</b> Porque el electrón nunca viaja
+desnudo: lleva puesto un vestido de onda que es parte de él. Atrapada en la huella, esa
+onda tiene que <em>cerrar sobre sí misma</em>: al completar la vuelta, cresta debe
+encontrarse con cresta. Si entran seis ondulaciones justas, la onda vive; si entran
+seis y media, se borra a sí misma. Igual que una cuerda de guitarra, que no suena en
+cualquier tono sino solo en las notas que <em>caben</em>. <b>Los niveles del átomo son
+las notas de la huella.</b> Y la nota más grave no puede bajar más — por eso el átomo,
+una vez afinado, calla y dura para siempre: un patrón quieto no tiene nada acelerándose
+que pueda radiar. El problema que volvía imposibles a los átomos de 1910, resuelto por
+una cuerda de guitarra.</p>
+
+<figure>
+<canvas id="cvAtomo"></canvas>
+<div class="botones">
+ <button data-m="0" class="on">nota 1 — respira</button>
+ <button data-m="1">nota 2 — con nudo</button>
+ <button data-m="2">nota con giro</button>
+ <button data-m="3">órbita gigante (Bohr)</button>
+</div>
+<figcaption id="capAtomo"><b>Jugalo:</b> el puntito arrugado del centro es el núcleo
+(el racimo); los colores son la onda del electrón — azul empuja para un lado, naranja
+para el otro. En la <b>nota 1</b> nada gira: la onda respira en su lugar, como un
+tambor esférico (y así es de verdad: el momento de giro del electrón en el sótano del
+átomo es cero, medido). En la <b>nota con giro</b> rota el patrón entero — circula la
+onda, no una bolita. Y en la <b>órbita gigante</b>, con mucha energía, el paquete sí
+da vueltas como un planetita: el dibujo clásico de Bohr es este límite — y está medido
+en el laboratorio. En 2013, además, un microscopio especial <em>fotografió</em> la onda
+estacionaria del hidrógeno real, con sus anillos y sus nodos: la onda no es metáfora —
+está retratada.</figcaption>
+</figure>
+
+<p>Última imagen, para llevarse: los tamaños están al revés de lo que la intuición
+pide. En el mar, <em>cuanto más pesado el nudo, más compacto su vestido</em>. El núcleo,
+pesadísimo, es diminuto. El electrón, ligerito, tiene la onda larga — y su nota llena
+el átomo entero. Las proporciones reales: si el núcleo fuera un poroto en el centro de
+una cancha de fútbol, la nota del electrón ocuparía todo el estadio. <b>El átomo es el
+vestido del electrón</b>: una nube de música del tamaño del estadio, con un carozo
+pesadísimo del tamaño de un poroto en el medio. Casi todo lo que tocás cuando tocás
+una mesa es… la nota.</p>
+
+<div class="destacado">El núcleo es un racimo diminuto de nudos pesados cuya sombra
+excava una huella honda. Los electrones son nudos livianos que caen en esa huella —
+soltando luz al acomodarse — y quedan con su vestido desplegado en las notas que
+cierran. Un átomo es eso: aros de humo quietos en el centro, y la música de un aro
+liviano llenando todo el espacio de alrededor.</div>
+
+<div class="marcador"><b>Marcador.</b> Esta es la sección más firme de la página: es
+física establecida — niveles, capturas, la foto de 2013, el fondo cósmico — contada en
+lenguaje del mar. La única apuesta es la traducción misma: que la «montaña» sea la
+huella del libro 1.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">VII</span>Lo que falta, dicho de frente</h2>
+
+<p>Esta página cuenta lo que da imagen; el libro completo cuenta también lo que duele:
+las <em>cinco ideas nuestras que murieron</em> en el camino (cada una con su causa
+citada), los <em>siete errores propios</em> confesados con fecha, la anisotropía que
+sigue abierta, y el examen final que espera: un púlsar a 21.000 años luz cuya órbita
+se achica exactamente como Einstein predijo, al 99.8%. Nuestro mar ya aprobó la
+<em>forma</em> de esa espiral (lo verificamos número por número); le falta aprobar el
+<em>coeficiente</em> — y si no lo aprueba, el mar se hunde y lo contaremos igual.
+Publicamos las instrucciones para matarnos antes de saber si sobrevivimos. Esa es la
+regla de esta casa, y es la única razón por la que vale la pena leernos.</p>
+
+<footer>
+ <p><b>El mar y sus nudos</b> — Teoría del Campo Intangible (TCI), etapa especulativa
+ en desarrollo · Nicolás Irigoyen &amp; Fable</p>
+ <p>Primera parte: <a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">«El océano y la huella»</a> ·
+ <a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">sitio conceptual</a> ·
+ <a href="https://irigoyennicolas1991.github.io/ift-theory/">corpus técnico</a> ·
+ <a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo">bitácora de investigación</a></p>
+ <p>Toda suposición se declara · toda derrota se publica el mismo día · ningún
+ «exactamente» sin su cálculo detrás.</p>
+</footer>
+
+</div>
+
+<script>
+// ================= utilidades =================
+function fitCanvas(cv){
+ const r=cv.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);
+ cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);
+ const ctx=cv.getContext('2d');ctx.setTransform(d,0,0,d,0,0);
+ return {W:r.width,H:r.height,ctx};
+}
+function pointerPos(cv,e){
+ const r=cv.getBoundingClientRect();
+ return {x:(e.clientX-r.left),y:(e.clientY-r.top)};
+}
+
+// ================= campo de almendras (compartido) =================
+function makeField(cv){
+ const s=fitCanvas(cv);
+ const gx=Math.round(s.W/15),gy=Math.round(s.H/15);
+ const sx=s.W/gx,sy=s.H/gy;
+ function draw(defs,ripples,show){
+  const ctx=s.ctx;
+  ctx.clearRect(0,0,s.W,s.H);
+  for(let i=0;i<gx;i++)for(let j=0;j<gy;j++){
+   const x=(i+0.5)*sx,y=(j+0.5)*sy;
+   let th=0,near=1e9;
+   for(const d of defs){
+    const dx=x-d.x,dy=y-d.y;
+    th+=d.k*Math.atan2(dy,dx);
+    near=Math.min(near,Math.hypot(dx,dy));
+   }
+   for(const r of ripples){
+    const rr=Math.hypot(x-r.x,y-r.y),front=r.age*2.6;
+    th+=0.8*Math.exp(-((rr-front)**2)/900)*Math.sin(rr*0.15-r.age*0.3);
+   }
+   const L=6.5,agit=Math.min(1,18/Math.max(near,4));
+   ctx.strokeStyle=`rgba(105,170,230,${0.3+0.55*agit})`;
+   ctx.lineWidth=1+1.5*agit;
+   ctx.beginPath();
+   ctx.moveTo(x-L*Math.cos(th),y-L*Math.sin(th));
+   ctx.lineTo(x+L*Math.cos(th),y+L*Math.sin(th));
+   ctx.stroke();
+  }
+  if(show)for(const d of defs){
+   ctx.fillStyle=d.k>0?'#2fbf95':'#e07b4f';
+   ctx.beginPath();ctx.arc(d.x,d.y,6,0,6.2832);ctx.fill();
+  }
+  return s;
+ }
+ return {draw,s};
+}
+
+// ================= II: el nudo (arrastrable + ocultar centro) =================
+(function(){
+ const cv=document.getElementById('cvNudo');
+ const F=makeField(cv);
+ let show=true,t=0;
+ const d={x:F.s.W*0.3,y:F.s.H*0.5,k:0.5};
+ let target={x:F.s.W*0.6,y:F.s.H*0.5},auto=true;
+ cv.addEventListener('pointermove',e=>{target=pointerPos(cv,e);auto=false;});
+ cv.addEventListener('pointerdown',e=>{target=pointerPos(cv,e);auto=false;});
+ document.getElementById('btOcultar').addEventListener('click',function(){
+  show=!show;this.textContent=show?'ocultar el centro':'mostrar el centro';
+  this.classList.toggle('on',!show);
+ });
+ (function step(){
+  t++;
+  if(auto){target.x=F.s.W*0.5+F.s.W*0.3*Math.cos(t*0.008);
+           target.y=F.s.H*0.5+F.s.H*0.28*Math.sin(t*0.016);}
+  d.x+=(target.x-d.x)*0.06;d.y+=(target.y-d.y)*0.06;
+  F.draw([d],[],show);
+  requestAnimationFrame(step);
+ })();
+})();
+
+// ================= III: aniquilacion =================
+(function(){
+ const cv=document.getElementById('cvAniq');
+ const F=makeField(cv);
+ let st;
+ function reset(){st={defs:[{x:F.s.W*0.18,y:F.s.H*0.5,k:0.5},
+                          {x:F.s.W*0.82,y:F.s.H*0.5,k:-0.5}],ripples:[],dead:false};}
+ reset();
+ (function step(){
+  if(!st.dead){
+   const a=st.defs[0],b=st.defs[1];
+   const dx=b.x-a.x,dy=b.y-a.y,r=Math.hypot(dx,dy);
+   const v=1.2*Math.min(1,60/r)+0.22;
+   a.x+=v*dx/r;a.y+=v*dy/r;b.x-=v*dx/r;b.y-=v*dy/r;
+   if(r<16){st.dead=true;
+    st.ripples.push({x:(a.x+b.x)/2,y:(a.y+b.y)/2,age:0});
+    st.defs=[];setTimeout(reset,4200);}
+  }
+  for(const rp of st.ripples)rp.age++;
+  st.ripples=st.ripples.filter(r=>r.age<260);
+  F.draw(st.defs,st.ripples,true);
+  requestAnimationFrame(step);
+ })();
+})();
+
+// ================= IV: molecula =================
+(function(){
+ const cv=document.getElementById('cvMol');
+ const F=makeField(cv);
+ let t=0,ang=0;
+ const a={x:0,y:0,k:0.5},b={x:0,y:0,k:0.5};
+ (function step(){
+  t++;ang+=0.006;
+  const d0=F.s.W*0.18*(1+0.22*Math.sin(t*0.05));
+  const cx=F.s.W/2,cy=F.s.H/2;
+  a.x=cx-0.5*d0*Math.cos(ang);a.y=cy-0.5*d0*Math.sin(ang);
+  b.x=cx+0.5*d0*Math.cos(ang);b.y=cy+0.5*d0*Math.sin(ang);
+  const s=F.draw([a,b],[],true);
+  s.ctx.strokeStyle='rgba(224,123,79,0.32)';s.ctx.lineWidth=10;s.ctx.lineCap='round';
+  s.ctx.beginPath();s.ctx.moveTo(a.x,a.y);s.ctx.lineTo(b.x,b.y);s.ctx.stroke();
+  requestAnimationFrame(step);
+ })();
+})();
+
+// ================= V: anillos y twist =================
+(function(){
+ const cv=document.getElementById('cvAnillo');
+ const s=fitCanvas(cv);
+ let ktw=1,t=0,st;
+ function reset(){t=0;st={rings:[{x:s.W/2,y:s.H/2,R:Math.min(s.W,s.H)*0.36,k:ktw,alive:true}],split:false,msg:''};}
+ reset();
+ document.querySelectorAll('#cvAnillo ~ .botones button').forEach(b=>{
+  b.addEventListener('click',()=>{
+   ktw=+b.dataset.k;
+   document.querySelectorAll('#cvAnillo ~ .botones button').forEach(x=>x.classList.toggle('on',x===b));
+   reset();
+  });
+ });
+ (function step(){
+  t++;
+  const ctx=s.ctx,al=0.9,be=2600;
+  ctx.clearRect(0,0,s.W,s.H);
+  for(const r of st.rings){
+   if(!r.alive)continue;
+   const dE=al*(Math.log(Math.max(r.R,2)/8)+2)-be*r.k*r.k/(r.R*r.R);
+   r.R-=0.5*dE;
+   if(r.R<3&&r.k===0&&st.rings.every(x=>x.alive)){
+    r.alive=false;st.msg='colapso: sin twist, la tensión gana — reiniciando…';
+    setTimeout(reset,1600);}
+  }
+  if(ktw===2&&!st.split&&t>160){
+   st.split=true;st.msg='pesa más que dos anillos simples: ¡fisión!';
+   const r0=st.rings[0];
+   st.rings=[{x:r0.x-s.W*0.14,y:r0.y,R:r0.R*0.7,k:1,alive:true},
+             {x:r0.x+s.W*0.14,y:r0.y,R:r0.R*0.7,k:1,alive:true}];
+  }
+  for(const r of st.rings){
+   if(!r.alive)continue;
+   ctx.strokeStyle='#5fa8e6';ctx.lineWidth=4;
+   ctx.beginPath();ctx.arc(r.x,r.y,Math.max(r.R,2),0,6.2832);ctx.stroke();
+   if(r.k>0){
+    ctx.strokeStyle='#e07b4f';ctx.lineWidth=2.5;
+    const n=10*r.k;
+    for(let m=0;m<n;m++){
+     const a=m/n*6.2832+t*0.02*r.k;
+     ctx.beginPath();
+     ctx.moveTo(r.x+(r.R-6)*Math.cos(a),r.y+(r.R-6)*Math.sin(a));
+     ctx.lineTo(r.x+(r.R+6)*Math.cos(a+0.22),r.y+(r.R+6)*Math.sin(a+0.22));
+     ctx.stroke();
+    }
+   }
+   ctx.fillStyle='#8fa8bb';ctx.font='12px Inter,sans-serif';
+   ctx.fillText(`R=${r.R.toFixed(0)}  twist=${r.k}`,r.x-36,r.y+4);
+  }
+  if(st.msg){ctx.fillStyle='#8fa8bb';ctx.font='13px Inter,sans-serif';ctx.fillText(st.msg,16,24);}
+  requestAnimationFrame(step);
+ })();
+})();
+
+// ================= VI: el atomo =================
+(function(){
+ const cv=document.getElementById('cvAtomo');
+ const s=fitCanvas(cv);
+ const cx=s.W/2,cy=s.H/2;
+ let mode=0,t=0;
+ // mar de puntos fijo (semilla determinista)
+ let seed=42;const rng=()=> (seed=(seed*1664525+1013904223)>>>0)/4294967296;
+ const dots=[];
+ const Rmax=Math.min(s.W,s.H)*0.48;
+ for(let i=0;i<2800;i++){const a=rng()*6.2832,r=Math.sqrt(rng())*Rmax;
+  dots.push([cx+r*Math.cos(a),cy+r*Math.sin(a)]);}
+ function psi(x,y){
+  const dx=x-cx,dy=y-cy,r=Math.hypot(dx,dy),ph=Math.atan2(dy,dx);
+  const u=Rmax/200;
+  if(mode===0)return Math.exp(-r/(55*u))*Math.cos(t*2.2);
+  if(mode===1)return (1-r/(80*u))*Math.exp(-r/(95*u))*Math.cos(t*2.2)*1.4;
+  if(mode===2)return (r/(70*u))*Math.exp(-r/(70*u))*Math.cos(ph-t*1.4)*1.9;
+  const R=Rmax*0.72,px=cx+R*Math.cos(t*0.9),py=cy+R*Math.sin(t*0.9);
+  const d2=(x-px)*(x-px)+(y-py)*(y-py);
+  return 2.2*Math.exp(-d2/(1500*u*u))+0.25*Math.exp(-((r-R)**2)/(900*u*u))*Math.cos(6*ph-t*5.4);
+ }
+ document.querySelectorAll('#cvAtomo ~ .botones button').forEach(b=>{
+  b.addEventListener('click',()=>{
+   mode=+b.dataset.m;
+   document.querySelectorAll('#cvAtomo ~ .botones button').forEach(x=>x.classList.toggle('on',x===b));
+  });
+ });
+ (function step(){
+  const ctx=s.ctx;
+  ctx.clearRect(0,0,s.W,s.H);
+  for(const[x,y]of dots){
+   const v=psi(x,y),a=Math.min(1,Math.abs(v));
+   if(a<0.04){ctx.fillStyle='rgba(140,160,180,0.22)';ctx.fillRect(x,y,1.5,1.5);continue;}
+   ctx.fillStyle=v>0?`rgba(95,168,230,${0.15+0.85*a})`:`rgba(224,123,79,${0.15+0.85*a})`;
+   const sz=1.5+3*a;ctx.fillRect(x-sz/2,y-sz/2,sz,sz);
+  }
+  ctx.strokeStyle='rgba(190,205,220,0.9)';ctx.lineWidth=2;
+  ctx.beginPath();
+  for(let i=0;i<=40;i++){const a=i/40*6.2832,rr=7+2.6*Math.sin(3*a+t*0.6);
+   ctx.lineTo(cx+rr*Math.cos(a),cy+rr*Math.sin(a));}
+  ctx.closePath();ctx.stroke();
+  t+=0.033;
+  requestAnimationFrame(step);
+ })();
+})();
+
+// ================= tema =================
+document.getElementById('tema').addEventListener('click',function(){
+ document.body.classList.toggle('claro');
+ this.textContent=document.body.classList.contains('claro')?'modo profundo':'modo claro';
+});
+</script>
+</body>
+</html>
