@@ -5,7 +5,9 @@ La misma fisica continua que motor.py, con el mar afinado n veces.
 RECETA DE ESCALADO (para que el continuo no cambie al afinar el mar):
   cada grano lleva masa m = (W*H/500)/n   (a n = W*H/500 -> m=1: motor 1 exacto)
   acc grano<-grano:  KII*m/d^2            (la masa total del mar se conserva)
-  mind2 grano-grano: 36*m                 (el regularizador es el tamano del grano)
+  mind2 grano-grano: 36*sqrt(m)           (nucleo BLANDO: ver comentario en
+                                           __init__; con 36*m hay calentamiento
+                                           numerico y el mar fino nunca enfria)
   sol/planeta -> grano: KTSOL/d^2, KTP/d^2 sin cambio (con mind2=36 fijo:
                         es el tamano de la FUENTE, no del grano)
   reaccion sobre el planeta: MASA*m por grano (el total se conserva)
@@ -47,8 +49,17 @@ class MarTCI2:
         self.kii_m = float(kii) * self.m
         self.ktsol, self.ktp = float(ktsol), float(ktp)
         self.masa_m = float(masa) * self.m
-        self.mind2 = 36.0 * self.m
+        # NUCLEO BLANDO: mind2 = 36*sqrt(m), no 36*m. Con 36*m el periodo de
+        # la oscilacion de contacto cae como m^(1/4) y dt=1 no lo resuelve ->
+        # calentamiento numerico (verificado 2026-07-17: el mar fino quedaba
+        # clavado en |v|~0.6-2.2 CON damping; con nucleo blando enfria a
+        # |v|=0.015 en 8000 pasos). Con 36*sqrt(m) el periodo de contacto
+        # crece como m^(-1/8): dt=1 estable a toda escala. A m=1 es 36 (la
+        # referencia web exacta). Declarado: el nucleo es fisica sub-grano;
+        # su efecto sobre el continuo se verifica con a_r en el estudio.
+        self.mind2 = 36.0 * self.m ** 0.5
         self.playa = float(playa)
+        self.dt_estable = 1.0
 
         esp = (self.W * self.H / self.n) ** 0.5
         q_obj = max(16.0, 0.2 * self.n ** 0.5)   # granos por celda (balance)
@@ -221,19 +232,19 @@ class MarTCI2:
             self.fpl[None] += self.fplpar[k]
 
     @ti.kernel
-    def _mover(self, frio: ti.i32):
+    def _mover(self, frio: ti.i32, dt: ti.f32, damp_frio: ti.f32):
         for i in self.pos:
-            v = self.vel[i] + self.acc[i]
+            v = self.vel[i] + self.acc[i] * dt
             if frio == 1:
-                v *= 0.995
+                v *= damp_frio
             else:
                 p0 = self.pos[i]
                 db = ti.min(ti.min(p0.x, self.W - p0.x),
                             ti.min(p0.y, self.H - p0.y))
                 if db < self.playa:
                     s = 1.0 - db / self.playa
-                    v *= 1.0 - 0.05 * s * s
-            p = self.pos[i] + v
+                    v *= 1.0 - 0.05 * s * s * dt
+            p = self.pos[i] + v * dt
             if p.x < 0.0:
                 p.x = 0.0
                 v.x *= -0.6
@@ -249,8 +260,11 @@ class MarTCI2:
             self.vel[i] = v
             self.pos[i] = p
 
-    def step(self, modo='vivo', planeta=None):
-        """Un paso. Misma interfaz que motor.MarTCI."""
+    def step(self, modo='vivo', planeta=None, dt=None):
+        """Un paso de dt unidades de tiempo (default: dt_estable del mar).
+        Misma interfaz que motor.MarTCI; devuelve la fuerza sobre el planeta."""
+        if dt is None:
+            dt = self.dt_estable
         self._contar()
         self._scan_serial()
         self._preparar_cursor()
@@ -261,14 +275,14 @@ class MarTCI2:
         else:
             self._fuerzas(planeta['x'], planeta['y'], 1)
             self._reducir_fpl()
-        self._mover(1 if modo == 'frio' else 0)
+        self._mover(1 if modo == 'frio' else 0, dt, 0.995 ** dt)
         fx = fy = 0.0
         if planeta is not None:
             f = self.fpl[None]
             fx, fy = float(f[0]), float(f[1])
             if not planeta.get('fixed', False):
-                planeta['vx'] += fx
-                planeta['vy'] += fy
-                planeta['x'] += planeta['vx']
-                planeta['y'] += planeta['vy']
+                planeta['vx'] += fx * dt
+                planeta['vy'] += fy * dt
+                planeta['x'] += planeta['vx'] * dt
+                planeta['y'] += planeta['vy'] * dt
         return fx, fy

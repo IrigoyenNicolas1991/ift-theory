@@ -88,19 +88,19 @@ class MarTCI:
             self.fpl[None] += self.fplpar[k]
 
     @ti.kernel
-    def _mover(self, frio: ti.i32):
+    def _mover(self, frio: ti.i32, dt: ti.f32, damp_frio: ti.f32):
         for i in self.pos:
-            v = self.vel[i] + self.acc[i]
+            v = self.vel[i] + self.acc[i] * dt
             if frio == 1:
-                v *= 0.995
+                v *= damp_frio
             else:
                 p0 = self.pos[i]
                 db = ti.min(ti.min(p0.x, self.W - p0.x),
                             ti.min(p0.y, self.H - p0.y))
                 if db < self.playa:
                     s = 1.0 - db / self.playa
-                    v *= 1.0 - 0.05 * s * s
-            p = self.pos[i] + v
+                    v *= 1.0 - 0.05 * s * s * dt
+            p = self.pos[i] + v * dt
             if p.x < 0.0:
                 p.x = 0.0
                 v.x *= -0.6
@@ -116,8 +116,9 @@ class MarTCI:
             self.vel[i] = v
             self.pos[i] = p
 
-    def step(self, modo='vivo', planeta=None):
-        """Un paso. planeta = dict {x,y,vx,vy,fixed} (se muta) o None.
+    def step(self, modo='vivo', planeta=None, dt=1.0):
+        """Un paso de dt unidades de tiempo (dt=1 = la referencia web).
+        planeta = dict {x,y,vx,vy,fixed} (se muta) o None.
         Devuelve (fx, fy): fuerza del mar sobre el planeta en este paso."""
         if planeta is None:
             self._fuerzas(0.0, 0.0, 0)
@@ -125,14 +126,14 @@ class MarTCI:
             self._limpiar_fpl()
             self._fuerzas(planeta['x'], planeta['y'], 1)
             self._reducir_fpl()
-        self._mover(1 if modo == 'frio' else 0)
+        self._mover(1 if modo == 'frio' else 0, dt, 0.995 ** dt)
         fx = fy = 0.0
         if planeta is not None:
             f = self.fpl[None]
             fx, fy = float(f[0]), float(f[1])
             if not planeta.get('fixed', False):
-                planeta['vx'] += fx
-                planeta['vy'] += fy
-                planeta['x'] += planeta['vx']
-                planeta['y'] += planeta['vy']
+                planeta['vx'] += fx * dt
+                planeta['vy'] += fy * dt
+                planeta['x'] += planeta['vx'] * dt
+                planeta['y'] += planeta['vy'] * dt
         return fx, fy

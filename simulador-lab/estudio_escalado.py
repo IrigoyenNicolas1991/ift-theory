@@ -21,33 +21,37 @@ import numpy as np
 import taichi as ti
 
 
-def medir(mar, pasos_extra_frio, pl):
+def medir(mar, pasos_extra_frio, pl, dt):
     """Enfria pasos_extra_frio mas (con el planeta fijo puesto) y mide 400
     pasos. Devuelve (a_r, error, |v|medio del mar)."""
     for _ in range(pasos_extra_frio):
-        mar.step('frio', pl)
+        mar.step('frio', pl, dt=dt)
     fs = []
     for _ in range(400):
-        f, _ = mar.step('frio', pl)
+        f, _ = mar.step('frio', pl, dt=dt)
         fs.append(f)
     fs = np.array(fs)
     v = np.abs(mar.vel.to_numpy()).mean()
     return -fs.mean(), fs.std() / math.sqrt(len(fs)), v
 
 
-def protocolo(mar, etiqueta):
+def protocolo(mar, etiqueta, momentos=3, dt=1.0):
+    """Los conteos de pasos se escalan 1/dt: mismo TIEMPO fisico simulado."""
     R0 = 150.0
     t0 = time.perf_counter()
-    for _ in range(3500):
-        mar.step('frio')
+    esc = 1.0 / dt
+    for _ in range(int(3500 * esc)):
+        mar.step('frio', dt=dt)
     pl = {'x': mar.cx + R0, 'y': mar.cy, 'vx': 0.0, 'vy': 0.0, 'fixed': True}
-    for _ in range(700):
-        mar.step('frio', pl)
-    # tres mediciones con enfriamiento creciente entre medio
-    for momento, extra in (('~4.2k', 0), ('~10k', 5400), ('~20k', 9600)):
-        ar, err, v = medir(mar, extra, pl)
-        print(f"  {etiqueta} frio {momento}: a_r={ar:.3e} +/- {err:.1e}  "
-              f"|v|mar={v:.3f}", flush=True)
+    for _ in range(int(700 * esc)):
+        mar.step('frio', pl, dt=dt)
+    # mediciones con enfriamiento creciente entre medio
+    plan = (('t~4.2k', 0), ('t~10k', int(5400 * esc)),
+            ('t~20k', int(9600 * esc)))[:momentos]
+    for momento, extra in plan:
+        ar, err, v = medir(mar, extra, pl, dt)
+        print(f"  {etiqueta} dt={dt:.2f} frio {momento}: a_r={ar:.3e} "
+              f"+/- {err:.1e}  |v|mar={v:.3f}", flush=True)
     print(f"  ({time.perf_counter() - t0:.0f}s)", flush=True)
 
 
@@ -55,6 +59,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--arch', default='vulkan', choices=['vulkan', 'cpu'])
     ap.add_argument('--n', type=int, nargs='+', default=[720, 7200, 28800])
+    ap.add_argument('--solo', default='ambos',
+                    choices=['ambos', 'exacto', 'motor2'])
+    ap.add_argument('--momentos', type=int, default=3)
     args = ap.parse_args()
     ti.init(arch=getattr(ti, args.arch))
     from motor import MarTCI
@@ -62,12 +69,16 @@ def main():
 
     for n in args.n:
         m = (600 * 600 / 500.0) / n
-        print(f"== n={n} (m={m:.4f}) ==", flush=True)
-        protocolo(MarTCI(W=600, H=600, n=n, semilla=1,
-                         kii=14.0 * m, masa=0.03 * m, mind2=36.0 * m),
-                  'EXACTO')
-        protocolo(MarTCI2(W=600, H=600, n=n, semilla=1, init='uniforme'),
-                  'MOTOR2')
+        dt = 1.0   # el nucleo blando (mind2=36*sqrt(m)) es estable con dt=1
+        print(f"== n={n} (m={m:.4f}, nucleo blando, dt={dt:.2f}) ==", flush=True)
+        if args.solo in ('ambos', 'exacto'):
+            protocolo(MarTCI(W=600, H=600, n=n, semilla=1,
+                             kii=14.0 * m, masa=0.03 * m,
+                             mind2=36.0 * m ** 0.5),
+                      'EXACTO', args.momentos, dt)
+        if args.solo in ('ambos', 'motor2'):
+            protocolo(MarTCI2(W=600, H=600, n=n, semilla=1, init='uniforme'),
+                      'MOTOR2', args.momentos, dt)
 
 
 if __name__ == '__main__':

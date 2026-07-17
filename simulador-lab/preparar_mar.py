@@ -29,9 +29,10 @@ def main():
 
     os.makedirs('datos', exist_ok=True)
     ruta = f"datos/mar_n{args.n}_l{args.lado}_s{args.semilla}.npz"
+    print(f"dt estable del mar: {mar.dt_estable:.2f} (CFL de contacto)")
     t0 = time.perf_counter()
     pasos = 0
-    while pasos < 60000:
+    while pasos < 90000:
         for _ in range(1000):
             mar.step('frio')
         pasos += 1000

@@ -55,6 +55,9 @@ def main():
         lado = args.lado or (600 if args.n is None else int((args.n * 500) ** 0.5))
     mar = Motor(W=lado, H=lado, n=n, semilla=args.semilla)
     lado = mar.W
+    # dt estable (CFL de contacto): el motor 2 fino integra con dt<1;
+    # los conteos de fases se escalan para simular el mismo tiempo fisico
+    DT = mar.dt_estable if args.motor == 2 else 1.0
     escala = lado / 600.0
     R0 = args.r0 or 150.0 * escala
     R_CAPTURA = 30.0
@@ -98,7 +101,7 @@ def main():
         # si no hay cache, se enfria adaptativo (|v|<0.05) y se guarda solo
         frio_tot = 3500
         if args.motor == 2:
-            frio_tot = 400 if mar.cargar(ruta_cache(semilla)) else None
+            frio_tot = int(400 / DT) if mar.cargar(ruta_cache(semilla)) else None
         st.update(fase='frio', cont=0, pl=None, fx_acum=0.0, aR=0.0, vc=0.0,
                   L0=0.0, th=0.0, prev=0.0, vueltas=0.0, boost=0.0, pasos_orb=0,
                   msg='', fin_espera=0, semilla=semilla,
@@ -113,7 +116,7 @@ def main():
     pasos_seg = 0.0                      # medidor EMA
     t_prev = time.perf_counter()
 
-    ACOM_TOT, MEDIR_TOT = 700, 300
+    ACOM_TOT, MEDIR_TOT = int(700 / DT), int(300 / DT)
 
     def fisica_del_cuadro():
         f = st['fase']
@@ -175,8 +178,8 @@ def main():
                     deficit = (st['L0'] - L) / st['L0']
                     if deficit > 0:
                         g = st['aR'] * min(SERVO_TOPE, SERVO_K * deficit)
-                        pl['vx'] += g * (-ry / r)
-                        pl['vy'] += g * (rx / r)
+                        pl['vx'] += g * DT * (-ry / r)
+                        pl['vy'] += g * DT * (rx / r)
                         st['boost'] += g / st['aR']
                 dx, dy = pl['x'] - mar.cx, pl['y'] - mar.cy
                 r = math.hypot(dx, dy)
@@ -268,7 +271,8 @@ def main():
                        'fin': st['msg'] + ' - reinicia solo'}
             gui.text(f"fase: {nombres[st['fase']]}")
             gui.text(f"motor {args.motor} | granos: {mar.n} | "
-                     f"cancha: {int(lado)}px | {pasos_seg:.0f} pasos/s")
+                     f"cancha: {int(lado)}px | dt={DT:.2f} | "
+                     f"{pasos_seg:.0f} pasos/s")
             if st['fase'] == 'orbita' or st['fase'] == 'fin':
                 gui.text(f"vueltas: {st['vueltas']:.2f}   v_circ medida: {st['vc']:.3f}")
                 torque = (st['boost'] / max(1, st['pasos_orb'])) * 100
