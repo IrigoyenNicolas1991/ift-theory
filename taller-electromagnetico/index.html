@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El taller electromagnético del mar — TCI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --fondo:#071620; --panel:#0b2231; --tinta:#dce8f2; --tenue:#8fa8bb;
+ --azul:#5fa8e6; --verde:#2fbf95; --naranja:#e07b4f; --linea:#1b3a4f;
+}
+body.claro{
+ --fondo:#f7f3ec; --panel:#efe7da; --tinta:#2b2620; --tenue:#7a6f61;
+ --azul:#1d6db8; --verde:#0f7a5c; --naranja:#b35427; --linea:#d8cbb8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);
+ font-family:Lora,Georgia,serif;font-size:19px;line-height:1.75;
+ transition:background .4s,color .4s}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+header.hero{padding:70px 0 30px;text-align:center}
+h1{font-size:40px;margin:0 0 6px;font-weight:600;letter-spacing:.5px}
+.sub{color:var(--tenue);font-family:Inter,sans-serif;font-size:15px;margin:0 0 18px}
+.aviso{background:var(--panel);border:1px solid var(--linea);border-radius:10px;
+ padding:12px 16px;font-family:Inter,sans-serif;font-size:13.5px;color:var(--tenue);
+ line-height:1.55;margin:24px 0}
+.aviso b{color:var(--tinta)}
+h2{font-size:27px;font-weight:600;margin:64px 0 14px}
+h2 .n{color:var(--naranja);font-family:Inter,sans-serif;font-size:15px;
+ vertical-align:middle;margin-right:10px;letter-spacing:2px}
+p{margin:0 0 18px}
+p.capital::first-letter{font-size:52px;float:left;line-height:.85;
+ padding:4px 8px 0 0;color:var(--azul);font-weight:600}
+em{color:var(--verde);font-style:italic}
+.destacado{border-left:3px solid var(--naranja);padding:4px 0 4px 18px;
+ margin:26px 0;font-size:20px;font-style:italic;color:var(--tinta)}
+figure{margin:30px 0}
+canvas{width:100%;height:380px;display:block;background:#04101a;
+ border-radius:12px;border:1px solid var(--linea);touch-action:none}
+body.claro canvas{background:#0a1c29}
+.botones{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+.botones button{font-family:Inter,sans-serif;font-size:13.5px;padding:7px 14px;
+ border-radius:8px;border:1px solid var(--linea);background:var(--panel);
+ color:var(--tinta);cursor:pointer}
+.botones button.on{border-color:var(--naranja);color:var(--naranja)}
+figcaption{font-family:Inter,sans-serif;font-size:13.5px;color:var(--tenue);
+ line-height:1.55;margin-top:10px}
+figcaption b{color:var(--naranja);font-weight:600}
+.marcador{background:var(--panel);border-radius:10px;padding:14px 18px;
+ font-family:Inter,sans-serif;font-size:13.5px;color:var(--tenue);margin:22px 0;line-height:1.6}
+.marcador b{color:var(--verde)}
+table{width:100%;border-collapse:collapse;font-family:Inter,sans-serif;
+ font-size:14px;margin:26px 0}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--linea)}
+th{color:var(--naranja);font-weight:600}
+td:first-child{color:var(--tinta)}
+td:last-child{color:var(--tenue)}
+.toggle{position:fixed;top:14px;right:14px;z-index:9;font-family:Inter,sans-serif;
+ font-size:13px;padding:7px 12px;border-radius:20px;border:1px solid var(--linea);
+ background:var(--panel);color:var(--tinta);cursor:pointer}
+footer{margin-top:70px;padding-top:24px;border-top:1px solid var(--linea);
+ font-family:Inter,sans-serif;font-size:13.5px;color:var(--tenue);line-height:1.8}
+footer a{color:var(--azul);text-decoration:none}
+</style>
+</head>
+<body>
+<button class="toggle" id="tema">modo claro</button>
+
+<div class="wrap">
+
+<header class="hero">
+ <h1>El taller electromagnético del mar</h1>
+ <p class="sub">Teoría del Campo Intangible · el electromagnetismo contado para gente de taller</p>
+</header>
+
+<div class="aviso"><b>Aviso de la casa:</b> esto es una etapa especulativa en desarrollo —
+no es el corpus publicado de TCI ni física establecida en su interpretación. Lo que sí es
+establecido: cada fenómeno que vas a ver (Coulomb, Ampère, las ondas, Faraday) está medido
+hasta el hartazgo. Lo especulativo es el <em>mecanismo de mar</em> que esta página propone
+por debajo. Al final está la letra chica completa.</div>
+
+<p class="capital">Esta página está dedicada a los que piensan en tensiones, deformaciones
+y circulación — porque ese es, aunque hoy casi nadie lo cuente, <em>el idioma en el que el
+electromagnetismo nació</em>. Faraday veía sus líneas de campo como cosas físicas tendidas
+en un medio. Maxwell dedujo sus ecuaciones imaginando engranajes y vórtices. Y en 1839 —
+veinticinco años antes de Maxwell — un físico llamado MacCullagh construyó la teoría de un
+medio elástico rotacional cuyas ondas transversales reproducen exactamente las ecuaciones
+de la luz. El siglo XX se quedó con el álgebra y tiró el andamiaje. Esta página apuesta a
+que el andamiaje era el edificio: hay un mar (el de la <a
+href="../mar-y-nudos/" style="color:var(--azul)">página hermana</a>: un superfluido de
+gotas con orientación — su «peinado»), la materia son sus nudos, y el electromagnetismo
+entero es la mecánica de esos nudos y sus peinados. Todo lo de abajo se juega con el dedo.</p>
+
+<!-- ============================================================ -->
+<h2><span class="n">I</span>La carga: cuántas vueltas y para qué lado</h2>
+
+<p>Un electrón, en este cuadro, es un nudo del mar: el peinado dando una vuelta cerrada
+alrededor de un centro, imposible de alisar. La <b>carga eléctrica es el número de vueltas
+con su signo</b> — para qué lado está enroscado. Tres consecuencias inmediatas, las tres
+medidas: la carga viene en unidades exactas (los enteros no tienen decimales — por eso
+todo electrón del universo tiene exactamente la misma carga, sin fábrica ni control de
+calidad); la carga se conserva (no se puede desanudar sin un contra-nudo); y la carga no
+cambia con la velocidad — verificado con precisión de 21 decimales — porque mover un nudo
+no le cambia las vueltas.</p>
+
+<p>Y de acá sale también la respuesta a una pregunta que los libros esquivan: ¿por qué
+masa y carga no tienen ninguna relación entre sí? Porque responden preguntas distintas.
+<em>La carga cuenta</em> (¿cómo está anudado? — aritmética, un entero). <em>La masa
+cobra</em> (¿cuánto le cuesta al mar mantener el enredo? — energética, un número
+continuo). El protón tiene la misma carga que el electrón con signo opuesto pero pesa
+1836 veces más, porque es una molécula de tres nudos cuyas vueltas netas suman +1 igual,
+pero cuyo enredo total factura muchísimo más. (Dato real que respalda el cuadro: la
+física ya midió que el ~99% de la masa del protón no viene de sus piezas sino de la
+energía de ligadura que las mantiene juntas — la masa del protón <em>es</em>, medidamente,
+casi pura factura del enredo.) Y el neutrón: vueltas que suman cero, enredo completo —
+neutro y masivo. Contabilidad llena, aritmética en cero.</p>
+
+<div class="marcador"><b>Marcador.</b> Cuantización, conservación e invariancia de la
+carga: hechos medidos. Que su origen sea el conteo de vueltas de un nudo: la apuesta de
+esta casa (heredada de la página hermana, donde vive el nudo con todos sus juegos).</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">II</span>La fuerza eléctrica: superposición de deformaciones</h2>
+
+<p>Acá el ingeniero está en casa. Cada nudo impone su campo de deformación al mar, y los
+campos <em>se superponen</em>. La energía elástica almacenada depende de cómo se combinan:
+dos nudos del mismo giro <b>chocan sus peinados</b> — la deformación total crece al
+acercarlos, la energía sube con la cercanía, y como la fuerza es la pendiente de la
+energía: <em>se repelen</em>. Dos de giros opuestos <b>encajan sus peinados</b> — juntarse
+abarata la deformación: <em>se atraen</em>. Esto no es metáfora: es la energética
+calculada y medida de los vórtices reales en fluidos y superfluidos.</p>
+
+<figure>
+<canvas id="cvFuerza"></canvas>
+<div class="botones" id="subFuerza">
+ <button data-s="0">mismo giro</button>
+ <button data-s="1" class="on">giros opuestos</button>
+</div>
+<figcaption><b>Miralo:</b> con el mismo giro, fijate la zona <em>entre</em> los nudos —
+el mar queda agitado (energía cara) y se empujan hasta escaparse. Con giros opuestos,
+los peinados encajan, el medio se serena entre ellos, y se van a buscar hasta
+encontrarse. La ley de Coulomb es un resorte de mar.</figcaption>
+</figure>
+
+<p>¿Y el famoso 1/r² de Coulomb? Pura geometría: la deformación de un nudo se reparte
+sobre esferas concéntricas, y el área de la esfera crece como r² — la intensidad se
+diluye como 1/r², por la misma razón que la luz de una lamparita o el sonido de un
+parlante. Bonus para el que cursó máquinas eléctricas: la densidad de energía del campo
+(u = ε₀E²/2, la de los capacitores) es en este cuadro, literalmente, <em>densidad de
+energía de deformación elástica del medio</em>. Un capacitor cargado es un resorte de
+mar comprimido entre las placas. La fórmula del campo y la del resorte tienen la misma
+forma porque son la misma cosa.</p>
+
+<div class="marcador"><b>Marcador.</b> La energética de vórtices que se repelen (mismo
+signo) y atraen (opuesto): física publicada de medios reales. Que ESA sea la fuerza de
+Coulomb: la traducción de esta casa, cualitativa — el cálculo cuantitativo del sector
+es trabajo en curso, declarado al pie.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">III</span>El magnetismo: el remolino arrastrado</h2>
+
+<p>Un nudo quieto impone un peinado estático. Un nudo <em>en movimiento</em> arrastra
+además una <b>circulación</b>: un remolino de reacomodamiento del mar a su alrededor,
+cuya intensidad depende de la velocidad y cuyo sentido depende del giro del nudo.
+<em>Ese remolino arrastrado es el campo magnético.</em> Y las rarezas del magnetismo se
+vuelven mecánica de fluidos de primer año:</p>
+
+<p>¿Por qué la fuerza magnética depende de la velocidad de <em>ambas</em> cargas (el
+qv×B de los apuntes)? Porque es la interacción entre el remolino que arrastra una y el
+movimiento de la otra — dos vórtices en un fluido interactúan según cómo se mueven
+ambos. ¿Por qué no existen «cargas magnéticas» sueltas (monopolos)? Porque el remolino
+no es una cosa propia: es el costado móvil del nudo — no hay remolino sin nudo que lo
+arrastre. El ∇·B = 0 de las ecuaciones, en criollo: <em>los remolinos no tienen
+principio ni fin</em>.</p>
+
+<figure>
+<canvas id="cvCorr"></canvas>
+<div class="botones" id="subCorr">
+ <button data-s="0" class="on">corrientes paralelas</button>
+ <button data-s="1">corrientes opuestas</button>
+</div>
+<figcaption><b>Miralo:</b> dos nudos «subiendo por el cable», cada uno arrastrando su
+remolino (los arcos naranjas). Corrientes <em>paralelas</em>: los remolinos encajan
+entre los cables y el flujo compartido abarata la energía — se atraen (la fuerza de
+Ampère: con esto se define el amperio). Corrientes <em>opuestas</em>: los remolinos
+chocan — se repelen. Dos ciclistas en pelotón gastan menos que dos de frente.</figcaption>
+</figure>
+
+<div class="marcador"><b>Marcador.</b> La atracción de corrientes paralelas: medida
+desde 1820 (Ampère). El mecanismo de remolinos encajados: la imagen de esta casa —
+que es, casi al pie de la letra, la que usaba el propio Maxwell para deducir sus
+ecuaciones.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">IV</span>La luz: el temblor del peinado</h2>
+
+<p>Sacudí un nudo — una antena es exactamente eso: electrones zamarreados de acá para
+allá millones de veces por segundo. El peinado a su alrededor no se entera al instante:
+el reacomodamiento <em>viaja</em>, como una ondulación transversal del peinado —
+perpendicular a la dirección de avance — con la deformación (E) y el remolino (B)
+generándose mutuamente a cada paso. Eso es una onda de radio. Eso es la luz. La
+diferencia entre tu WiFi y el color rojo es solo qué tan rápido se sacude el nudo.</p>
+
+<figure>
+<canvas id="cvAntena"></canvas>
+<figcaption><b>Miralo:</b> el nudo oscila (la antena) y los frentes del temblor se
+propagan hacia la derecha, encendiéndose al pasar. Fijate que la perturbación no llega
+instantánea a ningún lado: viaja a la velocidad del mar. La matemática de este medio —
+un elástico rotacional cuyas ondas transversales son exactamente las de la luz — existe
+desde 1839 (MacCullagh), veinticinco años antes de Maxwell. Lo que nunca tuvo es un
+medio real que la encarne. Esta casa le propone el mar.</figcaption>
+</figure>
+
+<div class="marcador"><b>Marcador.</b> Que las ondas EM son transversales y viajan a c:
+medido. La identificación fina del fotón en este mar es trabajo en curso — y con una
+derrota ya confesada: nuestra primera candidata (una onda simple del mar abierto) murió
+por viajar a otra velocidad que la gravedad, cuando la realidad exige igualdad a 15
+decimales. Sabemos dónde el fotón NO vive; la pista actual apunta al tejido de nudos.
+Letra chica completa al pie.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">V</span>La inducción: solo el cambio induce</h2>
+
+<p>La joya de Faraday — el principio que hace funcionar cada generador, cada
+transformador y cada motor del planeta: un campo magnético <em>variable</em> induce
+corriente en un conductor. En el mar se cuenta así: el imán arrastra su remolino;
+mientras el imán se mueve, el remolino <em>cambia</em>, y un remolino cambiante
+re-peina el mar a su alrededor — y ese re-peinado <b>empuja los nudos del cable</b>.
+Corriente inducida. Frenás el imán: remolino quieto, mar quieto, cable muerto. No es
+el campo lo que empuja: es su <em>cambio</em>. Un fluidista lo diría en cuatro
+palabras: circulación variable induce flujo.</p>
+
+<figure>
+<canvas id="cvInd"></canvas>
+<div class="botones" id="subInd">
+ <button data-s="0">frenar el imán</button>
+ <button data-s="1" class="on">mover el imán</button>
+</div>
+<figcaption><b>Jugalo:</b> con el imán en movimiento, mirá los puntos del cable
+oscilar (se pintan de naranja: corriente). Apretá «frenar el imán»: todo se detiene al
+instante. Ese botón es la diferencia entre tener luz en tu casa y no tenerla — las
+represas, las turbinas y los alternadores existen para mover imanes cerca de cables.</figcaption>
+</figure>
+
+<div class="marcador"><b>Marcador.</b> La inducción: medida desde 1831 y base de la
+civilización eléctrica. El mecanismo del re-peinado: la imagen de esta casa — que es
+la de Faraday, devuelta a su medio.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">VI</span>El diccionario del taller</h2>
+
+<table>
+<tr><th>Electromagnetismo</th><th>En el mar</th></tr>
+<tr><td>Carga q</td><td>Vueltas del nudo (entero con signo)</td></tr>
+<tr><td>Campo E</td><td>El peinado impuesto (deformación estática)</td></tr>
+<tr><td>Campo B</td><td>El remolino arrastrado (circulación por movimiento)</td></tr>
+<tr><td>Coulomb 1/r²</td><td>Dilución de la deformación sobre esferas</td></tr>
+<tr><td>u = ε₀E²/2</td><td>Energía elástica de deformación del medio</td></tr>
+<tr><td>Fuerza qv×B</td><td>Interacción remolino-movimiento (dos vórtices)</td></tr>
+<tr><td>∇·B = 0</td><td>Los remolinos no tienen principio ni fin</td></tr>
+<tr><td>Inducción de Faraday</td><td>Circulación variable re-peina y empuja nudos</td></tr>
+<tr><td>Onda electromagnética</td><td>Temblor transversal del peinado (MacCullagh 1839)</td></tr>
+<tr><td>Conservación de la carga</td><td>No se desanuda sin contra-nudo</td></tr>
+<tr><td>Masa vs carga sin relación</td><td>La carga cuenta; la masa cobra</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2><span class="n">VII</span>La letra chica, completa</h2>
+
+<p>Todo lo de arriba es el cuadro <em>cualitativo</em>: los mecanismos con sus formas
+correctas, cada uno con precedente real en la física de medios (vórtices que se atraen
+y repelen por signo, remolinos arrastrados, el medio de MacCullagh). Lo que está en
+obra, dicho de frente: la construcción <em>cuantitativa</em> del sector electromagnético
+— que de este mar salgan las ecuaciones de Maxwell con sus constantes correctas — no
+está hecha, y esta casa ya enterró una candidata (la onda simple del mar abierto, muerta
+por el test de velocidad de 2017: gravedad y luz llegaron juntas tras 130 millones de
+años de viaje, y sectores distintos de un medio viajan genéricamente a velocidades
+distintas). La pista viva apunta a que la luz emerge del <em>tejido de nudos</em> — hay
+una teoría célebre y publicada donde las vibraciones de una red de cuerdas cuánticas
+son exactamente fotones — y la cuenta que lo decide (junto con el examen del púlsar que
+juzga a la gravedad) está planificada con sus criterios de muerte declarados. Si muere,
+se publica. Como todo acá.</p>
+
+<footer>
+ <p><b>El taller electromagnético del mar</b> — Teoría del Campo Intangible (TCI),
+ etapa especulativa en desarrollo · Nicolás Irigoyen &amp; Fable</p>
+ <p>Página hermana: <a href="../mar-y-nudos/">«El mar y sus nudos» (la materia)</a> ·
+ <a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">«El océano y la huella» (libro 1)</a> ·
+ <a href="https://irigoyennicolas1991.github.io/ift-theory/">corpus técnico</a></p>
+ <p>Toda suposición se declara · toda derrota se publica el mismo día · ningún
+ «exactamente» sin su cálculo detrás.</p>
+</footer>
+
+</div>
+
+<script>
+function fitCanvas(cv){
+ const r=cv.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);
+ cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);
+ const ctx=cv.getContext('2d');ctx.setTransform(d,0,0,d,0,0);
+ return {W:r.width,H:r.height,ctx};
+}
+function makeSea(cv){
+ const s=fitCanvas(cv);
+ const gx=Math.round(s.W/15),gy=Math.round(s.H/15),sx=s.W/gx,sy=s.H/gy;
+ function field(defs,extra){
+  const ctx=s.ctx;
+  for(let i=0;i<gx;i++)for(let j=0;j<gy;j++){
+   const x=(i+0.5)*sx,y=(j+0.5)*sy;
+   let th=0,near=1e9;
+   for(const d of defs){
+    th+=d.k*Math.atan2(y-d.y,x-d.x);
+    near=Math.min(near,Math.hypot(x-d.x,y-d.y));
+   }
+   let wave=0;
+   if(extra){wave=extra(x,y);th+=wave;}
+   const agit=Math.min(1,16/Math.max(near,4)),L=6.5;
+   const wg=Math.min(1,Math.abs(wave)*2.2);
+   if(wg>0.15){
+    ctx.strokeStyle=`rgba(${Math.round(140+110*wg)},${Math.round(200+40*wg)},255,${0.3+0.6*wg})`;
+    ctx.lineWidth=1+1.2*agit+1.6*wg;
+   }else{
+    ctx.strokeStyle=`rgba(105,170,230,${0.28+0.5*agit})`;
+    ctx.lineWidth=1+1.4*agit;
+   }
+   ctx.beginPath();
+   ctx.moveTo(x-L*Math.cos(th),y-L*Math.sin(th));
+   ctx.lineTo(x+L*Math.cos(th),y+L*Math.sin(th));
+   ctx.stroke();
+  }
+ }
+ function knot(d,t,r=6){
+  const ctx=s.ctx;
+  ctx.strokeStyle='rgba(230,240,250,0.9)';ctx.lineWidth=2;
+  ctx.beginPath();
+  for(let i=0;i<=36;i++){const a=i/36*6.2832,rr=r+2*Math.sin(3*a+t*0.06);
+   ctx.lineTo(d.x+rr*Math.cos(a),d.y+rr*Math.sin(a));}
+  ctx.closePath();ctx.stroke();
+  ctx.fillStyle=d.k>0?'#2fbf95':'#e07b4f';
+  ctx.beginPath();ctx.arc(d.x,d.y,4,0,6.2832);ctx.fill();
+ }
+ function swirl(d,t,sgn){
+  const ctx=s.ctx;
+  ctx.strokeStyle='rgba(224,123,79,0.55)';ctx.lineWidth=2;
+  for(let rr=18;rr<=48;rr+=15){
+   const a0=t*0.05*sgn*(30/rr);
+   for(let seg=0;seg<3;seg++){
+    const a=a0+seg*2.094;
+    ctx.beginPath();ctx.arc(d.x,d.y,rr,a,a+1.1);ctx.stroke();
+   }
+  }
+ }
+ return {s,field,knot,swirl};
+}
+function subButtons(id,cb){
+ document.querySelectorAll('#'+id+' button').forEach(b=>{
+  b.addEventListener('click',()=>{
+   document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.toggle('on',x===b));
+   cb(+b.dataset.s);
+  });
+ });
+}
+
+// ============ II: fuerza electrica ============
+(function(){
+ const M=makeSea(document.getElementById('cvFuerza'));
+ const {s}=M;let t=0,sub=1,st;
+ function reset(){st={a:{x:s.W*0.27,y:s.H/2,k:0.5},b:{x:s.W*0.73,y:s.H/2,k:sub===0?0.5:-0.5},done:false};}
+ reset();
+ subButtons('subFuerza',v=>{sub=v;reset();});
+ (function step(){
+  t++;s.ctx.clearRect(0,0,s.W,s.H);
+  if(!st.done){
+   const dx=st.b.x-st.a.x,r=Math.max(Math.abs(dx),30);
+   const F=1800/(r*r)*Math.sign(st.a.k*st.b.k);
+   st.a.x-=F*Math.sign(dx)*3;st.b.x+=F*Math.sign(dx)*3;
+   if(st.a.k*st.b.k<0&&Math.abs(st.b.x-st.a.x)<26){st.done=true;setTimeout(reset,2500);}
+   if(st.a.k*st.b.k>0&&(st.a.x<40||st.b.x>s.W-40)){st.done=true;setTimeout(reset,2000);}
+  }
+  M.field([st.a,st.b]);M.knot(st.a,t);M.knot(st.b,t);
+  requestAnimationFrame(step);
+ })();
+})();
+
+// ============ III: corrientes ============
+(function(){
+ const M=makeSea(document.getElementById('cvCorr'));
+ const {s}=M;let t=0,sub=0,st;
+ function reset(){st={a:{x:s.W/2-90,y:s.H/2,k:0.5,vy:-2.2},b:{x:s.W/2+90,y:s.H/2,k:0.5,vy:sub===0?-2.2:2.2}};}
+ reset();
+ subButtons('subCorr',v=>{sub=v;reset();});
+ (function step(){
+  t++;s.ctx.clearRect(0,0,s.W,s.H);
+  const {a,b}=st;
+  a.y+=a.vy;b.y+=b.vy;
+  for(const d of[a,b]){if(d.y<-10)d.y=s.H+10;if(d.y>s.H+10)d.y=-10;}
+  const para=(a.vy*b.vy>0);
+  const dx=b.x-a.x,r=Math.max(Math.abs(dx),50);
+  const F=(para?-1:1)*900/(r*r);
+  a.x-=F*Math.sign(dx)*2;b.x+=F*Math.sign(dx)*2;
+  if(Math.abs(b.x-a.x)<55){a.x=s.W/2-28;b.x=s.W/2+28;}
+  if(a.x<30||b.x>s.W-30){a.x=s.W/2-140;b.x=s.W/2+140;}
+  M.field([a,b]);
+  M.swirl(a,t,Math.sign(a.vy)*Math.sign(a.k));
+  M.swirl(b,t,Math.sign(b.vy)*Math.sign(b.k));
+  M.knot(a,t);M.knot(b,t);
+  const ctx=s.ctx;
+  ctx.fillStyle='rgba(160,185,205,0.9)';ctx.font='12px Inter,sans-serif';
+  ctx.fillText(para?'corrientes paralelas: se atraen':'corrientes opuestas: se repelen',16,24);
+  for(const d of[a,b]){
+   ctx.strokeStyle='#5fa8e6';ctx.lineWidth=2;
+   const sg=Math.sign(d.vy);
+   ctx.beginPath();ctx.moveTo(d.x,d.y-14*sg);ctx.lineTo(d.x,d.y-30*sg);ctx.stroke();
+   ctx.beginPath();ctx.moveTo(d.x-4,d.y-24*sg);ctx.lineTo(d.x,d.y-30*sg);ctx.lineTo(d.x+4,d.y-24*sg);ctx.stroke();
+  }
+  requestAnimationFrame(step);
+ })();
+})();
+
+// ============ IV: la antena ============
+(function(){
+ const M=makeSea(document.getElementById('cvAntena'));
+ const {s}=M;let t=0;
+ const ant={x:s.W*0.14,y:s.H/2,k:0.5};
+ (function step(){
+  t++;s.ctx.clearRect(0,0,s.W,s.H);
+  ant.y=s.H/2+s.H*0.13*Math.sin(t*0.07);
+  const v=3.2;
+  M.field([ant],(x,y)=>{
+   const d=x-ant.x;
+   if(d<0)return 0;
+   const ret=t-d/v;
+   if(ret<0)return 0;
+   return 0.55*Math.sin(ret*0.07)*Math.exp(-d/(s.W*1.4))*Math.exp(-Math.abs(y-s.H/2)/(s.H*0.62));
+  });
+  M.knot(ant,t);
+  s.ctx.fillStyle='rgba(160,185,205,0.9)';s.ctx.font='12px Inter,sans-serif';
+  s.ctx.fillText('la antena: el nudo sacudido emite el temblor transversal del peinado →',16,24);
+  requestAnimationFrame(step);
+ })();
+})();
+
+// ============ V: induccion ============
+(function(){
+ const M=makeSea(document.getElementById('cvInd'));
+ const {s}=M;let t=0,mov=1;
+ const mag={x:s.W/2-110,y:s.H/2,k:0.5};
+ const wire=[];const wx=s.W-100;
+ for(let i=0;i<11;i++)wire.push({y0:s.H*0.14+i*(s.H*0.72/10),off:0});
+ subButtons('subInd',v=>{mov=v;});
+ (function step(){
+  t++;s.ctx.clearRect(0,0,s.W,s.H);
+  if(mov)mag.x=s.W/2-110+70*Math.sin(t*0.045);
+  const vx=mov?70*0.045*Math.cos(t*0.045):0;
+  M.field([mag]);
+  M.swirl(mag,t,1);
+  M.knot(mag,t,10);
+  const ctx=s.ctx;
+  ctx.strokeStyle='rgba(160,185,205,0.5)';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(wx,s.H*0.1);ctx.lineTo(wx,s.H*0.9);ctx.stroke();
+  for(const p of wire){
+   const empuje=mov?26*vx:0;
+   p.off+=(empuje-p.off)*0.15;
+   ctx.fillStyle=Math.abs(p.off)>2?'#e07b4f':'#5fa8e6';
+   ctx.beginPath();ctx.arc(wx,p.y0+p.off,5,0,6.2832);ctx.fill();
+  }
+  ctx.fillStyle='rgba(160,185,205,0.9)';ctx.font='12px Inter,sans-serif';
+  ctx.fillText(mov?'imán en movimiento: el cable siente el re-peinado (¡corriente!)':'imán quieto: remolino quieto, cable quieto — solo el CAMBIO induce',16,24);
+  ctx.fillText('el cable',wx-24,s.H-14);
+  requestAnimationFrame(step);
+ })();
+})();
+
+document.getElementById('tema').addEventListener('click',function(){
+ document.body.classList.toggle('claro');
+ this.textContent=document.body.classList.contains('claro')?'modo profundo':'modo claro';
+});
+</script>
+</body>
+</html>
