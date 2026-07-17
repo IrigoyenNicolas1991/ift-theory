@@ -272,6 +272,24 @@ vestido del electrón</b>: una nube de música del tamaño del estadio, con un c
 pesadísimo del tamaño de un poroto en el medio. Casi todo lo que tocás cuando tocás
 una mesa es… la nota.</p>
 
+<figure>
+<canvas id="cvRetrato"></canvas>
+<div class="botones">
+ <button data-m="0" class="on">retrato del hidrógeno</button>
+ <button data-m="1">un núcleo de cerca (racimo)</button>
+</div>
+<figcaption><b>El retrato completo.</b> El átomo más simple del universo, en un solo
+cuadro: el <b>nudo</b> del centro (el protón — fijate cómo <em>todas</em> las almendras
+del cuadro, hasta las más lejanas, están peinadas por él), el <b>resplandor cálido</b>
+pegado a él (la huella: su sombra de densidad — la gravedad en miniatura), y la
+<b>nube azul que respira</b> (la nota del electrón, desplegada y estacionaria: nada
+gira — la nube entera se enciende y se apaga). El segundo botón acerca la lupa a un
+núcleo más pesado: el racimo de nudos con sus puentes. Dos honestidades de retratista:
+la escala está mentida a propósito (en escala real el nudo sería 100.000 veces más
+chico que la nube — invisible), y esto es el corte plano de algo que en tres
+dimensiones es aún más lindo.</figcaption>
+</figure>
+
 <div class="destacado">El núcleo es un racimo diminuto de nudos pesados cuya sombra
 excava una huella honda. Los electrones son nudos livianos que caen en esa huella —
 soltando luz al acomodarse — y quedan con su vestido desplegado en las notas que
@@ -284,7 +302,59 @@ lenguaje del mar. La única apuesta es la traducción misma: que la «montaña»
 huella del libro 1.</div>
 
 <!-- ============================================================ -->
-<h2><span class="n">VII</span>Lo que falta, dicho de frente</h2>
+<h2><span class="n">VII</span>El protón, el neutrón y la tijera del mar</h2>
+
+<p class="capital">Una capa más adentro — y es la más especulativa de toda la página,
+así que va con la etiqueta más grande. En la física establecida, el protón y el
+neutrón no son elementales: cada uno está hecho de <em>tres piezas</em> (los quarks),
+con cargas en <em>tercios</em> — el protón lleva dos de +⅔ y una de −⅓ (total: +1
+exacto), el neutrón dos de −⅓ y una de +⅔ (total: 0 exacto). Y tienen la propiedad
+más extraña de toda la física: <b>jamás nadie pudo ver un quark suelto</b>. Si tratás
+de arrancar uno, la energía que gastás crea partículas nuevas antes de que logres
+aislarlo. Se llama confinamiento, y en los libros suena a magia.</p>
+
+<p>En el cuadro del mar, la traducción cae sola de las piezas que ya tenés: el protón
+sería una <em>molécula de tres nudos</em>, unidos por <em>puentes</em> — y los
+puentes son lo único de esta sección con cálculo publicado detrás: en los
+superfluidos reales, los nudos ligados se conectan por cordones cuya energía
+<b>crece cuanto más los estirás</b>. ¿Ves adónde va esto? Si el puente cuesta más
+cuanto más largo, entonces nunca podés llevarte un nudo lejos: antes de lograrlo, la
+energía acumulada en el cordón alcanza para <em>anudar un par nuevo</em> — el puente
+se corta, y en cada punta nace un nudo flamante. Te quedás con dos grupos completos.
+Jamás con un nudo suelto. <b>El confinamiento no sería una fuerza misteriosa: sería
+que la tijera del mar es tan cara que corta creando.</b></p>
+
+<figure>
+<canvas id="cvQuarks"></canvas>
+<div class="botones">
+ <button data-m="0" class="on">el protón</button>
+ <button data-m="1">el neutrón</button>
+ <button data-m="2">intentá robar un quark</button>
+</div>
+<figcaption><b>Jugalo (tercer botón):</b> agarrá el nudo naranja con el dedo y tirá
+lejos. Mirá la barra de energía subir mientras el puente se estira… y mirá lo que pasa
+cuando llega al tope: el puente se corta, pero no te regala el nudo — la energía
+acumulada anuda un par nuevo, y quedan dos grupos completos. Podés intentarlo mil
+veces: nunca vas a tener un quark suelto en la mano. Acabás de tocar el misterio del
+confinamiento.</figcaption>
+</figure>
+
+<p>¿Y el neutrón? El mismo racimo con otra receta — y un dato hermoso: suelto, el
+neutrón se muere en unos 15 minutos (uno de sus nudos cambia de tipo, soltando dos
+nudos livianos: un electrón y un neutrino) y el racimo queda hecho protón. Pero
+<em>adentro</em> de un núcleo, la molécula lo estabiliza y dura para siempre. La
+compañía, en el mar, también salva vidas.</p>
+
+<div class="marcador"><b>Marcador — el más exigente de la página.</b> Con precedente
+calculado: los puentes entre nudos que cuestan más al estirarse (literatura publicada
+de superfluidos). Especulación declarada, sin cálculo nuestro: que esos tres nudos
+sean los quarks, y las cargas en tercios — nuestra fase del mar reparte cargas en
+<em>mitades</em>; los tercios pedirían una simetría de a tres, que otra fase del mismo
+mar insinúa pero nadie construyó. Es la apuesta más verde de toda la página, y así
+debe leerse.</div>
+
+<!-- ============================================================ -->
+<h2><span class="n">VIII</span>Lo que falta, dicho de frente</h2>
 
 <p>Esta página cuenta lo que da imagen; el libro completo cuenta también lo que duele:
 las <em>cinco ideas nuestras que murieron</em> en el camino (cada una con su causa
@@ -525,6 +595,200 @@ function makeField(cv){
   ctx.closePath();ctx.stroke();
   t+=0.033;
   requestAnimationFrame(step);
+ })();
+})();
+
+// ================= VI-bis: retrato del hidrogeno / racimo =================
+(function(){
+ const cv=document.getElementById('cvRetrato');
+ const s=fitCanvas(cv);
+ const cx=s.W/2,cy=s.H/2;
+ const gx=Math.round(s.W/15),gy=Math.round(s.H/15),sx=s.W/gx,sy=s.H/gy;
+ let mode=0,t=0;
+ function defs(){
+  if(mode===0)return [{x:cx,y:cy,k:0.5}];
+  const R=46;
+  return [{x:cx,y:cy-R,k:0.5},{x:cx-R*0.87,y:cy+R*0.5,k:0.5},{x:cx+R*0.87,y:cy+R*0.5,k:0.5}];
+ }
+ document.querySelectorAll('#cvRetrato ~ .botones button').forEach(b=>{
+  b.addEventListener('click',()=>{
+   mode=+b.dataset.m;
+   document.querySelectorAll('#cvRetrato ~ .botones button').forEach(x=>x.classList.toggle('on',x===b));
+  });
+ });
+ function label(ctx,tx,ty,px,py,txt){
+  ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(tx,ty);ctx.stroke();
+  ctx.fillText(txt,tx+5,ty+4);
+ }
+ (function draw(){
+  t++;
+  const ctx=s.ctx,D=defs();
+  ctx.clearRect(0,0,s.W,s.H);
+  const halo=ctx.createRadialGradient(cx,cy,0,cx,cy,mode===0?90:150);
+  halo.addColorStop(0,'rgba(224,123,79,0.26)');halo.addColorStop(1,'rgba(224,123,79,0)');
+  ctx.fillStyle=halo;ctx.fillRect(0,0,s.W,s.H);
+  for(let i=0;i<gx;i++)for(let j=0;j<gy;j++){
+   const x=(i+0.5)*sx,y=(j+0.5)*sy;
+   let th=0,near=1e9;
+   for(const d of D){
+    th+=d.k*Math.atan2(y-d.y,x-d.x);
+    near=Math.min(near,Math.hypot(x-d.x,y-d.y));
+   }
+   const r=Math.hypot(x-cx,y-cy);
+   let glow=0;
+   if(mode===0){
+    const nota=Math.exp(-r/(s.W*0.2));
+    glow=nota*(0.55+0.45*Math.sin(t*0.045));
+   }
+   const agit=Math.min(1,16/Math.max(near,4)),L=6.5;
+   const base=0.26+0.5*agit;
+   if(glow>0.12){
+    const g=Math.min(1,glow);
+    ctx.strokeStyle=`rgba(${Math.round(120+120*g)},${Math.round(190+50*g)},255,${Math.min(0.95,base+0.55*g)})`;
+    ctx.lineWidth=1+1.4*agit+1.6*g;
+   }else{
+    ctx.strokeStyle=`rgba(105,170,230,${base})`;
+    ctx.lineWidth=1+1.4*agit;
+   }
+   ctx.beginPath();
+   ctx.moveTo(x-L*Math.cos(th),y-L*Math.sin(th));
+   ctx.lineTo(x+L*Math.cos(th),y+L*Math.sin(th));
+   ctx.stroke();
+  }
+  if(mode===1){
+   ctx.strokeStyle='rgba(224,123,79,0.4)';ctx.lineWidth=8;ctx.lineCap='round';
+   for(let a=0;a<D.length;a++)for(let b=a+1;b<D.length;b++){
+    ctx.beginPath();ctx.moveTo(D[a].x,D[a].y);ctx.lineTo(D[b].x,D[b].y);ctx.stroke();
+   }
+  }
+  for(const d of D){
+   ctx.strokeStyle='rgba(230,240,250,0.95)';ctx.lineWidth=2;
+   ctx.beginPath();
+   for(let i=0;i<=40;i++){const a=i/40*6.2832,rr=6+2.2*Math.sin(3*a+t*0.05);
+    ctx.lineTo(d.x+rr*Math.cos(a),d.y+rr*Math.sin(a));}
+   ctx.closePath();ctx.stroke();
+   ctx.fillStyle='#2fbf95';
+   ctx.beginPath();ctx.arc(d.x,d.y,3,0,6.2832);ctx.fill();
+  }
+  ctx.font='12.5px Inter,sans-serif';ctx.fillStyle='rgba(160,185,205,0.95)';
+  ctx.strokeStyle='rgba(160,185,205,0.5)';ctx.lineWidth=1;
+  if(mode===0){
+   label(ctx,cx+s.W*0.1,cy-s.H*0.32,cx+8,cy-8,'el nudo (el protón)');
+   label(ctx,cx-s.W*0.38,cy+s.H*0.1,cx-52,cy+30,'la huella (su sombra)');
+   label(ctx,cx+s.W*0.18,cy+s.H*0.32,cx+95,cy+80,'la nota del electrón (su vestido)');
+  }else{
+   label(ctx,cx+s.W*0.18,cy-s.H*0.34,cx+12,cy-48,'nudos (protones y neutrones)');
+   label(ctx,cx-s.W*0.38,cy+s.H*0.24,cx-30,cy+38,'puentes (los enlaces del racimo)');
+  }
+  requestAnimationFrame(draw);
+ })();
+})();
+
+// ================= VII: proton, neutron y la tijera del mar =================
+(function(){
+ const cv=document.getElementById('cvQuarks');
+ const s=fitCanvas(cv);
+ const cx=s.W/2,cy=s.H/2;
+ const gx=Math.round(s.W/15),gy=Math.round(s.H/15),sx=s.W/gx,sy=s.H/gy;
+ let mode=0,t=0,knots=[],msg='',dragging=null,broke=false;
+ function setup(){
+  broke=false;msg='';dragging=null;
+  const R=52;
+  if(mode===0)knots=[{x:cx,y:cy-R,k:0.5,tipo:'u'},{x:cx-R*0.87,y:cy+R*0.5,k:0.5,tipo:'u'},{x:cx+R*0.87,y:cy+R*0.5,k:-0.5,tipo:'d'}];
+  else if(mode===1)knots=[{x:cx,y:cy-R,k:0.5,tipo:'u'},{x:cx-R*0.87,y:cy+R*0.5,k:-0.5,tipo:'d'},{x:cx+R*0.87,y:cy+R*0.5,k:-0.5,tipo:'d'}];
+  else knots=[{x:cx-s.W*0.15,y:cy-40,k:0.5,tipo:'u'},{x:cx-s.W*0.21,y:cy+50,k:0.5,tipo:'u'},{x:cx-s.W*0.09,y:cy+40,k:-0.5,tipo:'d'}];
+ }
+ setup();
+ cv.addEventListener('pointerdown',e=>{
+  if(mode!==2||broke)return;
+  const p=pointerPos(cv,e);let best=null,bd=1e9;
+  for(const k of knots){const d=Math.hypot(p.x-k.x,p.y-k.y);if(d<bd){bd=d;best=k;}}
+  if(bd<60)dragging=best;
+ });
+ cv.addEventListener('pointermove',e=>{
+  if(!dragging)return;const p=pointerPos(cv,e);dragging.x=p.x;dragging.y=p.y;
+ });
+ cv.addEventListener('pointerup',()=>{dragging=null;});
+ document.querySelectorAll('#cvQuarks ~ .botones button').forEach(b=>{
+  b.addEventListener('click',()=>{
+   mode=+b.dataset.m;
+   document.querySelectorAll('#cvQuarks ~ .botones button').forEach(x=>x.classList.toggle('on',x===b));
+   setup();
+  });
+ });
+ (function draw(){
+  t++;
+  const ctx=s.ctx;
+  ctx.clearRect(0,0,s.W,s.H);
+  const hx=knots.reduce((a,k)=>a+k.x,0)/knots.length,hy=knots.reduce((a,k)=>a+k.y,0)/knots.length;
+  const halo=ctx.createRadialGradient(hx,hy,0,hx,hy,150);
+  halo.addColorStop(0,'rgba(224,123,79,0.2)');halo.addColorStop(1,'rgba(224,123,79,0)');
+  ctx.fillStyle=halo;ctx.fillRect(0,0,s.W,s.H);
+  for(let i=0;i<gx;i++)for(let j=0;j<gy;j++){
+   const x=(i+0.5)*sx,y=(j+0.5)*sy;
+   let th=0,near=1e9;
+   for(const d of knots){
+    th+=d.k*Math.atan2(y-d.y,x-d.x);
+    near=Math.min(near,Math.hypot(x-d.x,y-d.y));
+   }
+   const agit=Math.min(1,16/Math.max(near,4)),L=6.5;
+   ctx.strokeStyle=`rgba(105,170,230,${0.26+0.5*agit})`;
+   ctx.lineWidth=1+1.4*agit;
+   ctx.beginPath();
+   ctx.moveTo(x-L*Math.cos(th),y-L*Math.sin(th));
+   ctx.lineTo(x+L*Math.cos(th),y+L*Math.sin(th));
+   ctx.stroke();
+  }
+  let energia=0;
+  for(let a=0;a<knots.length;a++)for(let b=a+1;b<knots.length;b++){
+   const A=knots[a],B=knots[b];
+   if(A.grupo!==undefined&&B.grupo!==undefined&&A.grupo!==B.grupo)continue;
+   const d=Math.hypot(A.x-B.x,A.y-B.y);
+   energia+=Math.max(0,d-110);
+   const ten=Math.min(1,Math.max(0,(d-110)/180));
+   ctx.strokeStyle=`rgba(224,123,79,${0.35+0.4*ten})`;
+   ctx.lineWidth=9-4*ten;ctx.lineCap='round';
+   ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(B.x,B.y);ctx.stroke();
+  }
+  if(mode===2&&!broke&&energia>230){
+   broke=true;dragging=null;
+   let lejos=knots[0],dmax=-1;
+   for(const k of knots){
+    const dm=Math.min(...knots.filter(x=>x!==k).map(x=>Math.hypot(k.x-x.x,k.y-x.y)));
+    if(dm>dmax){dmax=dm;lejos=k;}
+   }
+   const otros=knots.filter(k=>k!==lejos);
+   const mx=(lejos.x+(otros[0].x+otros[1].x)/2)/2,my=(lejos.y+(otros[0].y+otros[1].y)/2)/2;
+   lejos.grupo=1;otros.forEach(k=>k.grupo=0);
+   knots.push({x:mx+(lejos.x-mx)*0.3,y:my+(lejos.y-my)*0.3,k:-lejos.k,tipo:lejos.tipo==='u'?'anti-u':'anti-d',grupo:1});
+   knots.push({x:mx-(lejos.x-mx)*0.3,y:my-(lejos.y-my)*0.3,k:lejos.k===0.5?-0.5:0.5,tipo:lejos.k===0.5?'d':'u',grupo:0});
+   msg='¡SNAP! El puente se cortó anudando un par nuevo: dos grupos completos. Nunca un nudo suelto.';
+   setTimeout(setup,6000);
+  }
+  for(const d of knots){
+   ctx.strokeStyle='rgba(230,240,250,0.9)';ctx.lineWidth=2;
+   ctx.beginPath();
+   for(let i=0;i<=36;i++){const a=i/36*6.2832,rr=6+2.2*Math.sin(3*a+t*0.05);
+    ctx.lineTo(d.x+rr*Math.cos(a),d.y+rr*Math.sin(a));}
+   ctx.closePath();ctx.stroke();
+   ctx.fillStyle=d.tipo.indexOf('u')>=0?(d.tipo.indexOf('anti')>=0?'#a8e6cf':'#2fbf95'):(d.tipo.indexOf('anti')>=0?'#f4c4a8':'#e07b4f');
+   ctx.beginPath();ctx.arc(d.x,d.y,5,0,6.2832);ctx.fill();
+   ctx.fillStyle='rgba(160,185,205,0.9)';ctx.font='11px Inter,sans-serif';
+   const carga=d.tipo==='u'?'+2/3':d.tipo==='d'?'-1/3':d.tipo==='anti-u'?'-2/3':'+1/3';
+   ctx.fillText(d.tipo+' ('+carga+')',d.x+12,d.y-8);
+  }
+  ctx.font='13px Inter,sans-serif';ctx.fillStyle='rgba(160,185,205,0.95)';
+  if(mode<2){
+   ctx.fillText('carga total: '+(mode===0?'+1':'0')+' exacta (aritmética del mar)',16,26);
+  }else{
+   ctx.fillText('energía del puente:',16,26);
+   ctx.strokeStyle='rgba(160,185,205,0.4)';ctx.strokeRect(150,15,200,14);
+   const f=Math.min(1,energia/230);
+   ctx.fillStyle=f>0.8?'#e07b4f':'#5fa8e6';
+   ctx.fillRect(150,15,200*f,14);
+   if(msg){ctx.fillStyle='#e07b4f';ctx.fillText(msg,16,s.H-14);}
+  }
+  requestAnimationFrame(draw);
  })();
 })();
 
