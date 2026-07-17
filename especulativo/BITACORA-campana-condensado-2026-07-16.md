@@ -810,6 +810,34 @@ nuestros HQV en D₄-BN ya llevan orden ferromagnético/cíclico (Kobayashi-Nitt
 anillo-partícula quieto tiene todos sus ingredientes con precedente publicado; falta
 el cálculo específico D₄ (virgen).
 
+## 22. EL MAPA DE LA ANISOTROPÍA (2026-07-17, `anisotropia_mapa.py`) — el dragón tiene anatomía
+
+Barrido de 400 direcciones (esfera de Fibonacci) sobre el estado D₄ del caso C
+(parámetros de juguete — los PORCENTAJES son ilustrativos, la ESTRUCTURA es de simetría
+y robusta):
+
+- **SORPRESA A FAVOR: hay un modo casi-puro TT en TODO el cielo** — pureza media 0.951,
+  mínimo 0.702; el 82% del cielo tiene TT≥0.9 y el 100% tiene TT≥0.7. Una polarización
+  gravitacional robusta en toda dirección — no lo esperábamos (creíamos que la pureza
+  vivía solo sobre el eje).
+- **La segunda polarización es la anisótropa**: pureza 0.97 cerca del eje especial
+  (0-15°), degradándose monótonamente a 0.20 en el ecuador (75-90°). Es el fonón: su
+  carácter TT depende de la dirección (la estructura tensorial de A₀ es TT solo
+  respecto de su propio eje). En el ecuador solo hay UNA polarización limpia.
+- **Velocidad del sector TT: anisotropía del 12.6%** (con estos parámetros) — el
+  número que el CMB/GW no perdonaría tal cual. Este es el corazón cuantificado del
+  dragón.
+
+Lectura: el dragón no es un muro uniforme — es un problema CON estructura: (1) una
+polarización sana en todo el cielo (mejor de lo temido); (2) la segunda necesita un
+mecanismo (¿promedio sobre dominios? ¿otra fase? ¿la dirección faltante la aporta otro
+sector?); (3) la anisotropía de velocidad es la deuda dura — candidatos a domarla:
+promedios de dominio/textura, isotropía estadística, o el argumento de monometricidad
+(si TODO comparte el medio, la anisotropía es común y solo los observables relativos
+cuentan — el examen de Carlip otra vez). Próximo: cuantificar qué observable acota qué
+(GW170817 constriñe velocidad GW vs LUZ — si la luz viaja por el mismo medio con la
+misma anisotropía, el test relativo puede pasar; calcular).
+
 ### Consecuencia para "el libro de las partículas" (pregunta de Nico 2026-07-17)
 Veredicto sostenido: TODAVÍA NO. La tabla es rica (no-abeliana, con decaimientos,
 moléculas y antipartículas) pero da cuerdas donde necesitamos puntos, una sola carga
