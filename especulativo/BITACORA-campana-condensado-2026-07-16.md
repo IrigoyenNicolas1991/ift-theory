@@ -1214,6 +1214,16 @@ d = 12, 18, 26 en red 120², pendiente dE/d ln d contra la predicción London ±
   términos; anotado como pregunta, no como contradicción).
 - El teorema de las dos monedas SOBREVIVE la no linealidad completa: pendientes
   correctas al 1–3.5%, neutralidad al nivel de la tolerancia numérica.
+- **ROBUSTEZ CON GRADIENTE COMPLETO (mismo día, modo `div` del script)**: la letra
+  chica "solo K₁" quedó saldada — repetida la tabla con el término de divergencia
+  (K₂+K₃; fuerza analítica por adjuntos, autotest 1.3×10⁻⁸, un signo cazado por el
+  autotest en el primer intento): London predice pendientes duplicadas ∓5.60 y
+  neutros 0; medido: mismo-mismo −5.31 (5.2%), anti +5.71 (1.9%), neutros
+  +0.031/−0.032 ≈ 0. Detalle fino: con div las energías ABSOLUTAS de los dos
+  neutros ya no son idénticas (28.1 vs 31.0 — el término distingue las texturas)
+  pero la neutralidad de la FUERZA se mantiene exacta — que es lo que el teorema
+  afirma. El teorema de las dos monedas queda verificado con el funcional de
+  gradientes completo.
 
 ### C) La molécula suelta (vórtice entero sin anclar)
 
@@ -1284,6 +1294,24 @@ da entre nudos es otra cosa, y hay que decirlo sin maquillaje:
    framing); Kobayashi 1802.08763 (gases de Coulomb acoplados por Josephson);
    la dualidad vórtice↔carga 2D clásica (BKT). Deuda estándar antes de reclamar
    en público: barrido full-text INSPIRE.
+   **BARRIDO A FONDO EJECUTADO (mismo día, 2º agente, 14 búsquedas + 6 lecturas):
+   veredicto ENCONTRADO PARCIAL.** El paquete completo (J=2 tensorial + 4:1 exacto
+   por simetría + desacople χ±=φ±2α + dos electricidades + canales oscuros) NO
+   apareció; el framing EM con radiación oscura: cero resultados. Pero: (a) la
+   versión VECTORIAL es física publicada/folklore — Rubo PRL 99:106401 (polaritones,
+   4 especies (±½,±½), χ±=φ±α), ³He-A (Volovik, libro de texto), Zhou
+   cond-mat/0108473 (spin-1, gases acoplados); (b) el vecino más peligroso: How-Yip
+   PRR 2:043192 — London de HQV con cargas (fase, orientación) en superconductor
+   nemático, PERO acopladas por parámetro GL (sin 4:1 de simetría, sin desacople);
+   (c) **riesgo de trivialidad relativa declarado**: el BN de spin-2 ES literalmente
+   dos componentes m=±2 → el 4:1 y el desacople son cuenta corta para la comunidad
+   spinor-BEC — el valor está en escribirla y explotarla (nadie lo hizo), no en la
+   dificultad; presentar como "observación estructural + consecuencias".
+   (d) **DECLARACIÓN OBLIGATORIA**: el régimen dos-Coulomb-log requiere simetría
+   orientacional exacta; en el ³P₂ real B y spin-órbita la rompen → confinamiento
+   por solitones (Kobayashi-Nitta) — nuestro mar la tiene libre por hipótesis.
+   Deudas del barrido: literatura rusa vieja de ³He; full-texts 2107.02448 y
+   2510.26720 no accedidos.
 
 **Bonus estructural que el veredicto regala**: si en nuestro D₄ los dos medios-nudos
 de la molécula quedan unidos por solitones (Kobayashi-Nitta lo da para las fases BN),

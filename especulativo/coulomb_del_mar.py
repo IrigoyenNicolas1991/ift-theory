@@ -24,6 +24,10 @@
 # ============================================================================
 import numpy as np, time, sys
 
+# modos: "todo" (default, §30 original: A+B+C con gradiente K1) |
+#        "div" (robustez: Parte B con el gradiente COMPLETO K1 + 2K div)
+MODO = sys.argv[1] if len(sys.argv) > 1 else "todo"
+
 np.set_printoptions(precision=4, suppress=True)
 rng = np.random.default_rng(7)
 
@@ -239,11 +243,66 @@ def ansatz(vortices):
     x[1] = c1 * np.cos(phi); x[6] = c1 * np.sin(phi)
     return x
 
+CON_DIV = (MODO == "div")
+
+def A_grid(x):
+    """(3,3,N,N) complejo desde x (10,N,N)"""
+    xc = x[:5] + 1j * x[5:]
+    return np.einsum('aij,ayx->ijyx', E5, xc)
+
+def D_vec(Ag):
+    """D_k = dx A_xk + dy A_yk (diferencias adelantadas, borde con 0)"""
+    Dx = np.zeros_like(Ag[0]); Dy = np.zeros_like(Ag[1])
+    Dx[:, :, :-1] = Ag[0, :, :, 1:] - Ag[0, :, :, :-1]
+    Dy[:, :-1, :] = Ag[1, :, 1:, :] - Ag[1, :, :-1, :]
+    return Dx + Dy          # (3,N,N)
+
+def E_div(x):
+    D = D_vec(A_grid(x))
+    return 2 * K * np.sum(np.abs(D)**2)
+
+def F_div(x):
+    """fuerza = -dE_div/dx, via adjuntos de las diferencias; autotesteada."""
+    D = D_vec(A_grid(x))
+    # dE/dA*_{jk}(s) = 2K * [ -D(s)·1(s_j<N-1) + D(s-jhat)·1(s_j>=1) ]
+    # (A_{0k}(s) entra en Dx(s) con signo - y en Dx(s-x) con signo +)
+    G = np.zeros((3, 3) + D.shape[1:], dtype=complex)
+    G[0][:, :, :-1] -= D[:, :, :-1]
+    G[0][:, :, 1:] += D[:, :, :-1]
+    G[1][:, :-1, :] -= D[:, :-1, :]
+    G[1][:, 1:, :] += D[:, :-1, :]
+    G = 2 * K * G
+    # proyeccion a la base (simetrizacion automatica via E_a simetricos):
+    # g_a = 2 Re <G, E_a>, g_{5+a} = -2 Im <G, E_a>;  fuerza = -g
+    tp = np.einsum('ijyx,aij->ayx', G, E5)
+    f = np.empty((10,) + D.shape[1:])
+    f[:5] = -2 * tp.real
+    f[5:] = -2 * tp.imag   # G = dE/dA* => g_im = +2 Im<G,E_a>; fuerza = -g
+    return f
+
+# autotest de F_div contra gradiente numerico (grilla chica)
+_Nsave = None
+if True:
+    Nt = 6
+    xt6 = 0.3 * rng.standard_normal((10, Nt, Nt))
+    gnum6 = np.zeros_like(xt6)
+    for a in range(10):
+        for iy in range(Nt):
+            for ix in range(Nt):
+                xp = xt6.copy(); xp[a, iy, ix] += 1e-6
+                xm = xt6.copy(); xm[a, iy, ix] -= 1e-6
+                gnum6[a, iy, ix] = (E_div(xp) - E_div(xm)) / 2e-6
+    errd = np.max(np.abs(-F_div(xt6) - gnum6))
+    print(f"[autotest] fuerza del termino div vs numerico: err max = {errd:.2e}")
+    assert errd < 1e-6
+
 def energia(x):
     gx = x[:, :, 1:] - x[:, :, :-1]
     gy = x[:, 1:, :] - x[:, :-1, :]
     Eg = K * (np.sum(gx**2) + np.sum(gy**2))
     Ev = np.sum(V_sites(x.reshape(10, -1), *PARAMS) - V0)
+    if CON_DIV:
+        Ev += E_div(x)
     return Eg + Ev
 
 def relajar(x, libre, pasos, lr=0.04, mom=0.9, informar=0, rastrear=False, tol=2e-3):
@@ -258,6 +317,8 @@ def relajar(x, libre, pasos, lr=0.04, mom=0.9, informar=0, rastrear=False, tol=2
                               x[:, 1:-1, 2:] + x[:, 1:-1, :-2] - 4 * x[:, 1:-1, 1:-1])
         gV = gradV_sites(x.reshape(10, -1), *PARAMS).reshape(10, N, N)
         F = 2 * K * lap - gV
+        if CON_DIV:
+            F += F_div(x)
         vel = mom * vel + lr * F
         vel[:, ~libre] = 0.0
         x = x + vel
@@ -294,6 +355,12 @@ pares = [("mismo-mismo  (q+ q+)", (0.5, 0.25), (0.5, 0.25)),
 dists = [12, 18, 26]
 PASOS = 4000   # con corte por convergencia (tol)
 
+# prediccion London segun el modo (con div: k_sector se duplica -> pendiente x2)
+PRED = 4 * np.pi * K * a0**2 * (2 if CON_DIV else 1)
+if CON_DIV:
+    print(f"\n[MODO div] gradiente completo K1+2K(div): prediccion London "
+          f"pendiente cargados = -+{PRED:.4f}, neutros 0 (k+-=0 exacto, Parte A)")
+
 resultados = {}
 t_ini = time.time()
 for (nombre, s1, s2) in pares:
@@ -315,9 +382,13 @@ for (nombre, s1, s2) in pares:
     resultados[nombre] = (Es, pend)
     print(f"  {nombre}  ->  dE/dln(d) = {pend:+.4f}")
 
-print("\n  RESUMEN B (prediccion London K1: cargados -+{:.3f}, neutros 0):".format(4*np.pi*K*a0**2))
+print("\n  RESUMEN B (prediccion London: cargados -+{:.3f}, neutros 0):".format(PRED))
 for nombre, (Es, pend) in resultados.items():
     print(f"    {nombre}: pendiente ajustada {pend:+.4f}")
+
+if MODO != "todo":
+    print("\n[fin modo div]")
+    sys.exit(0)
 
 # ===================================================== PARTE C: LA MOLECULA
 print("\n" + "=" * 76)
