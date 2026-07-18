@@ -22,7 +22,7 @@ body.ingles .en{display:inline}
 body.ingles p.en,body.ingles div.en{display:block}
 #fondo{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;cursor:crosshair}
 .contenido{position:relative;z-index:1;pointer-events:none}
-.contenido a,.contenido button{pointer-events:auto}
+.contenido a,.contenido button,.contenido video{pointer-events:auto}
 .wrap{max-width:980px;margin:0 auto;padding:0 22px 90px}
 .hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;
  align-items:center;text-align:center;padding:40px 22px 30px}
@@ -64,6 +64,8 @@ h2.cat::after{content:'';flex:1;height:1px;background:var(--linea)}
  opacity:0;transition:opacity .18s}
 .card:hover::before{opacity:1}
 .card video{width:100%;border-radius:10px;margin:4px 0 12px;display:block;background:#000}
+.card-ancha{grid-column:1/-1}
+.card-ancha video{width:auto;max-width:100%;max-height:560px;margin:6px auto 14px}
 .card .links{display:flex;gap:18px;flex-wrap:wrap}
 .card .links a{color:var(--naranja);text-decoration:none;font-size:13px}
 .card .links a:hover{letter-spacing:.5px}
@@ -175,11 +177,11 @@ footer a{color:var(--azul);text-decoration:none}
   every trick declared.</span></p>
   <p class="ir"><span class="es">Entrar al simulador →</span><span class="en">Enter the simulator →</span></p>
  </a>
- <div class="card rev">
+ <div class="card card-ancha rev">
   <p class="ico">🚀</p>
   <p class="tit"><span class="es">El simulador potente</span><span class="en">The heavy-duty simulator</span><span class="idioma-tag">Python</span></p>
   <p class="frase"><span class="es">«60.000 gotas reales corriendo en tu placa de video.»</span><span class="en">“60,000 real droplets running on your graphics card.”</span></p>
-  <video src="../descargas/simulador-potente-video.mp4" controls muted playsinline preload="metadata"></video>
+  <video src="../descargas/simulador-potente-video.mp4" autoplay loop muted playsinline controls preload="auto"></video>
   <p class="que"><span class="es">Un minuto del monstruo en acción, grabado en vivo. El laboratorio
   serio del medio, para descargar y correr en tu máquina: motor en Python
   acelerado por GPU (Taichi), con el planeta orbitando en el mar denso. Incluye
