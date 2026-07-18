@@ -53,6 +53,8 @@ h2.cat{display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:3p
 h2.cat small{color:var(--tenue);letter-spacing:0;text-transform:none;font-weight:400}
 h2.cat::after{content:'';flex:1;height:1px;background:var(--linea)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.grid.dos{grid-template-columns:repeat(2,minmax(280px,1fr))}
+@media(max-width:660px){.grid.dos{grid-template-columns:1fr}}
 .card{display:block;background:var(--panel);border:1px solid var(--linea);
  border-radius:16px;padding:22px 24px;text-decoration:none;color:var(--tinta);
  backdrop-filter:blur(5px);transition:transform .18s ease,border-color .18s,box-shadow .18s;
@@ -133,7 +135,7 @@ footer a{color:var(--azul);text-decoration:none}
 <div class="wrap" id="puertas">
 
 <h2 class="cat rev"><span class="es">Para empezar</span><span class="en">Start here</span> <small><span class="es">— sin saber nada de física</span><span class="en">— no physics required</span></small></h2>
-<div class="grid">
+<div class="grid dos">
  <a class="card rev" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">
   <p class="ico">📖</p>
   <p class="tit"><span class="es">El océano y la huella</span><span class="en">The Ocean and the Footprint</span><span class="idioma-tag en">Spanish</span></p>
@@ -157,7 +159,7 @@ footer a{color:var(--azul);text-decoration:none}
 </div>
 
 <h2 class="cat rev"><span class="es">Para jugar</span><span class="en">Play</span> <small><span class="es">— tocar la física con el dedo</span><span class="en">— touch the physics with your finger</span></small></h2>
-<div class="grid">
+<div class="grid dos">
  <a class="card rev" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">
   <p class="ico">⚡</p>
   <p class="tit"><span class="es">Lo que el mar pagó</span><span class="en">What the Sea Paid</span><span class="idioma-tag en">Spanish</span></p>
