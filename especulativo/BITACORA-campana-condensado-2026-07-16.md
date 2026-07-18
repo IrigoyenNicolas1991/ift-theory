@@ -1135,6 +1135,169 @@ de masas, el cuadro "partícula = anillo anudado" revive a Kelvin con andamiaje 
 el libro tiene columna vertebral; si Derrick gana, se documenta y la conjetura de
 nudos muere con honores. Anotado como próximo cálculo del Frente B.
 
+## 30. EL COULOMB DEL MAR (2026-07-18) — la parte estática de la batalla del acople:
+## dos electricidades exactas
+
+**Elección de rumbo**: Nico propuso entrar por el EM ("la puerta más accesible para
+el público") y el mapa técnico coincide — la §29 ya había identificado que la teoría
+de interacciones entre nudos ES el EM en construcción. Hoy: la mitad ESTÁTICA de la
+batalla del acople. Pregunta concreta: **¿qué ley de fuerza da el mar D₄-BN entre dos
+nudos (HQV)?** El "mismo giro repele, opuesto atrae" de la página del taller, pero
+calculado desde el funcional GL textual, no dibujado. Script: `coulomb_del_mar.py`
+(controles internos: vacío D₄ reconfirmado a=0.47211 desde 1D y desde el mínimo
+10-dim; autotest de la vectorización del potencial contra la versión escalar de
+`espectro_biaxial_3p2.py`, error 10⁻¹⁵).
+
+### A) Límite de London: el teorema de las dos monedas (exacto, y mejor de lo esperado)
+
+Textura A(x) = e^{iφ(x)} R(α(x)) A₀ Rᵀ(α(x)) con A₀ = a·diag(1,−1,0) (eje especial z,
+vórtices de línea a lo largo de z, gradientes en el plano xy). Resultado numérico
+exacto del funcional textual (con y sin el término de divergencia K₂+K₃, en las
+direcciones x, y y 45°):
+
+- **Cero término cruzado fase↔marco** (k_φα = 0 en toda dirección y en ambas formas
+  del gradiente).
+- **Tipo de cambio exacto 4:1**: ρ_marco/ρ_fase = 4.0000. Mecanismo: el cuadrupolo
+  acopla la rotación con carga 2 (ψ∓₂ ~ e^{i(φ±2α)}) — un cuarto de vuelta del marco
+  vale lo mismo que media vuelta de fase.
+- **Isotropía en el plano** incluso con el término de divergencia (x = y = 45°): el
+  Coulomb estático del D₄ no ve la anisotropía discreta (esa vive en los modos
+  propagantes, §22).
+- Consecuencia (cambio de base χ± = φ ± 2α): **el mar D₄ es, para la estática de sus
+  nudos, DOS superfluidos U(1) independientes con la misma rigidez** (k₊₊ = k₋₋ =
+  Ka², k₊₋ = 0 exacto — la igualdad de rigideces es la simetría ψ₊₂↔ψ₋₂ del vacío).
+  Dos electricidades que no se mezclan.
+
+**Tabla de cargas de las 4 especies fundamentales** (w_fase, w_marco) → (q₊, q₋):
+(½,¼)→(1,0); (½,−¼)→(0,1); (−½,¼)→(0,−1); (−½,−¼)→(−1,0). La interacción por par:
+E_int/L = 2π·2Ka²·(q₊¹q₊² + q₋¹q₋²)·ln(R/d). O sea: **la mitad de los pares tiene
+Coulomb logarítmico puro (coef ±4πKa² = ±2.80 con nuestros parámetros) y la otra
+mitad es neutra a orden logarítmico** (con residuo de potencia ~1/R³ incluso en
+London — ver E.1). "Mismo giro repele, opuesto atrae" —
+confirmado y afinado: vale POR SECTOR, con fuerza F/L ∝ 1/d (el Coulomb genuino de
+2D entre cuerdas).
+
+- El HQV es literalmente un vórtice en UNA sola componente (ψ₊₂ o ψ₋₂) — la
+  estructura conocida de los spinor BECs, acá emergiendo del funcional ³P₂.
+- El vórtice entero (1,0) = un nudo de cada sector superpuestos: **la "molécula" de
+  la taxonomía §20 es un compuesto NEUTRO bajo las dos electricidades** — el análogo
+  del átomo. Su fuerza residual (tipo van der Waals del mar) debe venir de más allá
+  de London: eso mide la Parte C.
+
+### B) Confrontación no lineal (relajación GL 2D, campo completo de 10 componentes)
+
+Protocolo: potencial caso C textual, gradiente isótropo K₁ solo (DECLARADO: el
+término de divergencia no cambia la estructura de sectores — verificado en A — pero
+sí valores; núcleos anclados en discos r≤2.5, borde congelado al ansatz, E(d) para
+d = 12, 18, 26 en red 120², pendiente dE/d ln d contra la predicción London ±2.80 /
+0 / 0 / ∓2.80.
+
+**RESULTADOS (red 120², d = 12/18/26, corte por convergencia; London predice
+∓2.80 para cargados y 0 para neutros):**
+
+| par                  | dE/d ln d medido | London | veredicto |
+|----------------------|------------------|--------|-----------|
+| mismo-mismo (q₊ q₊)  | **−2.70**        | −2.80  | repulsión log ✓ (3.5%) |
+| neutro-A (q₊ q₋)     | **−0.011**       | 0      | neutro ✓ |
+| neutro-B (q₊ −q₋)    | **−0.011**       | 0      | neutro ✓ |
+| anti (q₊ −q₊)        | **+2.77**        | +2.80  | atracción log ✓ (1.1%) |
+
+- Los dos neutros dieron energías IDÉNTICAS dígito a dígito en cada d — control
+  gratis: invertir el signo del winding del otro sector es una simetría exacta
+  (ψ₋₂ ↔ conjugado), y la relajación no lineal la respeta.
+- La variación de E en los neutros (±0.01 sobre E≈16.3, no monotónica) está dentro
+  de la tolerancia de convergencia ⟹ cota: si hay interacción residual entre
+  sectores (el ~1/R³ de Eto — ver E.1), acá es < 0.5% del término log. **En nuestro
+  modelo mínimo NO se ve confinamiento lineal por solitón entre los dos
+  medios-nudos** (un solitón daría E ∝ d, bien visible) — diferencia con las fases
+  BN de Kobayashi-Nitta (ellos tienen campo magnético externo y otra jerarquía de
+  términos; anotado como pregunta, no como contradicción).
+- El teorema de las dos monedas SOBREVIVE la no linealidad completa: pendientes
+  correctas al 1–3.5%, neutralidad al nivel de la tolerancia numérica.
+
+### C) La molécula suelta (vórtice entero sin anclar)
+
+Vórtice entero (w_φ, w_α) = (1, 0) + ruido, 6000 pasos libres (solo borde
+congelado): **SE PARTE en dos núcleos** (dos mínimos de amplitud bien separados)
+que quedan a **separación estable 6.4 celdas ≈ 3ξ** durante 5600 pasos, con E
+plana (19.0548 → 19.0531). Coherencia total con la Parte B: los dos fragmentos
+son el par neutro-A (un medio-nudo por electricidad), que a orden log no
+interactúa ⟹ **la molécula es marginalmente ligada en el modelo mínimo: se parte
+(la tensión ∝ w² lo paga: ¼+¼ < 1, textual en Masuda-Nitta) y el tamaño queda
+fijado por los residuos de corto alcance, no por un potencial log**. El splitting
+del vórtice entero de ³P₂ (Masuda-Nitta PTEP 2020) queda REPRODUCIDO
+cualitativamente con maquinaria independiente; el tamaño de equilibrio con
+resolución de red gruesa (celda = ξ/2) es indicativo, no cuantitativo.
+
+### D) La pregunta del 1/d² — dónde NO vive el Coulomb de verdad (análisis honesto)
+
+Nuestro mundo tiene Coulomb 1/d² entre partículas puntuales. Lo que el bulk del mar
+da entre nudos es otra cosa, y hay que decirlo sin maquillaje:
+
+1. **Entre cuerdas (vórtices de línea)**: F/L ∝ 1/d — el Coulomb de 2D. Calculado hoy.
+2. **Entre anillos cerrados (nuestras partículas candidatas, §21)**: a distancia
+   d ≫ R el campo lejano de un anillo de vórtice es DIPOLAR (impulso fluido
+   p = ρκπR², como una espira de corriente) → interacción anillo-anillo tipo
+   dipolo-dipolo ~1/d³ (fuerza ~1/d⁴), dependiente de orientación. **No hay monopolo
+   coulombiano 1/d² del winding de fase para un anillo cerrado** — el monopolo
+   exigiría π₂ ≠ 0, y nuestro π₂ = 0 exacto (§20). VERIFICADO en fuentes: Biot-Savart
+   para filamentos (Lamb; Saffman CUP 1992), impulso p = ρκπR² (Barenghi-Donnelly
+   Fluid Dyn. Res. 41:051401), e interacción anillo-anillo dipolar usada textualmente
+   en el modelo de la transición λ de Williams (PRL 59:1926 (1987): "the interaction
+   between closed loops … is that of two dipoles").
+3. Contraste con la gravedad: el canal ESCALAR (la huella, el déficit de densidad)
+   sí da 1/d² entre nudos — eso es TCI 1.0 y sale gratis. **La asimetría
+   gravedad-fácil / EM-difícil del programa es real y queda documentada.**
+4. Las rutas vivas al 1/d² electromagnético genuino son las que ya teníamos
+   señaladas y esto las refuerza: **la luz de la red** (string-net §27: el U(1)
+   emergente de la RED de nudos, con cargas en las uniones) y **el sector de
+   defectos** (Weyl+tétrada en los cores, §24). El Coulomb de dos monedas calculado
+   hoy no es el EM final — es LA QUÍMICA DE LA RED: la fuerza que arma y sostiene
+   las moléculas/rungs cuya dinámica colectiva tendría que ser el fotón.
+
+### E) Veredicto bibliográfico (agente verificador, fuentes primarias — mismo día)
+
+1. **HQV = vórtice en una sola componente: CONFIRMADO** (Seo et al. PRL 115:015301,
+   textual: la componente sin vorticidad llena el core). **Dos sectores log
+   desacoplados: CONFIRMADO** en la teoría de dos componentes (Eto-Kasamatsu-Nitta-
+   Takeuchi-Tsubota PRA 83:063603 (2011), arXiv:1103.6144): misma componente →
+   fuerza ~1/R (log); componentes distintas → ~(ln(R/ξ)−½)/R³, **sin término log
+   cruzado**. MATIZ IMPORTANTE para nosotros: la neutralidad de los pares cruzados
+   es exacta SOLO a orden logarítmico — queda una fuerza residual de potencia ~1/R³
+   incluso en London. "Exactamente neutro" → "neutro a orden log, con residuo 1/R³".
+   Los experimentos de Shin (PRL 116:185301) midieron la parte de corto alcance por
+   cores magnetizados, no la ley log de dos cargas.
+2. **La molécula de HQVs en ³P₂: mecanismo CONFIRMADO, nuestro número NO**: el
+   splitting del vórtice entero está textual en Masuda-Nitta (PTEP 2020 013D01,
+   tensión ∝ w²: ¼+¼ < 1), y lo que LIGA la molécula son **solitones lineales**
+   entre los dos HQVs (Kobayashi-Nitta PRC 105:035807: confinamiento lineal por
+   tensión de solitón contra la repulsión intervórtice; la distancia depende del
+   campo externo, no es universal). **ERRATA PROPIA #8**: el "10.7ξ₀" que venimos
+   arrastrando desde §20 NO pudo anclarse a ninguna fuente — queda DEGRADADO a no
+   verificado; no citarlo más hasta encontrarle origen.
+3. **Anillos dipolares sin monopolo: CONFIRMADO** (ver D.2).
+4. **Chequeo de novedad: la lectura "dos electricidades" (dos gases de Coulomb
+   independientes con carga fase+orientación en condensado tensorial, framing EM)
+   NO ENCONTRADA en ~8 búsquedas.** Vecinos a citar siempre: Babaev PRL 89:067001
+   (2002) — vórtices fraccionarios en superconductores de dos gaps, compuestos
+   neutros, el pariente estructural más cercano; Eto 2011 (la matemática sin el
+   framing); Kobayashi 1802.08763 (gases de Coulomb acoplados por Josephson);
+   la dualidad vórtice↔carga 2D clásica (BKT). Deuda estándar antes de reclamar
+   en público: barrido full-text INSPIRE.
+
+**Bonus estructural que el veredicto regala**: si en nuestro D₄ los dos medios-nudos
+de la molécula quedan unidos por solitones (Kobayashi-Nitta lo da para las fases BN),
+el confinamiento es LINEAL — la molécula tiene tamaño de equilibrio donde la tensión
+del solitón compensa la repulsión residual. Eso es exactamente lo que la Parte C
+puede mostrar o refutar en nuestro modelo mínimo.
+
+### Estado de la batalla del acople tras esta jornada
+
+Hecha la mitad estática (cargas de los nudos bajo los canales de textura: fase y
+marco). Falta la mitad DINÁMICA — el acople a los canales propagantes (TT ×2,
+vectoriales ×2, fonón) para radiación: G_rad, dipolo vectorial, control
+Kozik-Svistunov. Esa sigue siendo la cuenta con tres tronos (§29).
+
 ## 6-bis. Estado de las verificaciones pendientes de §6 (cerradas esta noche)
 
 - [x] Zoología NPPR: el medio SL(3) figura (caso 7) y NO da quinteto — Familia F muerta.
