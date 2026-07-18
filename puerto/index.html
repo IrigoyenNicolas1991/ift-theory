@@ -44,6 +44,27 @@ h1{text-shadow:0 0 40px rgba(95,168,230,.5),0 3px 26px rgba(5,15,23,.95)}
 .sello span{background:var(--panel);border:1px solid var(--linea);border-radius:20px;
  padding:7px 15px;font-size:12.5px;color:var(--tenue);backdrop-filter:blur(4px)}
 .sello b{color:var(--verde);font-weight:600}
+.escucha{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;
+ margin:0 0 34px;width:100%;max-width:720px}
+.pill{display:flex;align-items:center;gap:12px;background:var(--panel);
+ border:1px solid var(--linea);border-radius:30px;padding:8px 16px 8px 8px;
+ backdrop-filter:blur(5px);flex:1;min-width:260px;max-width:345px;
+ transition:border-color .18s,box-shadow .18s}
+.pill:hover{border-color:var(--naranja);box-shadow:0 6px 24px rgba(5,15,23,.5)}
+.contenido .pill{pointer-events:auto}
+.ap{width:38px;height:38px;border-radius:50%;border:1px solid var(--naranja);
+ background:rgba(224,123,79,.12);color:var(--naranja);font-size:13px;cursor:pointer;
+ flex:none;display:flex;align-items:center;justify-content:center;transition:background .18s}
+.ap:hover{background:rgba(224,123,79,.28)}
+.ap-ico{transform:translateX(1px)}
+.ap-cuerpo{flex:1;min-width:0;text-align:left}
+.ap-tit{display:block;font-size:12.5px;font-weight:600;color:var(--tinta);
+ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:Inter,sans-serif}
+.ap-barra{height:4px;background:var(--linea);border-radius:2px;margin-top:6px;
+ cursor:pointer;position:relative}
+.ap-lleno{height:100%;width:0%;background:var(--naranja);border-radius:2px}
+.ap-dur{font-size:11px;color:var(--tenue);flex:none;font-family:Inter,sans-serif;
+ min-width:30px;text-align:right}
 .bajar{color:var(--tenue);font-size:13px;letter-spacing:2px;text-decoration:none;
  animation:flota 2.4s ease-in-out infinite}
 @keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
@@ -127,6 +148,24 @@ footer a{color:var(--azul);text-decoration:none}
   <span><b>10</b> <span class="es">observables reproducidos</span><span class="en">observables reproduced</span></span>
   <span><b>1</b> <span class="es">sector falsado — y publicado el mismo día</span><span class="en">falsified sector — published the same day</span></span>
   <span><b><span class="es">predicciones falsables</span><span class="en">falsifiable predictions</span></b> <span class="es">esperando juez</span><span class="en">awaiting their judge</span></span>
+ </div>
+ <div class="escucha rev">
+  <div class="pill" data-audio="la-teoria-en-1-minuto.mp3" data-dur="1:13">
+   <button class="ap" aria-label="Reproducir"><span class="ap-ico">▶</span></button>
+   <div class="ap-cuerpo">
+    <span class="ap-tit">🎧 <span class="es">La teoría en 1 minuto</span><span class="en">The theory in 1 minute</span><span class="idioma-tag en">Spanish</span></span>
+    <div class="ap-barra"><div class="ap-lleno"></div></div>
+   </div>
+   <span class="ap-dur">1:13</span>
+  </div>
+  <div class="pill" data-audio="el-libro-cap1-narrado.mp3" data-dur="3:59">
+   <button class="ap" aria-label="Reproducir"><span class="ap-ico">▶</span></button>
+   <div class="ap-cuerpo">
+    <span class="ap-tit">🎧 <span class="es">El libro, capítulo 1, narrado</span><span class="en">The book, chapter 1, narrated</span><span class="idioma-tag en">Spanish</span></span>
+    <div class="ap-barra"><div class="ap-lleno"></div></div>
+   </div>
+   <span class="ap-dur">3:59</span>
+  </div>
  </div>
  <a class="bajar rev" href="#puertas"><span class="es">ELEGÍ TU PUERTA ↓</span><span class="en">CHOOSE YOUR DOOR ↓</span></a>
  <p class="pista rev"><span class="es">psst: el fondo está vivo — movete por el mar, hacé click</span><span class="en">psst: the background is alive — move through the sea, click around</span></p>
@@ -375,6 +414,45 @@ No ‘exactly’ without its calculation behind it.”</span>
   requestAnimationFrame(step);
  }
  step();
+})();
+
+(function(){
+ const reproductores=[];
+ function fmt(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+ document.querySelectorAll('.pill').forEach(p=>{
+  const btn=p.querySelector('.ap'),ico=p.querySelector('.ap-ico'),
+        barra=p.querySelector('.ap-barra'),lleno=p.querySelector('.ap-lleno'),
+        dur=p.querySelector('.ap-dur');
+  let au=null;
+  const yo={pausar(){if(au&&!au.paused){au.pause();ico.textContent='▶';}}};
+  reproductores.push(yo);
+  function crear(){
+   au=new Audio(p.dataset.audio);
+   au.addEventListener('timeupdate',()=>{
+    if(au.duration){
+     lleno.style.width=(au.currentTime/au.duration*100)+'%';
+     dur.textContent=fmt(au.duration-au.currentTime);
+    }
+   });
+   au.addEventListener('ended',()=>{
+    ico.textContent='▶';lleno.style.width='0%';dur.textContent=p.dataset.dur;
+   });
+  }
+  btn.addEventListener('click',()=>{
+   if(!au)crear();
+   if(au.paused){
+    reproductores.forEach(r=>{if(r!==yo)r.pausar();});
+    au.play();ico.textContent='❚❚';
+   }else{
+    au.pause();ico.textContent='▶';
+   }
+  });
+  barra.addEventListener('click',e=>{
+   if(!au||!au.duration)return;
+   const r=barra.getBoundingClientRect();
+   au.currentTime=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))*au.duration;
+  });
+ });
 })();
 
 const obs=new IntersectionObserver(es=>{
