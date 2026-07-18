@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TCI — Teoría del Campo Intangible · El puerto</title>
-<meta name="description" content="Una teoría nacida de una pregunta de infancia: si el Sol desapareciera ahora mismo, ¿la Tierra se enteraría enseguida?">
+<meta name="description" content="Si el Sol desapareciera ahora mismo, ¿la Tierra se enteraría enseguida? / If the Sun vanished right now, would the Earth notice immediately?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -16,6 +16,10 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--fondo);color:var(--tinta);
  font-family:Inter,sans-serif;font-size:16px;line-height:1.65}
+.en{display:none}
+body.ingles .es{display:none}
+body.ingles .en{display:inline}
+body.ingles p.en,body.ingles div.en{display:block}
 #fondo{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;cursor:crosshair}
 .contenido{position:relative;z-index:1;pointer-events:none}
 .contenido a,.contenido button{pointer-events:auto}
@@ -61,6 +65,8 @@ a.card:hover::before{opacity:1}
 .card .que{font-size:13px;color:var(--tenue);margin:0 0 13px;line-height:1.6}
 .card .ir{font-size:13px;color:var(--naranja);transition:letter-spacing .18s}
 a.card:hover .ir{letter-spacing:.5px}
+.idioma-tag{font-size:10.5px;color:var(--tenue);border:1px solid var(--linea);
+ border-radius:10px;padding:1px 8px;margin-left:6px;vertical-align:2px}
 .chip{display:inline-block;background:rgba(224,123,79,.15);border:1px solid var(--naranja);
  color:var(--naranja);font-size:10.5px;border-radius:12px;padding:2px 10px;
  margin-bottom:10px;letter-spacing:1.5px;font-weight:600}
@@ -70,6 +76,10 @@ a.card:hover .ir{letter-spacing:.5px}
  font-size:clamp(17px,2.6vw,21px);line-height:1.75}
 .regla small{display:block;font-family:Inter,sans-serif;font-style:normal;
  font-size:13px;color:var(--tenue);margin-top:10px}
+.top{position:fixed;top:14px;right:14px;z-index:9;display:flex;gap:8px}
+.top button{font-size:13px;padding:7px 12px;border-radius:20px;cursor:pointer;
+ border:1px solid var(--linea);background:var(--panel);color:var(--tinta)}
+.top button.activo{border-color:var(--naranja);color:var(--naranja)}
 footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--linea);
  font-size:13px;color:var(--tenue);text-align:center;line-height:1.9}
 footer a{color:var(--azul);text-decoration:none}
@@ -79,142 +89,168 @@ footer a{color:var(--azul);text-decoration:none}
 
 <canvas id="fondo"></canvas>
 
+<div class="top">
+ <button id="btnIdioma">EN</button>
+</div>
+
 <div class="contenido">
 
 <div class="hero">
- <p class="kicker rev">Teoría del Campo Intangible · TCI</p>
- <h1 class="rev">El mar invisible</h1>
- <p class="pregunta rev">«Si el Sol desapareciera ahora mismo…<br><b>¿la Tierra se enteraría enseguida?</b>»</p>
- <p class="origen rev">Esa pregunta —hecha por un chico mirando el cielo— fundó todo lo que sigue:
+ <p class="kicker rev"><span class="es">Teoría del Campo Intangible · TCI</span><span class="en">Intangible Field Theory · IFT</span></p>
+ <h1 class="rev"><span class="es">El mar invisible</span><span class="en">The invisible sea</span></h1>
+ <p class="pregunta rev"><span class="es">«Si el Sol desapareciera ahora mismo…<br><b>¿la Tierra se enteraría enseguida?</b>»</span><span class="en">“If the Sun vanished right now…<br><b>would the Earth notice immediately?</b>”</span></p>
+ <p class="origen rev"><span class="es">Esa pregunta —hecha por un chico mirando el cielo— fundó todo lo que sigue:
  una propuesta donde el espacio vacío es un océano invisible, la gravedad es su
  deformación, la materia son sus nudos y la luz es su temblor. Desarrollada por un
- humano y una IA con una sola regla innegociable: la honestidad primero.</p>
+ humano y una IA con una sola regla innegociable: la honestidad primero.</span><span class="en">That question — asked by a kid looking at the sky — founded everything that
+ follows: a proposal in which empty space is an invisible ocean, gravity is its
+ strain, matter is its knots and light is its trembling. Developed by a human and
+ an AI under one non-negotiable rule: honesty first.</span></p>
  <div class="sello rev">
-  <span><b>2</b> números calibrados</span>
-  <span><b>10</b> observables reproducidos</span>
-  <span><b>1</b> sector falsado — y publicado el mismo día</span>
-  <span><b>predicciones falsables</b> esperando juez</span>
+  <span><b>2</b> <span class="es">números calibrados</span><span class="en">calibrated numbers</span></span>
+  <span><b>10</b> <span class="es">observables reproducidos</span><span class="en">observables reproduced</span></span>
+  <span><b>1</b> <span class="es">sector falsado — y publicado el mismo día</span><span class="en">falsified sector — published the same day</span></span>
+  <span><b><span class="es">predicciones falsables</span><span class="en">falsifiable predictions</span></b> <span class="es">esperando juez</span><span class="en">awaiting their judge</span></span>
  </div>
- <a class="bajar rev" href="#puertas">ELEGÍ TU PUERTA ↓</a>
- <p class="pista rev">psst: el fondo está vivo — movete por el mar, hacé click</p>
+ <a class="bajar rev" href="#puertas"><span class="es">ELEGÍ TU PUERTA ↓</span><span class="en">CHOOSE YOUR DOOR ↓</span></a>
+ <p class="pista rev"><span class="es">psst: el fondo está vivo — movete por el mar, hacé click</span><span class="en">psst: the background is alive — move through the sea, click around</span></p>
 </div>
 
 <div class="wrap" id="puertas">
 
-<h2 class="cat rev">Para empezar <small>— sin saber nada de física</small></h2>
+<h2 class="cat rev"><span class="es">Para empezar</span><span class="en">Start here</span> <small><span class="es">— sin saber nada de física</span><span class="en">— no physics required</span></small></h2>
 <div class="grid">
  <a class="card rev" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">
   <p class="ico">📖</p>
-  <p class="tit">El océano y la huella</p>
-  <p class="frase">«La gravedad no tira de vos: el mar te empuja.»</p>
-  <p class="que">El libro. Once capítulos sin una sola fórmula, con simulaciones
+  <p class="tit"><span class="es">El océano y la huella</span><span class="en">The Ocean and the Footprint</span><span class="idioma-tag en">Spanish</span></p>
+  <p class="frase"><span class="es">«La gravedad no tira de vos: el mar te empuja.»</span><span class="en">“Gravity doesn't pull you: the sea pushes you.”</span></p>
+  <p class="que"><span class="es">El libro. Once capítulos sin una sola fórmula, con simulaciones
   jugables: el mar, la huella, la inercia, E=mc² y un golpe de teatro final. La
-  puerta principal.</p>
-  <p class="ir">Leer el libro →</p>
+  puerta principal.</span><span class="en">The book. Eleven chapters without a single formula, with playable
+  simulations: the sea, the footprint, inertia, E=mc² and a final coup de théâtre.
+  The main door.</span></p>
+  <p class="ir"><span class="es">Leer el libro →</span><span class="en">Read the book →</span></p>
  </a>
  <a class="card rev" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">
   <p class="ico">🌊</p>
-  <p class="tit">El sitio conceptual</p>
-  <p class="frase">«¿Y si el vacío no está vacío?»</p>
-  <p class="que">La teoría completa en lenguaje llano: qué propone, qué explica,
-  qué predice, y qué le falta — parte por parte, en español.</p>
-  <p class="ir">Recorrer la teoría →</p>
+  <p class="tit"><span class="es">El sitio conceptual</span><span class="en">The conceptual site</span><span class="idioma-tag en">Spanish</span></p>
+  <p class="frase"><span class="es">«¿Y si el vacío no está vacío?»</span><span class="en">“What if the vacuum isn't empty?”</span></p>
+  <p class="que"><span class="es">La teoría completa en lenguaje llano: qué propone, qué explica,
+  qué predice, y qué le falta — parte por parte, en español.</span><span class="en">The whole theory in plain words: what it proposes, what it explains,
+  what it predicts, and what it still lacks — part by part.</span></p>
+  <p class="ir"><span class="es">Recorrer la teoría →</span><span class="en">Tour the theory →</span></p>
  </a>
 </div>
 
-<h2 class="cat rev">Para jugar <small>— tocar la física con el dedo</small></h2>
+<h2 class="cat rev"><span class="es">Para jugar</span><span class="en">Play</span> <small><span class="es">— tocar la física con el dedo</span><span class="en">— touch the physics with your finger</span></small></h2>
 <div class="grid">
  <a class="card rev" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">
   <p class="ico">⚡</p>
-  <p class="tit">Lo que el mar pagó</p>
-  <p class="frase">«Sostené un hueco en el mar y mirá al contador facturar su masa.»</p>
-  <p class="que">La pieza interactiva de E=mc²: abrís un hueco, el mar mide lo que
-  desalojaste, lo soltás, lo tocás — y la ecuación se arma sola frente a tus ojos.</p>
-  <p class="ir">Abrir la pieza →</p>
+  <p class="tit"><span class="es">Lo que el mar pagó</span><span class="en">What the Sea Paid</span><span class="idioma-tag en">Spanish</span></p>
+  <p class="frase"><span class="es">«Sostené un hueco en el mar y mirá al contador facturar su masa.»</span><span class="en">“Hold a hole open in the sea and watch the meter bill its mass.”</span></p>
+  <p class="que"><span class="es">La pieza interactiva de E=mc²: abrís un hueco, el mar mide lo que
+  desalojaste, lo soltás, lo tocás — y la ecuación se arma sola frente a tus ojos.</span><span class="en">The interactive E=mc² piece: you open a hole, the sea measures what
+  you displaced, you release it, you touch it — and the equation assembles itself
+  before your eyes.</span></p>
+  <p class="ir"><span class="es">Abrir la pieza →</span><span class="en">Open the piece →</span></p>
  </a>
  <a class="card rev" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/simulador/">
   <p class="ico">🪐</p>
-  <p class="tit">El simulador</p>
-  <p class="frase">«Un planeta dando vueltas en un mar que nadie programó para atraer.»</p>
-  <p class="que">El laboratorio de juguete del medio: gravedad emergiendo de pura
-  repulsión, con cada truco declarado.</p>
-  <p class="ir">Entrar al simulador →</p>
+  <p class="tit"><span class="es">El simulador</span><span class="en">The simulator</span><span class="idioma-tag en">Spanish</span></p>
+  <p class="frase"><span class="es">«Un planeta dando vueltas en un mar que nadie programó para atraer.»</span><span class="en">“A planet orbiting in a sea that no one programmed to attract.”</span></p>
+  <p class="que"><span class="es">El laboratorio de juguete del medio: gravedad emergiendo de pura
+  repulsión, con cada truco declarado.</span><span class="en">The medium's toy lab: gravity emerging from pure repulsion, with
+  every trick declared.</span></p>
+  <p class="ir"><span class="es">Entrar al simulador →</span><span class="en">Enter the simulator →</span></p>
  </a>
 </div>
 
-<h2 class="cat rev">Para el rigor <small>— las cuentas y los registros</small></h2>
+<h2 class="cat rev"><span class="es">Para el rigor</span><span class="en">For rigor</span> <small><span class="es">— las cuentas y los registros</span><span class="en">— the math and the records</span></small></h2>
 <div class="grid">
  <a class="card rev" href="https://irigoyennicolas1991.github.io/ift-theory/">
   <p class="ico">📐</p>
-  <p class="tit">El paper técnico</p>
-  <p class="frase">«Cada “exactamente” tiene su ecuación — o no se escribe.»</p>
-  <p class="que">El desarrollo formal (en inglés): las derivaciones, los tests del
+  <p class="tit"><span class="es">El paper técnico</span><span class="en">The technical paper</span><span class="idioma-tag en">English</span></p>
+  <p class="frase"><span class="es">«Cada “exactamente” tiene su ecuación — o no se escribe.»</span><span class="en">“Every ‘exactly’ has its equation — or it doesn't get written.”</span></p>
+  <p class="que"><span class="es">El desarrollo formal (en inglés): las derivaciones, los tests del
   sistema solar, las predicciones de campo fuerte, y el sector falsado — publicado
-  igual que las victorias.</p>
-  <p class="ir">Leer el paper →</p>
+  igual que las victorias.</span><span class="en">The formal development: derivations, solar-system tests,
+  strong-field predictions, and the falsified sector — published just like the
+  victories.</span></p>
+  <p class="ir"><span class="es">Leer el paper →</span><span class="en">Read the paper →</span></p>
  </a>
  <a class="card rev" href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/notas">
   <p class="ico">🔬</p>
-  <p class="tit">Las notas de trabajo</p>
-  <p class="frase">«Con los scripts para que no nos creas: para que verifiques.»</p>
-  <p class="que">La bitácora histórica en español: once notas — de la deflexión de
-  la luz a la falsación de la radiación — cada una con su código reproducible.</p>
-  <p class="ir">Abrir las notas →</p>
+  <p class="tit"><span class="es">Las notas de trabajo</span><span class="en">The working notes</span><span class="idioma-tag en">Spanish</span></p>
+  <p class="frase"><span class="es">«Con los scripts para que no nos creas: para que verifiques.»</span><span class="en">“With the scripts so you don't have to believe us: verify us.”</span></p>
+  <p class="que"><span class="es">La bitácora histórica en español: once notas — de la deflexión de
+  la luz a la falsación de la radiación — cada una con su código reproducible.</span><span class="en">The historical logbook: eleven notes — from light deflection to the
+  falsification of the radiation sector — each with reproducible code.</span></p>
+  <p class="ir"><span class="es">Abrir las notas →</span><span class="en">Open the notes →</span></p>
  </a>
  <a class="card rev" href="https://doi.org/10.5281/zenodo.21177500">
   <p class="ico">🏛️</p>
-  <p class="tit">El registro sellado</p>
-  <p class="frase">«Fecha certificada: esto se dijo cuándo se dijo.»</p>
-  <p class="que">El corpus archivado en Zenodo (CERN) con DOI y fecha — el sello
-  de prioridad de cada predicción, para bien o para mal.</p>
-  <p class="ir">Ver en Zenodo →</p>
+  <p class="tit"><span class="es">El registro sellado</span><span class="en">The sealed record</span></p>
+  <p class="frase"><span class="es">«Fecha certificada: esto se dijo cuándo se dijo.»</span><span class="en">“Certified date: this was said when it was said.”</span></p>
+  <p class="que"><span class="es">El corpus archivado en Zenodo (CERN) con DOI y fecha — el sello
+  de prioridad de cada predicción, para bien o para mal.</span><span class="en">The corpus archived at Zenodo (CERN) with DOI and date — the
+  priority seal on every prediction, for better or worse.</span></p>
+  <p class="ir"><span class="es">Ver en Zenodo →</span><span class="en">View on Zenodo →</span></p>
  </a>
 </div>
 
-<h2 class="cat rev">La frontera <small>— investigación viva, en desarrollo</small></h2>
+<h2 class="cat rev"><span class="es">La frontera</span><span class="en">The frontier</span> <small><span class="es">— investigación viva, en desarrollo</span><span class="en">— living research, in progress</span></small></h2>
 <div class="grid">
  <a class="card rev" href="https://irigoyennicolas1991.github.io/ift-theory/mar-y-nudos/">
-  <span class="chip">ETAPA ESPECULATIVA</span>
+  <span class="chip"><span class="es">ETAPA ESPECULATIVA</span><span class="en">SPECULATIVE STAGE</span></span>
   <p class="ico">🧶</p>
-  <p class="tit">El mar y sus nudos</p>
-  <p class="frase">«La materia es lo que el mar no puede despeinar.»</p>
-  <p class="que">La segunda generación de la teoría: las partículas como nudos, el
+  <p class="tit"><span class="es">El mar y sus nudos</span><span class="en">The Sea and Its Knots</span><span class="idioma-tag en">Spanish</span></p>
+  <p class="frase"><span class="es">«La materia es lo que el mar no puede despeinar.»</span><span class="en">“Matter is what the sea cannot comb away.”</span></p>
+  <p class="que"><span class="es">La segunda generación de la teoría: las partículas como nudos, el
   átomo como música atrapada, la aniquilación como desanudarse — con siete
-  simulaciones para jugar (incluido robar un quark).</p>
-  <p class="ir">Entrar a la frontera →</p>
+  simulaciones para jugar (incluido robar un quark).</span><span class="en">The theory's second generation: particles as knots, the atom as
+  trapped music, annihilation as untying — with seven playable simulations
+  (including stealing a quark).</span></p>
+  <p class="ir"><span class="es">Entrar a la frontera →</span><span class="en">Enter the frontier →</span></p>
  </a>
  <a class="card rev" href="https://irigoyennicolas1991.github.io/ift-theory/taller-electromagnetico/">
-  <span class="chip">ETAPA ESPECULATIVA</span>
+  <span class="chip"><span class="es">ETAPA ESPECULATIVA</span><span class="en">SPECULATIVE STAGE</span></span>
   <p class="ico">⚙️</p>
-  <p class="tit">El taller electromagnético</p>
-  <p class="frase">«Faraday recupera su medio.»</p>
-  <p class="que">El electromagnetismo contado para gente de taller: la carga que
+  <p class="tit"><span class="es">El taller electromagnético</span><span class="en">The Electromagnetic Workshop</span><span class="idioma-tag en">Spanish</span></p>
+  <p class="frase"><span class="es">«Faraday recupera su medio.»</span><span class="en">“Faraday gets his medium back.”</span></p>
+  <p class="que"><span class="es">El electromagnetismo contado para gente de taller: la carga que
   cuenta, la masa que cobra, el remolino magnético, la antena y el imán de
-  Faraday — todo jugable.</p>
-  <p class="ir">Entrar al taller →</p>
+  Faraday — todo jugable.</span><span class="en">Electromagnetism told for workshop people: the charge that counts,
+  the mass that bills, the magnetic swirl, the antenna and Faraday's magnet —
+  all playable.</span></p>
+  <p class="ir"><span class="es">Entrar al taller →</span><span class="en">Enter the workshop →</span></p>
  </a>
  <a class="card rev" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">
-  <span class="chip">ETAPA ESPECULATIVA</span>
+  <span class="chip"><span class="es">ETAPA ESPECULATIVA</span><span class="en">SPECULATIVE STAGE</span></span>
   <p class="ico">📜</p>
-  <p class="tit">La bitácora de campaña</p>
-  <p class="frase">«Cinco ideas nuestras murieron acá — y están enterradas con nombre.»</p>
-  <p class="que">La cocina completa de la frontera: 29 secciones de hipótesis,
+  <p class="tit"><span class="es">La bitácora de campaña</span><span class="en">The campaign logbook</span><span class="idioma-tag en">Spanish</span></p>
+  <p class="frase"><span class="es">«Cinco ideas nuestras murieron acá — y están enterradas con nombre.»</span><span class="en">“Five of our own ideas died here — buried with their names on the stones.”</span></p>
+  <p class="que"><span class="es">La cocina completa de la frontera: 29 secciones de hipótesis,
   verificaciones con citas, cálculos, ideas falsadas y erratas confesadas. El
-  documento más honesto del proyecto.</p>
-  <p class="ir">Abrir la bitácora →</p>
+  documento más honesto del proyecto.</span><span class="en">The frontier's full kitchen: 29 sections of hypotheses, cited
+  verifications, calculations, falsified ideas and confessed errata. The most
+  honest document in the project.</span></p>
+  <p class="ir"><span class="es">Abrir la bitácora →</span><span class="en">Open the logbook →</span></p>
  </a>
 </div>
 
-<p class="regla rev">«Toda suposición se declara. Toda derrota se publica el mismo día.<br>
-Ningún “exactamente” sin su cálculo detrás.»
-<small>— la regla de la casa</small></p>
+<p class="regla rev"><span class="es">«Toda suposición se declara. Toda derrota se publica el mismo día.<br>
+Ningún “exactamente” sin su cálculo detrás.»</span><span class="en">“Every assumption is declared. Every defeat is published the same day.<br>
+No ‘exactly’ without its calculation behind it.”</span>
+<small><span class="es">— la regla de la casa</span><span class="en">— the rule of the house</span></small></p>
 
 <footer class="rev">
- <p>Teoría del Campo Intangible · Nicolás Irigoyen &amp; Fable</p>
+ <p><span class="es">Teoría del Campo Intangible</span><span class="en">Intangible Field Theory</span> · Nicolás Irigoyen &amp; Fable</p>
  <p><a href="https://github.com/IrigoyenNicolas1991/ift-theory">GitHub: ift-theory</a> ·
  <a href="https://github.com/IrigoyenNicolas1991/teoria-campo-intangible">GitHub: teoria-campo-intangible</a></p>
- <p>Lo que ves de fondo: dos nudos del mar orbitando — y la onda espiral de dos brazos
- que emiten es, con todas las letras, la forma de una onda gravitacional.</p>
+ <p><span class="es">Lo que ves de fondo: dos nudos del mar orbitando — y la onda espiral de dos brazos
+ que emiten es, con todas las letras, la forma de una onda gravitacional.</span><span class="en">What you see in the background: two knots of the sea orbiting each other —
+ and the two-armed spiral wave they emit is, in every sense of the word, the shape
+ of a gravitational wave.</span></p>
 </footer>
 
 </div>
@@ -233,12 +269,10 @@ Ningún “exactamente” sin su cálculo detrás.»
  }
  size();
  window.addEventListener('resize',size);
-
  let t=0;
  const binaria={cx:0.5,cy:0.42,R:0.09,om:0.011};
  let userKnot=null,userTarget=null;
  const ripples=[];
-
  cv.addEventListener('pointermove',e=>{
   userTarget={x:e.clientX,y:e.clientY};
   if(!userKnot)userKnot={x:e.clientX,y:e.clientY,k:0.5};
@@ -248,7 +282,6 @@ Ningún “exactamente” sin su cálculo detrás.»
   if(ripples.length>4)ripples.shift();
  });
  cv.addEventListener('pointerleave',()=>{userTarget=null;});
-
  function step(){
   t++;
   ctx.clearRect(0,0,W,H);
@@ -315,6 +348,20 @@ const obs=new IntersectionObserver(es=>{
  for(const e of es)if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}
 },{threshold:0.12});
 document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+
+const btnI=document.getElementById('btnIdioma');
+function setIdioma(en){
+ document.body.classList.toggle('ingles',en);
+ btnI.textContent=en?'ES':'EN';
+ document.documentElement.lang=en?'en':'es';
+ try{localStorage.setItem('tci-idioma',en?'en':'es');}catch(e){}
+}
+btnI.addEventListener('click',()=>setIdioma(!document.body.classList.contains('ingles')));
+try{
+ const guardado=localStorage.getItem('tci-idioma');
+ if(guardado==='en')setIdioma(true);
+ else if(!guardado&&navigator.language&&!navigator.language.startsWith('es'))setIdioma(true);
+}catch(e){}
 </script>
 </body>
 </html>
