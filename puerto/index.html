@@ -115,6 +115,25 @@ h2.cat::after{content:'';flex:1;height:1px;background:var(--linea)}
 .top button{font-size:13px;padding:7px 12px;border-radius:20px;cursor:pointer;
  border:1px solid var(--linea);background:var(--panel);color:var(--tinta)}
 .top button.activo{border-color:var(--naranja);color:var(--naranja)}
+#btnMar .volver{display:none}
+body.solo-mar{overflow:hidden}
+.contenido{transition:opacity .9s ease}
+body.solo-mar .contenido{opacity:0}
+body.solo-mar .contenido a,body.solo-mar .contenido button,
+body.solo-mar .contenido video,body.solo-mar .contenido .pill{pointer-events:none}
+body.solo-mar #btnMar .ver{display:none}
+body.solo-mar #btnMar .volver{display:inline}
+body.solo-mar #btnMar{border-color:var(--naranja);color:var(--naranja)}
+.leyenda-mar{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(14px);
+ z-index:5;max-width:620px;width:calc(100% - 44px);background:var(--panel);
+ border:1px solid var(--linea);border-radius:16px;padding:16px 22px;
+ backdrop-filter:blur(5px);opacity:0;pointer-events:none;
+ transition:opacity .9s ease .4s,transform .9s ease .4s}
+body.solo-mar .leyenda-mar{opacity:1;transform:translateX(-50%) translateY(0)}
+.leyenda-mar p{margin:0 0 8px;font-size:14px;line-height:1.65}
+.leyenda-mar p:last-child{margin:0}
+.leyenda-mar b{color:var(--azul)}
+.leyenda-pista{color:var(--tenue);font-size:12.5px}
 footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--linea);
  font-size:13px;color:var(--tenue);text-align:center;line-height:1.9}
 footer a{color:var(--azul);text-decoration:none}
@@ -125,7 +144,23 @@ footer a{color:var(--azul);text-decoration:none}
 <canvas id="fondo"></canvas>
 
 <div class="top">
+ <button id="btnMar">
+  <span class="ver"><span class="es">🌊 Ver solo el mar</span><span class="en">🌊 Just the sea</span></span>
+  <span class="volver"><span class="es">← Volver a la página</span><span class="en">← Back to the page</span></span>
+ </button>
  <button id="btnIdioma">EN</button>
+</div>
+
+<div class="leyenda-mar">
+ <p><span class="es"><b>Lo que estás viendo:</b> dos nudos del mar orbitándose. La onda espiral
+ de dos brazos que emiten es, con todas las letras, la forma de una onda
+ gravitacional — el mismo dibujo que LIGO escucha cuando dos agujeros negros
+ se funden.</span><span class="en"><b>What you're watching:</b> two knots of the sea orbiting each other.
+ The two-armed spiral wave they emit is, in every sense of the word, the shape of
+ a gravitational wave — the very pattern LIGO hears when two black holes merge.</span></p>
+ <p class="leyenda-pista"><span class="es">Movete: el cursor arrastra un nudo tuyo y el mar se peina a su paso.
+ Hacé click: soltás una onda.</span><span class="en">Move around: your cursor drags a knot of your own and the sea combs
+ itself around it. Click: you drop a ripple.</span></p>
 </div>
 
 <div class="contenido">
@@ -468,6 +503,10 @@ function setIdioma(en){
  try{localStorage.setItem('tci-idioma',en?'en':'es');}catch(e){}
 }
 btnI.addEventListener('click',()=>setIdioma(!document.body.classList.contains('ingles')));
+
+document.getElementById('btnMar').addEventListener('click',()=>{
+ document.body.classList.toggle('solo-mar');
+});
 try{
  const guardado=localStorage.getItem('tci-idioma');
  if(guardado==='en')setIdioma(true);
