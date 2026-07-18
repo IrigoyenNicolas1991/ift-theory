@@ -22,7 +22,13 @@
        cargados −5.31/+5.71 vs ∓5.60 London (2-5%), neutros ±0.03 ≈ 0. El
        teorema sobrevive el funcional completo. (Bonus: con div las E absolutas
        de los neutros difieren pero la fuerza sigue neutra — como debe.)
-3. [ ] El residuo ~1/R³ entre sectores (Eto) medido o acotado en nuestro modelo.
+3. [x] Residuo entre sectores MEDIDO (2026-07-18, modo `residuo`, fuerza directa
+       sobre el anclaje con doble control: Coulomb F·d=+2.79/+2.73 vs +2.77 y
+       fuerza de borde del nudo solo = 0.000000): **atractiva, |F| ~ 1/d^3.19**
+       (4 puntos d=10-28) — potencia dipolar ~d⁻³ confirmada; el log de Eto
+       (efectivo ~2.5 en este rango) no preferido por los datos — pregunta
+       abierta declarable (¿acople tensorial ≠ dos componentes?). Bonus: explica
+       el tamaño ~3ξ de la molécula (atracción d⁻³ + repulsión de core).
 4. [ ] OK explícito de Nico (política de la casa para la línea TCI 2.0).
 5. [ ] Decidir canal: Zenodo (tenemos DOI concepto) vs arXiv (requiere endorsement).
 6. [ ] DECLARACIÓN OBLIGATORIA (del barrido): el régimen dos-Coulomb-log vale solo

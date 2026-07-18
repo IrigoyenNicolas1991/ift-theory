@@ -25,7 +25,9 @@
 import numpy as np, time, sys
 
 # modos: "todo" (default, §30 original: A+B+C con gradiente K1) |
-#        "div" (robustez: Parte B con el gradiente COMPLETO K1 + 2K div)
+#        "div" (robustez: Parte B con el gradiente COMPLETO K1 + 2K div) |
+#        "residuo" (fuerza DIRECTA sobre el nudo anclado: Coulomb 1/d como
+#                   control + el residuo entre sectores — van der Waals del mar)
 MODO = sys.argv[1] if len(sys.argv) > 1 else "todo"
 
 np.set_printoptions(precision=4, suppress=True)
@@ -361,6 +363,69 @@ if CON_DIV:
     print(f"\n[MODO div] gradiente completo K1+2K(div): prediccion London "
           f"pendiente cargados = -+{PRED:.4f}, neutros 0 (k+-=0 exacto, Parte A)")
 
+# ================================================== MODO RESIDUO (nightcap)
+if MODO == "residuo":
+    print("\n" + "=" * 76)
+    print("MODO RESIDUO — fuerza directa sobre el nudo anclado (K1 solo, declarado)")
+    print("  F_c = sum_disco R·(dx_ansatz/dc): R = residuo de la ec. de campo en")
+    print("  los sitios congelados (teorema de la envolvente: los sitios libres")
+    print("  estan en equilibrio); imagen de borde restada con el nudo solo.")
+    print("=" * 76)
+
+    def fuerza_sobre(vort, j, x_rel):
+        lap = np.zeros_like(x_rel)
+        lap[:, 1:-1, 1:-1] = (x_rel[:, 2:, 1:-1] + x_rel[:, :-2, 1:-1] +
+                              x_rel[:, 1:-1, 2:] + x_rel[:, 1:-1, :-2]
+                              - 4 * x_rel[:, 1:-1, 1:-1])
+        R = 2 * K * lap - gradV_sites(x_rel.reshape(10, -1), *PARAMS).reshape(10, N, N)
+        (cx, cy, w, v) = vort[j]
+        disco = np.hypot(xx - cx, yy - cy) <= RPIN
+        de = 0.35
+        vp = list(vort); vm = list(vort)
+        vp[j] = (cx + de, cy, w, v); vm[j] = (cx - de, cy, w, v)
+        dxdc = (ansatz(vp) - ansatz(vm)) / (2 * de)
+        return float(np.sum(R[:, disco] * dxdc[:, disco]))
+
+    def medir(vort, j=0, pasos=3500):
+        x = ansatz(vort)
+        libre = np.ones((N, N), bool)
+        libre[:BORDE, :] = libre[-BORDE:, :] = libre[:, :BORDE] = libre[:, -BORDE:] = False
+        for (cx, cy, _, _) in vort:
+            libre[np.hypot(xx - cx, yy - cy) <= RPIN] = False
+        x, _ = relajar(x, libre, pasos, tol=3e-4)
+        return fuerza_sobre(vort, j, x)
+
+    t0 = time.time()
+    print("\n  CONTROL Coulomb (anti-par, F esperada = +2.77/d hacia el companero):")
+    for d in [12, 18]:
+        vort = [(N/2 - d/2, N/2, 0.5, 0.25), (N/2 + d/2, N/2, -0.5, -0.25)]
+        Fx = medir(vort)
+        print(f"    d={d:2d}: F_x = {Fx:+.5f}   F_x*d = {Fx*d:+.4f}  "
+              f"(esperado ~+2.77)   [{time.time()-t0:.0f}s]", flush=True)
+
+    print("\n  RESIDUO entre sectores (par neutro-A) menos imagen de borde (solo):")
+    print("    d    F_par(x)     F_solo(x)    F_int = par - solo")
+    Fint = {}
+    for d in [10, 14, 20, 28]:
+        pos = N/2 - d/2
+        vpar = [(pos, N/2, 0.5, 0.25), (N/2 + d/2, N/2, 0.5, -0.25)]
+        vsolo = [(pos, N/2, 0.5, 0.25)]
+        Fp = medir(vpar)
+        Fs = medir(vsolo)
+        Fint[d] = Fp - Fs
+        print(f"    {d:2d}  {Fp:+.6f}  {Fs:+.6f}  {Fint[d]:+.6f}   "
+              f"[{time.time()-t0:.0f}s]", flush=True)
+    ds = np.array(sorted(Fint))
+    Fa = np.array([abs(Fint[d]) for d in ds])
+    if np.all(Fa > 0):
+        n_fit = -np.polyfit(np.log(ds), np.log(Fa), 1)[0]
+        print(f"\n  ajuste |F_int| ~ 1/d^n:  n = {n_fit:.2f}   "
+              f"(Eto predice ~3 [fuerza ~ ln(d)/d^3]; Coulomb seria 1)")
+    print(f"  signo a d grande: {'atractiva' if Fint[ds[-1]] > 0 else 'repulsiva'} "
+          f"(convencion: F_x>0 = hacia el companero)")
+    print("\n[fin modo residuo]")
+    sys.exit(0)
+
 resultados = {}
 t_ini = time.time()
 for (nombre, s1, s2) in pares:
@@ -389,6 +454,7 @@ for nombre, (Es, pend) in resultados.items():
 if MODO != "todo":
     print("\n[fin modo div]")
     sys.exit(0)
+
 
 # ===================================================== PARTE C: LA MOLECULA
 print("\n" + "=" * 76)

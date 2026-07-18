@@ -1224,6 +1224,23 @@ d = 12, 18, 26 en red 120², pendiente dE/d ln d contra la predicción London ±
   pero la neutralidad de la FUERZA se mantiene exacta — que es lo que el teorema
   afirma. El teorema de las dos monedas queda verificado con el funcional de
   gradientes completo.
+- **EL VAN DER WAALS DEL MAR: MEDIDO (misma noche, modo `residuo` del script)** —
+  método de fuerza DIRECTA sobre el nudo anclado (F_c = Σ_disco R·∂x/∂c por
+  teorema de la envolvente; mucho más sensible que diferencias de energía).
+  **Doble control aprobado**: par cargado F·d = +2.7875 (d=12) y +2.7295 (d=18)
+  vs +2.77 de las pendientes de §30 — dos métodos independientes al 0.6-1.5%; el
+  nudo solo da fuerza de borde EXACTAMENTE cero (+0.000000). **Resultado**: la
+  fuerza residual entre los socios de la molécula neutra (par de sectores
+  cruzados) es **ATRACTIVA y cae como 1/d^3.19** (4 puntos, d=10→28, fuerza
+  0.0069→0.00026): la ley de potencia tipo dipolo ~1/d³ confirmada en el medio
+  tensorial. Letra fina anotada sin sobre-interpretar: la forma exacta de Eto
+  (ln(d/ξ)/d³) daría exponente efectivo ~2.5 en este rango; nuestros 4 puntos
+  prefieren ~3.2 — la potencia está clara, el prefactor/log queda abierto (¿el
+  acople tensorial difiere del BEC de dos componentes? — pregunta para el paper).
+  **Círculo cerrado con la Parte C**: atracción débil 1/d³ de largo alcance +
+  repulsión de cores de corto alcance ⟹ la molécula tiene tamaño de equilibrio —
+  explica el ~3ξ estable observado. La molécula neutra del mar está LIGADA, con
+  mecanismo medido. (Bloqueo #3 del esqueleto de paper: SALDADO.)
 
 ### C) La molécula suelta (vórtice entero sin anclar)
 
