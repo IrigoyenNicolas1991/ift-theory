@@ -1298,6 +1298,123 @@ marco). Falta la mitad DINÁMICA — el acople a los canales propagantes (TT ×2
 vectoriales ×2, fonón) para radiación: G_rad, dipolo vectorial, control
 Kozik-Svistunov. Esa sigue siendo la cuenta con tres tronos (§29).
 
+## 31. LA BINARIA DEL MAR (2026-07-18) — la mitad dinámica, primer asalto:
+## dos medios-nudos orbitándose y radiando en tiempo real
+
+**El experimento** (`binaria_del_mar.py`): el anti-par del sector q₊ — un medio-nudo
+(½,¼) y su antinudo (−½,−¼), que por §30 se ATRAEN con Coulomb log — puesto en
+órbita con velocidad tangencial inicial, evolucionado con la dinámica REAL del campo
+de 10 componentes (leapfrog, borde esponja absorbente, red 200²). Se mide: (1) la
+órbita d(t) — ¿decae? (mini-Hulse-Taylor); (2) la radiación descompuesta POR CANAL
+en un anillo de medición (fase / rot-z [juntas = sectores q±] / rot-x, rot-y
+[vectoriales] / amplitud) — la pregunta del dipolo §28.3 en miniatura; (3) el
+espectro temporal — ¿radia a Ω (dipolo) o 2Ω (cuadrupolo)?
+
+**Elección de dinámica DECLARADA**: segundo orden (L = ½ẋ² − E[x]), consistente con
+todos los espectros §14-16 — el medio TCI es lorentziano de fábrica, no
+Gross-Pitaevskii. Por eso el control Kozik-Svistunov (dinámica GP/Magnus de primer
+orden, donde los vórtices no tienen inercia) NO aplica directo: en nuestra clase,
+los vórtices globales tienen inercia y una binaria ± ligada es legítima (como
+cuerdas globales relativistas). El control KS queda pendiente para cuando toque la
+versión GP. Controles internos de hoy: gradiente analítico autotesteado,
+conservación de energía en piloto sin esponja (drift ~4% en 800 pasos, integrador +
+borde), pureza sectorial de la radiación como control de consistencia.
+
+**Lección del piloto**: la estimación ingenua de la masa inercial del medio-nudo
+(μ ~ E_total ~ 8) sobreestima — el piloto con Ω₀=0.059 dio órbita casi no ligada
+(apoapsis ~27 desde d₀=14; la inercia efectiva del vórtice global es menor, del
+orden del log local, no de la energía total con colas). Corrida definitiva:
+Ω₀=0.045, órbita excéntrica contenida (Hulse-Taylor real también es excéntrico,
+e=0.6 — no es defecto, es fenomenología).
+
+### A) La caza del rastreador (dos rastreadores muertos, uno bueno)
+
+1. Rastreador de mínimos de amplitud crudo: confundido por las ondas (d espurios).
+2. Rastreador con umbral: ciego — **el core del HQV no baja a cero: la otra
+   componente lo rellena** (exactamente la física de Seo confirmada en §30.E) y en
+   movimiento el dip queda arriba de cualquier umbral fijo.
+3. **El bueno: rastreador TOPOLÓGICO** — winding de fase de ψ_{q₊} = z₀+iz₁ por
+   plaqueta: +1 en el nudo, −1 en el antinudo, inmune a ondas de amplitud, detecta
+   la aniquilación por definición (los windings se cancelan). Control: d inicial
+   14.04 con nudos puestos a 14.00. Lección de método para TODA futura dinámica de
+   defectos: rastrear carga topológica, no amplitud.
+
+### B) EL TEOREMA DEL PLUNGE (resultado principal — negativo y con causa)
+
+**La binaria anti (q₊, −q₊) NO orbita: toda captura es plunge + aniquilación en
+~¼ de vuelta.** Barrido de lanzamiento Ω₀ = 0.045 / 0.054 / 0.09 / 0.10 / 0.115
+(energía cinética hasta 2.9, velocidades tangenciales hasta ~0.8): la trayectoria
+radial d(t) es IDÉNTICA punto a punto en todos los casos (14 → 11.4 → 7.6 → 4.2 →
+1.4 → 0 en t ≈ 13 u.t.), con la pareja rotando a la Ω impresa (el kick funciona:
+θ(t) sigue a Ω₀ — verificado). Pre-relajar con cores anclados (protocolo §30) no
+cambia nada (el ansatz solo tenía 0.14 de exceso): **el plunge es física, no
+artefacto.**
+
+**Anatomía de la muerte orbital (dos verdugos, los dos con nombre):**
+1. **El potencial log es confinante**: E_int ∝ ln(d) ⟹ v_circ² = F·r/μ_eff con
+   μ_eff ≈ πρ ln(d/ξ) (la inercia del vórtice global crece con el log) ⟹
+   **v_circ²/c_s² ~ 1/ln(d/ξ)**: la binaria es semi-relativista salvo a
+   separaciones exponencialmente grandes. Curva de rotación plana — el mismo log
+   que hace galaxias hace binarias imposibles.
+2. **El magnetismo de los vórtices**: la caída observada es ~7× el Coulomb
+   estático (F_est = λ/d = 0.198 vs aceleración medida ~0.29·μ). En la
+   electrodinámica 2D de vórtices (dualidad vórtice↔carga), nudo y antinudo
+   girando llevan corrientes I = q·v PARALELAS (carga opuesta × velocidad
+   opuesta) → **atracción tipo Ampère ∝ Ω²** — subir la velocidad de lanzamiento
+   la aprieta más fuerte. El cociente centrífuga/Ampère ~ ln(d/ξ)/2: de nuevo el
+   log, de nuevo marginal a toda separación práctica.
+
+**Consecuencia honesta para el examen Hulse-Taylor**: el juguete 2D NO puede
+rendir ese examen — su potencial confinante y su magnetismo matan la órbita antes
+del régimen adiabático. El examen real vive en 3D con ANILLOS (interacción ~1/d³
+dipolar + gravedad escalar 1/d², masas finitas → órbitas newtonianas legítimas).
+Lo que el juguete SÍ responde (y era la pregunta §23/§28.3): qué canales cargan
+la energía radiada del evento. Paralelo exacto en la literatura: las binarias de
+cuerdas globales/cósmicas también son relativistas y se fusionan — el análogo
+correcto del juguete es un evento de captura de cuerdas, no un púlsar binario.
+
+### C) El evento completo: captura, fusión y estallido (canales y espectro)
+
+Corrida definitiva (Ω₀=0.09, pre-relajada, 2500 pasos, datos crudos en
+`binaria_datos.npz` local + análisis post-hoc `analiza_binaria.py`): fusión al
+paso 125 (t=15, 0.42 vueltas), **91% de la energía interna convertida en ondas**
+(13.1 → 1.2 — la aniquilación del cap. 8 del libro, ahora con contabilidad).
+
+**Tabla de canales en el anillo r=70** (fracción de ⟨v̇²⟩ por ventana temporal):
+
+| canal | lanzamiento (8-120) | ESTALLIDO (480-1600) | cola (1600-2500) |
+|-------|--------------------:|---------------------:|-----------------:|
+| fase  | 48.7% | 29.5% | 4.5% |
+| rot-z | 48.7% | 29.5% | 4.5% |
+| **rot-x** | **0.00%** | **0.00%** | **0.00%** |
+| **rot-y** | **0.00%** | **0.00%** | **0.00%** |
+| amp (masivo) | 1.3% | 17.2% | 44.0% |
+| resto (masivos) | 1.3% | 23.8% | 47.0% |
+
+- **LOS VECTORIALES SON OSCUROS EN ESTE EVENTO: 0.00% exacto en las tres
+  ventanas** — primer test DINÁMICO de la pregunta §23. Lectura honesta: la
+  oscuridad acá está protegida por simetría (el evento solo excita φ y α_z; las
+  rotaciones x,y nunca se acoplan) — un evento genérico 3D podría romperla, pero
+  el juguete muestra que el acople NO se genera dinámicamente donde la simetría
+  no lo obliga. Para J1738 (dipolo §28.3): alentador, no concluyente.
+- **fase y rot-z con correlación MÁXIMA en las tres ventanas: radiación q₊ PURA**
+  — los dos sectores no se hablan ni en el régimen no lineal violento de la
+  fusión. El teorema de las dos monedas (§30) sobrevive su primer test dinámico.
+- **La cola es masiva**: el ringdown tardío vive en los canales de amplitud
+  (44%+47%), oscilando en ω ≈ 2.6-2.8 = la frecuencia del gap (los modos masivos
+  tienen velocidad de grupo → 0 y se quedan sonando cerca del origen — un
+  "ringdown masivo" característico del medio, sin análogo en RG pura). El
+  estallido q₊ propagante tiene banda dominante ω ≈ 0.9-1.1 ~ c_s/ξ·O(½): la
+  frecuencia característica la fija el tamaño del núcleo — como en RG el
+  ringdown lo fija el tamaño del horizonte (cualitativo, anotado).
+
+**Marcador §31**: 1 teorema con causa doble (plunge: log confinante + Ampère de
+vórtices), 1 respuesta dinámica (vectoriales oscuros por simetría, sectores
+incomunicados), 1 contabilidad (91% radiado), 1 lección de método (rastreador
+topológico), 1 límite declarado (el examen Hulse-Taylor NO se rinde en el juguete
+2D — vive en anillos 3D). Scripts: `binaria_del_mar.py` (piloto/scan/full) +
+`analiza_binaria.py`; 5 lanzamientos fallidos documentados en el camino.
+
 ## 6-bis. Estado de las verificaciones pendientes de §6 (cerradas esta noche)
 
 - [x] Zoología NPPR: el medio SL(3) figura (caso 7) y NO da quinteto — Familia F muerta.
