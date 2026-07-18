@@ -34,8 +34,12 @@ h1{font-family:Lora,serif;font-size:clamp(40px,7vw,64px);font-weight:600;margin:
  line-height:1.5;max-width:680px;margin:28px auto 12px;
  text-shadow:0 2px 24px rgba(5,15,23,.9)}
 .pregunta b{color:var(--azul);font-weight:600}
-.origen{color:var(--tenue);font-size:14.5px;max-width:620px;margin:0 auto 28px;
+.hero-caja{background:rgba(5,15,23,.58);border:1px solid rgba(95,168,230,.18);
+ border-radius:22px;padding:40px 36px 30px;backdrop-filter:blur(6px);
+ max-width:850px;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.origen{color:#a7c0d3;font-size:14.5px;max-width:620px;margin:0 auto 28px;
  text-shadow:0 1px 12px rgba(5,15,23,.95)}
+.origen b{color:var(--tinta);font-weight:600}
 .sello{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:6px 0 34px}
 .sello span{background:var(--panel);border:1px solid var(--linea);border-radius:20px;
  padding:7px 15px;font-size:12.5px;color:var(--tenue);backdrop-filter:blur(4px)}
@@ -72,8 +76,10 @@ a.card:hover .ir{letter-spacing:.5px}
  margin-bottom:10px;letter-spacing:1.5px;font-weight:600}
 .rev{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .rev.vis{opacity:1;transform:none}
-.regla{margin:72px 0 0;text-align:center;font-family:Lora,serif;font-style:italic;
- font-size:clamp(17px,2.6vw,21px);line-height:1.75}
+.regla{margin:72px auto 0;text-align:center;font-family:Lora,serif;font-style:italic;
+ font-size:clamp(17px,2.6vw,21px);line-height:1.75;max-width:720px;
+ background:var(--panel);border:1px solid var(--linea);border-radius:18px;
+ padding:28px 30px;backdrop-filter:blur(5px)}
 .regla small{display:block;font-family:Inter,sans-serif;font-style:normal;
  font-size:13px;color:var(--tenue);margin-top:10px}
 .top{position:fixed;top:14px;right:14px;z-index:9;display:flex;gap:8px}
@@ -96,16 +102,19 @@ footer a{color:var(--azul);text-decoration:none}
 <div class="contenido">
 
 <div class="hero">
+<div class="hero-caja">
  <p class="kicker rev"><span class="es">Teoría del Campo Intangible · TCI</span><span class="en">Intangible Field Theory · IFT</span></p>
  <h1 class="rev"><span class="es">El mar invisible</span><span class="en">The invisible sea</span></h1>
  <p class="pregunta rev"><span class="es">«Si el Sol desapareciera ahora mismo…<br><b>¿la Tierra se enteraría enseguida?</b>»</span><span class="en">“If the Sun vanished right now…<br><b>would the Earth notice immediately?</b>”</span></p>
  <p class="origen rev"><span class="es">Esa pregunta —hecha por un chico mirando el cielo— fundó todo lo que sigue:
- una propuesta donde el espacio vacío es un océano invisible, la gravedad es su
- deformación, la materia son sus nudos y la luz es su temblor. Desarrollada por un
- humano y una IA con una sola regla innegociable: la honestidad primero.</span><span class="en">That question — asked by a kid looking at the sky — founded everything that
- follows: a proposal in which empty space is an invisible ocean, gravity is its
- strain, matter is its knots and light is its trembling. Developed by a human and
- an AI under one non-negotiable rule: honesty first.</span></p>
+ una propuesta donde el espacio vacío es <b>un océano invisible</b>, la gravedad es
+ <b>su deformación</b>, la materia son <b>sus nudos</b> y la luz es <b>su temblor</b>.
+ Desarrollada por un humano y una IA con una sola regla innegociable:
+ <b>la honestidad primero</b>.</span><span class="en">That question — asked by a kid looking at the sky — founded everything that
+ follows: a proposal in which empty space is <b>an invisible ocean</b>, gravity is
+ <b>its strain</b>, matter is <b>its knots</b> and light is <b>its trembling</b>.
+ Developed by a human and an AI under one non-negotiable rule:
+ <b>honesty first</b>.</span></p>
  <div class="sello rev">
   <span><b>2</b> <span class="es">números calibrados</span><span class="en">calibrated numbers</span></span>
   <span><b>10</b> <span class="es">observables reproducidos</span><span class="en">observables reproduced</span></span>
@@ -114,6 +123,7 @@ footer a{color:var(--azul);text-decoration:none}
  </div>
  <a class="bajar rev" href="#puertas"><span class="es">ELEGÍ TU PUERTA ↓</span><span class="en">CHOOSE YOUR DOOR ↓</span></a>
  <p class="pista rev"><span class="es">psst: el fondo está vivo — movete por el mar, hacé click</span><span class="en">psst: the background is alive — move through the sea, click around</span></p>
+</div>
 </div>
 
 <div class="wrap" id="puertas">
@@ -162,6 +172,19 @@ footer a{color:var(--azul);text-decoration:none}
   repulsión, con cada truco declarado.</span><span class="en">The medium's toy lab: gravity emerging from pure repulsion, with
   every trick declared.</span></p>
   <p class="ir"><span class="es">Entrar al simulador →</span><span class="en">Enter the simulator →</span></p>
+ </a>
+ <a class="card rev" href="../descargas/simulador-lab.zip">
+  <p class="ico">🚀</p>
+  <p class="tit"><span class="es">El simulador potente</span><span class="en">The heavy-duty simulator</span><span class="idioma-tag">Python</span></p>
+  <p class="frase"><span class="es">«60.000 gotas reales corriendo en tu placa de video.»</span><span class="en">“60,000 real droplets running on your graphics card.”</span></p>
+  <p class="que"><span class="es">El laboratorio serio del medio, para descargar y correr en tu
+  máquina: motor en Python acelerado por GPU (Taichi), con el planeta orbitando
+  en el mar denso. Incluye guía y lanzadores de un click; código fuente abierto
+  en GitHub (carpeta simulador-lab). Video de muestra: en camino.</span><span class="en">The medium's serious lab, to download and run on your own machine:
+  a GPU-accelerated Python engine (Taichi), with the planet orbiting the dense
+  sea. Includes a guide and one-click launchers; open source on GitHub
+  (simulador-lab folder). Sample video: coming soon. Guide in Spanish.</span></p>
+  <p class="ir"><span class="es">Descargar (.zip, 22 KB) →</span><span class="en">Download (.zip, 22 KB) →</span></p>
  </a>
 </div>
 
