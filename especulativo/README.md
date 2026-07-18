@@ -15,6 +15,17 @@ del repositorio:
   acá navegando: bienvenido, pero calibrá expectativas — esto es un cuaderno de
   laboratorio, no un resultado.
 
+## Las páginas divulgativas (las caras visuales de esta carpeta)
+
+Todo lo de acá tiene su versión contada para no-físicos, con simulaciones jugables:
+
+- **«El mar y sus nudos»** (la materia): https://irigoyennicolas1991.github.io/ift-theory/mar-y-nudos/
+- **«El taller electromagnético del mar»** (el EM): https://irigoyennicolas1991.github.io/ift-theory/taller-electromagnetico/
+
+Ambas llevan el aviso de etapa especulativa y enlazan de vuelta a esta carpeta como
+respaldo formal. No están enlazadas desde las sedes públicas de TCI (decisión
+deliberada: se comparten en persona).
+
 ## Contenido
 
 | Archivo | Qué es |

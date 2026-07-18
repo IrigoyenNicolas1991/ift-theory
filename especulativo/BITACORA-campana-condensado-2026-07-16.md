@@ -1,5 +1,11 @@
 # BITÁCORA TCI 2.0 — La campaña del condensado (2026-07-16/17)
 
+> **Versiones divulgativas de este trabajo** (con simulaciones jugables):
+> [«El mar y sus nudos»](https://irigoyennicolas1991.github.io/ift-theory/mar-y-nudos/)
+> (la materia) y
+> [«El taller electromagnético del mar»](https://irigoyennicolas1991.github.io/ift-theory/taller-electromagnetico/)
+> (el EM). Esta bitácora es su respaldo formal.
+
 > ⚠️ **ETAPA ESPECULATIVA EN DESARROLLO** — Esto NO es parte del corpus TCI publicado
 > (sitios/Pages/Zenodo). Es investigación exploratoria en curso, con hipótesis vivas,
 > ideas muertas documentadas y cálculos preliminares. Nada de lo que sigue está
