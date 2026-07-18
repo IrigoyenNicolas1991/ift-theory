@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TCI — Teoría del Campo Intangible · El puerto</title>
+<meta name="description" content="Una teoría nacida de una pregunta de infancia: si el Sol desapareciera ahora mismo, ¿la Tierra se enteraría enseguida?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --fondo:#071620; --panel:#0b2231; --panel2:#0e2a3d; --tinta:#dce8f2; --tenue:#8fa8bb;
+ --azul:#5fa8e6; --verde:#2fbf95; --naranja:#e07b4f; --linea:#1b3a4f;
+}
+body.claro{
+ --fondo:#f7f3ec; --panel:#efe7da; --panel2:#e7dccb; --tinta:#2b2620; --tenue:#7a6f61;
+ --azul:#1d6db8; --verde:#0f7a5c; --naranja:#b35427; --linea:#d8cbb8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);
+ font-family:Inter,sans-serif;font-size:16px;line-height:1.65;
+ transition:background .4s,color .4s}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px 80px}
+.hero{position:relative;padding:80px 0 40px;text-align:center;overflow:hidden}
+#mar{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.5}
+.hero-in{position:relative;z-index:1}
+.kicker{font-size:13px;letter-spacing:3px;color:var(--naranja);text-transform:uppercase;margin:0 0 10px}
+h1{font-family:Lora,serif;font-size:46px;font-weight:600;margin:0 0 6px;letter-spacing:.5px}
+.pregunta{font-family:Lora,serif;font-style:italic;font-size:26px;line-height:1.5;
+ color:var(--tinta);max-width:640px;margin:26px auto 10px}
+.origen{color:var(--tenue);font-size:14px;max-width:600px;margin:0 auto 26px}
+.sello{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0 0}
+.sello span{background:var(--panel);border:1px solid var(--linea);border-radius:20px;
+ padding:6px 14px;font-size:12.5px;color:var(--tenue)}
+.sello b{color:var(--verde);font-weight:600}
+h2.cat{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--naranja);
+ margin:54px 0 16px;font-weight:600}
+h2.cat small{color:var(--tenue);letter-spacing:0;text-transform:none;font-weight:400;margin-left:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+a.card{display:block;background:var(--panel);border:1px solid var(--linea);border-radius:14px;
+ padding:20px 22px;text-decoration:none;color:var(--tinta);transition:transform .15s,border-color .15s}
+a.card:hover{transform:translateY(-3px);border-color:var(--azul)}
+.card .tit{font-family:Lora,serif;font-size:20px;font-weight:600;margin:0 0 6px;color:var(--azul)}
+.card .frase{font-family:Lora,serif;font-style:italic;font-size:15.5px;color:var(--tinta);margin:0 0 10px;line-height:1.55}
+.card .que{font-size:13px;color:var(--tenue);margin:0 0 12px;line-height:1.55}
+.card .ir{font-size:13px;color:var(--naranja)}
+.chip{display:inline-block;background:rgba(224,123,79,.14);border:1px solid var(--naranja);
+ color:var(--naranja);font-size:11px;border-radius:12px;padding:2px 10px;margin-bottom:10px;
+ letter-spacing:1px}
+.regla{margin:60px 0 0;text-align:center;font-family:Lora,serif;font-style:italic;
+ font-size:19px;color:var(--tinta);line-height:1.7}
+.regla small{display:block;font-family:Inter,sans-serif;font-style:normal;
+ font-size:13px;color:var(--tenue);margin-top:8px}
+.toggle{position:fixed;top:14px;right:14px;z-index:9;font-size:13px;padding:7px 12px;
+ border-radius:20px;border:1px solid var(--linea);background:var(--panel);color:var(--tinta);cursor:pointer}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--linea);
+ font-size:13px;color:var(--tenue);text-align:center;line-height:1.8}
+footer a{color:var(--azul);text-decoration:none}
+</style>
+</head>
+<body>
+<button class="toggle" id="tema">modo claro</button>
+
+<div class="hero">
+<canvas id="mar"></canvas>
+<div class="hero-in wrap">
+ <p class="kicker">Teoría del Campo Intangible · TCI</p>
+ <h1>El mar invisible</h1>
+ <p class="pregunta">«Si el Sol desapareciera ahora mismo…<br>¿la Tierra se enteraría enseguida?»</p>
+ <p class="origen">Esa pregunta —hecha por un chico mirando el cielo— fundó todo lo que sigue:
+ una propuesta donde el espacio vacío es un océano invisible, la gravedad es su deformación,
+ la materia son sus nudos y la luz es su temblor. Desarrollada por un humano y una IA con una
+ sola regla innegociable: la honestidad primero.</p>
+ <div class="sello">
+  <span><b>2</b> números calibrados</span>
+  <span><b>10</b> observables reproducidos</span>
+  <span><b>1</b> sector falsado — y publicado el mismo día</span>
+  <span><b>Predicciones falsables</b> esperando juez</span>
+ </div>
+</div>
+</div>
+
+<div class="wrap">
+
+<h2 class="cat">Para empezar <small>— sin saber nada de física</small></h2>
+<div class="grid">
+ <a class="card" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">
+  <p class="tit">El océano y la huella</p>
+  <p class="frase">«La gravedad no tira de vos: el mar te empuja.»</p>
+  <p class="que">El libro. Once capítulos sin una sola fórmula, con simulaciones jugables:
+  el mar, la huella, la inercia, E=mc² y un golpe de teatro final. La puerta principal.</p>
+  <p class="ir">Leer el libro →</p>
+ </a>
+ <a class="card" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">
+  <p class="tit">El sitio conceptual</p>
+  <p class="frase">«¿Y si el vacío no está vacío?»</p>
+  <p class="que">La teoría completa en lenguaje llano: qué propone, qué explica, qué
+  predice, y qué le falta — parte por parte, en español.</p>
+  <p class="ir">Recorrer la teoría →</p>
+ </a>
+</div>
+
+<h2 class="cat">Para jugar <small>— tocar la física con el dedo</small></h2>
+<div class="grid">
+ <a class="card" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">
+  <p class="tit">Lo que el mar pagó</p>
+  <p class="frase">«Sostené un hueco en el mar y mirá al contador facturar su masa.»</p>
+  <p class="que">La pieza interactiva de E=mc²: abrís un hueco, el mar mide lo que
+  desalojaste, lo soltás, lo tocás — y la ecuación se arma sola frente a tus ojos.</p>
+  <p class="ir">Abrir la pieza →</p>
+ </a>
+ <a class="card" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/simulador/">
+  <p class="tit">El simulador</p>
+  <p class="frase">«Un planeta dando vueltas en un mar que nadie programó para atraer.»</p>
+  <p class="que">El laboratorio de juguete del medio: gravedad emergiendo de pura
+  repulsión, con cada truco declarado.</p>
+  <p class="ir">Entrar al simulador →</p>
+ </a>
+</div>
+
+<h2 class="cat">Para el rigor <small>— las cuentas y los registros</small></h2>
+<div class="grid">
+ <a class="card" href="https://irigoyennicolas1991.github.io/ift-theory/">
+  <p class="tit">El paper técnico</p>
+  <p class="frase">«Cada “exactamente” tiene su ecuación — o no se escribe.»</p>
+  <p class="que">El desarrollo formal (en inglés): las derivaciones, los tests del
+  sistema solar, las predicciones de campo fuerte, y el sector falsado — publicado
+  igual que las victorias.</p>
+  <p class="ir">Leer el paper →</p>
+ </a>
+ <a class="card" href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/notas">
+  <p class="tit">Las notas de trabajo</p>
+  <p class="frase">«Cómo se hizo, con los scripts para que no nos creas: para que verifiques.»</p>
+  <p class="que">La bitácora histórica en español: once notas — de la deflexión de la
+  luz a la falsación de la radiación — cada una con su código reproducible.</p>
+  <p class="ir">Abrir las notas →</p>
+ </a>
+ <a class="card" href="https://doi.org/10.5281/zenodo.21177500">
+  <p class="tit">El registro sellado</p>
+  <p class="frase">«Fecha certificada: esto se dijo cuándo se dijo.»</p>
+  <p class="que">El corpus archivado en Zenodo (CERN) con DOI y fecha — el sello de
+  prioridad de cada predicción, para bien o para mal.</p>
+  <p class="ir">Ver en Zenodo →</p>
+ </a>
+</div>
+
+<h2 class="cat">La frontera <small>— investigación viva, en desarrollo</small></h2>
+<div class="grid">
+ <a class="card" href="https://irigoyennicolas1991.github.io/ift-theory/mar-y-nudos/">
+  <span class="chip">ETAPA ESPECULATIVA</span>
+  <p class="tit">El mar y sus nudos</p>
+  <p class="frase">«La materia es lo que el mar no puede despeinar.»</p>
+  <p class="que">La segunda generación de la teoría: las partículas como nudos, el átomo
+  como música atrapada, la aniquilación como desanudarse — con siete simulaciones para
+  jugar (incluido robar un quark).</p>
+  <p class="ir">Entrar a la frontera →</p>
+ </a>
+ <a class="card" href="https://irigoyennicolas1991.github.io/ift-theory/taller-electromagnetico/">
+  <span class="chip">ETAPA ESPECULATIVA</span>
+  <p class="tit">El taller electromagnético</p>
+  <p class="frase">«Faraday recupera su medio.»</p>
+  <p class="que">El electromagnetismo contado para gente de taller: la carga que cuenta,
+  la masa que cobra, el remolino magnético, la antena y el imán de Faraday — todo
+  jugable.</p>
+  <p class="ir">Entrar al taller →</p>
+ </a>
+ <a class="card" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">
+  <span class="chip">ETAPA ESPECULATIVA</span>
+  <p class="tit">La bitácora de campaña</p>
+  <p class="frase">«Cinco ideas nuestras murieron acá — y están enterradas con nombre.»</p>
+  <p class="que">La cocina completa de la frontera: 29 secciones de hipótesis,
+  verificaciones con citas, cálculos, ideas falsadas y erratas confesadas. El documento
+  más honesto del proyecto.</p>
+  <p class="ir">Abrir la bitácora →</p>
+ </a>
+</div>
+
+<p class="regla">«Toda suposición se declara. Toda derrota se publica el mismo día.<br>
+Ningún “exactamente” sin su cálculo detrás.»
+<small>— la regla de la casa</small></p>
+
+<footer>
+ <p>Teoría del Campo Intangible · Nicolás Irigoyen &amp; Fable</p>
+ <p><a href="https://github.com/IrigoyenNicolas1991/ift-theory">GitHub: ift-theory</a> ·
+ <a href="https://github.com/IrigoyenNicolas1991/teoria-campo-intangible">GitHub: teoria-campo-intangible</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+ const cv=document.getElementById('mar');
+ function size(){
+  const r=cv.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,1.5);
+  cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);
+  cv.getContext('2d').setTransform(d,0,0,d,0,0);
+  return r;
+ }
+ let r=size();
+ window.addEventListener('resize',()=>{r=size();});
+ const ctx=cv.getContext('2d');
+ let t=0;
+ (function step(){
+  t++;
+  ctx.clearRect(0,0,r.width,r.height);
+  const gx=Math.round(r.width/26),gy=Math.round(r.height/26);
+  const sx=r.width/gx,sy=r.height/gy;
+  for(let i=0;i<gx;i++)for(let j=0;j<gy;j++){
+   const x=(i+0.5)*sx,y=(j+0.5)*sy;
+   const th=0.5*Math.sin(x*0.012+t*0.012)+0.35*Math.sin(y*0.016-t*0.009)+0.2*Math.sin((x+y)*0.008+t*0.006);
+   const L=6;
+   ctx.strokeStyle='rgba(105,170,230,0.35)';
+   ctx.lineWidth=1.2;
+   ctx.beginPath();
+   ctx.moveTo(x-L*Math.cos(th),y-L*Math.sin(th));
+   ctx.lineTo(x+L*Math.cos(th),y+L*Math.sin(th));
+   ctx.stroke();
+  }
+  requestAnimationFrame(step);
+ })();
+})();
+document.getElementById('tema').addEventListener('click',function(){
+ document.body.classList.toggle('claro');
+ this.textContent=document.body.classList.contains('claro')?'modo profundo':'modo claro';
+});
+</script>
+</body>
+</html>
