@@ -53,22 +53,26 @@ h2.cat{display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:3p
 h2.cat small{color:var(--tenue);letter-spacing:0;text-transform:none;font-weight:400}
 h2.cat::after{content:'';flex:1;height:1px;background:var(--linea)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-a.card{display:block;background:var(--panel);border:1px solid var(--linea);
+.card{display:block;background:var(--panel);border:1px solid var(--linea);
  border-radius:16px;padding:22px 24px;text-decoration:none;color:var(--tinta);
  backdrop-filter:blur(5px);transition:transform .18s ease,border-color .18s,box-shadow .18s;
  position:relative;overflow:hidden}
-a.card:hover{transform:translateY(-4px);border-color:var(--azul);
+.card:hover{transform:translateY(-4px);border-color:var(--azul);
  box-shadow:0 12px 34px rgba(5,15,23,.6),0 0 0 1px rgba(95,168,230,.25)}
-a.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
  background:linear-gradient(90deg,transparent,var(--azul),transparent);
  opacity:0;transition:opacity .18s}
-a.card:hover::before{opacity:1}
+.card:hover::before{opacity:1}
+.card video{width:100%;border-radius:10px;margin:4px 0 12px;display:block;background:#000}
+.card .links{display:flex;gap:18px;flex-wrap:wrap}
+.card .links a{color:var(--naranja);text-decoration:none;font-size:13px}
+.card .links a:hover{letter-spacing:.5px}
 .card .ico{font-size:24px;margin:0 0 8px}
 .card .tit{font-family:Lora,serif;font-size:21px;font-weight:600;margin:0 0 7px;color:var(--azul)}
 .card .frase{font-family:Lora,serif;font-style:italic;font-size:15.5px;margin:0 0 10px;line-height:1.55}
 .card .que{font-size:13px;color:var(--tenue);margin:0 0 13px;line-height:1.6}
 .card .ir{font-size:13px;color:var(--naranja);transition:letter-spacing .18s}
-a.card:hover .ir{letter-spacing:.5px}
+.card:hover .ir{letter-spacing:.5px}
 .idioma-tag{font-size:10.5px;color:var(--tenue);border:1px solid var(--linea);
  border-radius:10px;padding:1px 8px;margin-left:6px;vertical-align:2px}
 .chip{display:inline-block;background:rgba(224,123,79,.15);border:1px solid var(--naranja);
@@ -171,19 +175,23 @@ footer a{color:var(--azul);text-decoration:none}
   every trick declared.</span></p>
   <p class="ir"><span class="es">Entrar al simulador →</span><span class="en">Enter the simulator →</span></p>
  </a>
- <a class="card rev" href="../descargas/simulador-lab.zip">
+ <div class="card rev">
   <p class="ico">🚀</p>
   <p class="tit"><span class="es">El simulador potente</span><span class="en">The heavy-duty simulator</span><span class="idioma-tag">Python</span></p>
   <p class="frase"><span class="es">«60.000 gotas reales corriendo en tu placa de video.»</span><span class="en">“60,000 real droplets running on your graphics card.”</span></p>
-  <p class="que"><span class="es">El laboratorio serio del medio, para descargar y correr en tu
-  máquina: motor en Python acelerado por GPU (Taichi), con el planeta orbitando
-  en el mar denso. Incluye guía y lanzadores de un click; código fuente abierto
-  en GitHub (carpeta simulador-lab). Video de muestra: en camino.</span><span class="en">The medium's serious lab, to download and run on your own machine:
-  a GPU-accelerated Python engine (Taichi), with the planet orbiting the dense
-  sea. Includes a guide and one-click launchers; open source on GitHub
-  (simulador-lab folder). Sample video: coming soon. Guide in Spanish.</span></p>
-  <p class="ir"><span class="es">Descargar (.zip, 22 KB) →</span><span class="en">Download (.zip, 22 KB) →</span></p>
- </a>
+  <video src="../descargas/simulador-potente-video.mp4" controls muted playsinline preload="metadata"></video>
+  <p class="que"><span class="es">Un minuto del monstruo en acción, grabado en vivo. El laboratorio
+  serio del medio, para descargar y correr en tu máquina: motor en Python
+  acelerado por GPU (Taichi), con el planeta orbitando en el mar denso. Incluye
+  guía y lanzadores de un click.</span><span class="en">One minute of the beast in action, recorded live. The medium's
+  serious lab, to download and run on your own machine: a GPU-accelerated Python
+  engine (Taichi), with the planet orbiting the dense sea. Includes a guide and
+  one-click launchers. Guide in Spanish.</span></p>
+  <p class="links">
+   <a href="../descargas/simulador-lab.zip"><span class="es">Descargar (.zip, 22 KB) →</span><span class="en">Download (.zip, 22 KB) →</span></a>
+   <a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/simulador-lab"><span class="es">Código fuente →</span><span class="en">Source code →</span></a>
+  </p>
+ </div>
 </div>
 
 <h2 class="cat rev"><span class="es">Para el rigor</span><span class="en">For rigor</span> <small><span class="es">— las cuentas y los registros</span><span class="en">— the math and the records</span></small></h2>
