@@ -1483,3 +1483,103 @@ topológico), 1 límite declarado (el examen Hulse-Taylor NO se rinde en el jugu
       orden tensorial → fase m₂=0; esta construcción podría existir con otro nombre.)
 - [ ] π₁ de espacios de orden nemáticos: confirmar ℝP²/ℤ₂ y biaxial/Q₈ (recuerdo
       textbook, verificar igual).
+
+## 32. LA LUZ DE LA RED, PRIMER ASALTO (2026-07-19) — el fotón de la circulación
+## cuesta una polarización de la gravedad, y nadie tendría carga para verlo
+
+**Contexto de sesión**: Nico levantó la pausa ("encaminá por donde decidas") y quitó
+el freno de gasto. Antes de esta sección hubo que revertir una nota redundante que
+re-derivaba la Familia F ya falsada (commits e05a7c3 → e997017 en notas/; error de
+proceso documentado en la memoria: arrancar del CLAUDE.md viejo sin releer memoria
+completa). Único rescate de ese desvío: verificación sympy independiente de POR QUÉ
+muere SL(3) — el invariante mixto Tr(Q⁻¹B) con el fondo fluido regenera masa
+½Tr(π²) para el quinteto: el mecanismo concreto detrás del "solo 3 Goldstones" de
+NPPR caso 7.
+
+### A) El marco exacto para "la luz de la red" existe y está verificado (web, hoy)
+
+- **El fotón ES un Goldstone**: en teoría de gauge U(1) pura, la fase de Coulomb =
+  ruptura espontánea de la simetría global 1-forma magnética; el fotón sin masa es
+  su bosón de Goldstone (Gaiotto-Kapustin-Seiberg-Willett, arXiv:1412.5148;
+  Lake, arXiv:1802.07747; el precursor con este título literal: Kovner-Rosenstein,
+  "New look at QED₄: the photon as a Goldstone boson and the topological
+  interpretation of electric charge", PRD 49:5571 (1994) + hep-th/9210154).
+- **El parámetro de orden es una cuerda**: el operador que crea un vórtice/cuerda
+  magnética infinita toma valor de expectación no nulo en la fase de Coulomb — 
+  "fase de Coulomb = condensado de cuerdas" es literal, no metáfora.
+- **Lo único que rompe la protección**: monopolos DINÁMICOS (extremos de cuerda)
+  rompen explícitamente la simetría 1-forma → fotón sin protección.
+
+### B) El regalo estructural: π₂ = 0 cambia de bando (segunda vez en el programa)
+
+En §30.D, π₂ = 0 fue maldición: sin monopolos no hay Coulomb 1/d² del winding para
+anillos. Acá es EXACTAMENTE la protección del fotón emergente: nuestras cuerdas no
+pueden terminar (π₂ = 0 exacto, §20) ⟹ si un sector de cuerdas condensa, su simetría
+1-forma es EXACTA y el Goldstone-fotón sin masa es obligatorio por teorema, no por
+ajuste. El patrón "el bug es la feature" (nota 10) reaparece. Anotado para el futuro:
+esta protección sirve para CUALQUIER U(1) emergente del programa, incluido el del
+sector de defectos.
+
+### C) La contabilidad de monedas (el resultado central — negativo y con causa)
+
+π₁ = ℤ×_h D₄* (§20). Los sectores continuos disponibles para un fotón U(1) son las
+dos monedas χ± = φ ± 2α (§30: k₊₋ = 0 exacto, rigideces iguales). La cadena, a nivel
+de estructura de fases:
+
+1. Fotón de la red ⟸ fase de Coulomb del sector de cuerdas con winding χᵢ
+   ⟸ esas cuerdas condensadas (proliferadas, tensión efectiva → 0).
+2. Cuerdas de winding χᵢ condensadas = orden χᵢ DESTRUIDO (eso ES la fase
+   desordenada del sector) = su Goldstone muerto.
+3. Pero los dos TT del D₄ sobre el eje especial SON los dos Goldstones de ese
+   par degenerado (§15-16: uno 100% fase U(1), otro 100% rotacional; χ± generan
+   exactamente ese espacio 2D). Matar un χ = matar una polarización.
+
+**⟹ el fotón del sector de circulación cuesta una de las dos polarizaciones TT.**
+El balance es inescapable en fases: orden (fonón/TT) y Coulomb (fotón) son fases
+DISTINTAS del mismo sector — no se pueden tener ambas a la vez. Y la segunda
+polarización era el hallazgo estrella de la campaña (§15, mecanismo candidato a
+original). Costo: inaceptable. [Deuda declarada: buscar el test observacional
+exacto de "una sola polarización tensorial" en la red LIGO-Virgo-KAGRA — el
+contenido tensor-puro está testeado (GWTC-3), el sub-test de 1-vs-2 polarizaciones
+TT hay que citarlo con precisión antes de llamar a esto "muerte por GW170817".]
+
+### D) La segunda herida, independiente: electrodinámica sin electrones
+
+En la construcción string-net del U(1) (cuerdas = líneas de campo eléctrico), las
+cargas eléctricas son EXTREMOS de cuerda (Levin-Wen cond-mat/0407140; Kovner-
+Rosenstein: la carga es topológica, el extremo de la línea). Nuestro π₂ = 0
+prohíbe extremos; las uniones (rungs) CONSERVAN el winding (suman, no crean) ⟹
+**el fotón de la circulación no tendría fuentes: campo de Coulomb sin cargas que
+lo emitan o lo sientan**. Lo que sí puede vivir en uniones: cargas del sector
+DISCRETO (irreps de D₄, Majoranas — §20), pero gauge discreto = gapped, sin
+Coulomb 1/d². Dos causas de muerte independientes.
+
+### E) Veredicto y lo que sobrevive
+
+**6ª lápida: "el fotón U(1) emerge de condensar las cuerdas de circulación de la
+red" queda FALSADA a nivel de estructura de fases, con doble causa (C: cuesta una
+polarización TT; D: sin cargas).** Es argumento de simetrías y fases con citas,
+no cálculo dinámico — los escapes lógicos quedan declarados:
+- Condensar SOLO cuerdas de flujo D₄ puro con winding cero (existen en ℤ×_h D₄*
+  para el subgrupo no mezclado por el entrelazado): no toca los Goldstones ⟹
+  orden topológico D(D₄)-like COEXISTIENDO con el orden roto. No da fotón (gauge
+  discreto), pero es la respuesta constructiva a la "pregunta afilada" de §27
+  (qué subconjunto de las 45 especies condensa sin matar el D₄) — anotado como
+  frente de materia, no de luz.
+- El Coulomb de dos monedas (§30) NO se toca: es la química de la red en la fase
+  ORDENADA (la nuestra). Todo lo calculado sobrevive.
+
+**Consecuencia mayor: por eliminación, la luz queda en el sector de defectos** — 
+tercera convergencia independiente al mismo lugar (§23 monometricidad falsada en
+el bulk; §24 tétrada de Weyl en los cores cíclicos; ahora §32 la red no da fotón
+con cargas). **La próxima batalla del frente luz queda definida y ya no es
+opcional: BdG del core cíclico confinado (¿qué sobrevive de los 8 Weyl + tétrada
+en un tubo?, §25 la dejó abierta) y si su U(1) nodal emergente hereda la
+protección de π₂ = 0 (B).** El programa tiene ahora UNA sola puerta para la luz;
+si el core no la da, se declara.
+
+**Marcador §32**: 1 falsación estructural con doble causa citada, 1 regalo (π₂=0
+protege fotones emergentes — reutilizable), 1 pregunta de §27 respondida
+constructivamente (condensación parcial discreta), 1 deuda observacional
+declarada (test 1-vs-2 polarizaciones TT), 0 scripts (argumento de fases; toda
+pieza con fuente). Próxima batalla: el core cíclico.
