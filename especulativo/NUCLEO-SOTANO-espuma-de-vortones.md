@@ -255,6 +255,21 @@ competidor de otra familia se acerca) en el régimen diluido-a-moderado; la
 ESTRUCTURA fina a empaquetamiento denso (laminar simple vs offset-bct vs
 variantes) queda ABIERTA y es la rama 1 del §9.**
 
+**RAMA 1 EJECUTADA (2026-07-20, `sotano_neumann_exacto.py`) [CALCULADO]**:
+Neumann EXACTO (cuadratura espectral, = elíptica de Maxwell a 1e-16; números
+del auditor REPLICADOS con maquinaria propia: 0.575/2.161/1.648) sobre las
+familias laminares a densidad fija (v_c = 9/12/16, hard-core a ≥ 2.05):
+(a) **las capas ganadoras son TRIANGULARES** (panal de anillos), por ~30% de
+profundidad sobre las cuadradas — el Neumann exacto AMPLIFICA el enlace
+coplanar (×2.16) y suprime el coaxial (×0.575), reforzando las láminas aún
+más que el dipolo; (b) el registro de apilado (alineado vs offset HCP-like)
+es CUASI-DEGENERADO (gaps 0.0008-0.005, el orden cambia con la densidad):
+**blandura de politipos declarada** — la variante fina sigue abierta, la
+familia no; (c) el óptimo lateral satura SIEMPRE el núcleo duro (a = a_min):
+la red vive en contacto lateral ⟹ el canal de reconexión (H2) es EL dragón
+número uno, confirmado por geometría. Lo robusto se sostiene y refina:
+**láminas triangulares antialineadas — nemático uniforme, sin flecha, J=2**.
+
 - **Consecuencia (forma condicional)**: dentro del modelo dipolar sobre las
   familias barridas, con almendras idénticas, el fundamental de
   orientaciones es el laminar uniforme — y por lo tanto **el mosaico de los
