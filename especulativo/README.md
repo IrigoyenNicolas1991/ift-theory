@@ -44,7 +44,7 @@ el frente actual.
 
 | Frente | Documento | Scripts | Estado |
 |---|---|---|---|
-| **El 4 del eclipse** (¿qué microestructura da la gravedad refractiva?) | `BITACORA-NUCLEO-2026-07-19.md` | `nucleo_beta4.py` | 7ª lápida (GL polinómico+cinética canónica falsado) → "la mudanza del 4": cinética temporal no mínima |
+| **El núcleo** (el lagrangiano borrador y el puente 1.0↔2.0) | `BITACORA-NUCLEO-2026-07-19.md` (§N1-N9) | `nucleo_beta4.py` | 2 calibraciones de 1.0 derivadas (ubicación temporal + σ_Mercurio=0 por Z₂); leyes β=2(1−v²) y m²_r=32γa₀⁴; PE emerge del nudo (p≈1); 7ª y 8ª lápidas + teorema del censo: ni luz ni Newton salen del bulk → todo converge al sector de defectos |
 | **La luz del core** (¿qué sobrevive de los 8 Weyl en un tubo?) | bitácora madre §33 | (en curso) | conteo topológico hecho; bisagra: ¿el GL alinea el tetraedro del core con el eje del tubo? |
 | **El sótano** (¿el mar subyace en un fluido más profundo?) | `HIPOTESIS-SOTANO-fluido-continuo.md` | `sotano_tkachenko.py`, `sotano_anillos_nematica.py` | Fases A-C hechas: Tkachenko reproducido a 4 cifras; espuma de anillos = J=2 local sin flecha, uniforme no (frustración) |
 | **EM estático** (dos electricidades) | bitácora madre §30 + `PAPER-borrador-dos-electricidades.md` | `coulomb_del_mar.py` | saldado (teorema de las dos monedas + molécula 1/d³); paper bloqueado hasta el fotón |

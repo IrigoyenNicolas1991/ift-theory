@@ -1,5 +1,6 @@
 # EL TRONCO — Lagrangiano maestro de TCI 2.0 y caja de herramientas
-# [ETAPA ESPECULATIVA — documento de trabajo interno, v1 2026-07-19]
+# [ETAPA ESPECULATIVA — documento de trabajo interno, v1.1 2026-07-20
+#  (v1 2026-07-19; v1.1 integra la campaña del núcleo §N1-N9)]
 
 **Propósito**: TODO lo calculado de TCI 2.0 sale de UN solo objeto. Este documento
 lo escribe una vez, con una sola notación, para que cada rama futura sea un
@@ -33,6 +34,19 @@ Consistente con todos los espectros (§14-16): ω² = autovalores de (Hess V + K
 NO es Gross-Pitaevskii (1er orden): los vórtices acá tienen inercia; el control
 Kozik-Svistunov (dinámica GP/Magnus) NO aplica directo — pendiente si algún día
 se explora la variante GP (§31).
+
+**v1.1 — EL BORRADOR AMPLIADO (campaña del núcleo, `BITACORA-NUCLEO-2026-07-19.md`)**:
+la forma general que el programa necesita es
+
+    L_mar = 𝒢(t)|∂_t A|²/c² − K(t)·(gradientes) − V(A),   a potencial químico μ
+
+con 𝒢, K funciones de t = tr(AA†) y DOS anclas observacionales: el eclipse de
+1919 MIDE 𝒢′(t₀) (ahí vive el β=4 de TCI 1.0 — "la mudanza del 4", §N6) y
+Mercurio MIDE K′(t₀)=0. TEOREMA (§N5-N6): con 𝒢=K=const (esta v1 mínima), la
+refracción de vacancia de cada modo cumple β = 2(1−v²/c_cin²) ⟹ β≤2 y β→0
+cuando v→c: β_TT=4 (exigido por GW170817-Shapiro) es INALCANZABLE — la clase
+mínima está falsada como origen de la gravedad refractiva (7ª lápida). El 4 es
+un coeficiente de Wilson del sector cinético, aún sin micro-origen.
 
 ## 3. La energía F[A] = gradientes + potencial
 
@@ -106,6 +120,38 @@ Textura A = e^{iφ} R(α) A₀ Rᵀ(α) (α = rotación alrededor del eje especi
 Radiación de eventos: sectores NO se mezclan ni en fusión; vectoriales
 EXACTAMENTE oscuros (0.00%, por simetría del evento); cola masiva en el gap.
 
+## 7-bis. El sector estático del núcleo (campaña §N1-N9, 2026-07-19/20)
+
+**La rebanada diagonal y su espejo**: en A = diag(a,b,−a−b) real, TODO el
+potencial colapsa a V(p₂,p₃) = −p₂ + p₂²/2 + γ(6p₂³ + (8/3)p₃²) + εp₂⁴
+(p₂=trA², p₃=trA³; verificado 2.7e-15; en la rebanada trA⁴=t²/2 ⟹ el cuártico
+no distingue fases — todo el D₄ lo selecciona γp₃²). **Simetría Z₂**:
+diag(d₁,d₂,d₃)→(−d₃,−d₂,−d₁) — V par, isometría de la métrica cinética
+G=[[2,1],[1,2]], vacío D₄ invariante, modo-r IMPAR. Consecuencias EXACTAS:
+λ₃(modo-r)=0 (σ_Mercurio=0 automático — 2ª calibración de 1.0 vuelta
+estructura) y acople fuente-de-amplitud↔modo-r = 0 (el nudo NO carga bajo el
+modo liviano).
+
+**Leyes cerradas**: m²_r = 32γa₀⁴ (exacta, 8 decimales; el cuasi-Goldstone del
+SO(5) es parametricamente liviano). Perfil de vacancia a 2º orden:
+φ = A/r − (f₁/4)A²/r² + 3λ₃A²[ln(3mr)+γ_E−1] ⟹ cota de Mercurio
+|λ₃| < 6e-25 m⁻² para cualquier mediador liviano con cúbica.
+
+**Diccionario del PE (§N9.2)**: tensión del vórtice T(t_b)=πKt_b[ln(R/ξ)+0.381]
+⟹ p = dlnT/dlnt_b = 1 + 1/(2ln(R/ξ)) ≈ 1 — el ancla E=mc²e^(−φ) de TCI 1.0
+EMERGE del nudo, con violación débil log-suprimida (firma futura vs Eötvös).
+Cola del vórtice: δt ∝ 1/r² (amplitud esclava de la fase, coef. K/g exacto).
+
+**TEOREMA DEL CENSO (§N9.4)**: ningún canal del bulk media Newton universal —
+amplitud (Yukawa-ξ), modo-r (desacoplado), fase (signo por carga), TT (von
+Laue: ∫Tᵢⱼ=0 para toda fuente en equilibrio ⟹ carga monopolar nula; y ciego a
+T₀₀: presión isótropa desacopla exacto), solape de colas (universal ✓ pero
+1/d³). Newton es NECESARIAMENTE del sector de defectos/inducido — converge con
+la luz (§32) y la métrica (§24). Literatura verificada: NADIE lo logró jamás
+desde un sustrato (Volovik, BLV, Girelli-Liberati-Sindoni = Yukawa a healing
+length; el hueco es virgen). Scripts: `nucleo_beta4.py` + scratchpads de la
+campaña (fórmulas en bitácora N).
+
 ## 8. Defectos (taxonomía §20-21)
 
     π₁ = ℤ ×_h D₄*  (NO abeliano: 7 familias; fundamentales = HQV)
@@ -159,6 +205,8 @@ Scripts en `especulativo/` (rama desarrollo-fable):
 | Familias e/μ/τ | §8 niveles internos del anillo | §25 |
 | **Hipótesis del sótano** (fluido continuo bajo el mar) | `HIPOTESIS-SOTANO-fluido-continuo.md` | idea Nico 19/7 |
 | Paper "dos electricidades" | `PAPER-borrador-dos-electricidades.md` (bloqueos técnicos saldados; falta OK de Nico + canal) | §30 |
+| **El micro-origen del 4** (¿qué genera 𝒢′=−4/t₀ y K′=0?) | §2 v1.1: operadores t|∂A|² / vestido de la red / integrar out defectos | bitácora N §N6 |
+| **Newton inducido** (Sakharov con los Majoranas del core) | §7-bis censo (el bulk no puede) + §33 core → única puerta junto a la luz | bitácora N §N9 |
 
 ## 11. Controles obligatorios para TODO cálculo futuro
 
@@ -167,3 +215,11 @@ Reproducir antes de creer: (a) UN con 3 gapless (Bedaque-Nicholson 1307.8183);
 type-B cuadráticos ω≈(3/√8)|J|k² (§11); (d) Coulomb log ±2.80/±5.60 y neutros 0
 (§30); (e) splitting del vórtice entero (Masuda-Nitta). Si tu cálculo nuevo no
 reproduce el control que le toca, está MAL él, no el control.
+
+Controles nuevos de la campaña del núcleo (bitácora N): (f) superfluido U(1) a
+μ finito: c_s² = t₀V″/(t₀V″+2μ²) exacta (pencil vs analítico, 5 decimales);
+(g) estática con rigidez (1+f₁φ): σ = −f₁/4 EXACTO (ojo: la EOM lleva el
+término +(f₁/2)|∇φ|² de variar la rigidez — su omisión da −f₁/2, errata cazada
+2 veces); (h) constante de core del vórtice GP: C = 0.3810 = ln(1.464);
+(i) mediciones de v² por PENDIENTE de ω²(k²) entre dos k (jamás ω/k a k chico:
+offsets numéricos/tachiónicos) y ojo al sesgo de ventana ∝ εδk² (§N5).
