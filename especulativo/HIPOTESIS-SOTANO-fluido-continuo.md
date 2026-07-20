@@ -204,21 +204,87 @@ nemático desde anillos, gravedad dual de cristales de vórtice en 3D).
 La hipótesis se refina: no "el universo rota" (muerto) sino **"el mar es la
 espuma ordenada de un fluido más profundo"**.
 
-## FASE C — Primer cálculo propio (definido, no ejecutado)
+## FASE C — EJECUTADA 2026-07-19/20 (2 cálculos propios, scripts en este directorio)
 
-1. **Control**: reproducir c_T = √(κΩ/8π) / μ = ρκΩ/8π de la red 2D
-   (maquinaria estándar; si no sale, no seguimos).
-2. **El cálculo virgen chico**: ¿tiene módulo de cizalla un arreglo ISÓTROPO
-   de segmentos/anillos de vórtice (tangle congelado)? — el análogo isótropo
-   de Tkachenko. Si μ_tangle = 0, la espuma no es medio elástico y el sótano
-   pierde su ancla principal.
-3. **El cálculo virgen grande**: red 3D de anillos con interacción dipolar
-   1/d³ — ¿hay transición nemática de los planos (orden J=2 emergente)?
-   (análogo: ferronemáticos). Si los planos se ordenan, el sótano fabrica
-   la almendra-gota.
-4. **Criterios de muerte de Fase C**: μ_tangle=0 sin variante estabilizada →
-   muere el ancla; planos no se ordenan (o se ordenan FM con flecha neta) →
-   muere la microfundación J=2.
+### El fluido de Nico, formalizado (charla 2026-07-19 noche)
+
+Nico precisó su imagen: un **continuo con densidad, presión, flujo y velocidad
+de sonido** — es decir, un *fluido perfecto barotrópico* (Euler), todo local,
+sin fuerzas a distancia. Encaja exacto con el sustrato de toda la Fase A. A
+bajo Mach la estática de vórtices es la incompresible (todo lo verificado
+aplica); la compresibilidad entra en la radiación (vórtice→sonido, conecta con
+el control Kozik-Svistunov de §29) y da el c del medio efectivo. **Ingrediente
+extra necesario y declarado**: la identidad exacta de las almendras exige
+circulación CUANTIZADA, y eso pide una fase (superfluido / parámetro de orden
+con U(1)), no alcanza el fluido clásico puro — un fluido clásico admite
+remolinos de cualquier Γ. El sótano necesita ese único átomo de cuántica.
+
+### Cálculo 1 — CONTROL TKACHENKO: APROBADO A 4 CIFRAS (`sotano_tkachenko.py`)
+
+Dispersión de la red triangular de vórtices puntuales derivada desde la
+dinámica microscópica exacta (linearización + Bloch + **suma de Ewald**: blob
+gaussiano + resumación de Poisson; el primer intento con ventana radial simple
+derivaba con Rmax — abandonado, errata de método documentada).
+
+- ω/k → **0.151573** vs c_T = √(κΩ/8π) = **0.151565** (acuerdo 5×10⁻⁵).
+- Independiente del parámetro de Ewald a 6 dígitos (s=1.5a/2a/3a idénticos).
+- Isótropo al 0.2% (k a 0°/30°/90°).
+- Red cuadrada: Re(λ)>0 — INESTABLE, como Tkachenko JETP 23:1049 ✓.
+
+**Conclusión**: verificado con maquinaria propia que un fluido con vórtices
+co-rotantes ES un medio elástico con rigidez de corte real y dispersión
+lineal. El ancla principal del sótano ya no es solo bibliográfica.
+
+### Cálculo 2 — LA ESPUMA DE ANILLOS: RESULTADO MATIZADO (`sotano_anillos_nematica.py`)
+
+Anillos = dipolos hidrodinámicos (Neumann = inductancia mutua con signo
+vórtice, OPUESTO al magnético U=−m·B: coaxial antiparalelo −2, coplanar
+paralelo −1, coaxial paralelo +2 — controles de par exactos 5/5 tras corregir
+una etiqueta mía: imanes lado a lado paralelos se repelen, +1). Posiciones
+CONGELADAS (idealización declarada), orientaciones libres, minimización con
+recocido + candidatos analíticos compitiendo contra el numérico.
+
+Resultados (P = flecha J=1; S = nemático global; S_local = nemático a 12
+vecinos):
+
+| Sistema | E | P | S global | S_local |
+|---|---|---|---|---|
+| SC recocido (fundamental) | −1490.7 | 0.02 | 0.01 | **0.50** |
+| SC laminado uniforme (candidato) | −1442.7 | 0.02 | 0.97 | 0.95 |
+| FCC laminado relajado (fundamental) | −6542.9 | 0.00 | 0.03 | **0.72** |
+| Espuma isótropa congelada | −1436.4 | 0.12 | 0.12 | 0.33 |
+
+- **SIN FLECHA en todos los casos** (P≤0.12): el criterio de muerte "orden FM
+  con flecha neta" NO se activa. Los anillos jamás eligen un sentido común.
+- **El orden J=2 emerge LOCALMENTE con fuerza** (S_local 0.5-0.7 en redes)
+  pero **NO globalmente**: el estado fundamental del juguete no es el nemático
+  uniforme (el laminado pierde por ~3% de energía en SC) sino una textura
+  frustrada multi-eje — columnas coaxiales antiparalelas a lo largo de CADA
+  eje de la red a la vez (verificado relajando DESDE el laminado y DESDE
+  Néel: convergen al mismo fundamental, no es artefacto del optimizador).
+- En la espuma isótropa (sin sesgo de red): orden local más débil (0.33),
+  vidrio dipolar. Cautela: el "orden cúbico" de SC puede ser herencia de la
+  red impuesta, no emergencia.
+
+**Veredicto honesto del cálculo 2**: la versión ingenua (dipolos congelados)
+fabrica gotas J=2 LOCALES sin flecha — la mitad del milagro — pero no el
+vacío nemático UNIFORME que el mar necesita. La frustración dipolar es el
+enemigo. Puertas siguientes, por orden: (i) descongelar POSICIONES (el fluido
+real co-relaja; ¿cristaliza en columnas de anillos?); (ii) campo cercano más
+allá del dipolo (Neumann exacto para anillos próximos); (iii) el dragón
+estructural callado hasta acá: **los anillos se autopropulsan** (un anillo
+libre viaja a ~(Γ/4πR)ln(8R/a)); la espuma estática es ficción salvo que los
+anillos sean VORTONES (corriente en el núcleo que los frena — cond-mat/0307559,
+y nuestros HQV del D₄-BN YA llevan orden en el núcleo: rima fuerte con §21-bis).
+
+### Marcador de la Fase C
+
+- Aprobado: red de vórtices = medio elástico (cálculo propio, 4 cifras).
+- Matizado: espuma de anillos → J=2 local sin flecha ✓, uniforme ✗ (frustración).
+- Erratas propias: 2 (ventana radial insuficiente → Ewald; etiqueta del par
+  magnético coplanar).
+- Pendiente definido: posiciones libres + vortones (la espuma VIVA, no
+  congelada); μ de cizalla del tangle isótropo sigue sin calcular (nadie).
 
 ## Relación con el resto del programa
 
