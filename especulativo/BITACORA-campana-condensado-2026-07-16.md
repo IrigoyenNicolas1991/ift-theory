@@ -1583,3 +1583,103 @@ protege fotones emergentes — reutilizable), 1 pregunta de §27 respondida
 constructivamente (condensación parcial discreta), 1 deuda observacional
 declarada (test 1-vs-2 polarizaciones TT), 0 scripts (argumento de fases; toda
 pieza con fuente). Próxima batalla: el core cíclico.
+
+## 33. LA BATALLA DEL CORE, PRIMER ASALTO (2026-07-19) — la materia del tubo
+## depende de su orientación: el tetraedro decide qué nudos hablan
+
+**Régimen de sesión**: desarrollo libre SIN push (pedido de Nico del día: nada se
+publica, ni siquiera backup, hasta que él tenga certeza de lo que hay; commits
+locales solamente).
+
+### A) Reformulación de la batalla tras §25 y §32
+
+La §25 estableció que el Weyl 3D + tétrada NO sobrevive tal cual en un tubo
+delgado (queda un mundo 1D: escalera CdGM + rama Majorana); la §32 cerró el fotón
+del bulk. La batalla del core se desarma entonces en tres preguntas, dos de las
+cuales se atacan hoy:
+
+1. **¿CUÁNTA materia 1D lleva cada tubo?** — calculable ya: conteo topológico
+   (flujo espectral: ramas quirales = winding × número de Chern por rebanada).
+   ESTE es el cálculo de hoy.
+2. **¿La red de tubos con fermiones 1D da el fotón a nivel colectivo?** — las
+   piezas de precedente existen por separado: construcciones de cables acoplados
+   3D desde semimetales de Dirac (PRX 9:011039), redes de cables con CFT y reglas
+   de ramificación (arXiv:1901.05918), "fotón artificial" en modelos bosónicos 3D
+   (Motrunich-Senthil cond-mat/0407368). La versión sobre red de vórtices de un
+   superfluido tensorial: sin construir (virgen). Queda scopeada, no atacada.
+3. **¿El U(1) nodal hereda la protección π₂=0 de §32.B?** — pendiente, depende
+   de cómo se realice (2).
+
+### B) La fuente, verificada textual (ar5iv 1607.07266)
+
+Los 8 nodos de Weyl de la fase cíclica: "The nodal points are identified as
+q·k_α (α=1,…,4 and q=±1), where α denotes each vertex of the tetrahedron", con
+carga de monopolo q_m = q. O sea: ±k_F sobre las 4 direcciones tetraédricas —
+los 8 vértices del cubo, con el tetraedro A cargado +1 y el B (= −A) cargado −1.
+El paper NO trata estados de core de vórtices (el hueco sigue siendo nuestro).
+
+### C) El conteo (script `core_indice_toy.py`, todos los chequeos PASS)
+
+**Mecanismo**: para un tubo con eje ĝ, el número de Chern C(k∥) de cada rebanada
+perpendicular suma las cargas de Weyl cruzadas; una línea de vórtice de winding n
+lleva n·C(k∥) ramas fermiónicas quirales (flujo espectral estándar — el mismo
+argumento de Callan-Harvey/Volovik). Control del mecanismo en red: Jackiw-Rossi
+(Dirac 2D de Wilson + vórtice s-wave a μ=0, geometría disco + pared de masa):
+peso de core acumulado 0 / 1 / 2 para winding 0 / 1 / 2 ✓, con dos regalos de
+física de libro como control gratis: la pared interior-SC/exterior-masivo es la
+frontera de Fu-Kane con su anillo Majorana quiral (escalera ±0.081·m medida) y
+el vórtice le voltea la condición de contorno (el cero de la escalera aparece
+con n=1 y se hibridiza con el Majorana del core: par a E=±0.004 con el peso
+repartido 0.47/0.44 — un fermión partido en dos mitades, textual).
+
+**Resultados del conteo cíclico (combinatoria exacta + barridos):**
+- **Eje (001): tubo MUDO** — cancelación exacta rebanada a rebanada, C = 0 en
+  todas. Ídem (110).
+- **Teorema chico (verificado 300/300 + 300/300): mudo ⟺ el eje es
+  perpendicular a alguno de los tres ejes del cubo** (cada vértice + se aparea
+  con el − que difiere en un solo signo: a−b = 2ê_i; si ĝ·ê_i = 0 proyectan
+  iguales y se cancelan). Los mudos son exactamente TRES CÍRCULOS MÁXIMOS del
+  cielo de orientaciones — medida cero.
+- **Eje (111): perfil C = (1, −2, 1, 0)** — hasta 2 ramas quirales por unidad
+  de winding, con el signo alternando a lo largo de k∥.
+- **Genérico (2000 ejes aleatorios): NINGUNO mudo; |C| ≤ 2 siempre.**
+
+### D) La lectura física y la bisagra nueva
+
+**Un tubo de fase cíclica genérico viene poblado de fermiones quirales de
+fábrica; solo una familia de medida cero de orientaciones da tubos estériles.**
+Pero la orientación relevante NO es la del laboratorio: el orden cíclico del
+core elige su propia orientación interna. La pregunta bisagra que esto define:
+
+> **¿El funcional GL del core cíclico alinea el tetraedro con el eje del tubo
+> (y cómo)?** Si el mínimo de energía es tipo (111): todo nudo lleva materia
+> quiral de serie (Arquitectura A completa su sector de materia con conteo
+> concreto). Si el mínimo cae en un círculo mudo: los nudos son estériles y la
+> arquitectura pierde su materia. Es UN cálculo de energética de texturas con
+> la maquinaria GL que ya tenemos (§16/§26) en geometría cilíndrica.
+
+Para ANILLOS (nuestras partículas): la orientación del eje varía a lo largo del
+anillo salvo que el tetraedro co-rote con la tangente — el conteo sobre un anillo
+cerrado necesita tratamiento propio (¿el twist del tetraedro a lo largo del lazo
+es otro número cuántico? — anotado, no resuelto).
+
+### E) Erratas y método (3 intentos de JR, documentados en el script)
+
+(a) borde abierto con Wilson m0=0: el borde queda crítico y contamina E≈0 —
+FALLA; (b) toro con par vórtice/antivórtice por imagen mínima: la fase tiene
+costuras discontinuas — FALLA; (c) disco + pared de masa: limpio, pero la
+clasificación por radio medio pierde los pares hibridizados — corregida a conteo
+por PESO de core acumulado. Lección de método para todos los BdG futuros del
+programa: contar por peso, no por posición del centroide; y presupuestar la
+física de la frontera (la pared de Fu-Kane no es ruido, es parte del sistema).
+
+### F) Marcador honesto §33
+
+**Qué es**: el conteo topológico de la materia 1D de un tubo cíclico, exacto y
+verificado (combinatoria + control JR en red); el teorema chico de los mudos;
+la bisagra energética identificada como próximo cálculo con maquinaria ya hecha.
+**Qué NO es**: no dice nada todavía del fotón colectivo (frente 2 scopeado);
+no resuelve la luz 3D; los números del juguete no son los del core real (HQV
+con winding fraccionario + orden cíclico confinado: el winding fraccionario
+puede partir el conteo a la Majorana — refinamiento declarado); y el examen de
+Carlip (tétrada nodal vs métrica TT del bulk) sigue intacto en la cola.
