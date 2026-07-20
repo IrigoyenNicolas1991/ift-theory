@@ -26,24 +26,51 @@ Ambas llevan el aviso de etapa especulativa y enlazan de vuelta a esta carpeta c
 respaldo formal. No están enlazadas desde las sedes públicas de TCI (decisión
 deliberada: se comparten en persona).
 
-## Contenido
+## Cómo leer esta carpeta (jerarquía — de la raíz a las hojas)
 
-| Archivo | Qué es |
-|---|---|
-| `BITACORA-campana-condensado-2026-07-16.md` | Bitácora completa de la campaña (19 secciones): scoping, 10 verificaciones bibliográficas, 4 rutas falsadas con causa citada, los cálculos numéricos, el estado actual y los **próximos pasos** (§19) |
-| `espectro_biaxial_real.py` | Cálculo 1: espectro de un condensado J=2 REAL (modelo mínimo, 5 componentes) — controles uniaxial/biaxial/SO(5) |
-| `espectro_biaxial_complejo.py` | Cálculo 2: versión COMPLEJA (10 componentes) con set de prueba declarado — aparecen las dos polarizaciones TT |
-| `espectro_biaxial_3p2.py` | Cálculo 3: funcional GL textual de la literatura ³P₂ (Yasui-Chatterjee-Nitta) — caso γ<0 reproduce la física publicada (control), caso γ>0 (postulado declarado) selecciona la fase D₄-BN con el par TT |
+**1. EL TRONCO — `NUCLEO-TCI2-lagrangiano.md`** ⭐ *empezá acá si vas a calcular.*
+El lagrangiano maestro de TCI 2.0: el objeto, el funcional con los parámetros de la
+casa, los vacíos, el espectro, las fuerzas medidas, la taxonomía de defectos, las
+convenciones y los controles obligatorios. Todo cálculo nuevo arranca de este
+documento; todo resultado nuevo vuelve a él.
 
-Los scripts corren con Python 3 + numpy, sin más dependencias
-(`python espectro_biaxial_3p2.py`).
+**2. LA BITÁCORA MADRE — `BITACORA-campana-condensado-2026-07-16.md`** ⭐ *empezá acá
+si querés la historia.* El registro completo de la campaña (§1–§33): verificaciones
+bibliográficas, rutas falsadas con causa citada (el cementerio, con orgullo), erratas
+propias documentadas, cálculos y convergencias. Las secciones finales (§29–§33) son
+el frente actual.
 
-## El estado en una línea (2026-07-17)
+**3. LOS FRENTES VIVOS** (cada uno con su documento y sus scripts):
 
-Hipótesis de trabajo actual: *un superfluido con orden cuadrupolar interno soldado al
-espacio, en su fase biaxial máxima, tiene como modos sin masa sobre su eje especial
-exactamente las dos polarizaciones tensoriales de una onda gravitacional — una es el
-Goldstone rotacional y la otra es el fonón del superfluido vestido por el orden.*
-Verificaciones a favor, deudas y criterios de muerte: en la bitácora. Reglas de la
-casa: honestidad brutal, toda derrota se documenta el mismo día, ningún "exactamente"
-sin ecuación de respaldo.
+| Frente | Documento | Scripts | Estado |
+|---|---|---|---|
+| **El 4 del eclipse** (¿qué microestructura da la gravedad refractiva?) | `BITACORA-NUCLEO-2026-07-19.md` | `nucleo_beta4.py` | 7ª lápida (GL polinómico+cinética canónica falsado) → "la mudanza del 4": cinética temporal no mínima |
+| **La luz del core** (¿qué sobrevive de los 8 Weyl en un tubo?) | bitácora madre §33 | (en curso) | conteo topológico hecho; bisagra: ¿el GL alinea el tetraedro del core con el eje del tubo? |
+| **El sótano** (¿el mar subyace en un fluido más profundo?) | `HIPOTESIS-SOTANO-fluido-continuo.md` | `sotano_tkachenko.py`, `sotano_anillos_nematica.py` | Fases A-C hechas: Tkachenko reproducido a 4 cifras; espuma de anillos = J=2 local sin flecha, uniforme no (frustración) |
+| **EM estático** (dos electricidades) | bitácora madre §30 + `PAPER-borrador-dos-electricidades.md` | `coulomb_del_mar.py` | saldado (teorema de las dos monedas + molécula 1/d³); paper bloqueado hasta el fotón |
+
+**4. LAS CARAS VISIBLES** (divulgación semi-oculta, fuentes acá):
+`libro2/` (fuente de /mar-y-nudos/), `em/` (fuente de /taller-electromagnetico/),
+`LIBRO2.md` + `LIBRO2-esqueleto.md` (el texto completo del libro 2, en el cajón).
+
+**5. EL RESTO DE LOS SCRIPTS** (cada uno nació de una batalla; la sección de la
+bitácora que lo explica va al lado): `espectro_biaxial_real/complejo/_3p2.py` (§14-16,
+las dos polarizaciones TT), `espectro_ciclico.py` (§26), `anisotropia_mapa.py` (§22),
+`monometricidad_test.py` (§23, 5ª lápida), `anillos_toy.py` (§21),
+`scaling_cuadrupolo.py` (§28), `binaria_del_mar.py` + `analiza_binaria.py` (§31),
+`coulomb_del_mar.py` (§30), `nucleo_beta4.py` (bitácora del núcleo),
+`sotano_*.py` (doc del sótano).
+
+Todos corren con Python 3 + numpy, sin más dependencias (`python <script>.py`).
+
+## El estado en una línea (2026-07-20)
+
+Hipótesis de trabajo: *un superfluido con orden cuadrupolar interno soldado al espacio
+(fase D₄-BN del ³P₂) tiene como modos sin masa exactamente las dos polarizaciones
+tensoriales de una onda gravitacional — una es el Goldstone rotacional, la otra es el
+fonón vestido; la luz y la materia NO viven en ese mar liso sino en los núcleos de sus
+nudos (tres falsaciones independientes convergen ahí); y el mar mismo podría subyacer
+en un fluido perfecto más profundo cuyos anillos de vórtice fabrican las gotas J=2
+localmente (calculado) aunque todavía no el vacío uniforme.* Verificaciones, deudas y
+criterios de muerte: en las bitácoras. Reglas de la casa: honestidad brutal, toda
+derrota se documenta el mismo día, ningún "exactamente" sin ecuación de respaldo.

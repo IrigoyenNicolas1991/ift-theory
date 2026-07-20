@@ -277,14 +277,46 @@ libre viaja a ~(Γ/4πR)ln(8R/a)); la espuma estática es ficción salvo que los
 anillos sean VORTONES (corriente en el núcleo que los frena — cond-mat/0307559,
 y nuestros HQV del D₄-BN YA llevan orden en el núcleo: rima fuerte con §21-bis).
 
+### Cálculo 3 — LA ESPUMA VIVA (posiciones descongeladas, `sotano_espuma_viva.py`)
+
+Anillos-dipolo con posiciones Y orientaciones libres + núcleo repulsivo A/d⁹
+(espaciado del par óptimo calibrado a d*=1; robustez chequeada con d⁶).
+Controles: autotest de gradientes por diferencias finitas ✓ (una errata de
+signo cazada ANTES de correr, en revisión de código); par aislado relaja
+exacto a coaxial antiparalelo (E=−4/3, d=1.0001, n₁·n₂=−1.0000) ✓.
+
+Resultado (N=150, gota abierta):
+
+- **Descongelar posiciones NO rescata el nemático uniforme**: el candidato
+  columnar construido a mano NI SIQUIERA es mínimo local — al relajarlo se
+  reestructura (S global 1.0 → 0.06) aunque baja mucho su energía (−342 →
+  −436). El recocido desde el azar llega a −432.7 con S=0.16, S_local=0.56.
+  Todos los estados accesibles son mosaicos con orden J=2 local fuerte y sin
+  eje global. Sin flecha SIEMPRE (P≤0.09; robusto al exponente del núcleo).
+- **Pista nueva — LÁMINAS, no columnas**: en los estados relajados el vecino
+  más cercano está PERPENDICULAR al director local (d_perp≈1.15-1.19 <
+  d_par≈1.43-1.49): los anillos prefieren empaquetarse de costado
+  compartiendo plano — membranas apiladas holgadas, no columnas apretadas.
+  (Coherente con el par: el lateral paralelo −1/d³ se deja comprimir mejor
+  que el apilado −2/d³ una vez que el núcleo empuja.)
+- **Cautela grande declarada**: gota abierta de N=150 con interacción de
+  largo alcance — los efectos de superficie pueden preferir texturas de
+  cierre aunque el bulk prefiera orden uniforme (pasa con imanes dipolares).
+  El veredicto BULK exige condiciones periódicas + Ewald dipolar 3D:
+  ES el próximo cálculo decisivo del sótano.
+
 ### Marcador de la Fase C
 
 - Aprobado: red de vórtices = medio elástico (cálculo propio, 4 cifras).
-- Matizado: espuma de anillos → J=2 local sin flecha ✓, uniforme ✗ (frustración).
-- Erratas propias: 2 (ventana radial insuficiente → Ewald; etiqueta del par
-  magnético coplanar).
-- Pendiente definido: posiciones libres + vortones (la espuma VIVA, no
-  congelada); μ de cizalla del tangle isótropo sigue sin calcular (nadie).
+- Matizado: espuma de anillos → J=2 local sin flecha ✓ (robusto en congelado
+  Y descongelado), uniforme ✗ — la frustración sobrevive a descongelar
+  posiciones en gota abierta; pista nueva: láminas, no columnas.
+- Erratas propias: 3 (ventana radial insuficiente → Ewald; etiqueta del par
+  magnético coplanar; signo en el gradiente angular cazado pre-corrida).
+- Pendientes por orden: (1) **PBC + Ewald dipolar 3D** — el veredicto bulk
+  (¿el mosaico es de la superficie de la gota o del material?); (2) campo
+  cercano del vortón (más allá del dipolo — el desempate candidato);
+  (3) μ de cizalla del tangle isótropo (sigue virgen, nadie lo calculó).
 
 ## Relación con el resto del programa
 
