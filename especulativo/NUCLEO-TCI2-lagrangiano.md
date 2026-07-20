@@ -193,6 +193,10 @@ Scripts en `especulativo/` (rama desarrollo-fable):
 7. Relajaciones: borde congelado al ansatz + cores anclados (discos r≤2.5);
    corte por convergencia. Dinámica: dt=0.12, esponja cuadrática de velocidad.
 8. El browser de preview NO anima rAF — verificar física con Node/Python.
+9. **CRITERIO DE CONVERGENCIA (regla ganada con sangre, §34.C): norma de
+   gradiente proyectado (o drift ACUMULADO ≪ la ΔE que se busca resolver) —
+   JAMÁS drift por ventana de pasos (subestimó ~50× en mesetas lentas y
+   fabricó un falso mínimo local; refutación §34.C, errata #12).**
 
 ## 10. Ramas abiertas, con su punto de entrada en el tronco
 

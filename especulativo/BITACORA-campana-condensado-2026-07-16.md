@@ -1683,3 +1683,116 @@ no resuelve la luz 3D; los números del juguete no son los del core real (HQV
 con winding fraccionario + orden cíclico confinado: el winding fraccionario
 puede partir el conteo a la Majorana — refinamiento declarado); y el examen de
 Carlip (tétrada nodal vs métrica TT del bulk) sigue intacto en la cola.
+
+## 34. LA BATALLA DE LA RED (2026-07-20, madrugada) — tres columnas, un
+## refutador que volteó la evidencia propia, y la compuerta única
+
+**Régimen**: campaña orquestada (3 columnas + refutador + crítico de
+completitud, ~518k tokens de agentes). Push autorizado por Nico este día
+(sincronización general). Frentes atacados: la bisagra del tetraedro (§33.D),
+el fotón de la red de cables (§27/§32/§33.E2) y Newton desde la red (bitácora
+N §N9). Scripts y datos de la jornada en el scratchpad de sesión (bisagra_*,
+refuta_*, batalla_red_*); nada nuevo en el repo salvo esta sección.
+
+### A) Columna del fotón: el censo de U(1) bosónicos CIERRA — y queda UNA rendija
+
+Checklist completo contra las condiciones exactas de la fase de Coulomb 3D
+(Motrunich-Senthil cond-mat/0407368, textuales verificados: N_r=0 «is simply
+the Gauss law», fotón+chargones ½+monopolo gapeado, muerte por condensación de
+monopolos; PRX 9:011039 y 1901.05918 como controles de la vía de cables):
+
+- **Contabilidad MS de nuestro bulk: los ÚNICOS U(1) bosónicos son χ± (las dos
+  monedas)** — χ+ y χ− son exactamente los «dos bosones» del modelo MS, y su
+  fase de Coulomb exige desordenar una combinación ⟹ **el fotón MS de la
+  circulación ES la 6ª lápida vista desde el otro lado** (fotón vs 2
+  polarizaciones TT = disyuntiva de fases EXACTA, no hay tercera moneda; el
+  flujo D₄* puro es discreto = gauge gapeado; los tilts son disclinaciones
+  discretas). El censo bosónico queda CERRADO con causa.
+- **La única rendija: el U(1) FERMIÓNICO de los tubos** (carga quiral de las
+  ramas §33), con dos FALTA duros (¿entero exacto conservado por tubo vía
+  anomaly inflow? ¿ley de Gauss en la unión?) y un TENEMOS condicional de oro:
+  la protección de monopolos se hereda de π₂=0 **si** el pinning del tetraedro
+  tiene gap contra los círculos mudos — o sea, esclava de la bisagra.
+- **Hallazgo bibliográfico**: NINGUNA construcción de cables acoplados publicada
+  produce fase de Coulomb con fotón (todas dan semimetales u órdenes gapeados;
+  todo fotón 3D emergente publicado es ring-exchange bosónico o string-net). El
+  puente «red de cables fermiónicos → fotón» es hueco NUESTRO y de la
+  literatura a la vez — doble filo declarado.
+
+### B) Columna de Newton: M1, el primer candidato ARMADO del programa — con
+### una contradicción gorda a resolver en papel
+
+- **M1 (compresión de la red de nudos)**: mediador = densidad de línea n(x);
+  masa cero candidata por TOPOLOGÍA (π₂=0: lazos sin extremos, energía
+  extensiva en longitud ⟹ la parte de tensión de B(n) es cero exacto SI el log
+  está cortado por apantallamiento); universalidad = carga es longitud de línea
+  = E/T por el diccionario p≈1 (§N9.2); signo = vdW cruzado −1/d³·¹⁹ (el que
+  liga la molécula §30), atractivo y universal. **Tres guillotinas declaradas**
+  (muerte por masa si B(n*)~e_int sin protector identificado — «un B chico
+  porque sí es fine-tuning, se declara muerte igual»; muerte por signo; muerte
+  por régimen si el gas log está BKT-ligado sin Debye). **Primer cálculo
+  definido**: la EOS de la red — P(n), B(n), ℓ_grav=√(C/B) con los números YA
+  medidos del proyecto (T(t_b) de §N9.2, rigideces ±2.80/±5.60, vdW de §30).
+- M3 (deformación del mar D4 por la red) ENTERRADO por von Laue; M2 (Sakharov
+  con los fermiones 1D) pendiente del conteo real (ver D).
+- **LA CONTRADICCIÓN GORDA (hallazgo del crítico)**: el régimen que salva a M1
+  (plasma apantallado del gas log de dos monedas) podría ser EXACTAMENTE la
+  fase que la 6ª lápida prohíbe (desordenar un χ mata una polarización TT).
+  ¿El apantallamiento por pares ligados/poblaciones neutras alcanza para cortar
+  el log SIN proliferar cargas libres? **Papel antes que cómputo** — si no
+  alcanza, M1 y los 2 TT son mutuamente excluyentes y M1 nace muerto.
+
+### C) Columna de la bisagra: resultado preliminar VOLTEADO por el refutador
+### (erratas #12 del programa — y una lección de método permanente)
+
+El reporte preliminar («el GL alinea C₃∥eje; core mezcla FM+cíclica 76/24 con
+ΔE=−0.0114 vs FM puro; quiralidad esclava del winding») fue REFUTADO como
+evidencia: (i) el «FM puro espontáneo» NO era un mínimo — era un plateau de
+relajación cortada temprano (continuada 4000 pasos, su energía cayó POR DEBAJO
+de la mezcla: el ΔE reportado era distancia de no-convergencia, no física);
+(ii) el criterio drift/400-pasos subestimó la deriva ~50×; (iii) las corridas
+finas (3 orientaciones, control de h) nunca terminaron; (iv) etiqueta
+vértice/cara confundida. **Ironía a favor**: la refutación sugiere que el
+atractor único es la mezcla C₃∥eje INCLUSO sin semilla (enunciado más fuerte)
+— pero sugerido no es probado, y así queda. Controles que SÍ pasaron: winding
+por plaqueta exacto, vacío D4 exacto, rotaciones del tetraedro verificadas,
+gradiente Wirtinger 6e-9. **REGLA NUEVA DE LA CASA (al tronco §9): el criterio
+de convergencia de relajaciones es norma de gradiente proyectado (o drift
+acumulado ≪ ΔE buscado), JAMÁS drift por ventana de pasos** — o vamos a seguir
+fabricando resultados falsos.
+
+### D) El crítico: TODO converge a UNA compuerta binaria — y la próxima
+### batalla queda definida con su criterio de muerte
+
+- **La compuerta**: ¿el core REAL (mezcla FM+cíclica, det̂=0.34, lejos del
+  cíclico puro) sostiene ramas quirales netas? El conteo de §33 fue hecho para
+  cíclico puro — NO aplica textual. De esta compuerta cuelgan a la vez: el
+  U(1) fermiónico del fotón (A), el M2 de Newton, y la «materia de serie» de
+  los tubos.
+- **Próxima batalla (un solo cálculo, dos pasos)**: Paso A = cerrar la bisagra
+  con el QA nuevo (norma de gradiente, test espejo ψ+2→core m=−2, semillas
+  inclinadas, control de h a caja física fija); Paso B = **BdG de la sección
+  del tubo con la matriz de gap REAL (a·Y+2 + b·Y−1)**, conteo neto de ramas
+  por flujo espectral. **Criterio de muerte pre-declarado**: si C_neto=0 o el
+  pinning es blando ⟹ 10ª lápida el mismo día — el sector de defectos pierde
+  materia quiral y candidato a fotón, la Arquitectura A muere, y el programa
+  queda en la ruta geométrica 𝒢(t) para Newton con la luz SIN candidato.
+- **Deudas señaladas por el crítico**: el 4 sigue huérfano (nadie conectó
+  δn↔𝒢(t) — aunque M1 diera Newton, falta que el mediador genere 𝒢′=−4/t₀ con
+  K′=0 para el Shapiro común); los textuales de la columna 2 vía WebFetch sin
+  auditoría directa; el sketch B=0 de M1 es álgebra a mano sin script.
+
+### E) Marcador honesto §34
+
+**Qué es**: el cierre con causa del censo de U(1) bosónicos (fotón vs 2 TT =
+disyuntiva exacta); el primer candidato a Newton con mecanismo y guillotinas
+(M1); una refutación interna ejemplar que evitó contaminar todo lo siguiente;
+la concentración de TODO el mundo de baja energía en una compuerta binaria con
+su cálculo y su criterio de muerte escritos. **Qué NO es**: ningún número
+nuevo confiable de la bisagra (la evidencia se volteó); ningún go del fotón
+(dos FALTA duros); ningún Newton todavía (M1 tiene una posible
+incompatibilidad de régimen con los 2 TT sin resolver). Veredicto de la
+jornada, textual del crítico: «avanzó en mapa, retrocedió en evidencia, sin
+grieta letal — el programa pasó de muchos frentes a una sola compuerta que
+decide casi todo, y esa compuerta todavía no tiene ni un número confiable. La
+próxima sesión no debe abrir frentes: debe cerrar ESA compuerta.»
