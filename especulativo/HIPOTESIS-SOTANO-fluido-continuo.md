@@ -1,5 +1,10 @@
 # LA HIPÓTESIS DEL SÓTANO — ¿el mar I subyace en un fluido continuo?
 
+> **2026-07-20 — el sótano se formalizó.** El tronco vive ahora en
+> `NUCLEO-SOTANO-espuma-de-vortones.md` (axiomas, teoremas del signo y de la
+> espuma, certificación de códigos, dragones, ramas). Este documento queda
+> como bitácora histórica del frente (Fases A-C y sus resultados crudos).
+
 **[ETAPA ESPECULATIVA — idea en órbita, "cita sin casamiento"]**
 Origen: idea de Nicolás, madrugada 2026-07-19 ("se me disparó… la invito a una cita
 sin dudarlo"). Este documento existe para que CUALQUIER sesión futura pueda retomar
