@@ -317,3 +317,102 @@ geométrica de Newton — energía del nudo como función del mar local
 DEFORMACIÓN GEOMÉTRICA reproduce 1/r con G = Kμ⁴/4πρ₀²; conecta directo con
 la batalla del acople (§29 de la campaña) y con el diccionario
 vacancia↔φ pendiente.
+
+---
+
+## §N9. EL CENSO ESTÁTICO DEL BULK — COMPLETO (madrugada 19→20/7; segunda
+## campaña orquestada: 4 agentes + refutador, ~215k tokens; todo verificado)
+
+La pregunta: ¿qué fuerza estática puede mediar CADA canal del bulk entre dos
+nudos, y alguno da Newton universal (V = −G·E₁E₂/r, atractivo, acoplado a la
+energía)? Respuesta: **NINGUNO. El censo cierra con teoremas.**
+
+### N9.1 El canal TT: muerto por von Laue (y por ceguera a la energía)
+
+Cálculo exacto del intercambio estático de un campo sin masa de helicidad
+±2 acoplado al estrés (propagador proyectado, 5 invariantes angulares,
+verificado por refutador con doble derivación independiente — no refutado):
+
+    V(R) = −(1/64πv²R)·[2tr(S¹S²) + t₁t₂ − 5(t₁s₂+t₂s₁) + 12n̂S¹S²n̂ + 3s₁s₂]
+
+- **La carga TT es el deviator del estrés espacial — CIEGA a la energía**:
+  presión isótropa ⟹ V = 0 exacto (el proyector mata la traza).
+- **Signo indefinido** (factor angular ∈ [−0.56, +1.13]) y **media
+  orientacional CERO exacta**. Lo que sobrevive relajando orientaciones es
+  un Keesom ~1/R² dependiente de temperatura — ni la potencia ni la carga
+  de Newton.
+- **El golpe estructural — teorema de von Laue**: para CUALQUIER fuente
+  estática en equilibrio, ∂ᵢTᵢⱼ=0 ⟹ ∫Tᵢⱼd³x = 0 exacto ⟹ la carga TT
+  monopolar de un nudo estabilizado es NULA; quedan colas 1/R³. (El anillo
+  "desnudo" con carga E/3 es la configuración que se colapsa — su carga
+  aparente era el artefacto de ignorar lo que lo estabiliza.)
+- Lección en limpio: **la RG logra Newton porque el gravitón acopla al
+  T_μν completo vía las componentes NO radiativas (h₀₀); un condensado que
+  solo ofrece los dos TT propagantes no tiene con qué construir Newton.**
+  El "dynamics gap" de la gravedad emergente, redescubierto en nuestro
+  modelo con causa exacta.
+
+### N9.2 ★ MEDALLA: el principio de equivalencia emerge del nudo (p ≈ 1) ★
+
+El diccionario E_nudo(mar local), calculado analítico + numérico (GP 2D,
+control: constante de core 0.3810 = ln(1.464) de la literatura exacta):
+
+    T(t_b) = πK·t_b·[ln(R/ξ(t_b)) + 0.381]
+    p ≡ d ln T / d ln t_b = 1 + 1/(2·ln(R/ξ))     [numérico: 1.1180 vs
+                                                   analítico 1.117-1.120 ✓]
+
+**La estructura E(x) = E₀(1−p·φ(x)) con p→1 es EXACTAMENTE el ancla del
+principio de equivalencia de TCI 1.0 (E = mc²e^(−φ) pide p=1).** El "1"
+viene de la rigidez de fase ∝ densidad del mar; la corrección +1/(2lnR/ξ)
+del ensanchamiento del core. **El PE emerge, con violación débil
+log-suprimida** — anotado como futura firma/peligro: si el φ final acopla
+vía tensión de nudo, especies con cores distintos tienen Δp ≠ 0 →
+confrontar algún día con Eötvös/MICROSCOPE (η < 10⁻¹⁵).
+
+Bonus del mismo cálculo: la depresión de densidad del vórtice tiene cola
+**1/r² de potencia** (no exponencial — la amplitud es ESCLAVA del gradiente
+de fase; verificado: coeficiente K/g exacto, pendiente −2.00). La fuerza
+nudo-nudo por solape de colas es **atractiva y universal en signo** (no
+depende del winding — pasa el test que la fase directa no pasa) pero
+**1/d³ en 2D** (y peor en 3D): potencia corta. Cerca, pero no es Newton.
+
+### N9.3 El hueco es real: NADIE lo hizo (estado del arte verificado)
+
+Literatura canónica, textual: Volovik — los términos no covariantes de la
+hidrodinámica dominan al EH inducido ("the superfluid liquid is not the
+best condensed matter for simulation of Einstein gravity"); BLV Living
+Reviews — la analogía es CINEMÁTICA, la métrica acústica es algebraica en
+la materia, sin ecuación de campo propia; Visser sobre Sakharov — G
+inducida esquema-dependiente, Λ catastrófica ("Quietly agree to ignore
+Λ..."). **El intento más cercano (Girelli-Liberati-Sindoni 0807.4910):
+Poisson emergente pero YUKAWA a healing length ("gravity is of extreme
+short range") — la MISMA pared que nuestro canal de amplitud.** Belenchia
+et al. 1407.7896: gravedad geométrica emergente pero NORDSTRÖM (escalar).
+Verlinde: criticado (Kobakhidze 1009.5414, Visser 1108.5240). **Nadie
+derivó jamás V = −GE₁E₂/r universal entre defectos de un sustrato.** La
+única escapatoria de Weinberg-Witten (Lorentz roto en el UV = un
+condensado) sigue sin ser explotada. **El pozo donde estamos cavando es
+virgen de verdad — con prior histórica en contra, catalogada y citada.**
+
+### N9.4 Cierre del censo y el mapa que queda
+
+| Canal del bulk | Fuerza estática | ¿Newton? |
+|---|---|---|
+| Amplitud | Yukawa a ξ | NO (apantallado) |
+| Modo-r liviano | desacoplado (Z₂) | NO (carga nula) |
+| Fase U(1) | Coulomb log / 1/d³ anillos | NO (signo por carga, no universal) |
+| TT ±2 | 1/R anisótropo de media 0; von Laue ⟹ 1/R³ | NO (ciego a energía) |
+| Vectoriales | oscuros (§23) | NO |
+| Solape de colas 1/r² | atractivo universal ✓ pero 1/d³ | NO (potencia) |
+
+**TEOREMA DEL CENSO (9º resultado estructural del frente): el bulk del
+condensado D₄-BN no tiene ningún canal capaz de mediar gravedad newtoniana
+universal.** Newton en TCI 2.0 es NECESARIAMENTE inducido/del sector de
+defectos — la misma puerta a la que ya convergieron la luz (§32) y la
+métrica común (§24). El frente núcleo y el frente de la luz son ahora UNA
+sola batalla: **el sector de defectos debe pagar la luz, Newton y la
+métrica común, junto — o la teoría no tiene mundo de baja energía.** Lo que
+el núcleo aporta a esa batalla final: el lagrangiano borrador con V
+conocida y 𝒢′,K′ anclados, el diccionario p≈1 del PE, el censo como mapa de
+lo que NO hay que volver a intentar, y la certeza bibliográfica de que si
+sale, es nuevo.
