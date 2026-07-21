@@ -1,6 +1,6 @@
 # Static long-range forces in a spin-2 condensate: a refraction bound, a symmetry-protected perihelion constraint, and a no-go census for emergent Newtonian gravity
 
-**Nicolás Irigoyen** (with Fable, AI research collaborator)
+**Nicolás Irigoyen**
 
 *Draft v2 — 2026-07-21 (v1 2026-07-20; v2 incorporates the 17 corrections of the
 in-house adversarial audit — see Reproducibility). Internal working paper of the
@@ -339,5 +339,12 @@ two further audits (claim-by-claim numerics; external citations) were
 interrupted by compute limits and remain **declared pending** for v3 — the
 GW170817 Δγ exact bound and the external textual quotes should be re-verified
 against the primary sources before any submission.
+
+**Acknowledgments — AI-assistance statement.** The derivations, the code and
+the drafting of this manuscript were developed in collaboration with an AI
+system (Claude, Anthropic — working name *Fable*), under the author's
+direction. All numerical results are reproducible with the public scripts of
+the program, which verify the exact general-relativity values as controls (see
+Reproducibility). The author takes full responsibility for the content.
 
 *Correspondence: irigoyennicolas1991@gmail.com*

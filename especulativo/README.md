@@ -15,6 +15,14 @@ del repositorio:
   acá navegando: bienvenido, pero calibrá expectativas — esto es un cuaderno de
   laboratorio, no un resultado.
 
+**Política de autoría (2026-07-21).** En toda pieza con formato de publicación (papers,
+notas promovidas), el autor es **Nicolás Irigoyen**, único responsable del contenido; la
+asistencia de IA (Fable — Claude, de Anthropic: derivaciones, código, bibliografía y
+redacción, bajo su dirección) se declara en los agradecimientos/metodología — nunca en la
+línea de autoría, que ninguna editorial científica admite para una IA. En las bitácoras y
+actas de esta carpeta, "Nicolás & fable" describe el proceso de trabajo (quién hizo qué),
+no una autoría formal; los registros históricos no se reescriben.
+
 ## Las páginas divulgativas (las caras visuales de esta carpeta)
 
 Todo lo de acá tiene su versión contada para no-físicos, con simulaciones jugables:

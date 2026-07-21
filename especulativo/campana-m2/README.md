@@ -28,7 +28,11 @@ Los 3 scripts extraídos del handoff corren con Python 3.14 + SymPy 1.14 y repro
 ## Advertencias de la casa
 
 1. **"Nota 12"**: el número ya se usó y se revirtió el 2026-07-19 (incidente Familia F).
-   El texto del anexo A queda acá adentro; si se promueve a `notas/`, renumerar.
+   El texto del anexo A queda acá adentro; si se promueve a `notas/`, renumerar **y
+   aplicar la política de autoría de la casa (2026-07-21)**: la cabecera "Nicolás
+   Irigoyen & fable" del handoff es registro de proceso de un acta externa — en la
+   versión promovida el autor es Nicolás Irigoyen y la asistencia de IA se declara al
+   pie, no en la línea de autoría.
 2. **La errata de BCP (7.6)–(7.7): VERIFICADA 2026-07-21** — ver
    `VERIFICACION-BCP-2026-07-21.md` y `verificacion_independiente.py` (tarea 1 del
    handoff saldada en sustancia; sin xAct en la máquina, la independencia se logró por

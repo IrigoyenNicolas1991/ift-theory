@@ -4,6 +4,9 @@
 
 **Estado**: esqueleto (2026-07-18). Género: física de análogos / materia condensada
 (NO es "TCI deriva el EM" — el alcance está acotado a lo calculado).
+**Autoría (política de la casa, 2026-07-21)**: autor único Nicolás Irigoyen; la
+asistencia de IA (Claude/Fable, Anthropic) se declara en los Acknowledgments —
+nunca en la línea de autoría.
 **Condiciones previas a cualquier publicación** (lista de bloqueo):
 1. [x] Barrido de novedad (2026-07-18, 14 búsquedas + 6 lecturas): **encontrado
        PARCIAL** — el paquete completo (tensorial J=2 + 4:1 exacto por simetría +

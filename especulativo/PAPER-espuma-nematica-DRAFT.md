@@ -1,8 +1,9 @@
 # Inverted dipolar order: the laminar nematic ground state of vortex-ring arrays
 
-**Nicolás Irigoyen** (with Fable/Claude, AI research collaborator)
+**Nicolás Irigoyen**
 *Draft v0.9 — 2026-07-20. Working document on the `desarrollo-fable` branch;
-not yet submitted anywhere. Comments welcome.*
+not yet submitted anywhere. Comments welcome. AI assistance declared in the
+Acknowledgments.*
 
 ---
 
@@ -237,6 +238,16 @@ result above.
 [BattyeCotterill21] R.A. Battye, S.J. Cotterill, PRL 127, 241601 (2021); JHEP 04 (2022) 005.
 [FedichevShlyapnikov99] P.O. Fedichev, G.V. Shlyapnikov, PRA 60, R1779 (1999).
 [Tkachenko66] V.K. Tkachenko, Sov. Phys. JETP 22, 1282; 23, 1049 (1966); 29, 945 (1969).
+
+---
+
+**Acknowledgments — AI-assistance statement.** The derivations, the code and
+the drafting of this manuscript were developed in collaboration with an AI
+system (Claude, Anthropic — working name *Fable*), under the author's
+direction. All numerical results are reproducible with the public scripts
+referenced below, which verify exact published values (Luttinger–Tisza dipolar
+lattice sums, Maxwell's elliptic-integral formula for coaxial rings) as
+controls. The author takes full responsibility for the content.
 
 ---
 

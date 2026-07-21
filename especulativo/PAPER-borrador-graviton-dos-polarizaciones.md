@@ -1,6 +1,6 @@
 # The phonon as the second graviton polarization: exactly two massless transverse-traceless modes in the D₄ biaxial-nematic phase of a spin-2 superfluid
 
-**Nicolás Irigoyen** (with Fable, AI research collaborator)
+**Nicolás Irigoyen**
 
 *Draft v0.1 — 2026-07-21. First written form of the results obtained 2026-07-16/17
 (program logbook `BITACORA-campana-condensado-2026-07-16.md`, §14–§17, §22; master
@@ -410,8 +410,18 @@ r-mode gap follows m²_r = 32γa₀⁴.
 
 ---
 
-*Written 2026-07-21 by Fable within the TCI program's speculative stage. The
-physics in §§3–7 was computed and controlled on 2026-07-16/17 and is recorded,
-with its errata, in the program logbook. The falsifications of §8 are as much
-a result of the program as §4 — the house publishes its defeats on the same
-day and with the same font size as its victories.*
+**Acknowledgments — AI-assistance statement.** The derivations, the code and
+the drafting of this manuscript were developed in collaboration with an AI
+system (Claude, Anthropic — working name *Fable*), under the author's
+direction. All numerical results are reproducible with the public scripts of
+the program (control: case B reproduces the published uniaxial ³P₂ spectrum of
+Bedaque–Nicholson). The author takes full responsibility for the content.
+
+---
+
+*Drafted 2026-07-21 within the TCI program's speculative stage, with the AI
+assistance declared above. The physics in §§3–7 was computed and controlled on
+2026-07-16/17 and is recorded, with its errata, in the program logbook. The
+falsifications of §8 are as much a result of the program as §4 — the house
+publishes its defeats on the same day and with the same font size as its
+victories.*
