@@ -142,7 +142,45 @@ scratchpad de sesión) y `paso_b_core_input.py` (regenerador del ganador + perfi
 Las #12 (drift por ventana) y la lección "contar por peso" (§33.E) están incorporadas
 al diseño, no repetidas.
 
+## 7. Addendum (mismo día): el input del Paso B, medido — y una perla no pedida
+
+El regenerador (`paso_b_core_input.py`) reprodujo el ganador exacto (E=+11.88573,
+g_rms=1.3×10⁻⁷) y guardó el campo completo en `paso_b_core.npz` (local, regenerable).
+El perfil radial fino separa lo que la métrica r<2ξ mezclaba:
+
+| anillo r | w[+2] | w[+1] | w[0] | w[−1] | w[−2] | lectura |
+|---|---|---|---|---|---|---|
+| [0,1) | 0.473 | 0.034 | 0.001 | 0.406 | 0.085 | **core verdadero: {+2,−1} al 88%** |
+| [2,3) | 0.413 | 0.099 | 0.009 | 0.239 | 0.240 | interfaz (nube m=+1 máx. ~0.11) |
+| [24,36) | 0.496 | 0.004 | 0.000 | 0.004 | 0.496 | fondo D₄ puro = (Y₊₂+Y₋₂)/√2 ✓ |
+
+La matriz de gap del core es a·Y₊₂ + b·Y₋₁ con |a|²/|b|² ≈ 0.47/0.41 en el centro —
+entre el FM puro (1/0) y la cíclica pura (⅓/⅔): mezcla genuina, como el título dice.
+
+**Windings por componente** (lazos r=3/8/20): ψ₊₂: 0 · ψ₋₁: 0 · ψ₋₂: +1 · ψ₊₁: +1.
+El ψ₋₂ con winding 1 confirma en el campo real el "HQV = vórtice entero en una sola
+componente" (Seo/§30). **La perla**: la regla de selección axisimétrica del HQV
+(l_m = w_φ − m·w_α) exigiría windings FRACCIONARIOS para las componentes m=±1
+(¾ y ¼) — imposibles para un campo univaluado. El core las puebla igual, eligiendo
+windings enteros (0 y +1): **el estado rompe la axisimetría combinada del defecto — el
+marco interno del core se ancla al espacio en vez de co-rotar con el HQV.** Esto es el
+pinning visto desde adentro, y significa que el gap que ven los fermiones NO es
+axisimétrico: el conteo del Paso B debe comer el campo 2D completo (el crítico de §34
+tenía razón — el conteo del juguete cíclico puro "no aplica textual").
+
+**Diseño del Paso B (queda escrito para ejecutarse como próxima batalla):** BdG del
+³P₂ en la sección 2D (d(k) = Δ₀·A(r)·k, p-wave; Nambu×spin = 4 comp/sitio) con el
+campo real del npz recortado al entorno del core; k_z como parámetro, barrido + 
+refinamiento cerca de los ceros; conteo NETO de ramas quirales del core por flujo
+espectral, separando core/borde POR PESO (lección §33.E; el borde de la muestra lleva
+los Majoranas de superficie del D₄, clase DIII — no son ruido, son física, se cuentan
+aparte). Controles pre-declarados: (1) tubo cíclico puro uniforme vs el conteo
+topológico de §33 (perfil (1,−2,1,0)-like en (111)); (2) fondo D₄ sin defecto ⟹ cero
+ramas de core; (3) espejo ⟹ C_neto invertido; (4) estabilidad del conteo bajo Δ₀ y μ
+(es topológico mientras el gap del bulk no cierre — se declara el régimen). Criterio de
+muerte intacto (§34.D): C_neto = 0 o pinning blando ⟹ 10ª lápida.
+
 *Acta del Paso A, escrita el mismo día. La bisagra que hace tres días era un número
 falso hoy es un teorema de relajación con cuatro caminos convergentes, un espejo exacto
-y dos resoluciones. El nudo no es estéril: viene con su materia alineada de fábrica.
-Falta contarla — eso es el Paso B.*
+y dos resoluciones. El nudo no es estéril: viene con su materia alineada de fábrica —
+y hasta sabemos cómo se agarra del espacio. Falta contarla — eso es el Paso B.*
