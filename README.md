@@ -49,6 +49,8 @@ Every numerical claim ships with a verification script that first reproduces the
 values as a control. Found an error? [Open an issue](../../issues) — a confirmed external
 falsification gets published here with credit, same protocol as our own.
 
+**Contact:** [nicolasirigoyen@teoriadelcampointangible.org](mailto:nicolasirigoyen@teoriadelcampointangible.org) (Spanish or English).
+
 ---
 
 **Nicolás Irigoyen** (La Plata, Argentina) initiated the theory and derived its

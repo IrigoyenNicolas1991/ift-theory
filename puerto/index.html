@@ -98,6 +98,13 @@ h2.cat::after{content:'';flex:1;height:1px;background:var(--linea)}
 .card .que{font-size:13px;color:var(--tenue);margin:0 0 13px;line-height:1.6}
 .card .ir{font-size:13px;color:var(--naranja);transition:letter-spacing .18s}
 .card:hover .ir{letter-spacing:.5px}
+.flyer-faq{display:block;background:var(--panel);border:1px solid var(--naranja);border-radius:16px;
+ padding:16px 24px;text-decoration:none;color:var(--tinta);backdrop-filter:blur(5px);
+ text-align:center;font-size:14.5px;line-height:1.7;margin:40px 0 -18px;
+ transition:transform .18s,box-shadow .18s,border-color .18s}
+.flyer-faq:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(5,15,23,.55);border-color:var(--azul)}
+.flyer-faq .tit{font-family:Lora,serif;font-size:19px;color:var(--naranja);font-weight:600}
+.flyer-faq .ir-faq{color:var(--naranja);white-space:nowrap}
 .idioma-tag{font-size:10.5px;color:var(--tenue);border:1px solid var(--linea);
  border-radius:10px;padding:1px 8px;margin-left:6px;vertical-align:2px}
 .chip{display:inline-block;background:rgba(224,123,79,.15);border:1px solid var(--naranja);
@@ -207,6 +214,16 @@ footer a{color:var(--azul);text-decoration:none}
 </div>
 
 <div class="wrap" id="puertas">
+
+<a class="flyer-faq rev" href="https://irigoyennicolas1991.github.io/ift-theory/preguntas/">
+ <span style="font-size:21px;vertical-align:middle">❓</span>
+ <span class="tit"> <span class="es">Preguntas y críticas</span><span class="en">Questions &amp; criticisms</span></span> —
+ <span class="es">¿venís con dudas u objeciones? Las críticas más fuertes que conocemos y nuestras
+ respuestas honestas — incluidas las que le dan la razón al crítico.</span><span class="en">coming
+ with doubts or objections? The strongest criticisms we know and our honest answers —
+ including the ones where the critic is right.</span>
+ <span class="ir-faq"> <span class="es">Abrir el FAQ →</span><span class="en">Open the FAQ →</span></span>
+</a>
 
 <h2 class="cat rev"><span class="es">¿Por dónde entro?</span><span class="en">Where do I start?</span> <small><span class="es">— según tu tiempo y tu perfil</span><span class="en">— by your time and profile</span></small></h2>
 <div class="grid dos">
@@ -328,18 +345,6 @@ footer a{color:var(--azul);text-decoration:none}
   priority seal on every prediction, for better or worse.</span></p>
   <p class="ir"><span class="es">Ver en Zenodo →</span><span class="en">View on Zenodo →</span></p>
  </a>
- <a class="card rev" href="https://irigoyennicolas1991.github.io/ift-theory/preguntas/">
-  <p class="ico">❓</p>
-  <p class="tit"><span class="es">Preguntas y críticas</span><span class="en">Questions &amp; criticisms</span><span class="idioma-tag en">Spanish</span></p>
-  <p class="frase"><span class="es">«Una teoría que no puede perder tampoco puede ganar.»</span><span class="en">“A theory that cannot lose cannot win either.”</span></p>
-  <p class="que"><span class="es">El FAQ honesto: las objeciones más fuertes que conocemos —
-  redactadas por nosotros mismos — y las preguntas de cualquier lector, cada una con su
-  etiqueta: respondida con cálculo, parcial con deuda declarada, o «la crítica es
-  correcta».</span><span class="en">The honest FAQ: the strongest objections we know — written
-  by ourselves — and every reader's questions, each labeled: answered with calculation,
-  partial with declared debt, or “the critic is right.”</span></p>
-  <p class="ir"><span class="es">Abrir el FAQ →</span><span class="en">Open the FAQ →</span></p>
- </a>
 </div>
 
 <h2 class="cat rev"><span class="es">La frontera</span><span class="en">The frontier</span> <small><span class="es">— investigación viva, en desarrollo</span><span class="en">— living research, in progress</span></small></h2>
@@ -391,6 +396,7 @@ No ‘exactly’ without its calculation behind it.”</span>
  <p><span class="es">Teoría del Campo Intangible</span><span class="en">Intangible Field Theory</span> · Nicolás Irigoyen &amp; Fable</p>
  <p><a href="https://github.com/IrigoyenNicolas1991/ift-theory">GitHub: ift-theory</a> ·
  <a href="https://github.com/IrigoyenNicolas1991/teoria-campo-intangible">GitHub: teoria-campo-intangible</a></p>
+ <p><span class="es">Escribile al autor</span><span class="en">Write to the author</span>: <a href="mailto:nicolasirigoyen@teoriadelcampointangible.org">nicolasirigoyen@teoriadelcampointangible.org</a></p>
  <p><span class="es">Lo que ves de fondo: dos nudos del mar orbitando — y la onda espiral de dos brazos
  que emiten es, con todas las letras, la forma de una onda gravitacional.</span><span class="en">What you see in the background: two knots of the sea orbiting each other —
  and the two-armed spiral wave they emit is, in every sense of the word, the shape
