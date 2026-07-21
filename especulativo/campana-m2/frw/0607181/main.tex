@@ -1,0 +1,2590 @@
+\begin{filecontents}{paper2e.sty}
+% -----------------------------------------------------------------------------
+% Page style settings
+% -----------------------------------------------------------------------------
+\setlength{\textwidth}{6.0in}
+\setlength{\oddsidemargin}{0.25in}
+\setlength{\evensidemargin}{0.25in}
+\setlength{\topmargin}{-0.6in}%-0.40in
+\setlength{\headheight}{0.3in}
+\setlength{\headsep}{0.4in}
+\setlength{\textheight}{8.4in}%8.4in
+%\setlength{\footheight}{0.2in}
+\setlength{\footskip}{0.7in}
+\renewcommand{\baselinestretch}{1.1}  % line spacing
+\setlength{\footnotesep}{.15in}
+\setlength{\parskip}{3pt plus 0.2pt}
+
+% ----------------------------------------------------------------------------
+% Miscelaneous tools
+% ----------------------------------------------------------------------------
+
+% test whether argument is empty (a hack borrowed from eplain.tex)
+\def\ifempty#1{\@ifempty #1\@emptymarkA\@emptymarkB}%
+\def\@ifempty#1#2\@emptymarkB{\ifx #1\emptymarkA}%
+\def\@emptymarkA{\@emptymarkA}%
+
+% ----------------------------------------------------------------------------
+% Draft mode
+% ----------------------------------------------------------------------------
+
+\newcounter{papermode}
+\newcommand{\draft}{\setcounter{papermode}{1}}
+
+% -----------------------------------------------------------------------------
+% Title page
+% -----------------------------------------------------------------------------
+
+\renewenvironment{titlepage}{%
+    \setcounter{page}{0}%  reset page #
+    \pagestyle{empty}%  no page number
+    \renewcommand{\thefootnote}{\fnsymbol{footnote}}}%  use symbols
+%
+    {\newpage%  send it out
+    \renewcommand{\thefootnote}{\arabic{footnote})}%  use numbers
+     \setcounter{footnote}{0}%  reset footnote #
+    \setcounter{page}{1}}%  reset page #
+
+% preprint numbers
+\newcommand{\preprint}[1]{%
+     \begin{flushright}%
+     #1%
+     \end{flushright}}
+
+% title
+\renewcommand{\title}[1]{%
+    \bigskip%
+    \begin{center}%
+    \Large\bf #1%
+    \end{center}%
+    \vskip .2in}
+
+% author
+\renewcommand{\author}[1]{%
+    {\begin{center}
+    #1
+    \end{center}}}
+
+% address
+\newcommand{\address}[1]{\vspace{-1.7em}\vspace{0pt}
+    {\begin{center}
+    \it #1
+    \end{center}}}
+
+\renewenvironment{abstract}{%
+     \noindent%
+     \begin{center}%
+     {\bf Abstract}\\\medskip%
+     \begin{minipage}[t]{5.3in}}%
+%
+    {\end{minipage}%
+    \end{center}}
+
+% pacs numbers
+\newcommand{\pacs}[1]{%
+    {\rightline{PACS #1}}}
+
+% date
+\renewcommand{\date}[1]{%
+    \begin{center}%
+    #1%
+    \end{center}}
+
+
+% -----------------------------------------------------------------------------
+% Sectioning style
+% -----------------------------------------------------------------------------
+
+% Reduce space in section headings
+\renewcommand{\@seccntformat}[1]{%
+    {\csname the#1\endcsname}\ \ }
+
+% Section
+\renewcommand{\section}{%
+     \@startsection{section}{1}{\z@}%
+     {-3.5ex plus -1ex minus -.2ex}%
+     {2.3ex plus.2ex}%
+     {\centering\normalsize\bfseries}}
+
+%\renewcommand{\sec}[2][]{% optional argument is label
+%    \ifempty#1% no optional argumet
+%    \section{#2}% just start section
+%    \else\section{#2\label{sec:#1}}}% label section
+
+\newcommand{\Sec}[1]{{Sec.~\ref{sec:#1}}}
+
+% Subsection
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}%
+    {-3.25ex plus -1ex minus -.2ex}%
+    {1.5ex plus .2ex}%
+    {\centering\normalsize\itshape}}
+
+% Start appendices
+%
+% Example:
+%
+% \startappendices
+% \section{Appendix A: ...}
+% ...
+% \section{Appendix B: ...}
+% ...
+% etc.
+%
+\newcommand{\startappendices}{%
+        \setcounter{equation}{0}%
+         \setcounter{section}{1}%
+        \setcounter{subsection}{1}%
+         \renewcommand{\thesection}{\Alph{section}}}
+
+\newcommand\fakesection{\@startsection {section}{1}{\z@}%
+                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                    {2.3ex \@plus.2ex}%
+                                    {\centering\normalsize\bfseries}}
+% Appendix
+%
+% Do *not* use with \startappendices!
+\newcounter{appendixcount}%
+\setcounter{appendixcount}{0}%
+\renewcommand{\appendix}[1]{%
+    \ifnum\value{appendixcount} = 0% first appendix
+            %\newpage%
+        \setcounter{equation}{0}%
+         \setcounter{section}{0}%
+        \setcounter{subsection}{1}%
+         \renewcommand{\thesection}{\Alph{section}}%
+    \fi{}%
+    \stepcounter{appendixcount}
+    \stepcounter{section}
+    \section*{#1}}
+
+% -----------------------------------------------------------------------------
+% References
+% -----------------------------------------------------------------------------
+
+\newenvironment{references}{%
+    %\newpage%  start new page
+    \begin{thebibliography}{99}%
+    \frenchspacing}%  use tighter spacing
+%
+    {\end{thebibliography}}
+
+% -----------------------------------------------------------------------------
+% Equation numbering
+% -----------------------------------------------------------------------------
+
+% Turn on equation numbering by section
+\makeatletter%  allow access to internal LaTeX commands
+    \renewcommand{\theequation}{\thesection.\arabic{equation}}%
+    \@addtoreset{equation}{section}%
+\makeatother%  turn off access to internal LaTeX commands
+
+% -----------------------------------------------------------------------------
+% Citation abbreviations
+% -----------------------------------------------------------------------------
+
+\newcommand{\cites}[2]{[#1--#2]}
+
+% -----------------------------------------------------------------------------
+% Draft mode stuff
+% -----------------------------------------------------------------------------
+
+\def\endignore{}
+\def\ignore #1\endignore{}
+\end{filecontents}
+
+
+% =============================================================================
+% =============================================================================
+% =============================================================================
+% =============================================================================
+% START OF PAPER
+% =============================================================================
+% =============================================================================
+% =============================================================================
+% =============================================================================
+
+
+\documentclass[12pt]{article}
+\usepackage{paper2e}
+\usepackage{epsfig}
+\usepackage{latexsym}
+
+% rough comparisons
+\newcommand{\roughly}[1]%
+    {{\mathrel{\raise.3ex\hbox{$#1$\kern-.75em\lower1ex\hbox{$\sim$}}}}}
+\newcommand{\lsim}{\mathrel{\roughly<}}
+\newcommand{\gsim}{\mathrel{\roughly>}}
+
+
+\begin{document}
+\begin{titlepage}
+
+\preprint{UTAP-564, RESCEU-20/06}
+
+\title{Accelerating Universe and Cosmological Perturbation in the Ghost
+ Condensate}
+
+\author{Shinji Mukohyama}
+
+\address{Department of Physics and 
+Research Center for the Early Universe,\\
+The University of Tokyo, Tokyo 113-0033, Japan}
+
+
+\begin{abstract}
+ In the simplest Higgs phase of gravity called ghost condensation, an
+ accelerating universe with a phantom era ($w<-1$) can be realized
+ without ghost or any other instabilities. In this paper we show how to
+ reconstruct the potential in the Higgs sector Lagrangian from a given
+ cosmological history ($H(t)$, $\rho(t)$). This in principle allows us
+ to constrain the potential by geometrical information of the universe
+ such as supernova distance-redshift relation. We also derive the
+ evolution equation for cosmological perturbations in the Higgs phase of
+ gravity by employing a systematic low energy expansion. This formalism
+ is expected to be useful to test the theory by dynamical information of
+ large scale structure in the universe such as cosmic microwave
+ background anisotropy, weak gravitational lensing and galaxy
+ clustering. 
+\end{abstract}
+
+\end{titlepage}
+
+
+%======================================%
+% Introduction
+%======================================%
+\section{Introduction}
+\label{sec:intro}
+
+Acceleration of the cosmic expansion today is one of the greatest
+mysteries in both cosmology and fundamental
+physics~\cite{Riess:1998cb,Perlmutter:1998np}. Assuming that Einstein's
+general relativity is the genuine description of gravity all the way up 
+to cosmological distance and time scales, the so called concordance 
+cosmological model requires that about $70\%$ of our universe should be
+some sort of energy with negative pressure, called dark energy. However,
+since the nature of gravity at cosmological scales has never been probed
+directly, we do not know whether the general relativity is really
+correct at such infrared (IR) scales. Therefore, it seems natural to
+consider modification of general relativity in IR as an alternative to
+dark energy. Dark energy, IR modification of gravity and their
+combination should be tested and distinguished by future observations
+and
+experiments~\cite{Linder:2005in,Ishak:2005zs,Bertschinger:2006aw,Shirata:2005yr,Yamamoto:2006yv}. 
+
+
+From the theoretical point of view, however, IR modification of general
+relativity~\cite{Brans:1961sx,Dicke:1961gz,Bergmann:1968ve,Clayton:1998hv,Clayton:1999zs,Clayton:2001rt,Moffat:2002kj,Drummond:1999ut,Drummond:2001rj,Carroll:2003wy} 
+is not an easy subject. Most of the previous proposals are one way or
+another scalar-tensor theories of gravity, and are strongly constrained
+by e.g. solar system experiments~\cite{Will:1993ns} and the theoretical
+requirement that ghosts be
+absent~\cite{Cline:2003gs,DeFelice:2006pg,Calcagni:2006ye}. The massive
+gravity theory~\cite{Fierz:1939ix} and the Dvali-Gabadadze-Porrati (DGP)
+brane model~\cite{Dvali:2000hr} are much more interesting IR
+modification of gravity, but they are known to have macroscopic UV 
+scales~\cite{Arkani-Hamed:2002sp,Luty:2003vm}. A UV scale of a theory is
+the scale at which the theory breaks down and loses its
+predictability. For example, the UV scale of the $4D$ general relativity
+is the Planck scale, at which quantum gravity effects are believed to 
+become important. Since the Planck scale is microscopic, the general
+relativity maintains its predictability at essentially all scales we can
+directly probe. On the other hand, in the massive gravity theory and the
+DGP brane model, the UV scale is macroscopic. For example, if the scale
+of IR modification is the Hubble scale today or longer then the UV scale
+would be $\sim 1,000km$ or longer. At the UV scale an extra degree of
+freedom, which is coupled to matter, becomes strongly coupled and its
+quantum effects cannot be ignored. This itself does not immediately
+exclude  those theories, but means that we need UV completion in order
+to predict what we think we know about gravity within $\sim
+1,000km$. Since this issue is originated from the IR modification and
+the extra degree of freedom cannot be decoupled from matter, it is not
+clear whether the physics in IR is insensitive to unknown properties of
+the UV completion. In particular, there is no guarantee that properties
+of the IR modification of gravity will persist even qualitatively when
+the theories are UV completed in a way that they give correct
+predictions about gravity at scales between $\sim 1,000km$ and 
+$\sim 0.1mm$. 
+
+
+
+
+Ghost condensation is an analogue of the Higgs mechanism in general
+relativity and modifies gravity in IR in a way that avoids the
+macroscopic UV scale~\cite{Arkani-Hamed:2003uy}~\footnote{
+See
+e.g.\cite{Rubakov:2004eb,Dubovsky:2004sg,Holdom:2004yx,Bluhm:2004ep,Bluhm:2006im,Kirsch:2005st,Cheng:2006us} 
+for other related proposals. 
+}. In ghost condensation the theory is expanded around a background
+without ghost and the low energy effective theory has a universal
+structure determined solely by the symmetry breaking pattern. While the
+Higgs mechanism in a gauge theory spontaneously breaks gauge symmetry,
+the ghost condensation spontaneously breaks a part of Lorentz
+symmetry~\footnote{
+Lorentz violation in particle physics has been an active field of
+research. See
+e.g.~\cite{Colladay:1998fq,Bluhm:2005uj,Mattingly:2005re,Amelino-Camelia:2005qa,Vucetich:2005ra} 
+and references therein. Gravity in the presence of a vector field with
+fixed norm is also extensively
+studied~\cite{Jacobson:2000xp,Eling:2003rd,Jacobson:2004ts,Jacobson:2005bg,Kanno:2006ty}.
+For relation between this theory and the gauged ghost condensation, see 
+Appendix of ref.~\cite{Cheng:2006us}. 
+}
+since this is the symmetry relevant to gravity. In a gauge theory the
+Higgs mechanism makes it possible to 
+give a mass term to the gauge boson and to modify the force law in a
+theoretically controllable way. Similarly, the ghost condensation gives
+a ``mass term'' to the scalar sector of gravity and modifies
+gravitational force in the linearized level even in Minkowski and de
+Sitter spacetimes. The Higgs phase of gravity provided by the ghost
+condensation is simplest in the sense that the number of Nambu-Goldstone
+bosons associated with spontaneous Lorentz breaking is just one and that
+only the scalar sector is essentially modified. 
+
+
+In ghost condensation the linearized gravitational potential is modified
+at the length scale $r_c$ in the time scale $t_c$, where $r_c$ and $t_c$
+are related to the scale of spontaneous Lorentz breaking $M$ as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ r_c \simeq \frac{M_{\rm Pl}}{M^2}, \quad
+ t_c \simeq \frac{M_{\rm Pl}^2}{M^3}. 
+\end{equation}
+%======================================%
+Note that $r_c$ and $t_c$ are much longer than $1/M$. The way gravity is
+modified is peculiar. At the time when a gravitational source is turned
+on, the potential is exactly the same as that in general
+relativity. After that, however, the standard form of the potential is
+modulated with oscillation in space and with exponential growth in
+time. This is an analogue of Jeans instability, but unlike the usual
+Jeans instability, it persists in the linearized level even in Minkowski
+background. The length scale $r_c$ and the time scale $t_c$ above are
+for the oscillation and the exponential growth, respectively. At the
+time $\sim t_c$, the modification part of the linear potential will have
+an appreciable peak only at the distance $\sim r_c$. At larger
+distances, it will take more time for excitations of the Nambu-Goldstone
+boson to propagate from the source and to modify the gravitational
+potential. At shorter distances, the modification is smaller than at the
+peak position because of the spatial oscillation with the boundary
+condition at the origin. The behavior explained here applies to
+Minkowski background, but in ref.~\cite{Arkani-Hamed:2003uy} the
+modification of gravity in de Sitter spacetime was also analyzed. It was
+shown that the growing mode of the linear gravitational potential
+disappears when the Hubble expansion rate exceeds a critical value
+$H_c\sim 1/t_c$. Thus, the onset of the IR modification starts at the
+time when the Hubble expansion rate becomes as low as $H_c$. 
+
+
+
+If we take the $M/M_{\rm Pl}\to 0$ limit then the Higgs sector is
+completely decoupled from the gravity and the matter sectors and, thus,
+the general relativity is safely recovered. Therefore, cosmological and
+astrophysical considerations in general do not set a lower bound on the
+scale $M$ of spontaneous Lorentz breaking, but provide upper bounds on
+$M$. If we trusted the linear approximation for all gravitational
+sources for all times then the requirement $H_c \lsim H_0$ would give
+the bound $M\lsim (M_{\rm Pl}^2H_0)^{1/3}\simeq 10 MeV$, where $H_0$ is
+the Hubble parameter today~\cite{Arkani-Hamed:2003uy}. However, for
+virtually all interesting gravitational sources the nonlinear dynamics
+dominates in time scales shorter than the age of the universe. As a
+result the nonlinear dynamics cuts off the Jeans instability of the
+linear theory, and allows  $M\lsim 100 GeV$~\cite{Arkani-Hamed:2005gu}. 
+
+
+
+Many other aspects of ghost condensation have been explored. They
+include a new spin-dependent force~\cite{Arkani-Hamed:2004ar},  
+a qualitatively different picture of inflationary de Sitter
+phase~\cite{Arkani-Hamed:2003uz,Senatore:2004rj}, 
+effects of moving sources~\cite{Dubovsky:2004qe,Peloso:2004ut}, 
+nonlinear dynamics~\cite{Krotov:2004if,Arkani-Hamed:2005gu}, 
+properties of black holes~\cite{Frolov:2004vm,Mukohyama:2005rw,Dubovsky:2006vk},
+implications to galaxy rotation curves~\cite{Kiselev:2004bh,Kiselev:2005sv,Kiselev:2006gc},
+dark energy models~\cite{Piazza:2004df,Krause:2004bu,deRham:2006pe},
+other classical dynamics~\cite{Anisimov:2004sp,Mann:2005jz}, 
+attempts towards UV
+completion~\cite{Graesser:2005ar,O'Connell:2006de},
+and so on. 
+
+
+
+In the simplest setup of the ghost condensation an exact shift symmetry
+is assumed and there is no potential term in the Lagrangian of the Higgs
+sector. As a result the Higgs sector behaves like a cosmological
+constant plus cold dark matter for homogeneous, isotropic background 
+evolution~\cite{Arkani-Hamed:2005gu}. If the shift symmetry is not exact
+but is softly broken then a shallow potential is allowed in the Higgs
+sector Lagrangian. Recently, Creminelli, et.al~\cite{Creminelli:2006xe}
+showed that the ghost condensation with softly broken shift symmetry can
+violate the null energy condition without any instabilities~\footnote{
+Another model which violates the null energy condition without UV 
+instabilities is proposed in \cite{Rubakov:2006pn}. It is interesting to
+notice that this model also breaks Lorentz symmetry. 
+}. This opens up interesting possibilities of non-standard cosmology,
+including an accelerating universe with $w<-1$. 
+
+
+A point is that the coefficient of the time kinetic term $\dot{\pi}^2$ 
+in the low energy effective action for the scalar excitation $\pi$ is
+positive and of order unity. This means that there is no ghost in the
+ghost condensation. This also implies that in ghost condensation there
+is no problem analogous to the strong coupling issues which the massive
+gravity theory and the DGP brane model are facing with. On the other
+hand, the coefficient of the space kinetic term $(\nabla\pi)^2$ in the
+action becomes positive when $w<-1$. (A usual non-ghost scalar field,
+with $w>-1$, has a positive coefficient for the time kinetic term and a 
+negative coefficient for the space kinetic term.) This does not
+necessarily introduce instabilities since there is also a
+higher-derivative space kinetic term $(\nabla^2\pi)^2/M^2$ with a
+negative coefficient. Actually, as far as the positive coefficient of
+$(\nabla\pi)^2$ is small enough, the higher-derivative space kinetic
+term pushes the would-be unstable modes outside the cosmological horizon
+so that any instabilities do not show up. This situation is realized if 
+the violation of the null energy condition is not too large since the
+positive coefficient of $(\nabla\pi)^2$ is proportional to the amount of
+violation of the null energy condition~\cite{Creminelli:2006xe}. 
+
+
+In the present paper we investigate the classical dynamics of cosmology
+in ghost condensation with softly broken shift symmetry in more
+detail. Throughout this paper we shall adopt a $4D$ covariant action
+explained in Sec.~\ref{sec:4Daction}. In Sec.~\ref{sec:FRWbackground} we
+show that it is always possible to find a form of the potential in the
+Higgs sector Lagrangian which realizes an arbitrary FRW cosmological
+history ($H(t)$, $\rho(t)$). A similar result is known to hold also for
+a conventional scalar field with a potential, but in this case it is
+impossible to violate the null energy condition without a ghost. This is
+the origin of the folklore that the phantom ($w<-1$) cosmology requires
+a ghost, which is correct for ordinary scalars. On the other hand, for
+the ghost condensate, the null energy condition can be violated without
+introducing ghosts or any other instabilities as far as the violation is
+weak enough~\cite{Creminelli:2006xe}. Thus, the folklore is not correct
+in ghost condensation. It is probably worth stressing here again that
+the low energy effective field theory of ghost condensation is
+completely determined by the symmetry breaking pattern and does not
+include any ghosts. 
+
+
+After showing the reconstruction method in Sec.~\ref{sec:FRWbackground},
+we investigate cosmological perturbation around the FRW background in
+Sec.~\ref{sec:perturbation}. The resulting evolution equation is
+summarized in subsection~\ref{subsec:results-perturbation} and can be
+used to test the theory by observational data of e.g. cosmic microwave
+background anisotropy, weak gravitational lensing and galaxy clustering
+and so on.  
+
+
+
+
+%======================================%
+% 4D covariant action
+%======================================%
+\section{$4D$ covariant action}
+\label{sec:4Daction}
+
+
+Since the structure of the low energy effective field theory of ghost
+condensation is determined by the symmetry breaking pattern, it is
+not compulsory to consider a $4D$ covariant description for the ghost 
+condensation as far as physics in the Higgs phase is
+concerned. Nonetheless, it is instructive and sometimes convenient to
+have such a description. In this paper we shall adopt the $4D$ covariant
+description and extend the low energy field theory developed in
+ref.~\cite{Arkani-Hamed:2003uy} to a general FRW background driven by not
+only the ghost condensate itself but also other cosmological
+fluids~\footnote{
+See Sec.~3.3 of Ref.~\cite{Creminelli:2006xe} for the low energy
+effective field theory in a FRW background driven solely by the ghost
+condensate itself. In the present paper we include general gravitational
+sources as well as the ghost condensate since the inclusion of those 
+sources is essential for the test of the theory by e.g. cosmic microwave
+background anisotropy, weak gravitational lensing, galaxy clustering and
+so on.}.
+In this language, we start with a $4D$ covariant action principle for a
+scalar field, and the ghost condensation is realized as a background
+with a non-vanishing derivative of the scalar field which does not
+vanish even in Minkowski or de Sitter spacetime. Then the low energy
+effective field theory is obtained by expanding the covariant action
+around this background. Needless to say, the two approaches, one based
+on the symmetry breaking pattern and the other based on the $4D$
+covariant action, completely agree when applied to physics within the
+regime of validity of the effective field theory. 
+
+
+
+The leading $4D$ covariant action for ghost condensation is given
+by
+%============< EQUATION >==============%
+%
+\begin{equation}
+ I = \int d^4x\sqrt{-g}
+  \left[ \frac{M^4}{8}\Sigma^2 - M^4V(\phi)
+			- \frac{\alpha_1}{2M^2}(\Box\phi)^2
+			- \frac{\alpha_2}{2M^2}
+			(\nabla^{\mu}\nabla^{\nu}\phi)
+			(\nabla_{\mu}\nabla_{\nu}\phi)
+	 \right],
+  \label{eqn:4Daction}
+\end{equation}
+%======================================%
+where 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Sigma \equiv -\frac{\partial^{\mu}\phi\partial_{\mu}\phi}{M^4} - 1,
+\end{equation}
+%======================================%
+$M$ is the symmetry breaking scale giving the cutoff scale of the low
+energy effective theory, and the sign convention for the metric is
+($-+++$). Note that the potential $M^4V(\phi)$ is included to take into
+account the soft breaking of the shift
+symmetry~\cite{Creminelli:2006xe}: $V(\phi)$ is assumed to 
+depend on $\phi$ very weakly. When $V(\phi)$ is a constant, the shift
+symmetry is exact. The corresponding stress-energy tensor is easily
+calculated as 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ T^{(\phi)}_{\mu\nu} & = &
+  \frac{1}{2}\Sigma\partial_{\mu}\phi\partial_{\nu}\phi 
+  - \frac{\alpha_1+\alpha_2}{M^2}
+  \left[\partial_{\mu}(\Box\phi)\partial_{\nu}\phi
+   + \partial_{\mu}\phi\partial_{\nu}(\Box\phi)\right] \nonumber\\
+ & &
+  + \frac{\alpha_2}{M^2}
+  \left\{
+  \nabla^{\rho}
+  \left[ (\nabla_{\mu}\nabla_{\nu}\phi)\partial_{\rho}\phi\right]
+  - (R_{\mu}^{\rho}\partial_{\nu}\phi+R_{\nu}^{\rho}\partial_{\mu}\phi)
+  \partial_{\rho}\phi \right\}  \nonumber\\
+ & & + \left[ \frac{M^4}{8}\Sigma^2 - M^4V(\phi)
+     +\frac{\alpha_1}{2M^2}(\Box\phi)^2
+     +\frac{\alpha_1}{M^2}\partial^{\rho}(\Box\phi)\partial_{\rho}\phi
+     \right.\nonumber\\
+ & & \left.
+     -\frac{\alpha_2}{2M^2}(\nabla^{\rho}\nabla^{\sigma}\phi)
+     (\nabla_{\rho}\nabla_{\sigma}\phi)\right]g_{\mu\nu},
+\end{eqnarray}
+%======================================%
+and the equation of motion for $\phi$ is 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \frac{1}{2}\nabla^{\mu}(\Sigma\partial_{\mu}\phi) - M^4V'(\phi)
+  - \frac{\alpha_1+\alpha_2}{M^2}\Box^2\phi 
+  - \frac{\alpha_2}{M^2}
+  \left(R^{\mu\nu}\nabla_{\mu}\nabla_{\nu}\phi
+   +\frac{1}{2}\partial^{\mu}R\partial_{\mu}\phi \right)
+  = 0. \label{eqn:EOM-phi}
+\end{equation}
+%======================================%
+The Einstein equation is 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ M_{\rm Pl}^2G_{\mu}^{\nu} = T^{(\phi)\nu}_{\mu} + T_{\mu}^{\nu},
+\end{equation}
+%======================================%
+where $T_{\mu}^{\nu}$ is the stress energy tensor of the other
+gravitational sources satisfying the conservation equation 
+$\nabla_{\nu}T_{\mu}^{\nu}=0$. As a consistency check, it is easy to
+confirm that 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \nabla_{\nu}T^{(\phi)\nu}_{\mu} = E^{(\phi)}\partial_{\mu}\phi, 
+  \label{eqn:conservation-phi}
+\end{equation}
+%======================================%
+where $E^{(\phi)}$ is the left hand side of (\ref{eqn:EOM-phi}). Thus,
+the stress-energy tensor of $\phi$ satisfies the conservation equation 
+$\nabla_{\nu}T^{(\phi)\nu}_{\mu}=0$, provided that the equation of
+motion $E^{(\phi)}=0$ is satisfied. On the other hand, if the Einstein
+equation is satisfied and if $\partial_{\mu}\phi$ is non-vanishing then
+the equation of motion $E^{(\phi)}=0$ follows. Throughout this paper we
+shall use these expressions for the stress-energy tensor and the
+equation of motion. 
+
+
+
+If we set $\alpha_1=\alpha_2=0$ then the model is reduced to a kind of 
+k-inflation~\cite{Armendariz-Picon:1999rj} or
+k-essence~\cite{Chiba:1999ka,Armendariz-Picon:2000dh,Armendariz-Picon:2000ah}.
+However, in this case there is no modification of gravity in Minkowski 
+or de Sitter spacetime. Moreover, with $\alpha_1=\alpha_2=0$, the
+attractor $\Sigma=0$ is unstable against inhomogeneous perturbations. In
+the presence of the terms proportional to $\alpha_1$ and $\alpha_2$
+($\alpha_1+\alpha_2>0$), the attractor is stable against small
+perturbations and gravity is modified in the linearized level even in
+Minkowski and de Sitter backgrounds. The relation between the
+k-inflation and the ghost condensation is in some sense similar to that
+between the usual potentially-dominated inflation and the Higgs
+mechanism~\cite{Mukohyama:2005qd}.  
+
+
+
+
+%======================================%
+% FRW background
+%======================================%
+\section{FRW background}
+\label{sec:FRWbackground}
+
+
+Ghost condensation provides the simplest Higgs phase of gravity in which
+there is only one Nambu-Goldstone boson associated with spontaneous
+Lorentz breaking. Note again that the dynamics of the Higgs phase of
+gravity in ghost condensation has nothing to do with ghosts. Indeed, 
+there is no ghost within the regime of validity of the effective field
+theory. Moreover, the Higgs phase of gravity has universal low energy
+description determined solely by the symmetry breaking pattern. 
+
+
+In this section we consider a flat FRW ansatz 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ g_{\mu\nu}dx^{\mu}dx^{\nu} & = & -dt^2 + a(t)^2\delta_{ij}dx^idx^j,
+  \nonumber\\
+ \phi & = & \phi(t),
+\end{eqnarray}
+%======================================%
+where $i=1,2,3$, and analyze the dynamics of the homogeneous, isotropic
+universe. Linear perturbation around this background will be considered
+in the next section. With this ansatz, the stress energy tensor for the
+field $\phi$ is 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ T^{(\phi)\nu}_{\mu} = \left(\begin{array}{cccc} 
+        -\rho_{\phi} & 0 & 0 & 0 \\
+        0 & p_{\phi} & 0 & 0 \\
+        0 & 0 & p_{\phi} & 0 \\
+        0 & 0 & 0 & p_{\phi}
+        \end{array}\right),
+\end{equation}
+%======================================%
+where
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \rho_{\phi} & = & \frac{1}{8}M^4(4+3\Sigma)\Sigma + M^4V \nonumber\\
+& &  + \alpha M^2 
+  \left[ \frac{3}{2}(1+\Sigma)(2\partial_tH-3H^2)
+   + \frac{1}{2}\partial_t^2\Sigma
+   - \frac{3}{8}\frac{(\partial_t\Sigma)^2}{1+\Sigma}
+  \right] \nonumber\\
+ & & +\beta M^2
+  \left[ -3(1+\Sigma)\partial_tH+\frac{3}{2}H\partial_t\Sigma
+  \right],\nonumber\\
+ \rho_{\phi} + p_{\phi} & = & 
+  \frac{M^4}{2}(1+\Sigma)\Sigma \nonumber\\
+ & &  + \alpha M^2 
+  \left[ 6(1+\Sigma)\partial_tH+(\partial_t^2\Sigma+3H\partial_t\Sigma)
+   -\frac{1}{2}\frac{(\partial_t\Sigma)^2}{1+\Sigma}\right] \nonumber\\
+ & &   - \beta M^2
+  \left[ (1+\Sigma)(3H^2+5\partial_tH)
+   + \frac{1}{2}(\partial_t^2\Sigma+H\partial_t\Sigma)
+  \right],
+  \label{eqn:rho-p-phi}
+\end{eqnarray}
+%======================================%
+and
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \alpha \equiv \alpha_1+\alpha_2, \quad \beta\equiv\alpha_2.
+\end{equation}
+%======================================%
+Here, we have expressed $\partial_t\phi$, $\partial_t^2\phi$ and
+$\partial_t^3\phi$ in terms of $\Sigma=(\partial_t\phi)^2/M^4-1$ and its 
+derivatives. The Einstein equation is
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ 3M_{\rm Pl}^2H^2 & = & \rho_{\phi} + \rho, \nonumber\\
+ 2M_{\rm Pl}^2\partial_tH & = & -(\rho_{\phi}+p_{\phi}) - (\rho+p),
+  \label{eqn:Einstei-eq-FRW}
+\end{eqnarray}
+%======================================%
+where $H=\partial_ta/a$, and $\rho$ and $p$ are the energy density and
+the pressure of the other gravitational sources. Following the usual
+convention we call the first equation the Friedmann equation and the
+second the dynamical equation. Note that, because of the identity 
+(\ref{eqn:conservation-phi}) and the Bianchi identity, the equation of 
+motion for $\phi$ automatically follows from (\ref{eqn:Einstei-eq-FRW}),
+provided that the conservation equation for $\rho$ and $p$ holds: 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \partial_t\rho + 3H(\rho+p) = 0.
+\end{equation}
+%======================================%
+
+
+
+
+%======================================%
+% Low energy expansion
+%======================================%
+\subsection{Low energy expansion}
+\label{subsec:lowE-expansion-background}
+
+
+At this point, one might think that the expressions in
+(\ref{eqn:rho-p-phi}) are too complicated to extract the physical
+picture of cosmology in the Higgs phase of gravity. Even if one could
+somehow manage to do so with brute force for the FRW background, it
+might be too optimistic to expect that the same approach works for 
+linear perturbation around the FRW background. So let us go back and
+reconsider the meaning of the covariant action (\ref{eqn:4Daction}). 
+This is not a full action including a UV completion but just a leading
+action suitable to describe physics sufficiently below the cutoff scale
+$M$ around backgrounds with $\Sigma\simeq 0$. If the Hubble expansion
+rate and/or the stress-energy tensor of the field $\phi$ become close to
+or above unity in the unit of $M$ then the low energy description is
+invalidated and we need a UV 
+completion. Needless to say, the same criterion applies to the other
+approach based on the symmetry breaking pattern, and the two
+approaches agree in the regime of validity of the low energy effective
+theory. Therefore, all we can and should trust is what is obtained below
+the cutoff scale. In other words, we assume the existence of a good UV
+completion but never use its properties. For this reason, we can and
+should ignore terms irrelevant at low energies compared with the cutoff
+scale $M$.  
+
+
+To be systematic, we adopt a low energy expansion by introducing small
+dimensionless parameters $\epsilon_i$ ($i=0,1,2,3$) as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \frac{M^2}{M_{\rm Pl}^2} = \epsilon_0, \quad
+ \frac{H}{M} = \epsilon_1, \quad
+ \frac{\rho}{M_{\rm Pl}^2M^2} = \epsilon_2^2, \quad
+ \frac{p}{M_{\rm Pl}^2M^2} = O(\epsilon_2^2),
+\end{equation}
+%======================================%
+and 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ {\rm Max}(|\Sigma|,|V|)=\epsilon_3, \quad
+  \left( \Sigma = O(\epsilon_3), \quad 
+   V = O(\epsilon_3) \right).
+\end{equation}
+%======================================%
+Since the time scale for the change of $H$, $\Sigma$, $V$, $\rho$ and
+$p$ is expected to be the cosmological time scale $1/H$, it also follows
+that
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \frac{\partial_t^nH}{M^{n+1}} = O(\epsilon_1^{n+1}), \quad
+ \frac{\partial_t^n\Sigma}{M^n} = O(\epsilon_3\epsilon_1^n), \quad
+ \frac{\partial_t^n V}{M^n} = O(\epsilon_3\epsilon_1^n), 
+\end{equation}
+%======================================%
+and that
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \frac{\partial_t^n\rho}{M_{\rm Pl}^2M^{n+2}}
+  = O(\epsilon_2^2\epsilon_1^n), \quad
+ \frac{\partial_t^n p}{M_{\rm Pl}^2M^{n+2}}
+ = O(\epsilon_2^2\epsilon_1^n),
+ \label{eqn:lowE-drho-dp-epsilon2}
+\end{equation}
+%======================================%
+for $n=1,2,\cdots$. The latter condition
+(\ref{eqn:lowE-drho-dp-epsilon2}) is not necessary for the present
+purpose but will be used when we derive evolution equations for linear
+perturbation around the FRW background in the next section. Unless
+fine-tuned, consistency of this assignment with the Einstein equation 
+(\ref{eqn:Einstei-eq-FRW}) requires that 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \epsilon_1^2 \simeq 
+  {\rm Max} (\epsilon_0\epsilon_3,\epsilon_2^2).
+  \label{eqn:consistency-epsilons}
+\end{equation}
+%======================================%
+
+
+It is in principle possible but not practical to perform the low energy
+expansion with respect to all $\epsilon$'s, considering each
+$\epsilon_i$ as independent small parameters. Of course, if one performs 
+the low energy expansion up to sufficiently high order with respect to
+all $\epsilon$'s then one can always reach the point where all relevant
+terms (and probably many other irrelevant terms) are included. However,
+this is not the most economical way to obtain results relevant to
+particlar situations of physical interest. It is more economical and
+convenient to suppose some rough relations among these small parameters
+to reduce the number of independent small parameters. This also makes it
+easier to extract physical picture out of complicated equations. Note
+that those relations among $\epsilon_i$ must reflect the situations of
+physical  interest. 
+
+
+For example, in ghost inflation~\cite{Arkani-Hamed:2003uz} we set
+$\Sigma=V=0$ and include another field, say $\psi$, to end the inflation
+and to reheat the universe a la hybrid inflation. In this case
+$\epsilon_3$ vanishes. Moreover, since the stress energy tensor is
+dominated by the other field $\psi$, the consistency relation
+(\ref{eqn:consistency-epsilons}) implies that 
+$\epsilon_1\simeq\epsilon_2$. In this way, in
+Ref.~\cite{Arkani-Hamed:2003uz} we considered $\epsilon_0$ and 
+$\epsilon_1$ ($\simeq\epsilon_2$) as two independent small parameters. 
+
+
+On the other hand, in the present paper we would like to consider
+late time cosmology in which both ($\rho_{\phi}$, $p_{\phi}$) and 
+($\rho$, $p$) may contribute to the background as gravitational
+sources. For this reason and because of the consistency relation
+(\ref{eqn:consistency-epsilons}), we suppose that there is a small
+number $\epsilon$ such that 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \epsilon_1^2 = O(\epsilon^2), \quad 
+  \epsilon_0\epsilon_3 = O(\epsilon^2), \quad
+  \epsilon_2^2 = O(\epsilon^2), 
+  \quad
+  \left( \mbox{e.g. }
+   \epsilon \equiv {\rm Max}(\sqrt{\epsilon_0\epsilon_3},\epsilon_2)
+  \right).
+  \label{eqn:epsilon0-3}
+\end{equation}
+%======================================%
+We expect (and will actually show) that in the dispersion relation for
+the excitation of ghost condensation, $M^2/M_{\rm Pl}^2$ ($=\epsilon_0$) 
+and $\Sigma$ ($=\epsilon_3$) additively contribute to the coefficient of
+the momentum squared. (See the expression for $C_0$ in (\ref{eqn:C-def})
+below.) We would like to consider situations in which they can
+independently become relevant since they may become different sources of
+possible instabilities and interesting physical
+effects~\cite{Creminelli:2006xe}. Thus, we refine the second relation in
+(\ref{eqn:epsilon0-3}) to 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \epsilon_0 = O(\epsilon), \quad \epsilon_3=O(\epsilon),\quad
+  \left( \mbox{e.g. }
+   \epsilon \equiv {\rm Max}
+   (\epsilon_0,\epsilon_2,\epsilon_3)
+       \right).
+\end{equation}
+%======================================%
+In summary we can introduce just one small parameter $\epsilon$ and
+suppose that 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \frac{M^2}{M_{\rm Pl}^2} = O(\epsilon), \quad
+ \frac{\partial_t^nH}{M^{n+1}} = O(\epsilon^{n+1}), \quad
+ \frac{\partial_t^n\Sigma}{M^n} = O(\epsilon^{n+1}), \quad
+ \frac{\partial_t^n V}{M^n} = O(\epsilon^{n+1}), 
+ \label{eqn:lowE-background}
+\end{equation}
+%======================================%
+and
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \frac{\partial_t^n\rho}{M^{n+4}} = O(\epsilon^{n+1}), \quad
+ \frac{\partial_t^n p}{M^{n+4}} = O(\epsilon^{n+1}),
+ \label{eqn:lowE-drho-dp}
+\end{equation}
+%======================================%
+where $n=0,1,2,\cdots$. Again, the latter condition
+(\ref{eqn:lowE-drho-dp}) is not necessary for the present purpose but
+will be used when we derive evolution equations for linear perturbation
+around the FRW background in the next section. 
+
+
+
+The low energy expansion not only enables us to compute various
+quantities in a systematic way but also helps us avoid picking up 
+spurious modes associated with the higher derivative terms. In the $4D$
+covariant action (\ref{eqn:4Daction}) the terms proportional to
+$\alpha_1$ and $\alpha_2$ include the square of the second time
+derivative of the field $\phi$. Therefore, if we take its face value
+then the equation of motion for $\phi$ includes up to the fourth order
+time derivatives and there is in principle freedom to specify $\phi$,
+$\partial_t\phi$, $\partial_t^2\phi$ and $\partial_t^3\phi$ as an
+initial condition. However, as the scaling analysis in
+ref.~\cite{Arkani-Hamed:2003uy} shows, the time derivatives higher than
+the second order in the equation of motion are irrelevant at energies
+sufficiently below the cutoff $M$, at least in Minkowski background. In
+other words, extra modes associated with those higher time derivatives
+have frequencies above the cutoff scale $M$ and is outside the regime of 
+validity of the effective field theory. For this reason, those extra
+modes are spurious and must be dropped out from physical spectrum of the
+low energy theory. In the expanding background it is not a priori
+completely clear how to drop the spurious modes while maintaining all
+physical modes. By adopting the low energy expansion this can be done in
+a systematic way. 
+
+
+
+
+%======================================%
+% Reconstructing the potential
+%======================================%
+\subsection{Reconstructing the potential from H(t)}
+\label{subsec:reconstruct-V}
+
+As shown in Ref.~\cite{Creminelli:2006xe}, many non-standard cosmology, 
+including the phantom ($w<-1$) cosmology, can be realized in the
+framework of ghost condensation without introducing ghosts or any other
+instabilities. The purpose of this subsection is to show that, given an
+arbitrary history of the Hubble expansion rate $H(t)$ and gravitational
+sources $\rho(t)$ and $p(t)$, it is indeed possible to find a form of
+the potential $V(\phi)$ which realizes $H(t)$ as a solution to the
+Einstein equation (\ref{eqn:Einstei-eq-FRW}), provided that the
+conservation equation $\partial_t\rho+3H(\rho+p)=0$ is satisfied. As is
+well known, a similar result holds also for a conventional scalar field
+with a potential: one can almost always find a form of the potential for
+a given history of the Hubble expansion rate. However, for a
+conventional scalar field, it is impossible to violate the null energy
+condition without a ghost. This is the origin of the folklore that the
+phantom ($w<-1$) cosmology requires a ghost, which is correct for
+ordinary scalars. On the other hand, for the ghost condensate, the null
+energy condition can be violated without introducing ghosts or any other
+instabilities as far as the violation is weak enough. Thus, the folklore
+is not correct in ghost condensation. It is probably worth stressing
+here again that the low energy effective field theory of ghost
+condensation is completely determined by the symmetry breaking pattern
+and does not include any ghosts. 
+
+
+
+For the reconstruction of the potential $V(\phi)$ from the expansion
+history $H(t)$ and the energy density $\rho(t)$ and pressure $p(t)$ of
+known gravitational sources, we take advantage of the low energy
+expansion introduced in the previous subsection. We expand $V$ and
+$\Sigma$ with respect to $\epsilon$: 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ V & = & V_0 + V_1 + \cdots, \quad 
+  V_n = O(\epsilon^{n+1}), \nonumber\\
+ \Sigma & = & \Sigma_0 + \Sigma_1 + \cdots, \quad
+  \Sigma_n = O(\epsilon^{n+1}). 
+\end{eqnarray}
+%======================================%
+Note that $\phi$ is expressed in terms of $\Sigma_n$ as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \phi = M^2 \int \sqrt{1+\Sigma}dt = 
+  M^2
+  \int\left[1+\frac{1}{2}\Sigma_0
+       +O(\epsilon^2)\right]dt.
+  \label{eqn:phi-Sigma}
+\end{equation}
+%======================================%
+
+
+
+The Friedmann and dynamical equations (\ref{eqn:Einstei-eq-FRW}) in the
+lowest order in $\epsilon$ are easily solved with respect to $\Sigma_0$
+and $V_0$ as 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \Sigma_0 & = & -\frac{2}{M^4}
+  \left[2M_{\rm Pl}^2\partial_tH+(\rho+p)\right],
+  \nonumber\\
+ V_0 & = & \frac{1}{M^4}
+  \left[M_{\rm Pl}^2(2\partial_tH+3H^2)+p\right],
+  \label{eqn:sol-Sigma0-V0}
+\end{eqnarray}
+%======================================%
+The relation (\ref{eqn:phi-Sigma}) in the lowest order in $\epsilon$ is 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \phi = M^2 (t-t_0) + M\cdot O(\epsilon), 
+\end{equation}
+%======================================%
+where $t_0$ is a constant. Thus, for a given history ($H(t)$, $\rho(t)$,
+$p(t)$) satisfying $\partial_t\rho+3H(\rho+p)=0$, the potential $V$ is
+expressed in terms of $\phi$ as  
+%============< EQUATION >==============%
+%
+\begin{equation}
+ V(\phi) = 
+  \frac{1}{M^4}\left[M_{\rm Pl}^2(2\partial_tH+3H^2)+p\right]_{t=t_0+\phi/M^2}
+  +O(\epsilon^2).
+  \label{eqn:V-phi-leading}
+\end{equation}
+%======================================%
+
+
+
+It is also easy to obtain the correction to the lowest order potential. 
+In the next-to-the-leading order the Friedmann and dynamical equations 
+(\ref{eqn:Einstei-eq-FRW}) are solved with respect to $\Sigma_1$ and
+$V_1$ as 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \Sigma_1 & = & -\Sigma_0^2 - \frac{12\alpha}{M^2}\partial_tH
+  +\frac{2\beta}{M^2}(5\partial_tH+3H^2), 
+  \nonumber\\
+ V_1 & = & \frac{1}{8}\Sigma_0^2
+  +\frac{3\alpha-2\beta}{2M^2}(2\partial_tH+3H^2). 
+  \label{eqn:sol-Sigma1-V1}
+\end{eqnarray}
+%======================================%
+The relation (\ref{eqn:phi-Sigma}) in this order is
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \phi = M^2 (t-t_0) 
+  + \frac{M^2}{2}\int_{t_0}^t \Sigma_0(t')dt'
+       + M\cdot O(\epsilon^2), 
+\end{equation}
+%======================================%
+where $t_0$ is again a constant. Thus, for a given history ($H(t)$,
+$\rho(t)$, $p(t)$) satisfying $\partial_t\rho+3H(\rho+p)=0$, the
+potential $V$ is expressed in terms of $\phi$ as  
+%============< EQUATION >==============%
+%
+\begin{equation}
+ V(\phi) =
+  \left[
+   V_0 + \Delta t\cdot\partial_t V_0 + V_1\right]_{t=t_0+\phi/M^2}
+  + O(\epsilon^3),
+\end{equation}
+%======================================%
+where 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Delta t =  -\frac{1}{2}\int_{t_0}^t\Sigma_0(t')dt'
+\end{equation}
+%======================================%
+and $\Sigma_0$, $V_0$ and $V_1$ are given in (\ref{eqn:sol-Sigma0-V0})
+and (\ref{eqn:sol-Sigma1-V1}). 
+
+
+
+%======================================%
+% Cosmological perturbation
+%======================================%
+\section{Cosmological perturbation}
+\label{sec:perturbation}
+
+In this section we derive evolution equations for cosmological
+perturbation around the FRW background. 
+
+
+We consider a scalar-type cosmological perturbation in the longitudinal
+gauge,
+%============< EQUATION >==============%
+%
+\begin{equation}
+ ds^2 = -(1+2\Psi Y)dt^2
+  + a^2(1+2\Phi Y)d{\bf x}^2,
+\end{equation}
+%======================================%
+and a general stress-energy tensor of the form 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ T^t_t & = & - \rho
+  - \left[\rho\Delta-3H(\rho+p)Va/\sqrt{{\bf k}^2}\right]Y, \nonumber\\
+ T^t_i & = & (\rho+p)Va Y_i, \quad
+ T^i_t = -\frac{(\rho+p)V Y^i}{a}, \nonumber\\
+ T^i_j & = & p
+  + \left\{ p\Gamma+ c_s^2[\rho\Delta
+     -3H(\rho+p)Va/\sqrt{{\bf k}^2}]\right\}Y\delta^i_j
+  + p\Pi Y^i_j,
+\end{eqnarray}
+%======================================%
+where $Y$'s are harmonics on the $3$-space defined as
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ Y & = & e^{i{\bf k}\cdot{\bf x}}, \nonumber\\
+ Y_i & = & -\frac{1}{\sqrt{{\bf k}^2}}\partial_i Y, \quad
+ Y^i = \delta^{ij}Y_j, \nonumber\\
+ Y_{ij} & = & \frac{1}{{\bf k}^2}\partial_i\partial_jY
+  +\frac{1}{3}Y\delta_{ij}, \quad
+ Y^i_j = \delta^{ik}Y_{kj}.
+\end{eqnarray}
+%======================================%
+Here, $\rho$ and $p$ are the unperturbed energy density and pressure,
+and ($\Delta$, $V$, $\Gamma$, $\Pi$) represent the gauge-invariant
+perturbation of the stress-energy tensor. Physical meaning of each
+component is as follows~\cite{Kodama:1985bj}: $\Delta$ is the density 
+contrast in the slicing that the fluid velocity is orthogonal to
+constant time hypersurfaces, $V$ is the fluid velocity relative to the
+observers normal to constant time hypersurfaces, $\Gamma$ is the entropy
+perturbation and $\Pi$ is anisotropic stress. They satisfy the perturbed
+conservation equation  
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \partial_t(\rho\Delta)+3H\rho\Delta
+  + \left(\frac{{\bf k}^2}{a^2}-3\partial_t H\right)
+  \frac{a}{\sqrt{{\bf k}^2}}(\rho+p)V + 2Hp\Pi & & \nonumber\\
+  + 3(\rho+p)(\partial_t\Phi-H\Psi) & = & 0, \nonumber\\
+ \partial_t\left[(\rho+p)V\right]+(4+3c_s^2)H(\rho+p)V
+  -\frac{\sqrt{{\bf k}^2}}{a}
+  \left[ p\Gamma + c_s^2\rho\Delta+(\rho+p)\Psi-\frac{2}{3}p\Pi
+  \right] & = & 0.\nonumber\\
+\end{eqnarray}
+%======================================%
+When $\rho$ and $\rho+p$ are non-vanishing, these equations are
+rewritten as
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \partial_t\Delta - 3wH\Delta + (1+w)
+  \left[\left(\frac{{\bf k}^2}{a^2}-3\partial_tH\right)
+   \frac{a}{\sqrt{{\bf k}^2}}V+3(\partial_t\Phi-H\Psi)\right]
+  +2wH\Pi & = & 0,\nonumber\\
+ \partial_t V + HV - \frac{\sqrt{{\bf k}^2}}{a}
+  \left[\frac{c_s^2}{1+w}\Delta+\frac{w}{1+w}
+   \left(\Gamma-\frac{2}{3}\Pi\right)+\Psi\right] & = & 0, 
+  \label{eqn:conservation-perturbation}
+  \nonumber\\
+\end{eqnarray}
+%======================================%
+where $w=p/\rho$ and $c_s^2=\partial_t p/\partial_t\rho$. 
+
+
+As for the metric perturbation, for convenience, we decompose
+($\Phi$,$\Psi$) into the standard, general relativity (GR) part
+($\Phi_{GR}$,$\Psi_{GR}$) and the modification part
+($\Phi_{mod}$,$\Psi_{mod}$) as follows. 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \Phi & = & \Phi_{GR} + \Phi_{mod}, \nonumber\\
+ \Psi & = & \Psi_{GR} + \Psi_{mod},
+  \label{eqn:GR-plus-mod}
+\end{eqnarray}
+%======================================%
+where the GR part is given by 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \frac{{\bf k}^2}{a^2}\Phi_{GR} = 
+  \frac{\rho\Delta}{2M_{\rm Pl}^2}, \nonumber\\
+ \frac{{\bf k}^2}{a^2}(\Psi_{GR}+\Phi_{GR}) = 
+  -\frac{p\Pi}{M_{\rm Pl}^2}. 
+  \label{eqn:GRpart-def}
+\end{eqnarray}
+%======================================%
+
+
+In the following we shall derive evolution equation of the modification
+part of the metric perturbation ($\Phi_{mod}$, $\Psi_{mod}$). For
+readers who are interested in application of the formalism,
+subsection~\ref{subsec:results-perturbation} summarizes resulting 
+evolution equations of the cosmological perturbation in the Higgs phase
+of gravity. In subsection~\ref{subsec:lowE-expansion-perturbation} we
+introduce a systematic low energy expansion applicable to linear
+perturbation by extending the low energy expansion for the background
+given in subsection~\ref{subsec:lowE-expansion-background}. 
+Subsection~\ref{subsec:master-eq} includes the hardest part of
+calculations in this paper: we derive a single master equation governing 
+the modification of gravity without ignoring higher time
+derivatives. The master equation is a fourth-order ordinary differential 
+equation for each comoving momentum. However, in 
+subsection~\ref{subsec:reduction} we see that the fourth and third order 
+derivative terms are irrelevant and reduce the master equation to a set 
+of two first-order ordinary differential equations for each comoving 
+momentum. At the same time, we remove an apparent singularity in the
+master equation. In subsection~\ref{subsec:results-perturbation} we
+summarize the results of this section in a way which is directly
+applicable to actual problems. In Appendix~\ref{app:example}, as a 
+simple application of the formula summarized in
+subsection~\ref{subsec:results-perturbation}, we consider Minkowski and
+de Sitter backgrounds and derive the results in
+ref.~\cite{Arkani-Hamed:2003uy} for modification of gravity in those
+backgrounds. Readers who are interested in application of the formalism
+may go directly to subsections~\ref{subsec:results-perturbation}. 
+
+
+
+
+\subsection{Low energy expansion}
+\label{subsec:lowE-expansion-perturbation}
+
+
+We now extend the low energy expansion developed in
+subsection~\ref{subsec:lowE-expansion-background} to linear perturbation
+around the FRW background. The assignment for the FRW background is
+summarized in (\ref{eqn:lowE-background}) and (\ref{eqn:lowE-drho-dp}). 
+
+
+For perturbation, besides the smallness of the perturbation itself
+controlling the validity of the linear approximation, there is one
+additional small parameter $\epsilon_4$ given by  
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \frac{1}{M}\frac{\sqrt{{\bf k}^2}}{a} = \epsilon_4. 
+\end{equation}
+%======================================%
+The low energy effective theory is valid only if $\epsilon_4$ is small
+enough. Supposing that $\Delta$, $V$, $\Gamma$ and $\Pi$ may become
+comparable, the perturbed conservation equation
+(\ref{eqn:conservation-perturbation}) implies that
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \frac{\partial_t}{M}(\Delta,V,\Gamma,\Pi)
+  \sim (\Delta,V,\Gamma,\Pi) \cdot
+  {\rm Max}(\epsilon_1,\epsilon_4),
+\end{equation}
+%======================================%
+unless the modification part ($\Phi_{mod}$, $\Psi_{mod}$) dominates over
+the GR part ($\Phi_{GR}$, $\Psi_{GR}$). As shown already in
+ref.~\cite{Arkani-Hamed:2003uy}, the dispersion relation for excitation
+of ghost condensation in Minkowski background is 
+$\omega^2\simeq 
+\alpha {\bf k}^4/M^2 -\alpha{\bf k}^2M^2/2M_{\rm Pl}^2$. 
+The first term in the right hand side is $\sim \epsilon_4^4M^2$ and the
+second term is $\sim \epsilon\epsilon_4^2M^2$. 
+In this paper we would like to generalize this dispersion relation in
+Minkowski spacetime to an evolution equation in the FRW background,
+taking both terms into account. For this purpose we suppose that these
+two terms may become comparable. In other words, we suppose that there
+is a small parameter $\tilde{\epsilon}$ such that
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \epsilon = O(\tilde{\epsilon}^2), \quad
+  \epsilon_4 = O(\tilde{\epsilon}), \quad
+  \left(\mbox{e.g. }
+   \tilde{\epsilon} \equiv {\rm Max}
+   (\sqrt{|\epsilon|},\epsilon_4)
+  \right).
+\end{equation}
+%======================================%
+
+
+
+In summary it is supposed that there is a small parameter
+$\tilde{\epsilon}$ such that
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \frac{M^2}{M_{\rm Pl}^2} & = & O(\tilde{\epsilon}^2), \nonumber\\
+ \frac{\partial_t^nH}{M^{n+1}} & = & O(\tilde{\epsilon}^{2(n+1)}), 
+  \quad
+ \frac{\partial_t^n\Sigma}{M^n} = O(\tilde{\epsilon}^{2(n+1)}), \quad 
+ \frac{\partial_t^n V}{M^n} = O(\tilde{\epsilon}^{2(n+1)}), \nonumber\\
+ \frac{\partial_t^n\rho}{M^{n+4}} & = & O(\tilde{\epsilon}^{2(n+1)}), 
+  \quad
+ \frac{\partial_t^n p}{M^{n+4}} = O(\tilde{\epsilon}^{2(n+1)}),
+\end{eqnarray}
+%======================================%
+and
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \frac{1}{M}\frac{\sqrt{{\bf k}^2}}{a} & = & O(\tilde{\epsilon}),
+  \nonumber\\
+ \left(\frac{\partial_t}{M}\right)^n(\Delta,V,\Gamma,\Pi)
+  & \sim & O(\tilde{\epsilon}^n) \cdot (\Delta,V,\Gamma,\Pi),
+\end{eqnarray}
+%======================================%
+where $n=0,1,2,\cdots$. 
+
+
+
+
+
+
+
+\subsection{Master equation}
+\label{subsec:master-eq}
+
+
+In the previous subsection we developed a low energy expansion for the
+FRW background and linear perturbation around it. Armed with this, we
+can roughly estimate how small or large a term in equations should be, as
+far as ($\Phi_{GR}$, $\Psi_{GR}$), ($\Delta$, $V$, $\Gamma$, $\Pi$) and
+their time derivatives are concerned. On the other hand, we do not know
+a priori how small or large the time derivatives of the modification 
+part ($\Phi_{mod}$, $\Psi_{mod}$) are. This can be seen only after we
+derive evolution equation of these quantities. In this section we derive
+a single fourth order master equation for the modification part, using
+the low energy expansion but not assuming the smallness of the time
+derivatives of ($\Phi_{mod}$, $\Psi_{mod}$). 
+
+
+Let us introduce two variables $\tilde{\Phi}_{1,2}$ by 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \Phi_{mod} & = & \tilde{\Phi}_1 + c\tilde{\Phi}_2, \nonumber\\
+ \Psi_{mod} & = & - \tilde{\Phi}_1 - (1+c)\tilde{\Phi}_2,
+  \label{eqn:def-Phi1-Phi2}
+\end{eqnarray}
+%======================================%
+where $c$ is a constant. We shall see below that the source terms for
+equations governing $\Phi_{1,2}$ scale like $\propto M^2/M_{\rm Pl}^2$
+in the $M/M_{\rm Pl}\to 0$ limit. Thus the standard GR result is
+recovered in the $M/M_{\rm Pl}\to 0$ limit. The variable
+$\tilde{\Phi}_2$ ($\propto\Phi_{mod}+\Psi_{mod}$) was defined so that it
+vanishes when $\beta=0$. The definition of the variable $\tilde{\Phi}_1$
+is not yet fixed because of the unfixed constant $c$. The value of the
+constant $c$ will later be determined so that the master equation for 
+$\tilde{\Phi}_1$ including matter source terms is simplified. 
+
+
+As for the field $\phi$ responsible for ghost condensation, we expand it
+up to the linear order as 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \phi = M^2 \left[\int \sqrt{1+\Sigma}dt + \pi Y\right].
+\end{equation}
+%======================================%
+We now have three unknown variables $\tilde{\Phi}_1$, $\tilde{\Phi}_2$
+and $\pi$ other than matter variables ($\Delta$, $V$, $\Gamma$,
+$\Pi$). Our task now is to obtain the evolution equation for those three
+variables sourced by these matter variables. 
+
+
+In cosmology with an ordinary scalar field the standard strategy to
+analyze linear perturbation in the longitudinal gauge is as follows: (i)
+to eliminate one of the two metric variables ($\Phi$, $\Psi$), say
+$\Psi$, by using the traceless part of ($ij$)-components of the
+linearized Einstein equation; (ii) to eliminate the linear perturbation
+of the scalar field by using the ($0i$)-components of the linearized
+Einstein equation; and (iii) to obtain a single master equation for the
+remaining metric variable, say $\Phi$, from the ($00$)-component of the
+linearized Einstein equation. (The linearized equation of motion of the
+scalar field and the trace part of ($ij$)-components of the linearized
+Einstein equation are automatically satisfied because of the Bianchi
+identity.) The steps (i) and (ii) involve simple algebraic equations
+for variables being eliminated. As a result the master equation is a
+second-order ordinary differential equation for each comoving
+momentum. This is consistent with the fact that, in the absence of other
+gravitational sources, the scalar sector includes only one propagating
+degree of freedom, i.e. excitation of the scalar field. If there are
+other gravitational sources then the master equation includes source
+terms due to those gravitational sources. 
+
+
+We can use the same strategy to analyze the linear perturbation with
+ghost condensation although the result will be drastically
+different. There are again three main steps. (To be precise, 
+for the reason explained below, steps (ii) and (iii) are not separated
+but actually mixed in the present case.) (i) First we eliminate
+$\tilde{\Phi}_2$ by using the traceless part of ($ij$)-components of the
+linearized Einstein equation. (ii) Next we eliminate $\pi$ by using the
+($0i$)-components of the linearized Einstein equation. (iii) Finally we 
+obtain a single master equation for the remaining metric variable
+$\tilde{\Phi}_1$ from the ($00$)-component of the linearized Einstein
+equation. (The equation of motion of $\pi$ and the trace part of
+($ij$)-components of the linearized Einstein equation are automatically 
+satisfied because of the Bianchi identity.) The step (i) involves just
+an algebraic equation for $\tilde{\Phi}_2$ as in the standard
+case. However, the step (ii) involves a second-order differential
+equation for $\pi$ for each comoving momentum, contrary to the standard
+case. For this reason the steps (ii) and (iii) are not separated but
+actually mixed. After eliminating $\pi$ and its derivatives, the
+resulting master equation is a fourth-order ordinary differential
+equation for $\tilde{\Phi}_1$ for each comoving momentum. This is indeed
+consistent with the fact that the action for $\phi$ includes the square
+of the second derivative of $\phi$ and that the equation of motion for
+$\pi$ involves up to forth-order derivatives at least formally. In the
+master equation the matter variables ($\Delta$, $V$, $\Gamma$, $\Pi$)
+appear as source terms. 
+
+
+
+We adopt the low energy expansion introduced in the previous subsection
+to follow each step (i)-(iii). This in particular means that terms with
+sufficiently higher time derivatives acted on the background or matter
+variables can be ignored since they are considered as higher order in
+the expansion with respect to $\tilde{\epsilon}$. On the other hand, the
+time derivative acted on $\tilde{\Phi}_1$, $\tilde{\Phi}_2$ and $\pi$ is
+not supposed to raise the order of the low energy expansion. This is
+because we do not a priori know the time scale of the dynamics of these
+three variables in the FRW background until the evolution equation of a
+single master variable is obtained. 
+
+
+
+Following the steps (i)-(iii), we obtain the fourth-oder master equation
+for $\tilde{\Phi}_1$: 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ C_4\partial_t^4\tilde{\Phi}_1 + C_3\partial_t^3\tilde{\Phi}_1 + \partial_t^2\tilde{\Phi}_1 +
+  C_1\partial_t\tilde{\Phi}_1 + C_0\tilde{\Phi}_1 = \tilde{S}_1,
+\end{equation}
+%======================================%
+where the coefficient of the second-order term is normalized to unity,
+and other coefficients and the source term are given by 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ C_4 & = & \frac{\alpha}{M^2} + \frac{O(\tilde{\epsilon}^2)}{M^2},
+  \nonumber\\
+ C_3 & = & \frac{\alpha}{M^2}
+  \left[ 6H-\frac{M^2(\partial_t\Sigma+2H\Sigma)}
+   {M^2\Sigma+2\alpha{\bf k}^2/a^2}\right]
+  + \frac{O(\tilde{\epsilon}^4)}{M},\nonumber\\
+ C_1 & = & 3H - 
+  \frac{M^2(\partial_t\Sigma+2H\Sigma)}{M^2\Sigma+2\alpha{\bf k}^2/a^2} +
+  M\cdot O(\tilde{\epsilon}^4),\nonumber\\
+ C_0 & = & \frac{\alpha}{M^2}\frac{{\bf k}^4}{a^4} +
+  \frac{1}{2}\left(\Sigma-\alpha\frac{M^2}{M_{\rm Pl}^2}
+  \right)\frac{{\bf k}^2}{a^2} + 2H^2+\partial_t H \nonumber\\
+ & & -\frac{\Sigma M^4}{4M_{\rm Pl}^2}
+  -\frac{M^2H(\partial_t\Sigma+2H\Sigma)}
+  {M^2\Sigma+2\alpha{\bf k}^2/a^2}
+  + M^2\cdot O(\tilde{\epsilon}^6),
+  \label{eqn:C-def}
+\end{eqnarray}
+%======================================%
+and
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ M_{\rm Pl}^2\frac{{\bf k}^2}{a^2}\tilde{S}_1 & = & \frac{M^2}{M_{\rm Pl}^2}
+  \left\{\frac{1}{8}
+   \left( M^2\Sigma+2\alpha{\bf k}^2/a^2\right)
+   \left[(1+3c_s^2)\rho\Delta+3p\Gamma\right] 
+   \right.\nonumber\\
+ & & \left.
+   + (c-1)\beta
+   \left[
+    \frac{1}{2}\frac{{\bf k}^2}{a^2}(c_s^2\rho\Delta+p\Gamma)
+    -\frac{1}{3}\frac{{\bf k}^2}{a^2}p\Pi
+   \right]
+   + c\beta \partial_t^2(p\Pi) \right\}
+ \nonumber\\
+ & & + M^6\cdot O(\tilde{\epsilon}^5).
+\end{eqnarray}
+%======================================%
+On the other hand, $\tilde{\Phi}_2$ is expressed in terms of $\tilde{\Phi}_1$ and its
+derivatives as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \tilde{\Phi}_2 = \beta\left(D_3\partial_t^3\tilde{\Phi}_1 
+  + D_2\partial_t^2\tilde{\Phi}_1 + D_1\partial_t\tilde{\Phi}_1 +
+  D_0\tilde{\Phi}_1 + S_2\right),
+\end{equation}
+%======================================%
+where
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ D_3 & = &
+  \frac{4\alpha H}
+  {M^2\left[M^2\Sigma+2\alpha{\bf k}^2/a^2\right]}
+  + \frac{O(\tilde{\epsilon}^2)}{M^3},\nonumber\\
+ D_2 & = & -\frac{2\alpha}{M^2[\alpha-(2c+1)\beta]}
+  + \frac{O(\tilde{\epsilon}^2)}{M^2},\nonumber\\
+ D_1 & = &  
+  \frac{4H}{M^2\Sigma+2\alpha{\bf k}^2/a^2}
+  + \frac{O(\tilde{\epsilon}^2)}{M},  \nonumber\\
+ D_0 & = & 
+  -\frac{2}{M^2}\frac{{\bf k}^2}{a^2} + \frac{M^2}{M_{\rm Pl}^2} 
+  +\frac{4H^2}{M^2\Sigma+2\alpha{\bf k}^2/a^2}
+  + O(\tilde{\epsilon}^4), \nonumber\\
+ M_{\rm Pl}^2\frac{{\bf k}^2}{a^2}S_2 & = & 
+   \frac{M^2}{2M_{\rm Pl}^2}(\rho\Delta+2p\Pi)
+   + M^4\cdot O(\tilde{\epsilon}^3).
+   \label{eqn:def-D-S2}
+\end{eqnarray}
+%======================================%
+To obtain these expressions, we kept terms up to $O(\tilde{\epsilon}^4)$
+in intermediate steps. 
+
+
+
+Having obtained the master equation, it is clear that 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ c = 1
+\end{equation}
+%======================================%
+gives the best choice for the definition of $\tilde{\Phi}_1$. This
+indeed simplifies the source term $\tilde{S}_1$ of the master
+equation. Moreover, the term $(M^2/M_{\rm Pl}^2)\beta\partial_t^2(p\Pi)$
+in $\tilde{S}_1$ can be absorbed by redefinition of the master variable:
+it does not appear if we use $\Phi_1$ and $\Phi_2$ defined by 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \Phi_1 & \equiv & \tilde{\Phi}_1 
+  + \beta \frac{a^2}{{\bf k}^2}\frac{p\Pi}{M_{\rm Pl}^2}, \nonumber\\
+ \Phi_2 & \equiv & \tilde{\Phi}_2,
+\end{eqnarray}
+%======================================%
+instead of $\tilde{\Phi}_1$ and $\tilde{\Phi}_2$. The master equation is
+now written as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ C_4\partial_t^4\Phi_1 + C_3\partial_t^3\Phi_1 +
+  \partial_t^2\Phi_1 + C_1\partial_t\Phi_1 + C_0\Phi_1 = S_1,
+  \label{eqn:master-eq-4th}
+\end{equation}
+%======================================%
+where $C_{4,3,1,0}$ are given by (\ref{eqn:C-def}) and the new source
+term is 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ M_{\rm Pl}^2\frac{{\bf k}^2}{a^2}S_1 = 
+  \frac{M^2}{8M_{\rm Pl}^2}
+  \left( M^2\Sigma+2\alpha{\bf k}^2/a^2\right)
+  \left[(1+3c_s^2)\rho\Delta+3p\Gamma\right] 
+  + M^6\cdot O(\tilde{\epsilon}^5).
+  \label{eqn:S1-def}
+\end{equation}
+%======================================%
+The variable $\Phi_2$ is expressed in terms of $\Phi_1$ and matter
+variables as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Phi_2 = \beta\left(D_3\partial_t^3\Phi_1 
+  + D_2\partial_t^2\Phi_1 + D_1\partial_t\Phi_1 +
+  D_0\Phi_1 + S_2\right),
+ \label{eqn:Phi2-Phi1-dPhi1}
+\end{equation}
+%======================================%
+where $D_{3,2,1,0}$ and $S_2$ are given by (\ref{eqn:def-D-S2}) with $c=1$. 
+
+
+Note that coefficients of the master equation (\ref{eqn:master-eq-4th})
+and the relation (\ref{eqn:Phi2-Phi1-dPhi1}) were obtained just up to
+the leading order in the $\tilde{\epsilon}$ expansion. It is of course 
+possible to seek corrections to the leading terms, but we shall not do
+so in this paper for simplicity. Note also that we had to keep up to the 
+fourth order in $\tilde{\epsilon}$ in the intermediate steps to obtain
+the leading master equation. The reason for this is manifest: otherwise,
+we would not have been able to obtain a non-vanishing coefficient of 
+$\Phi_1$ in (\ref{eqn:master-eq-4th}) since $C_0=O(\tilde{\epsilon}^4)$
+while the coefficient of $\partial_t^2\Phi_1$ is unity. 
+
+
+
+
+
+
+
+\subsection{Reduction to a set of two first order equations}
+\label{subsec:reduction}
+
+
+Although the master equation (\ref{eqn:master-eq-4th}) obtained in the
+previous subsection is formally fourth order, the fourth and third order
+derivative terms are actually irrelevant. To see this is easy: they are
+suppressed by the cutoff scale $M$ compared with the coefficients of the
+second and first derivative terms, respectively. This means that
+ignoring the fourth and third order derivative terms just drop out modes
+with frequency of order $M$ or higher, which are outside the regime of
+validity of the effective field theory. Properties of these modes are
+dependent of properties of unknown UV completion and, thus, we not only
+may but also must discard these modes. In other words, we assume the
+existence of a good UV completion but will never use its
+properties. Hence, we obtain the second-order master equation 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \partial_t^2\Phi_1 + C_1\partial_t\Phi_1 + C_0\Phi_1 = S_1,
+  \label{eqn:master-eq-2nd}
+\end{equation}
+%======================================%
+where $C_{1,0}$ and $S_1$ are given by (\ref{eqn:C-def}) and
+(\ref{eqn:S1-def}). For the same reason, we must discard the third and
+second order derivative terms in the relation
+(\ref{eqn:Phi2-Phi1-dPhi1}): 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Phi_2 = \beta\left(D_1\partial_t\Phi_1 + D_0\Phi_1 + S_2\right),
+  \label{eqn:Phi2-Phi1-dPhi1-1st}
+\end{equation}
+%======================================%
+where $D_{1,0}$ and $S_2$ are given by (\ref{eqn:def-D-S2}) with $c=1$. 
+
+
+The master equation (\ref{eqn:master-eq-2nd}) and the relation
+(\ref{eqn:Phi2-Phi1-dPhi1-1st}) appear to be singular when
+$M^2\Sigma+2\alpha{\bf k}^2/a^2$ vanishes. This does not mean that the
+system exits the regime of validity of the low energy effective theory 
+but just implies that the dynamics is not described by a single master
+equation. Indeed, at the would-be singularity 
+$M^2\Sigma+2\alpha{\bf k}^2/a^2=0$, the second-order master equation
+is reduced to $\partial_t\Phi_1+H\Phi_1=0$. This suggest that the
+second-order master equation should be decomposed into a set of two
+first-order equations. To make this more explicit, let us define a new
+variable $\chi$ by 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \chi \equiv \frac{4\left(\partial_t\Phi_1+H\Phi_1\right)}
+  {M^2\Sigma+2\alpha{\bf k}^2/a^2}.
+\end{equation}
+%======================================%
+With this variable and $\Phi_1$ the master equation
+(\ref{eqn:master-eq-2nd}) is reduced to the following set of two
+first-order equations. 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \partial_t\Phi_1 + H\Phi_1 & = & \frac{1}{4}
+  \left(M^2\Sigma+2\alpha\frac{{\bf k}^2}{a^2}\right)\chi, \nonumber\\
+ \partial_t\chi & = & 
+  \left(\frac{M^2}{M_{\rm Pl}^2}
+   -\frac{2}{M^2}\frac{{\bf k}^2}{a^2}\right)\Phi_1
+  + S_{\chi},
+  \label{eqn:master-eq-1st}
+\end{eqnarray}
+%======================================%
+where the source term $S_{\chi}$ is given by 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ M_{\rm Pl}^2\frac{{\bf k}^2}{a^2}S_{\chi} = 
+  \frac{M^2}{2M_{\rm Pl}^2}
+  \left[\left(1+3c_s^2\right)\rho\Delta+3p\Gamma\right].
+\end{equation}
+%======================================%
+On the other hand, the variable $\Phi_2$ is written in terms of $\Phi_1$
+and $\chi$ as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Phi_2 = \beta\left[ H\chi + 
+  \left(\frac{M^2}{M_{\rm Pl}^2}-\frac{2}{M^2}
+   \frac{{\bf k}^2}{a^2}\right)\Phi_1 + S_2\right],
+ \label{eqn:Phi2-Phi1-chi}
+\end{equation}
+%======================================%
+where
+%============< EQUATION >==============%
+%
+\begin{equation}
+ M_{\rm Pl}^2\frac{{\bf k}^2}{a^2}S_2 = 
+  \frac{M^2}{2M_{\rm Pl}^2}(\rho\Delta+2p\Pi).
+\end{equation}
+%======================================%
+The apparent singularity at $M^2\Sigma+2\alpha{\bf k}^2/a^2=0$ does not
+exist in the new equations (\ref{eqn:master-eq-1st}) and
+(\ref{eqn:Phi2-Phi1-chi}). As easily seen from the structure of the set
+of first order equations (\ref{eqn:master-eq-1st}), the apparent
+singularity in (\ref{eqn:master-eq-2nd}) and
+(\ref{eqn:Phi2-Phi1-dPhi1-1st}) was just the reflection of the fact that
+the evolution of the variable $\Phi_1$ is decoupled from that of $\chi$
+when $M^2\Sigma+2\alpha{\bf k}^2/a^2=0$. 
+
+
+
+
+
+\subsection{Results summarized}
+\label{subsec:results-perturbation}
+
+
+As shown in subsection~\ref{subsec:reconstruct-V}, in ghost condensation
+it is always possible to find a form of a potential for the Higgs sector 
+which realizes a given cosmological history ($H(t)$, $\rho(t)$,
+$p(t)$) of the FRW background, provided that the conservation
+$\partial_t\rho+3H(\rho+p)=0$ is satisfied. An important point is that
+the null energy condition can be violated in the Higgs sector of gravity
+without introducing ghosts or any other instabilities as far as the
+violation is weak enough~\cite{Creminelli:2006xe}. Note again that the
+structure of the low energy effective field theory of ghost condensation
+is completely determined by the symmetry breaking pattern and does not
+include any ghosts. Thus, for example we can realize the phantom
+($w<-1$) cosmology without a ghost. This is an explicit counter-example
+against the folklore that the phantom ($w<-1$) cosmology would require a
+ghost. 
+
+
+In this subsection we summarize the result of this section, where we
+have derived a set of two first order ordinary equations governing
+cosmological perturbations of the Higgs sector of gravity. The low
+energy effective theory of ghost condensation includes two dimensionless 
+parameters of order unity $\alpha$ ($\equiv\alpha_1+\alpha_2>0$) and
+$\beta$ ($\equiv\alpha_2$) and the cutoff scale $M$. Provided that
+($\alpha$, $\beta$, $M$) are fixed and a background cosmological history
+($H(t)$, $\rho(t)$, $p(t)$) (satisfying the conservation equation but
+possibly including deviation from general relativity) is given, the
+evolution equations for cosmological perturbations are completely
+determined. 
+
+
+Now let us start summarizing evolution equations for cosmological
+perturbation. For notation the reader should refer to the second and
+the third paragraphs of this section. 
+
+
+
+The metric perturbation is decomposed into the standard, general
+relativity (GR) part ($\Phi_{GR}$,$\Psi_{GR}$) and the modification part
+($\Phi_{mod}$,$\Psi_{mod}$) as (\ref{eqn:GR-plus-mod}), and the
+modification part is written as 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \Phi_{mod} & = & \Phi_1 + \Phi_2
+  -\beta \frac{a^2}{{\bf k}^2}\frac{p\Pi}{M_{\rm Pl}^2}, \nonumber\\
+ \Psi_{mod} & = & - \Phi_1 - 2\Phi_2
+   +\beta \frac{a^2}{{\bf k}^2}\frac{p\Pi}{M_{\rm Pl}^2}.
+\end{eqnarray}
+%======================================%
+The variable $\Phi_1$ is given by solving 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \partial_t\Phi_1 + H\Phi_1 & = & \frac{1}{4}
+  \left(M^2\Sigma_0+2\alpha\frac{{\bf k}^2}{a^2}\right)\chi, \nonumber\\
+ \partial_t\chi & = & 
+  \left(\frac{M^2}{M_{\rm Pl}^2}
+   -\frac{2}{M^2}\frac{{\bf k}^2}{a^2}\right)\Phi_1
+  + S_{\chi},
+  \label{eqn:master-eq-1st-again}
+\end{eqnarray}
+%======================================%
+where $\chi$ is an auxiliary variable, $\Sigma_0$ is given by 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Sigma_0 = -\frac{2}{M^4}
+  \left[2M_{\rm Pl}^2\partial_tH+(\rho+p)\right]
+\end{equation}
+%======================================%
+and represents deviation of the background evolution from general
+relativity, and the source term $S_{\chi}$ is given by 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ M_{\rm Pl}^2\frac{{\bf k}^2}{a^2}S_{\chi} = 
+  \frac{M^2}{2M_{\rm Pl}^2}
+  \left[\left(1+3c_s^2\right)\rho\Delta+3p\Gamma\right].
+\end{equation}
+%======================================%
+On the other hand, the variable $\Phi_2$ is written in terms of $\Phi_1$ 
+and $\chi$ as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Phi_2 = \beta\left[ H\chi + 
+  \left(\frac{M^2}{M_{\rm Pl}^2}-\frac{2}{M^2}
+   \frac{{\bf k}^2}{a^2}\right)\Phi_1 + S_2\right],
+\end{equation}
+%======================================%
+where
+%============< EQUATION >==============%
+%
+\begin{equation}
+ M_{\rm Pl}^2\frac{{\bf k}^2}{a^2}S_2 = 
+  \frac{M^2}{2M_{\rm Pl}^2} (\rho\Delta+2p\Pi).
+\end{equation}
+%======================================%
+Note that $\Phi_2$ vanishes if $\beta=0$. 
+
+
+The source terms $S_{\chi}$ and $S_2$ vanish in the $M/M_{\rm Pl}\to 0$
+limit. This means that the modification part ($\Phi_{mod}$,
+$\Psi_{mod}$) is not induced by matter sources in this limit. In other
+words, in this limit the Higgs sector of gravity is decoupled from the
+gravity and the matter sectors, and the general relativity is safely
+recovered. 
+
+
+One must be aware that these equations are valid only if the physical
+momentum $\sqrt{{\bf k}^2}/a$ is sufficiently lower than the scale of
+the spontaneous Lorentz breaking $M$, which plays the role of the cutoff
+scale of the low energy effective theory. 
+
+
+The coefficient $\Sigma_0$ includes information about deviation of the
+background evolution from general relativity. In usual approach, the
+deviation is considered as indication of dark energy and/or dark
+matter. Instead, we here replace those dark components with the Higgs
+mechanism of gravity, i.e. ghost condensation. The cases with
+$\Sigma_0>0$ and $\Sigma_0<0$ correspond to dark components with 
+$w>-1$ and $w<-1$, respectively. In the usual approach, a dark component
+with $w<-1$ is called phantom and is thought to be associated with
+ghosts, i.e. excitations with wrong-sign kinetic energy. On the other
+hand, as explained in Sec.~\ref{sec:intro}, there is no ghost in the
+ghost condensation. The set of equations summarized above can be applied
+to both $\Sigma_0>0$ ($w>-1$) and $\Sigma_0<0$ ($w<-1$) cases, including
+transition between these two regimes. 
+
+
+
+
+
+
+
+
+
+
+%======================================%
+% Concluding remark
+%======================================%
+\section{Concluding remark}
+
+
+In the simplest setup of the ghost condensation the shift symmetry is
+exact and it behaves like a cosmological constant plus cold dark matter
+for homogeneous, isotropic background evolution. With soft breaking of
+the shift symmetry, a shallow potential is allowed in the Higgs sector
+Lagrangian. We have investigated the classical dynamics of cosmology in
+ghost condensation with softly broken shift symmetry. As we have shown
+explicitly, it is always possible to find a form of the potential in the
+Higgs sector Lagrangian which realizes an arbitrary cosmological history
+($H(t)$, $\rho(t)$) of the visible sector of the FRW background. After
+showing the reconstruction method, we have derived the evolution
+equation for cosmological perturbations in the Higgs phase of gravity. 
+
+
+
+The strongest evidence for the accelerating expansion of the universe
+today comes from the supernova distance-redshift relation. Using this
+kind of geometrical information of the universe, it is in principle
+possible to reconstruct the potential for the Higgs sector by the method
+developed in subsection~\ref{subsec:reconstruct-V} of this paper. Once
+this is done, the theory acquires predictive power. By using the
+formalism of the cosmological perturbations summarized in 
+subsection~\ref{subsec:results-perturbation}, this theory can be tested
+by dynamical information of large scale structure in the universe such
+as cosmic microwave background anisotropy, weak gravitational lensing
+and galaxy clustering. 
+
+
+
+Results in this paper have been obtained within the regime of validity
+of the effective field theory, whose structure can be determined solely
+by the symmetry breaking pattern. Therefore, while we have used a
+covariant $4D$ action of a scalar field as a tool for calculation, the
+final results summarized in subsection~\ref{subsec:results-perturbation}
+should be universal and independent of the way the Higgs phase of
+gravity is realized. The same equations should hold as far as the
+symmetry breaking pattern is the same, with or without a scalar field. 
+
+
+
+
+%======================================%
+% Acknowledgements
+%======================================%
+\section*{Acknowledgements}
+
+The author would like to thank B.~Feng, T.~Hiramatsu, M.~A.~Luty,
+S.~Saito, A.~Shirata, Y.~Suto, A.~Taruya, K.~Yahata and J.~Yokoyama for
+useful discussions and/or comments. This work was in part supported by
+MEXT through a Grant-in-Aid for Young Scientists (B) No.~17740134. 
+
+
+\appendix{Appendix}
+
+\subsection{Simple example: Minkowski and de Sitter backgrounds}
+\label{app:example}
+
+In this appendix, as a simple application of the formula summarized in
+subsection~\ref{subsec:results-perturbation}, we consider modification
+of gravity in Minkowski and de Sitter backgrounds. This is the situation
+considered in ref.~\cite{Arkani-Hamed:2003uy}. 
+
+For simplicity we set $\beta=0$. In this case $\Phi_2=0$ and the
+modification part of the metric perturbation is 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Phi_{mod} = -\Psi_{mod} = \Phi_1. 
+\end{equation}
+%======================================%
+
+
+By setting 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \Sigma_0 = 0, \quad H=H_0 \ (= \mbox{const.})
+\end{equation}
+%======================================%
+and 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \rho\Delta = \delta\rho, \quad
+  c_s^2=\Gamma=\Pi = 0,
+\end{equation}
+%======================================%
+the set of first order equations (\ref{eqn:master-eq-1st-again}) is
+reduced to 
+%============< EQUATION >==============%
+%
+\begin{eqnarray}
+ \partial_t\Phi_{mod} +H_0\Phi_{mod} & = & 
+  \frac{\alpha}{2}\frac{{\bf k}^2}{a^2}\chi, \nonumber\\
+ \partial_t\chi & = & 
+  \left(\frac{M^2}{M_{\rm Pl}^2}
+   -\frac{2}{M^2}\frac{{\bf k}^2}{a^2}\right)\Phi_{mod} + S_{\chi}, 
+\end{eqnarray}
+%======================================%
+where the source term is now given by 
+%============< EQUATION >==============%
+%
+\begin{equation}
+ S_{\chi} = 
+  \frac{M^2}{2M_{\rm Pl}^4}\frac{a^2}{{\bf k}^2}\delta\rho
+  =  \frac{M^2}{M_{\rm Pl}^2}\Phi_{GR}.
+\end{equation}
+%======================================%
+By eliminating $\chi$ from these equations, we obtain
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \partial_t^2\Phi_{mod} +3H_0\partial_t\Phi_{mod}
+  + \left(\frac{\alpha}{M^2}\frac{{\bf k}^4}{a^4}
+     - \frac{\alpha M^2}{2M_{\rm Pl}^2}\frac{{\bf k}^2}{a^2}
+     + 2H_0^2 \right)\Phi_{mod}
+  = \frac{\alpha M^2}{2M_{\rm Pl}^2}\frac{{\bf k}^2}{a^2}\Phi_{GR}.
+\end{equation}
+%======================================%
+This is eq.~(8.27) of ref.~\cite{Arkani-Hamed:2003uy}~\footnote{
+Note that $\alpha^2$ in \cite{Arkani-Hamed:2003uy} corresponds to
+$\alpha$ in the present paper.} 
+and explicitly shows that in the $M/M_{\rm Pl}\to 0$ limit, the GR part
+$\Phi_{GR}$ ceases to act as the source of the modification part
+$\Phi_{mod}$ and the general relativity is safely recovered. By
+introducing the length and time scales $r_c$ and $t_c$ as  
+%============< EQUATION >==============%
+%
+\begin{equation}
+ r_c = \frac{\sqrt{2}M_{\rm Pl}}{M^2}, \quad
+  t_c = \frac{2M_{\rm Pl}^2}{\sqrt{\alpha} M^3}, 
+\end{equation}
+%======================================%
+This equation is rewritten as
+%============< EQUATION >==============%
+%
+\begin{equation}
+ \partial_t^2\Phi_{mod} +3H_0\partial_t\Phi_{mod}
+  + \left(\frac{r_c^4}{t_c^2}\frac{{\bf k}^4}{a^4}
+     - \frac{r_c^2}{t_c^2}\frac{{\bf k}^2}{a^2}
+     + 2H_0^2\right)\Phi_{mod}
+  = \frac{r_c^2}{t_c^2}\frac{{\bf k}^2}{a^2}\Phi_{GR}.
+  \label{eqn:de-Sitter-result}
+\end{equation}
+%======================================%
+
+
+In the Minkowski spacetime, by setting $H_0=0$ and $a=1$ in
+(\ref{eqn:de-Sitter-result}), it is easily seen that modes with the
+length scale $\sim r_c$ are unstable and that the time scale of the 
+instability is $\sim t_c$. This is the analogue of the Jeans instability
+found in ref.~\cite{Arkani-Hamed:2003uy} and explained in
+Sec.~\ref{sec:intro}. What is different from the usual Jeans instability
+is that this behavior in the linearized level persists even in Minkowski
+spacetime~\footnote{
+The dispersion relation for a usual fluid with the background energy
+density $\rho_0$ is $\omega^2=c_s^2{\bf k}^2-\omega_J^2$, where $c_s$ is
+the sound speed and $\omega_J^2=4\pi G_N\rho_0$. Long-scale modes with
+$c_s^2{\bf k}^2<\omega_J^2$ have instability (Jeans instability) and
+contribute to the structure formation. In the Minkowski background,
+where $\rho_0=0$, $\omega_J^2$ vanishes and the Jeans instability for
+the usual fluid disappears.} 
+and modifies the linearized gravitational potential. 
+
+
+It is also easy to see from (\ref{eqn:de-Sitter-result}) that the Jeans
+instability disappears when the Hubble expansion rate $H_0$ is larger
+than a critical value $H_c\sim 1/t_c$. Thus, the onset of the IR
+modification starts at the time when the Hubble expansion rate becomes
+as low as $H_c$. 
+
+
+
+%======================================%
+%<<<<<<<<<<<< REFERENCES >>>>>>>>>>>>>>%
+%======================================%
+
+
+\begin{thebibliography}{99}
+
+
+%\cite{Riess:1998cb}
+\bibitem{Riess:1998cb}
+  A.~G.~Riess {\it et al.}  [Supernova Search Team Collaboration],
+   ``Observational Evidence from Supernovae for an Accelerating Universe and a
+	Cosmological Constant,''
+  Astron.\ J.\  {\bf 116}, 1009 (1998)
+  [arXiv:astro-ph/9805201].
+  %%CITATION = ASTRO-PH 9805201;%%
+
+%\cite{Perlmutter:1998np}
+\bibitem{Perlmutter:1998np}
+  S.~Perlmutter {\it et al.}  [Supernova Cosmology Project Collaboration],
+  ``Measurements of Omega and Lambda from 42 High-Redshift Supernovae,''
+  Astrophys.\ J.\  {\bf 517}, 565 (1999)
+  [arXiv:astro-ph/9812133].
+  %%CITATION = ASTRO-PH 9812133;%%
+
+%\cite{Linder:2005in}
+\bibitem{Linder:2005in}
+  E.~V.~Linder,
+  ``Cosmic growth history and expansion history,''
+  Phys.\ Rev.\ D {\bf 72}, 043529 (2005)
+  [arXiv:astro-ph/0507263].
+  %%CITATION = ASTRO-PH 0507263;%%
+
+%\cite{Ishak:2005zs}
+\bibitem{Ishak:2005zs}
+  M.~Ishak, A.~Upadhye and D.~N.~Spergel,
+   ``Is cosmic acceleration a symptom of the breakdown of general
+  relativity?,''
+  arXiv:astro-ph/0507184.
+  %%CITATION = ASTRO-PH 0507184;%%
+
+%\cite{Bertschinger:2006aw}
+\bibitem{Bertschinger:2006aw}
+  E.~Bertschinger,
+  ``On the Growth of Perturbations as a Test of Dark Energy,''
+  arXiv:astro-ph/0604485.
+  %%CITATION = ASTRO-PH 0604485;%%
+
+%\cite{Shirata:2005yr}
+\bibitem{Shirata:2005yr}
+  A.~Shirata, T.~Shiromizu, N.~Yoshida and Y.~Suto,
+   ``Constraining deviations from Newton's law of gravity on cosmological
+  scales: Confrontation to power spectrum of SDSS galaxies,''
+  Phys.\ Rev.\ D {\bf 71}, 064030 (2005)
+  [arXiv:astro-ph/0501366].
+  %%CITATION = ASTRO-PH 0501366;%%
+
+%\cite{Yamamoto:2006yv}
+\bibitem{Yamamoto:2006yv}
+  K.~Yamamoto, B.~A.~Bassett, R.~C.~Nichol and Y.~Suto,
+   ``Searching for modified gravity with baryon oscillations: From SDSS to
+  WFMOS,''
+  arXiv:astro-ph/0605278.
+  %%CITATION = ASTRO-PH 0605278;%%
+
+%\cite{Brans:1961sx}
+\bibitem{Brans:1961sx}
+  C.~Brans and R.~H.~Dicke,
+  ``Mach's principle and a relativistic theory of gravitation,''
+  Phys.\ Rev.\  {\bf 124}, 925 (1961).
+  %%CITATION = PHRVA,124,925;%%
+
+%\cite{Dicke:1961gz}
+\bibitem{Dicke:1961gz}
+  R.~H.~Dicke,
+  ``Mach's principle and invariance under transformation of units,''
+  Phys.\ Rev.\  {\bf 125}, 2163 (1962).
+  %%CITATION = PHRVA,125,2163;%%
+
+%\cite{Bergmann:1968ve}
+\bibitem{Bergmann:1968ve}
+  P.~G.~Bergmann,
+  ``Comments On The Scalar Tensor Theory,''
+  Int.\ J.\ Theor.\ Phys.\  {\bf 1}, 25 (1968).
+  %%CITATION = IJTPB,1,25;%%
+
+%\cite{Clayton:1998hv}
+\bibitem{Clayton:1998hv}
+  M.~A.~Clayton and J.~W.~Moffat,
+   ``Dynamical Mechanism for Varying Light Velocity as a Solution to
+  Cosmological Problems,''
+  Phys.\ Lett.\ B {\bf 460}, 263 (1999)
+  [arXiv:astro-ph/9812481].
+  %%CITATION = ASTRO-PH 9812481;%%
+
+%\cite{Clayton:1999zs}
+\bibitem{Clayton:1999zs}
+  M.~A.~Clayton and J.~W.~Moffat,
+  ``Scalar-Tensor Gravity Theory For Dynamical Light Velocity,''
+  Phys.\ Lett.\ B {\bf 477}, 269 (2000)
+  [arXiv:gr-qc/9910112].
+  %%CITATION = GR-QC 9910112;%%
+
+%\cite{Clayton:2001rt}
+\bibitem{Clayton:2001rt}
+  M.~A.~Clayton and J.~W.~Moffat,
+  ``A scalar-tensor cosmological model with dynamical light velocity,''
+  Phys.\ Lett.\ B {\bf 506}, 177 (2001)
+  [arXiv:gr-qc/0101126].
+  %%CITATION = GR-QC 0101126;%%
+
+%\cite{Moffat:2002kj}
+\bibitem{Moffat:2002kj}
+  J.~W.~Moffat,
+   ``Bimetric gravity theory, varying speed of light and the dimming of
+  supernovae,''
+  Int.\ J.\ Mod.\ Phys.\ D {\bf 12}, 281 (2003)
+  [arXiv:gr-qc/0202012].
+  %%CITATION = GR-QC 0202012;%%
+
+%\cite{Drummond:1999ut}
+\bibitem{Drummond:1999ut}
+  I.~T.~Drummond,
+  ``Variable Light-Cone Theory of Gravity,''
+  arXiv:gr-qc/9908058.
+  %%CITATION = GR-QC 9908058;%%
+
+%\cite{Drummond:2001rj}
+\bibitem{Drummond:2001rj}
+  I.~T.~Drummond,
+  ``Bimetric gravity and [dark matter],''
+  Phys.\ Rev.\ D {\bf 63}, 043503 (2001)
+  [arXiv:astro-ph/0008234].
+  %%CITATION = ASTRO-PH 0008234;%%
+
+%\cite{Carroll:2003wy}
+\bibitem{Carroll:2003wy}
+  S.~M.~Carroll, V.~Duvvuri, M.~Trodden and M.~S.~Turner,
+  ``Is cosmic speed-up due to new gravitational physics?,''
+  Phys.\ Rev.\ D {\bf 70}, 043528 (2004)
+  [arXiv:astro-ph/0306438].
+  %%CITATION = ASTRO-PH 0306438;%%
+
+%\cite{Will:1993ns}
+\bibitem{Will:1993ns}
+  C.~M.~Will,
+  ``Theory and experiment in gravitational physics,''
+	Cambridge, UK: Univ. Pr. (1993) 380 p.
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?irn=2796651}{SPIRES entry}
+
+%\cite{Cline:2003gs}
+\bibitem{Cline:2003gs}
+  J.~M.~Cline, S.~Jeon and G.~D.~Moore,
+  ``The phantom menaced: Constraints on low-energy effective ghosts,''
+  Phys.\ Rev.\ D {\bf 70}, 043543 (2004)
+  [arXiv:hep-ph/0311312].
+  %%CITATION = HEP-PH 0311312;%%
+
+%\cite{DeFelice:2006pg}
+\bibitem{DeFelice:2006pg}
+  A.~De Felice, M.~Hindmarsh and M.~Trodden,
+   ``Ghosts, instabilities, and superluminal propagation in modified gravity
+  models,''
+  arXiv:astro-ph/0604154.
+  %%CITATION = ASTRO-PH 0604154;%%
+
+%\cite{Calcagni:2006ye}
+\bibitem{Calcagni:2006ye}
+  G.~Calcagni, B.~de Carlos and A.~De Felice,
+  ``Ghost conditions for Gauss-Bonnet cosmologies,''
+  arXiv:hep-th/0604201.
+  %%CITATION = HEP-TH 0604201;%%
+
+%\cite{Fierz:1939ix}
+\bibitem{Fierz:1939ix}
+  M.~Fierz and W.~Pauli,
+   ``On relativistic wave equations for particles of arbitrary spin in an
+  electromagnetic field,''
+  Proc.\ Roy.\ Soc.\ Lond.\ A {\bf 173}, 211 (1939).
+  %%CITATION = PRSLA,A173,211;%%
+
+%\cite{Dvali:2000hr}
+\bibitem{Dvali:2000hr}
+  G.~R.~Dvali, G.~Gabadadze and M.~Porrati,
+  ``4D gravity on a brane in 5D Minkowski space,''
+  Phys.\ Lett.\ B {\bf 485}, 208 (2000)
+  [arXiv:hep-th/0005016].
+  %%CITATION = HEP-TH 0005016;%%
+
+%\cite{Arkani-Hamed:2002sp}
+\bibitem{Arkani-Hamed:2002sp}
+  N.~Arkani-Hamed, H.~Georgi and M.~D.~Schwartz,
+  ``Effective field theory for massive gravitons and gravity in theory space,''
+  Annals Phys.\  {\bf 305}, 96 (2003)
+  [arXiv:hep-th/0210184].
+  %%CITATION = HEP-TH 0210184;%%
+
+%\cite{Luty:2003vm}
+\bibitem{Luty:2003vm}
+  M.~A.~Luty, M.~Porrati and R.~Rattazzi,
+  ``Strong interactions and stability in the DGP model,''
+  JHEP {\bf 0309}, 029 (2003)
+  [arXiv:hep-th/0303116].
+  %%CITATION = HEP-TH 0303116;%%
+
+%\cite{Arkani-Hamed:2003uy}
+\bibitem{Arkani-Hamed:2003uy}
+N.~Arkani-Hamed, H.~C.~Cheng, M.~A.~Luty and S.~Mukohyama,
+``Ghost condensation and a consistent infrared modification of gravity,''
+JHEP {\bf 0405}, 074 (2004)
+[arXiv:hep-th/0312099].
+%%CITATION = HEP-TH 0312099;%%
+
+%\cite{Rubakov:2004eb}
+\bibitem{Rubakov:2004eb}
+  V.~A.~Rubakov,
+   ``Lorentz-violating graviton masses: Getting around ghosts, low strong
+  coupling scale and VDVZ discontinuity,''
+  arXiv:hep-th/0407104.
+  %%CITATION = HEP-TH 0407104;%%
+
+%\cite{Dubovsky:2004sg}
+\bibitem{Dubovsky:2004sg}
+  S.~L.~Dubovsky,
+  ``Phases of massive gravity,''
+  JHEP {\bf 0410}, 076 (2004)
+  [arXiv:hep-th/0409124].
+  %%CITATION = HEP-TH 0409124;%%
+
+%\cite{Holdom:2004yx}
+\bibitem{Holdom:2004yx}
+  B.~Holdom,
+  ``Accelerated expansion and the Goldstone ghost,''
+  JHEP {\bf 0407}, 063 (2004)
+  [arXiv:hep-th/0404109].
+  %%CITATION = HEP-TH 0404109;%%
+
+%\cite{Bluhm:2004ep}
+\bibitem{Bluhm:2004ep}
+  R.~Bluhm and V.~A.~Kostelecky,
+  ``Spontaneous Lorentz violation, Nambu-Goldstone modes, and gravity,''
+  Phys.\ Rev.\ D {\bf 71}, 065008 (2005)
+  [arXiv:hep-th/0412320].
+  %%CITATION = HEP-TH 0412320;%%
+
+%\cite{Bluhm:2006im}
+\bibitem{Bluhm:2006im}
+  R.~Bluhm,
+   ``Nambu-Goldstone modes in gravitational theories with spontaneous Lorentz
+  breaking,''
+  arXiv:hep-th/0607127.
+  %%CITATION = HEP-TH 0607127;%%
+
+%\cite{Kirsch:2005st}
+\bibitem{Kirsch:2005st}
+  I.~Kirsch,
+  ``A Higgs mechanism for gravity,''
+  Phys.\ Rev.\ D {\bf 72}, 024001 (2005)
+  [arXiv:hep-th/0503024].
+  %%CITATION = HEP-TH 0503024;%%
+
+%\cite{Cheng:2006us}
+\bibitem{Cheng:2006us}
+  H.~C.~Cheng, M.~A.~Luty, S.~Mukohyama and J.~Thaler,
+  ``Spontaneous Lorentz breaking at high energies,''
+  JHEP {\bf 0605}, 076 (2006)
+  [arXiv:hep-th/0603010].
+  %%CITATION = HEP-TH 0603010;%%
+
+%\cite{Colladay:1998fq}
+\bibitem{Colladay:1998fq}
+  D.~Colladay and V.~A.~Kostelecky,
+  ``Lorentz-violating extension of the standard model,''
+  Phys.\ Rev.\ D {\bf 58}, 116002 (1998)
+  [arXiv:hep-ph/9809521].
+  %%CITATION = HEP-PH 9809521;%%
+
+%\cite{Bluhm:2005uj}
+\bibitem{Bluhm:2005uj}
+  R.~Bluhm,
+   ``Overview of the SME: Implications and phenomenology of Lorentz
+  violation,''
+  arXiv:hep-ph/0506054.
+  %%CITATION = HEP-PH 0506054;%%
+
+%\cite{Mattingly:2005re}
+\bibitem{Mattingly:2005re}
+  D.~Mattingly,
+  ``Modern tests of Lorentz invariance,''
+  Living Rev.\ Rel.\  {\bf 8}, 5 (2005)
+  [arXiv:gr-qc/0502097].
+  %%CITATION = GR-QC 0502097;%%
+
+%\cite{Amelino-Camelia:2005qa}
+\bibitem{Amelino-Camelia:2005qa}
+  G.~Amelino-Camelia, C.~Lammerzahl, A.~Macias and H.~Muller,
+  ``The search for quantum gravity signals,''
+  AIP Conf.\ Proc.\  {\bf 758}, 30 (2005)
+  [arXiv:gr-qc/0501053].
+  %%CITATION = GR-QC 0501053;%%
+
+%\cite{Vucetich:2005ra}
+\bibitem{Vucetich:2005ra}
+  H.~Vucetich,
+  ``Testing Lorentz invariance violation in quantum gravity theories,''
+  arXiv:gr-qc/0502093.
+  %%CITATION = GR-QC 0502093;%%
+
+%\cite{Jacobson:2000xp}
+\bibitem{Jacobson:2000xp}
+  T.~Jacobson and D.~Mattingly,
+  ``Gravity with a dynamical preferred frame,''
+  Phys.\ Rev.\ D {\bf 64}, 024028 (2001)
+  [arXiv:gr-qc/0007031].
+  %%CITATION = GR-QC 0007031;%%
+
+%\cite{Eling:2003rd}
+\bibitem{Eling:2003rd}
+  C.~Eling and T.~Jacobson,
+   ``Static post-Newtonian equivalence of GR and gravity with a dynamical
+  preferred frame,''
+  Phys.\ Rev.\ D {\bf 69}, 064005 (2004)
+  [arXiv:gr-qc/0310044].
+  %%CITATION = GR-QC 0310044;%%
+
+%\cite{Jacobson:2004ts}
+\bibitem{Jacobson:2004ts}
+  T.~Jacobson and D.~Mattingly,
+  ``Einstein-aether waves,''
+  Phys.\ Rev.\ D {\bf 70}, 024003 (2004)
+  [arXiv:gr-qc/0402005].
+  %%CITATION = GR-QC 0402005;%%
+
+%\cite{Jacobson:2005bg}
+\bibitem{Jacobson:2005bg}
+  T.~Jacobson, S.~Liberati and D.~Mattingly,
+   ``Lorentz violation at high energy: Concepts, phenomena and astrophysical
+  %constraints,''
+  Annals Phys.\  {\bf 321}, 150 (2006)
+  [arXiv:astro-ph/0505267].
+  %%CITATION = ASTRO-PH 0505267;%%
+
+%\cite{Kanno:2006ty}
+\bibitem{Kanno:2006ty}
+  S.~Kanno and J.~Soda,
+  ``Lorentz violating inflation,''
+  arXiv:hep-th/0604192.
+  %%CITATION = HEP-TH 0604192;%%
+
+%\cite{Arkani-Hamed:2005gu}
+\bibitem{Arkani-Hamed:2005gu}
+  N.~Arkani-Hamed, H.~C.~Cheng, M.~A.~Luty, S.~Mukohyama and T.~Wiseman,
+  ``Dynamics of gravity in a Higgs phase,''
+  arXiv:hep-ph/0507120. 
+  %%CITATION = HEP-PH 0507120;%%
+
+%\cite{Arkani-Hamed:2004ar}
+\bibitem{Arkani-Hamed:2004ar}
+  N.~Arkani-Hamed, H.~C.~Cheng, M.~Luty and J.~Thaler,
+  ``Universal dynamics of spontaneous Lorentz violation and a new
+  spin-dependent inverse-square law force,''
+  JHEP {\bf 0507}, 029 (2005)
+  [arXiv:hep-ph/0407034].
+  %%CITATION = HEP-PH 0407034;%%
+
+%\cite{Arkani-Hamed:2003uz}
+\bibitem{Arkani-Hamed:2003uz}
+  N.~Arkani-Hamed, P.~Creminelli, S.~Mukohyama and M.~Zaldarriaga,
+ ``Ghost Inflation,''
+  JCAP {\bf 0404}, 001 (2004)
+  [arXiv:hep-th/0312100].
+  %%CITATION = HEP-TH 0312100;%%
+
+%\cite{Senatore:2004rj}
+\bibitem{Senatore:2004rj}
+  L.~Senatore,
+  ``Tilted ghost inflation,''
+  Phys.\ Rev.\ D {\bf 71}, 043512 (2005)
+  [arXiv:astro-ph/0406187].
+  %%CITATION = ASTRO-PH 0406187;%%
+
+%\cite{Dubovsky:2004qe}
+\bibitem{Dubovsky:2004qe}
+  S.~L.~Dubovsky,
+  ``Star tracks in the ghost condensate,''
+  JCAP {\bf 0407}, 009 (2004)
+  [arXiv:hep-ph/0403308].
+  %%CITATION = HEP-PH 0403308;%%
+
+%\cite{Peloso:2004ut}
+\bibitem{Peloso:2004ut}
+  M.~Peloso and L.~Sorbo,
+  ``Moving sources in a ghost condensate,''
+  Phys.\ Lett.\ B {\bf 593}, 25 (2004)
+  [arXiv:hep-th/0404005].
+  %%CITATION = HEP-TH 0404005;%%
+
+%\cite{Krotov:2004if}
+\bibitem{Krotov:2004if}
+  D.~Krotov, C.~Rebbi, V.~A.~Rubakov and V.~Zakharov,
+  ``Holes in the ghost condensate,''
+  Phys.\ Rev.\ D {\bf 71}, 045014 (2005)
+  [arXiv:hep-ph/0407081].
+  %%CITATION = HEP-PH 0407081;%%
+
+%\cite{Frolov:2004vm}
+\bibitem{Frolov:2004vm}
+  A.~V.~Frolov,
+  ``Accretion of ghost condensate by black holes,''
+  Phys.\ Rev.\ D {\bf 70}, 061501 (2004)
+  [arXiv:hep-th/0404216].
+  %%CITATION = HEP-TH 0404216;%%
+
+%\cite{Mukohyama:2005rw}
+\bibitem{Mukohyama:2005rw}
+  S.~Mukohyama,
+  ``Black holes in the ghost condensate,''
+  Phys.\ Rev.\ D {\bf 71}, 104019 (2005)
+  [arXiv:hep-th/0502189].
+  %%CITATION = HEP-TH 0502189;%%
+
+%\cite{Dubovsky:2006vk}
+\bibitem{Dubovsky:2006vk}
+  S.~L.~Dubovsky and S.~M.~Sibiryakov,
+  ``Spontaneous breaking of Lorentz invariance, black holes and perpetuum
+  mobile of the 2nd kind,''
+  Phys.\ Lett.\ B {\bf 638}, 509 (2006)
+  [arXiv:hep-th/0603158].
+  %%CITATION = HEP-TH 0603158;%%
+
+%\cite{Kiselev:2004bh}
+\bibitem{Kiselev:2004bh}
+  V.~V.~Kiselev,
+  ``Ghost condensate model of flat rotation curves,''
+  arXiv:gr-qc/0406086.
+  %%CITATION = GR-QC 0406086;%%
+
+%\cite{Kiselev:2005sv}
+\bibitem{Kiselev:2005sv}
+  V.~V.~Kiselev,
+  ``Ghost condensate model of flat rotation curves,''
+  arXiv:gr-qc/0507126.
+  %%CITATION = GR-QC 0507126;%%
+
+%\cite{Kiselev:2006gc}
+\bibitem{Kiselev:2006gc}
+  V.~V.~Kiselev and D.~I.~Yudin,
+  ``Gravitational lensing due to dark matter modelled by vector field,''
+  arXiv:gr-qc/0603128.
+  %%CITATION = GR-QC 0603128;%%
+
+%\cite{Piazza:2004df}
+\bibitem{Piazza:2004df}
+  F.~Piazza and S.~Tsujikawa,
+  ``Dilatonic ghost condensate as dark energy,''
+  JCAP {\bf 0407}, 004 (2004)
+  [arXiv:hep-th/0405054].
+  %%CITATION = HEP-TH 0405054;%%
+
+%\cite{Krause:2004bu}
+\bibitem{Krause:2004bu}
+  A.~Krause and S.~P.~Ng,
+  ``Ghost cosmology: Exact solutions, transitions between standard  cosmologies
+  and ghost dark energy / matter evolution,''
+  Int.\ J.\ Mod.\ Phys.\ A {\bf 21}, 1091 (2006)
+  [arXiv:hep-th/0409241].
+  %%CITATION = HEP-TH 0409241;%%
+
+%\cite{deRham:2006pe}
+\bibitem{deRham:2006pe}
+  C.~de Rham and A.~J.~Tolley,
+  ``Mimicking Lambda with a spin-two ghost condensate,''
+  arXiv:hep-th/0605122.
+  %%CITATION = HEP-TH 0605122;%%
+
+%\cite{Anisimov:2004sp}
+\bibitem{Anisimov:2004sp}
+  A.~Anisimov and A.~Vikman,
+  ``A comment on the classical stability of the ghost condensate,''
+  JCAP {\bf 0504}, 009 (2005)
+  [arXiv:hep-ph/0411089].
+  %%CITATION = HEP-PH 0411089;%%
+
+%\cite{Mann:2005jz}
+\bibitem{Mann:2005jz}
+  R.~B.~Mann and J.~J.~Oh,
+  ``Ghost condensation in the brane-world,''
+  arXiv:hep-th/0504172.
+  %%CITATION = HEP-TH 0504172;%%
+
+%\cite{Graesser:2005ar}
+\bibitem{Graesser:2005ar}
+  M.~L.~Graesser, I.~Low and M.~B.~Wise,
+  ``Towards a high energy theory for the Higgs phase of gravity,''
+  Phys.\ Rev.\ D {\bf 72}, 115016 (2005)
+  [arXiv:hep-th/0509180].
+  %%CITATION = HEP-TH 0509180;%%
+
+%\cite{O'Connell:2006de}
+\bibitem{O'Connell:2006de}
+  D.~O'Connell,
+  ``Regulator dependence of the proposed UV completion of the ghost
+  condensate,''
+  arXiv:hep-th/0602240.
+  %%CITATION = HEP-TH 0602240;%%
+
+%\cite{Creminelli:2006xe}
+\bibitem{Creminelli:2006xe}
+  P.~Creminelli, M.~A.~Luty, A.~Nicolis and L.~Senatore,
+  ``Starting the Universe: Stable Violation of the Null Energy Condition and
+  Non-standard Cosmologies,''
+  arXiv:hep-th/0606090.
+  %%CITATION = HEP-TH 0606090;%%
+
+%\cite{Rubakov:2006pn}
+\bibitem{Rubakov:2006pn}
+  V.~A.~Rubakov,
+  ``Phantom without UV pathology,''
+  arXiv:hep-th/0604153.
+  %%CITATION = HEP-TH 0604153;%%
+
+
+%\cite{Armendariz-Picon:1999rj}
+\bibitem{Armendariz-Picon:1999rj}
+  C.~Armendariz-Picon, T.~Damour and V.~F.~Mukhanov,
+  ``k-inflation,''
+  Phys.\ Lett.\ B {\bf 458}, 209 (1999)
+  [arXiv:hep-th/9904075].
+  %%CITATION = HEP-TH 9904075;%%
+
+%\cite{Chiba:1999ka}
+\bibitem{Chiba:1999ka}
+  T.~Chiba, T.~Okabe and M.~Yamaguchi,
+  ``Kinetically driven quintessence,''
+  Phys.\ Rev.\ D {\bf 62}, 023511 (2000)
+  [arXiv:astro-ph/9912463].
+  %%CITATION = ASTRO-PH 9912463;%%
+
+%\cite{Armendariz-Picon:2000dh}
+\bibitem{Armendariz-Picon:2000dh}
+  C.~Armendariz-Picon, V.~F.~Mukhanov and P.~J.~Steinhardt,
+  ``A dynamical solution to the problem of a small cosmological constant  and
+  late-time cosmic acceleration,''
+  Phys.\ Rev.\ Lett.\  {\bf 85}, 4438 (2000)
+  [arXiv:astro-ph/0004134].
+  %%CITATION = ASTRO-PH 0004134;%%
+
+%\cite{Armendariz-Picon:2000ah}
+\bibitem{Armendariz-Picon:2000ah}
+  C.~Armendariz-Picon, V.~F.~Mukhanov and P.~J.~Steinhardt,
+  ``Essentials of k-essence,''
+  Phys.\ Rev.\ D {\bf 63}, 103510 (2001)
+  [arXiv:astro-ph/0006373].
+  %%CITATION = ASTRO-PH 0006373;%%
+
+%\cite{Mukohyama:2005qd}
+\bibitem{Mukohyama:2005qd}
+  S.~Mukohyama,
+  ``Ghost condensation and gravity in Higgs phase,''
+  arXiv:hep-th/0505080.
+  %%CITATION = HEP-TH 0505080;%%
+
+%\cite{Kodama:1985bj}
+\bibitem{Kodama:1985bj}
+  H.~Kodama and M.~Sasaki,
+``Cosmological Perturbation Theory,''
+  Prog.\ Theor.\ Phys.\ Suppl.\  {\bf 78}, 1 (1984).
+
+
+\end{thebibliography}
+ 
+
+\end{document}
+

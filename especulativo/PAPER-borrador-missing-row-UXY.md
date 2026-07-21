@@ -2,10 +2,12 @@
 
 **Nicolás Irigoyen**
 
-*Draft v0.3 — 2026-07-21 (v0.1, v0.2 and v0.3 same day; v0.2 applied the 31
+*Draft v0.4 — 2026-07-21 (v0.1 through v0.4 same day; v0.2 applied the 31
 findings of the first in-house adversarial audit of the text, v0.3 the 12
 findings of the second — record and both reports in
-`campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`). First written form of the
+`campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`; v0.4 adds the FRW section §9
+from the verified task-4 campaign — §9 has NOT yet had its own audit pass, see
+the block list). First written form of the
 results of the m₂ = 0 campaign (2026-07-20/21; campaign records and full
 verification chain in `especulativo/campana-m2/`:
 `HANDOFF-campana-m2-2026-07-20.md`, `VERIFICACION-BCP-2026-07-21.md`,
@@ -39,6 +41,7 @@ Each row states whose work each piece is.
 | **The exact scalar dispersion ω²(p) of this phase with gravitational mixing** (Dubovsky's leading-order freeze-out made quantitative; the p⁴ coefficient is NLO and UV-sensitive) | **New (first explicit form)** | this paper |
 | **Causal theorem: with conserved sources the leading-order solution is exactly GR; γ_PPN = 1 exact; the mass only selects the gauge** | **New for this phase** (mechanism anticipated qualitatively by Dubovsky's "gauge-fixing" remark [1]) | this paper |
 | **Frame dragging has two branches: relaxed medium ⟹ Yukawa-screened (gravitomagnetic Meissner); co-rotating medium ⟹ exact GR. Screened Lense–Thirring as the falsifiable signature; the July-2026 LARES-2 measurement (claimed 0.2% [23]) gives Λ < 1.12 MeV on the relaxed branch if its error budget holds** | **New; no prior computation of rotating sources in any m₁² ≠ 0 phase found** | this paper |
+| **FRW: the tensor masslessness is an FLRW identity; the protected Minkowski vacuum is the cosmological attractor (in the mirror phase it is not [10]); w = −1 exact on the attractor; transient = exact dust; scalar stays frozen, with ω = ±(H/√2)k + 3iH on the attractor** | **New as a package (mechanism from [8, 10], current known to [5] as entropy; verified, §9 pending its own audit)** | this paper |
 | Probable misprint in BCP eqs. (7.6)–(7.7); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP case) | this paper (to be confirmed with the authors) |
 | The Einstein–Hilbert kinetic term | **Assumed, not derived** (as in [1, 4, 5]; Weinberg–Witten out of scope) | — |
 
@@ -91,7 +94,15 @@ published in July 2026 reports agreement with GR at its 0.2% design accuracy
 budget holds, pushes the relaxed-branch bound to Λ < 1.12 MeV, i.e. screening
 lengths beyond 30 R⊕**.
 To our searches (declared below), no computation of rotating sources exists in
-any m₁² ≠ 0 phase. As by-products, we report a probable misprint in
+any m₁² ≠ 0 phase. On FRW backgrounds the story closes on its own: the tensor
+masslessness is an FLRW *identity* (X and Y are exactly blind to
+transverse-traceless strain); the medium's conserved current dilutes as a⁻³ and
+drives the background precisely onto the protected corner — the phase's
+Minkowski vacuum is a cosmological attractor, where its mirror-phase analogue
+is explicitly not; on the attractor w = −1 exactly, and the off-attractor
+transient redshifts as exact dust, reproducing the ghost condensate's
+"cosmological constant plus dark matter" phenomenology. As by-products, we
+report a probable misprint in
 the mass-parameter weights of BCP eqs. (7.6)–(7.7) — with the correct weights
 established five independent ways — and two minor misprints in Dubovsky's
 eqs. (73) and (99). All results are
@@ -144,7 +155,7 @@ internal spatial diffeomorphisms with **no restriction at all** — and shows th
 it is precisely the object Dubovsky's invitation asked for. We then push the phase
 through its first phenomenology with matter (to our searches): the result is a
 theory that imitates GR by theorem in the static and orbital regimes where GR is
-best measured — the radiative sector is open (§10) — and deviates in exactly one
+best measured — the radiative sector is open (§11) — and deviates in exactly one
 computed place: the gravitomagnetic sector, where all prior source computations
 in this class live in the mirror family m₁² = 0, and nothing exists for m₁² ≠ 0
 (searches declared below).
@@ -254,7 +265,11 @@ U(X,Y) is **not**: it is not the ghost condensate P(X) — flat-space tadpoles
 force U_X = 0 on P(X) (hence its m₁² = 0), while U(X,Y) sustains U_X ≠ 0 because
 the counterflow compensates the tadpole (U_Y = 2U_X, next section); and it is not
 BCP's superfluid U(X,Y,b) — any dependence on b regenerates m₃² = U_bb/2 ≠ 0 and
-m₄² ≠ 0. U(X,Y) is the exact point where the medium stops feeling its own volume.
+m₄² ≠ 0. It is also not the finite-temperature superfluid U(X,Yb) of
+Khoury–Sakstein–Solomon [25], which realizes the *mirror* structure (m₁² = 0
+identically for that class) and degravitates vacuum energy there; our row sits
+at m₁² ≠ 0, which is where the signature of §8 lives. U(X,Y) is the exact point
+where the medium stops feeling its own volume.
 
 ## 4. The protected phase emerges from the vacuum conditions
 
@@ -531,7 +546,72 @@ family modifies frame dragging *fractionally* (via preferred-frame parameters),
 without a screening length: different in kind. The signature is, to the searches
 declared below, untested territory.
 
-## 9. What this paper does not claim
+## 9. Cosmology: the protected corner is a cosmological attractor
+
+*(This section entered in v0.4, after the two audit passes of §§1–8; it has not
+yet had its own audit pass — block list. Full record: `campana-m2/frw/`.)*
+
+On an FRW background (ds² = −dt² + a²dx², unitary gauge Φ⁰ = φ(t), Φᵃ = xᵃ) the
+medium's invariants collapse to X = −φ̇², Y = φ̇ — the background lives on the
+Schur surface X + Y² = 0. Three statements, each machine-verified by an
+independent adversarial pipeline (three derivation routes for the background;
+two routes and both polarizations for the tensor; frozen-coefficient
+perturbation analysis for the scalar):
+
+**The tensor protection is an FLRW identity.** A transverse-traceless
+perturbation leaves X and Y invariant *exactly, to all orders in h*, so U(X,Y)
+touches the tensor sector only through √−g: the tensor mass vanishes
+identically on *any* FLRW background — no vacuum conditions required — with
+c_T² = 1 exactly and the standard 3H friction. (That fluids and superfluids
+have massless cosmological tensors is BCP's and CCP's general statement [4, 5];
+the reading for this row, and its consequence — the frame-dragging signature of
+§8 rides on a tensor sector that is GR's at every cosmological epoch — is
+ours.)
+
+**The protected Minkowski vacuum is the dynamical attractor of the rest of the
+phase.** The clock's equation of motion is the conservation of
+J = a³(U_Y − 2φ̇U_X) — the quantity CCP identify as the medium's entropy density
+[5], there a piece of thermodynamics, here the whole dynamics: expansion
+dilutes J/a³ ∝ a⁻³, driving the background precisely to the surface
+U_Y = 2φ̇U_X, which is the flat-space tadpole condition of §4. Protection is not
+an initial-condition choice; the expanding universe relaxes the medium onto its
+protected corner. The mechanism — a conserved charge diluting onto a
+symmetry-restoration point — is the ghost condensate's [8] and DTT's [10], and
+we cite it as such; the identification of the attractor with *the same
+theory's Minkowski tadpoles* is, to our searches, new — indeed in the mirror
+phase it is explicitly false (DTT's attractor is not their Minkowski point
+[10]), and for the related vacuum-energy-degravitating superfluid of
+Khoury–Sakstein–Solomon the analogous question was posed in 2018 and left as
+future work [25]; none of its citing papers answered it.
+
+**On the attractor, w = −1 exactly; the transient is exact dust.**
+ρ + p = φ̇·J/a³ holds off-shell (Bianchi verified as an identity), so the
+attractor has vacuum equation of state, with ρ* = −U* (the standard
+cosmological-constant adjustment U* = 0 is the same one everybody makes, §4).
+The off-attractor component obeys δρ ∝ a⁻³ with δp = 0 *exactly* at linear
+order (an algebraic identity of the class), reproducing the ghost condensate's
+"cosmological constant plus cold dark matter" phenomenology [8, 9] — cited,
+not claimed. The scalar sector stays frozen on FRW: the Minkowski double zero
+is reproduced exactly in the flat limit, one zero of the determinant persists
+exactly on the full background (the residual symmetry survives FRW), and the
+broken pair disperses as ω = ±(H/√2)k + 3iH — phase velocity ∝ H, damping 3H
+(the same a⁻³) — with no new O(1)-speed mode and no fast instability in the
+EFT window. This also answers the published objection that w = −1 superfluids
+are exponentially unstable and need a solid component [6, 26]: that
+instability is the uncured leading-order double zero, and this phase cures it
+with the k⁴ NLO exactly as the ghost condensate does (§6) — while its w = −1
+is a dynamical fixed point, not a symmetry-imposed constraint as in [6].
+
+**Declared limits.** The toy corner's fixed-point surface has, besides
+Minkowski, two model-dependent extra roots — an AdS-like point unreachable as
+a flat-FRW endpoint (its basin recollapses) and a dS-like point with U_X < 0,
+i.e. a sick vector sector, outside the healthy corner; only the Minkowski root
+is structural (a linear U has it alone). The scalar analysis uses frozen
+coefficients (valid for ω ≫ H; the ω ~ H band is indicative); the full
+quadratic FRW action, and this section's own audit pass, are on the block
+list.
+
+## 10. What this paper does not claim
 
 - **It does not derive the Einstein–Hilbert term.** The EH kinetic term is
   assumed, as in the entire framework [1, 4, 5]. A fully emergent graviton faces
@@ -558,13 +638,14 @@ declared below, untested territory.
   it (U(X,Y) involves neither τₙ nor yₙ; the lemma's weights are the
   five-times-verified ones).
 
-## 10. Open problems
+## 11. Open problems
 
 1. **State selection** — the branch question of §8: what relaxation dynamics
    (nonlinear dissipation, vortex nucleation, formation history of the source)
    picks the gravitomagnetic state? This is now *the* question of the phase.
-2. **FRW cosmology** of U(X,Y): equation of state, perturbations, comparison
-   with the isentropic machinery of CCP [5, 6].
+2. **FRW cosmology** of U(X,Y): done at background + frozen-coefficient level
+   (§9); remaining: the full quadratic action on FRW (no-ghost beyond the
+   Minkowski limit), the ω ~ H band, and §9's own audit pass.
 3. **Precise map to the tensor-order program**: the phase found here
    (m₂ = m₃ = m₄ = 0, m₀²m₁² > 0) is not identical to the phase targeted in an
    earlier note of our program (m₀ = 0 ∧ m₂ = 0); the exact relation remains to
@@ -638,7 +719,9 @@ self-gravitating media", Phys. Rev. D 94 (2016) 124023, arXiv:1603.02956.
 [7] arXiv:1907.11784 (same group; appendix mass formulas used in §2).
 [8] N. Arkani-Hamed, H.-C. Cheng, M. A. Luty, S. Mukohyama, "Ghost
 condensation...", arXiv:hep-th/0312099.
-[9] N. Arkani-Hamed et al., arXiv:hep-ph/0507120 (CMB "twinkling" bound).
+[9] N. Arkani-Hamed, H.-C. Cheng, M. A. Luty, S. Mukohyama, T. Wiseman,
+"Dynamics of gravity in a Higgs phase", JHEP 01 (2007) 036,
+arXiv:hep-ph/0507120 (CMB "twinkling" bound; ghost dark matter).
 [10] S. L. Dubovsky, P. G. Tinyakov, I. I. Tkachev, arXiv:hep-th/0504067.
 [11] M. V. Bebronne, P. G. Tinyakov, arXiv:0705.1301; arXiv:0902.3899.
 [12] D. Comelli, F. Nesti, L. Pilo, arXiv:1010.4773.
@@ -654,6 +737,10 @@ arXiv:1510.09089 (and the holographic-elasticity literature that followed).
 mass inside a superconductor", arXiv:cond-mat/0602591.
 [20] LIGO-Virgo-KAGRA, GWTC-3 tests of GR (graviton-mass bound
 m_g ≤ 1.27×10⁻²³ eV), arXiv:2112.06861.
+[25] J. Khoury, J. Sakstein, A. R. Solomon, "Superfluids and the Cosmological
+Constant Problem", JCAP (2018), arXiv:1805.05937.
+[26] G. di Donato, L. Pilo, "Dynamical cosmological constant",
+arXiv:2503.03589.
 [21] I. Ciufolini et al., "A test of general relativity using the LARES and
 LAGEOS satellites and a GRACE Earth gravity model", Eur. Phys. J. C (2016).
 [21b] I. Ciufolini et al., "An improved test of the general relativistic effect
@@ -688,11 +775,14 @@ introduction to the LARES2 space experiment", arXiv:1910.13818.
    misprint"; an xAct/cadabra run remains desirable redundancy.
 4. **Verify reference [7]'s** bibliographic data (cited here by arXiv ID only)
    and complete journal data for [6, 9–15, 17–19].
-5. **FRW section or explicit scope statement (covering also the radiative
-   sector)** (task 4 of the campaign — underway) — referees will ask what the
-   medium does cosmologically; §6's window partially answers, but the isentropic
-   comparison with CCP is the natural completion, and the scope statement must
-   name the uncomputed radiative sector explicitly.
+5. **FRW section — WRITTEN 2026-07-21 (§9, entered in v0.4)** after a verified
+   campaign (three-route background verification, tensor identity, fixed-point
+   map, frozen-coefficient scalars; records in `campana-m2/frw/`). Remaining
+   before submission: **§9's own adversarial audit pass** (it entered after the
+   two audits of §§1–8), re-verification of the quoted primary-source citations
+   against the downloaded .tex files, the full quadratic FRW action, and a
+   global-factor check against BCP's (7.22). The radiative sector stays open
+   and named (§7, §11.6).
 6. **Explicit OK from Nicolás** on: channel (arXiv hep-th + PRD/JCAP as per the
    campaign plan), timing, and the final text. House policy: nothing public
    without per-piece sign-off.
