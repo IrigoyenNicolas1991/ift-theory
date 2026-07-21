@@ -79,3 +79,14 @@ acuerdo con RG al 0.2% reclamado (error budget disputado por Iorio, 2503.07264/U
 Si el 0.2% aguanta, la cota de la rama relajada ya es Λ<1.12 MeV hoy. Incorporado al paper
 con ambos lados citados (refs [21]-[24]); leer el texto completo de Nature sigue en la
 lista de bloqueo (solo abstract+prensa verificados).
+**AUDITORÍA DEL TEXTO DEL PAPER — 1ª PASADA HECHA 2026-07-21** (1 agente adversarial,
+~169k tokens): 31 hallazgos (3 altos: reproducibilidad rota, "eight" ecuaciones por 4+4,
+novedad sin acta), TODOS aplicados el mismo día → paper v0.2. Actas nuevas:
+`AUDITORIA-TEXTO-PAPER-2026-07-21.md` (informe completo + aplicación) y
+`BARRIDO-INSPIRE-2026-07-21.md` (queries verbatim, hits, los 19 papers citantes).
+Colateral valioso: la suite de `acople/` quedó REPARADA y corre entera desde el repo
+(imports a `escalar/verificador/`, ruta absoluta relativizada, 2 bugs de runtime en
+`v2_vector_fuente.py`; v1a 6s · v1b 4s · v1c 4s · v2 16s · v2b 4s · 01 8s ·
+colA_causal ~2 min) y reproduce todos los chequeos citados en el paper. Pendiente
+anotado: dirimir el chequeo C5d de `colA_causal.py` (residuo ∝ m₁²p⁴ρ_op², comentario
+en el script + block list). Falta: 2ª pasada de auditoría sobre v0.2 antes de someter.

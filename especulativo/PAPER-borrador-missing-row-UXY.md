@@ -2,25 +2,28 @@
 
 **Nicolás Irigoyen**
 
-*Draft v0.1 — 2026-07-21. First written form of the results of the m₂ = 0 campaign
-(2026-07-20/21; campaign records and full verification chain in
-`especulativo/campana-m2/`: `HANDOFF-campana-m2-2026-07-20.md`,
-`VERIFICACION-BCP-2026-07-21.md`, `SECTOR-ESCALAR-2026-07-21.md`,
-`ACOPLE-MATERIA-PPN-2026-07-21.md`). Internal working paper of the speculative stage
-of the Intangible Field Theory (TCI) program, written to stand alone: nothing below
-depends on any other claim of that program. **Not submitted anywhere.** The three
-technical legs each passed an independent adversarial verification pass (blind
-refuters and independent re-derivation pipelines; none refuted); **this text itself
-has not yet passed the in-house audit** — see the pre-publication block list at the
-end. Honesty rules of the house apply: every assumption declared, every "exactly"
-backed by a reproducible computation, negative results stated with the same
-prominence as positive ones.*
+*Draft v0.2 — 2026-07-21 (v0.1 same day; v0.2 applies all 31 findings of the first
+in-house adversarial audit of the text — record in
+`campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`). First written form of the
+results of the m₂ = 0 campaign (2026-07-20/21; campaign records and full
+verification chain in `especulativo/campana-m2/`:
+`HANDOFF-campana-m2-2026-07-20.md`, `VERIFICACION-BCP-2026-07-21.md`,
+`SECTOR-ESCALAR-2026-07-21.md`, `ACOPLE-MATERIA-PPN-2026-07-21.md`). Internal
+working paper of the speculative stage of the Intangible Field Theory (TCI)
+program, written to stand alone: nothing below depends on any other claim of that
+program. **Not submitted anywhere.** The three technical legs each passed an
+independent adversarial verification pass (blind refuters and independent
+re-derivation pipelines; none refuted); this text passed a first audit pass, and
+**a second pass on the current text is required before any submission** — see the
+pre-publication block list at the end. Honesty rules of the house apply: every
+assumption declared, every "exactly" backed by a reproducible computation,
+negative results stated with the same prominence as positive ones.*
 
 ---
 
 ## Honest scoreboard
 
-Every row says whose each piece is.
+Each row states whose work each piece is.
 
 | Piece | Status | Whose |
 |---|---|---|
@@ -49,8 +52,8 @@ In 2004 Dubovsky classified the phases of Lorentz-violating massive gravity and
 found one where the helicity-±2 graviton is **exactly massless, protected by the
 residual symmetry xⁱ → xⁱ + ξⁱ(x⃗)**, UV-insensitive, and ghost-free when
 m₀²m₁² > 0 — and closed with the remark that his analysis "does not exhaust all
-possible subgroups of the diffeomorphism group." The medium realizing that phase
-was never constructed. Ballesteros–Comelli–Pilo (BCP) later built the general
+possible subgroups of the diffeomorphism group." To the searches declared below,
+the medium realizing that phase was never constructed. Ballesteros–Comelli–Pilo (BCP) later built the general
 dictionary from self-gravitating media (four Stückelberg scalars Φ^A) to the five
 graviton mass parameters, classifying media by their internal symmetry — solids,
 fluids, superfluids, supersolids — all protected by *volume-preserving* internal
@@ -66,7 +69,7 @@ transverse (shear) sector — **the graviton mass is the shear rigidity of the
 medium**, so protecting the massless graviton is equivalent to switching off shear
 phonons at leading order: the medium must be a fluid. We then compute what this
 phase does in the lab. The scalar sector is frozen at leading order (a double zero,
-matching Dubovsky's eq. 99); the famous ω² ∝ p⁴ turns on only through
+matching Dubovsky's eq. 99); the ω² ∝ p⁴ dispersion turns on only through
 next-to-leading-order operators, with a UV-sensitive coefficient, and with
 gravitational mixing the infrared is a slow Jeans instability — in that sector the
 medium is exactly a ghost condensate (dictionary M⁴ = 2m₀², κ = −M̄²/2), because
@@ -79,16 +82,18 @@ potential obeys (∇² − μ²)Sᵢ = 16πG̃τᵢ — a gravitomagnetic Meissn
 Lense–Thirring precession screened by (1 + μa)e^(−μa) with μ = 2Λ²/M̄_Pl; if the
 medium co-rotates (a persistent-current state), the prediction is exactly GR. Which
 branch nature picks is a genuine open problem of the phase (it exceeds quadratic
-order), and we state it as such. Claimed LAGEOS/LARES accuracy (2–5%, error
-budget contested) gives Λ ≲ 2.0–2.6 MeV; **the LARES-2 measurement published in
-July 2026 — as this draft was being written — reports agreement with GR at its
-0.2% design accuracy, which, if its contested error budget holds, already pushes
-the relaxed-branch bound to Λ < 1.12 MeV, i.e. screening lengths beyond 30 R⊕**.
+order), and we state it as such. Claimed LAGEOS/LARES accuracies (few-percent
+level, error budget contested) give Λ ≲ 2.0–2.6 MeV; **the LARES-2 measurement
+published in July 2026 reports agreement with GR at its 0.2% design accuracy
+(verified here through abstract and press so far), which, if its contested error
+budget holds, pushes the relaxed-branch bound to Λ < 1.12 MeV, i.e. screening
+lengths beyond 30 R⊕**.
 To our searches (declared below), no computation of rotating sources exists in
 any m₁² ≠ 0 phase: the signature is untested territory. As by-products, we report a probable misprint in
 the mass-parameter weights of BCP eqs. (7.6)–(7.7), established five independent
 ways, and two minor misprints in Dubovsky's eqs. (73) and (99). All results are
-symbolic (SymPy), run in seconds, and are public.
+symbolic (SymPy) and public; individual scripts run in seconds to about two
+minutes.
 
 ---
 
@@ -96,10 +101,12 @@ symbolic (SymPy), run in seconds, and are public.
 
 Massive gravity with broken Lorentz invariance is less constrained than its
 Lorentz-invariant cousin: with separate mass parameters m₀…m₄ for the different
-components of h_μν (in the notation of [1, 3]), the Boulware–Deser ghost can be
+components of h_μν (in the notation of [1–3]), the Boulware–Deser ghost can be
 evaded (m₀ = 0), the vDVZ discontinuity is absent, and — the case of interest
 here — there exists a phase where the spin-2 graviton is **exactly massless while
-the medium that breaks Lorentz invariance is still there**. Dubovsky exhibited it
+the medium that breaks Lorentz invariance is still there**. (The ghost evasion via
+m₀ = 0 belongs to a different corner of the class; the phase below is ghost-free
+through m₀²m₁² > 0 instead.) Dubovsky exhibited it
 in 2004 [1]: if the vacuum preserves the residual symmetry
 
     xⁱ → xⁱ + ξⁱ(x⃗)        (Dubovsky eq. 71)
@@ -107,8 +114,8 @@ in 2004 [1]: if the vacuum preserves the residual symmetry
 then m₂² = m₃² = m₄² = 0 (his eq. 72) — and, unlike generic mass patterns, this
 one is stable under radiative corrections, because any counterterm must respect
 the residual symmetry (UV-insensitivity). The phase propagates the two GR tensor
-polarizations at the full speed of light, plus a vector sector gapped by m₁² and a
-scalar sector we discuss at length below. Its health condition is m₀²m₁² > 0 (his
+polarizations at the full speed of light, plus a vector sector controlled by m₁²
+and a scalar sector we discuss at length below. Its health condition is m₀²m₁² > 0 (his
 eq. 75). The empirical stakes of *exact* protection are set by the observational
 bound on the graviton mass, m_g ≤ 1.27×10⁻²³ eV [20]: a symmetry-protected zero
 satisfies it structurally, where any tuned small mass merely survives it.
@@ -125,24 +132,27 @@ Ballesteros, Comelli and Pilo (BCP) [4]: four derivatively-coupled scalars Φ⁰
 (the medium's clock and comoving coordinates), a leading-order Lagrangian U built
 from the invariants of C^{AB} = g^{μν}∂_μΦ^A∂_νΦ^B, and a dictionary from U to the
 five mass parameters in unitary gauge. Their Table 2 classifies media by internal
-symmetry: solids U(τₙ), perfect fluids U(b,Y), superfluids U(X,Y,b), supersolids —
-every row protected by internal diffeomorphisms that **preserve the volume
-element**, det(∂Ψ/∂Φ) = 1.
+symmetry: solids U(τₙ), perfect fluids U(b,Y), superfluids U(X,Y,b), supersolids
+(in the effective-field-theory-of-media tradition [14]) — every row protected by
+internal diffeomorphisms that **preserve the volume element**, det(∂Ψ/∂Φ) = 1.
 
 This paper adds the row that the table is missing — the medium invariant under
 internal spatial diffeomorphisms with **no restriction at all** — and shows that
 it is precisely the object Dubovsky's invitation asked for. We then push the phase
-through its first phenomenology with matter: the result is a theory that imitates
+through its first phenomenology with matter (to our searches): the result is a theory that imitates
 GR by theorem exactly where GR is well measured, and deviates in exactly one
-place — the gravitomagnetic sector — where, as far as we could find, nobody has
-ever computed anything in any phase of this class.
+place — the gravitomagnetic sector — where all prior source computations in this
+class live in the mirror family m₁² = 0, and nothing exists for m₁² ≠ 0
+(searches declared below).
 
 Everything below is machine-verified symbolic algebra (SymPy; exact rational
 arithmetic; no truncations except the declared perturbative orders), reproducible
 in seconds from the public scripts (§ Reproducibility). The three technical
 blocks (dictionary + misprint; scalar sector; matter coupling) were each
 re-derived from scratch by an independent adversarial pipeline that shared no
-code with the original derivation, plus blind refutation attempts; none refuted.
+code with the original derivation, plus blind refutation attempts; none refuted
+(the verifiers did catch five minor slips — four in the scalar leg, one omitted
+term in the matter leg — all incorporated and on record).
 
 ## 2. Conventions, the calibrated dictionary, and a misprint in BCP
 
@@ -181,8 +191,9 @@ access to our files) that rederived the weights four ways and confirmed them —
 including the structural observation that δyₙ is *exactly* uniform in n at O(h²)
 (Z is already O(h²)), so the printed weight 2n·U_yₙ would annihilate the n = 0
 term that BCP's printed sum explicitly includes; (4) internal consistency of BCP
-itself: their tensor-sector eq. (7.21), M₂² = Σn²U_τₙ, is compatible with our
-weights and not with their printed (7.7); (5) the appendices of the later papers
+itself: their tensor-sector eq. (7.21), M₂² = Σn²U_τₙ (quoted at a = 1; the full
+expression carries a^(−2(n−1))), is compatible with our weights and not with
+their printed (7.7); (5) the appendices of the later papers
 of the same group [5, 6, 7] use precisely our weights (flat in yₙ from n = 0, n²
 in τₙ). No erratum of PRD 94, 124023 exists; the equations are unchanged between
 arXiv v1 and v2. We treat this as a probable typographical error, to be confirmed
@@ -219,9 +230,12 @@ exactly two invariants survive:
   lines (u·∂Φᵃ = 0, normalized). Y measures the **counterflow** between the clock
   condensate and the material flow lines.
 
-Both invariances were verified *non-linearly* (random metric, generic quadratic
-internal diffeomorphism: ΔX = ΔY = 0 identically). A Schur identity gives the
-pair physical flesh (verified):
+Both invariances were verified *non-linearly* on randomized exact instances
+(rational random metric, quadratic internal diffeomorphism, exact arithmetic:
+ΔX = ΔY = 0 exactly). That {X, Y} *exhausts* the leading-order invariants is a
+classification statement inherited from the campaign records — the scripts
+verify invariance, not completeness (block list). A Schur identity makes the
+pair concrete (checked exactly on random instances):
 
     V · B⁻¹ · V = X + Y² .
 
@@ -260,8 +274,10 @@ This is exactly Dubovsky's phase (72), and no accident: the residual symmetry
 (71), xⁱ → xⁱ + ξⁱ(x⃗), *is* Φᵃ → Ψᵃ(Φᵇ) read in unitary gauge. We verified
 directly that the resulting mass Lagrangian is invariant under
 δh_ij = ∂ᵢξⱼ + ∂ⱼξᵢ with time-independent ξ: the masslessness is
-symmetry-protected, and any quantum counterterm respecting the symmetry is again
-of the form U(X,Y), whose vacuum masses vanish again — Dubovsky's
+symmetry-protected, and any counterterm at leading order in derivatives that
+respects the symmetry is again of the form U(X,Y), whose vacuum masses vanish
+again; higher-derivative counterterms (the NLO operators of §6) respect the
+symmetry too and do not regenerate the vacuum masses either — Dubovsky's
 UV-insensitivity, now with an explicit medium carrying it.
 
 **The ghost-free corner is explicit.** Taking
@@ -273,13 +289,14 @@ UV-insensitivity, now with an explicit medium carrying it.
     (m₀², m₁², m₂², m₃², m₄²) = (1, 2, 0, 0, 0) ,   m₀²m₁² = 2 > 0  ✓
 
 satisfying Dubovsky's health condition (75). The vector sector has the healthy
-gapped dispersion of his eq. (73) whenever m₁² = 2U_X ≠ 0. The scalar sector is
-§6. Death criterion 1 of the campaign (m₂² ≠ 0, or no ghost-free corner) was not
+gapped dispersion of his eq. (73) whenever m₁² = 2U_X ≠ 0 (that is the
+Goldstone-sector statement; for its fate with gravitational mixing see §6). The
+scalar sector is §6. Death criterion 1 of the campaign (m₂² ≠ 0, or no ghost-free corner) was not
 triggered.
 
 ## 5. The exclusion lemma: the graviton mass is the medium's shear rigidity
 
-The identification comes with a price tag, and the price is itself a result.
+The identification comes with a structural consequence, itself a result.
 From the transverse sector of the **general** medium (not just U(X,Y)), on-shell:
 
     m₁² = 2·K_T ,   m₂² = −2·G_T ,   v_T² = m₂²/m₁²
@@ -295,8 +312,8 @@ them rigidity-less (v_T = 0 — pure gauge of the residual symmetry (71)).
 
 **Moral.** The spin-2 graviton mass *is* the shear rigidity of the medium, with
 sign and factor: m₂² = −2G_T. A medium with dynamical tensor order at leading
-order — a solid, a supersolid, anything that creaks when sheared — endows the
-graviton with mass and loses the protection. Conversely, a medium that protects
+order — a solid, a supersolid — endows the graviton with mass and loses the
+protection. Conversely, a medium that protects
 the massless graviton cannot contribute propagating spin-2 of its own at low
 energies: **protection and dynamical tensor order are mutually exclusive at
 leading order.** This is why solid inflation [16] generically has m₂ ≠ 0
@@ -308,7 +325,7 @@ through shear. What we add is the statement *inside* the BCP/Dubovsky framework,
 as an exact on-shell identity, with the iff, and with the consequence for
 protection.
 
-Declared escapes (they define, not embarrass, the program): higher-derivative
+Declared escapes (they delimit the claim rather than undermine it): higher-derivative
 kinetic structures (spin-nematic Goldstone routes à la Chojnacki [15], with
 non-relativistic dispersion), and induced gravity à la Sakharov — which is
 exactly debt 3 of this paper (the EH term is assumed throughout, here as in
@@ -326,14 +343,19 @@ re-derivation from √−g R; no refutation):
 
        det ∝ −(M_Pl⁴ m₀² m₁²/2) · ω⁴ p⁶
 
-   — a **double zero** at ω² = 0 for every p. This matches Dubovsky's eq. (99)
-   verbatim ("mixing with gravity does not introduce new propagating modes").
+   — a **double zero** at ω² = 0 for every p. This matches the content of
+   Dubovsky's eq. (99) (with the sign misprint noted in §2 corrected) and his
+   verbatim conclusion ("mixing with gravity does not introduce new propagating
+   modes").
 
-2. **The famous ω² ∝ p⁴ requires the medium's NLO operators** (the
+2. **The ω² ∝ p⁴ dispersion requires the medium's NLO operators** (the
    higher-derivative invariants compatible with the residual symmetry ξⁱ(x⃗):
    K̄ᵢⱼK̄ᵢⱼ, (tr K̄)², …). With them, exactly one scalar mode turns on, and its p⁴
-   coefficient is **UV-sensitive**: c₄ ≈ −(α+β)/m₀², where α, β are NLO couplings
-   — it is *not* expressible in the masses alone. Dubovsky left the coefficient
+   coefficient is **UV-sensitive**: c₄ ≈ −(α+β)/m₀², where α and β denote the
+   couplings of the two quadratic-in-K̄ invariants, and σ, ρ (ρ_op in §7) those
+   of the mixed NLO operators entering the scalar and static channels — the
+   precise operator basis is fixed in the public scripts. The coefficient is
+   *not* expressible in the masses alone. Dubovsky left the coefficient
    generic (verified against his source); the exact dispersion below is, to our
    knowledge, its first explicit form for this medium. The second root stays
    ω² = 0 exactly at all orders computed — the surviving gauge zero after the
@@ -366,13 +388,18 @@ re-derivation from √−g R; no refutation):
    not explained — the standard ghost-condensate tuning, inherited, not cured.
 
 The remaining sectors with gravity, verified: the vector does not propagate at
-LO (det = (m₁²/4)·ω²p²(M_Pl² + α)); the tensor is massless **exactly**, with
-c_T² = M_Pl²/(M_Pl² + α) — luminal at α = 0, untouched by everything above. Mode
-counting: 2 (LO), 2+1 (NLO), matching Dubovsky.
+LO — det = (m₁²/4)·ω²p²(M_Pl² + α); the gapped dispersion (73) quoted in §4 is
+the Goldstone-sector result, while with gravitational mixing the vector is a
+constraint at this order, and solving that constraint with sources is exactly
+what §8 does. The tensor is massless **exactly**, with
+c_T² = M_Pl²/(M_Pl² + α): its masslessness is untouched by everything above,
+while α ≠ 0 shifts its speed — GW170817's |c_T − 1| ≲ 10⁻¹⁵ therefore bounds
+α/M_Pl², a constraint we flag for the phenomenological pass rather than evaluate
+here. Mode counting: 2 (LO), 2+1 (NLO), matching Dubovsky.
 
 The one thing the ghost condensate is *forbidden* to have — by its own residual
-symmetry, verified textually — is m₁² ≠ 0. That is where the medium signs its
-name, and it is the subject of the next two sections.
+symmetry, verified textually — is m₁² ≠ 0. That is the one sector where this
+medium is distinguishable, and it is the subject of the next two sections.
 
 ## 7. Matter coupling: Einstein by theorem, not by tuning
 
@@ -380,7 +407,8 @@ Couple a conserved source T_μν minimally to g_μν (the medium couples only
 gravitationally; no direct Φ–matter coupling — declared assumption). One expects
 a massive theory to deform Newton. It does not, and the reason is structural:
 
-**Causal theorem (verified to residues [0,0,0,0] in the eight field equations).**
+**Causal theorem (the causal candidate satisfies both the four massive-system
+equations and the four pure-GR equations — residues [0,0,0,0] in each set).**
 For any conserved source switched on at a finite time, the leading-order solution
 of the massive system is **exactly** the solution of pure GR; the mass term
 selects the synchronous gauge of that solution and costs zero action on-shell
@@ -394,22 +422,22 @@ again arithmetic (μ_s² = m²_ACLM). At NLO the static PPN correction is
 
     γ(p) = 1 − 2σp²/M_Pl² + p⁴[ρ_op²/(M_Pl² m₁²) + 4σ²/M_Pl⁴] + O(p⁶)
 
-— scale-dependent, outside the constant-γ PPN book-keeping, and utterly
-unobservable at solar-system scales for the allowed Λ. Dubovsky's remark that in
-this phase the mass "has the form of a gauge fixing" [1] is the qualitative shadow
-of this theorem; the theorem makes it exact and extends it to the full causal
-initial-value problem (closed-form: ΔΨ(t,p) = A(p)[1 − cos Ω(p)t], with
-cos → cosh in the Jeans band).
+— scale-dependent, outside the constant-γ PPN book-keeping, and unobservable at
+solar-system scales for the allowed Λ. The closed-form causal initial-value
+problem confirms the theorem dynamically: ΔΨ(t,p) = A(p)[1 − cos Ω(p)t], with
+cos → cosh in the Jeans band. (Dubovsky's remark that the mass here "has the
+form of a gauge fixing" [1] finds its precise content in the vector sector: §8.)
 
-Everywhere Einstein is well measured, then, this phase *is* Einstein — by
-theorem, not by calibration. A theory that hides this well needs to be caught
-somewhere else.
+In every static and orbital regime computed here, then, this phase *is*
+Einstein — by theorem, not by calibration. (The radiative sector — binary-pulsar
+damping — is not computed in this paper; see Open problems.) The deviation must
+therefore be sought elsewhere.
 
 ## 8. Frame dragging: two branches, one untested signature
 
-The place it cannot hide is the sector where m₁² lives: gravitomagnetism. Here
-the campaign found structure that, as far as our searches reach, nobody had
-noticed in any phase of this class.
+The exception is the sector where m₁² lives: gravitomagnetism. Here the
+campaign found structure that, as far as our searches reach, nobody had noticed
+in any phase of this class.
 
 **The two branches.** The same residual symmetry ξⁱ(x⃗) that protects m₂ = 0
 gives the vector sector an exact conservation law, which leaves a flat direction
@@ -444,45 +472,48 @@ in the space of stationary vector states. The physical consequences bifurcate:
 medium around the source (nonlinear dissipation, vortices, formation history).
 We therefore state the screening as a *conditional* prediction — conditional on
 the medium relaxing — and we promote the condition itself to the open problem of
-the phase: massive-gravity phases with m₁² ≠ 0 have a two-state structure in
-their gravitomagnetic response that the literature has not noticed. Dubovsky's
+the phase: this phase has a two-state structure in its gravitomagnetic response
+that the literature has not noticed (whether the same structure extends across
+the wider m₁² ≠ 0 family is untested). Dubovsky's
 gauge-fixing remark describes our co-rotating branch; the relaxed branch is new.
 
 **Numbers.** Restoring units, μ = 2Λ²/M̄_Pl, i.e.
 
     ℓ₁ = 2.40×10⁸ m · (MeV/Λ)²   — at Λ = 1 MeV, roughly the Earth–Moon distance.
 
-Lense–Thirring measurements with LAGEOS/LARES (claimed accuracy 2–5% [21]; the
-error budget is contested in the literature [22]) give **Λ ≲ 2.0–2.6 MeV** on
-the relaxed branch. **In July 2026 — while this draft was being written — the
-LARES-2 team published the measurement this test was waiting for** [23]:
-combining LARES-2 (in orbit since 2022) with LAGEOS and GRACE data, they report
-agreement with GR at their design accuracy of 0.2%. Taken at face value this
+Lense–Thirring measurements with LAGEOS/LARES (accuracies claimed between ~5%
+[21] and ~2% in later analyses by the same team; the error budget is contested
+by independent assessments [22]) give **Λ ≲ 2.0–2.6 MeV** on the relaxed
+branch. **In July 2026 the
+LARES-2 team published this measurement** [23]: combining LARES-2 (in orbit
+since 2022) with LAGEOS and GRACE data, they report agreement with GR at their
+design accuracy of 0.2%. Taken at face value this
 already pushes the relaxed-branch bound to **Λ < 1.12 MeV**, i.e. ℓ₁ > 30 R⊕ —
 well inside the window where the medium is otherwise viable (§6); at Λ = 1 MeV
-the predicted nodal deviation is 0.13%. Honesty requires both caveats: the 0.2%
-error budget is actively disputed [22, 24] (the even-zonal cancellation depends
-on achieved orbital injection accuracies), and on the co-rotating branch the
-measurement constrains nothing. What is no longer hypothetical is the
-*instrument*: the measurement exists, and any sharpening of either the
-error-budget dispute or the state-selection problem now converts directly into
-MeV-scale physics. (An earlier internal bound used a criterion with a spurious
+the predicted nodal deviation is 0.13% (LAGEOS/LARES-2-class semi-major axis
+a = 1.227×10⁷ m, as in the campaign scripts). Honesty requires both caveats: the
+0.2% error budget is disputed by Iorio [22] (the even-zonal cancellation depends
+on achieved orbital injection accuracies) and defended by the team [24], and on
+the co-rotating branch the measurement constrains nothing. The measurement exists; any sharpening of the
+error-budget dispute or of the state-selection problem now converts directly
+into MeV-scale physics. (An earlier internal bound used a criterion with a spurious
 linear term; the corrected suppression factor weakens the bound by 2.7× in Λ —
 the correction is part of this paper's record. We have so far verified [23]
 through its abstract and press coverage only — full-text verification is on the
 pre-publication block list.)
 
-**Virgin territory (searches declared).** Every computation of sources we could
+**Untested territory (searches declared).** Every computation of sources we could
 find in Lorentz-violating massive gravity lives in the *mirror* family m₁² = 0
 with massive tensor: the static solutions of [10, 11, 12], and the rotating
 "bumpy black holes" of [13], which state verbatim that the linear-in-J dragging
-is exactly GR there. PPN α₁, α₂ have never been computed for any of Dubovsky's
-phases (zero occurrences in the canonical review [3]); our scale-dependent
-screening is in any case outside the constant-coefficient PPN formalism.
+is exactly GR there. PPN α₁, α₂ appear nowhere in the canonical review [3], and our searches found no
+such computation for any of Dubovsky's phases; our scale-dependent screening is
+in any case outside the constant-coefficient PPN formalism.
 Full-text searches for screened/Yukawa Lense–Thirring in massive or
 Lorentz-violating gravity return nothing comparable; the closest conceptual echo
-is the gravitomagnetic London moment claimed for laboratory superconductors [19]
-— a different object in a different setting. The Einstein-aether/khronometric
+is the gravitomagnetic London moment once claimed for laboratory superconductors
+[19] — an unconfirmed, never-replicated experimental claim, and in any case a
+different object in a different setting. The Einstein-aether/khronometric
 family modifies frame dragging *fractionally* (via preferred-frame parameters),
 without a screening length: different in kind. The signature is, to the searches
 declared below, untested territory.
@@ -529,6 +560,10 @@ declared below, untested territory.
    redundancy before contacting the BCP authors, not load-bearing.
 5. **NLO frame dragging on the co-rotating branch**: the first observable that
    could distinguish a persistent current from GR proper, if any exists.
+6. **The radiative sector**: binary-pulsar damping (Hulse–Taylor) is untouched
+   here. The tensor sector is GR's at this order, which suggests standard
+   quadrupole radiation, but the vector/scalar bookkeeping with time-dependent
+   sources remains to be done before any claim.
 
 ## Acknowledgments
 
@@ -540,9 +575,14 @@ responsibility for the content.
 
 ## Reproducibility
 
-All scripts are Python 3 + SymPy, total runtime under a minute on a laptop,
-in `especulativo/campana-m2/` of the public repository
-(github.com/IrigoyenNicolas1991/ift-theory):
+All scripts are Python 3 + SymPy, in `especulativo/campana-m2/` of the public
+repository (github.com/IrigoyenNicolas1991/ift-theory). Individual scripts run
+in seconds; the heaviest (`colA_causal.py`) takes about two minutes; the full
+suite a few minutes on a laptop. (2026-07-21: the verifier-pipeline scripts of
+`acople/` were repaired to run from the repository as published — import paths
+and two runtime bugs, listed in the audit record; the repaired suite reproduces
+every check quoted in this paper. The C5d check of `colA_causal.py` prints a
+nonzero residue pending reconciliation — see the block list.)
 
 | Block | Scripts | What they verify |
 |---|---|---|
@@ -566,8 +606,10 @@ Meissner sweeps — no screened frame dragging in any massive/LV gravity phase
 2024 were listed; none constructs a medium for the protected phase. The 2026-07-20
 campaign additionally swept arXiv/INSPIRE 2004–2026 for the U(X,Y)
 identification (closest: CCP's isentropic U(X+Y²) [5], without the symmetry or
-the phase connection). If prior art exists that these searches missed, the
-novelty rows above are forfeit and this file will say so.
+the phase connection). The full search log — queries verbatim, hit lists, the
+19 citing papers, and declared limitations — is recorded in
+`campana-m2/BARRIDO-INSPIRE-2026-07-21.md`. If prior art exists that these
+searches missed, the novelty rows above are forfeit and this file will say so.
 
 ## References
 
@@ -615,9 +657,10 @@ introduction to the LARES2 space experiment", arXiv:1910.13818.
 
 ## Pre-publication block list (nothing leaves the repo before these)
 
-1. **In-house adversarial audit of THIS TEXT** (the three technical actas passed
-   theirs; the paper's framing, claims-to-evidence map and every number
-   transcribed here must be re-audited against the actas and scripts).
+1. **In-house adversarial audit of THIS TEXT — first pass DONE 2026-07-21** (31
+   findings, all applied in v0.2; record in
+   `campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`). A second pass on the v0.2
+   text is required before submission.
 2. **Experimental accuracies — partially closed 2026-07-21**: primary references
    now cited ([21]–[24]) including the July-2026 LARES-2 Nature measurement and
    the Iorio error-budget dispute (both sides). Remaining: read the FULL TEXT of
@@ -635,3 +678,14 @@ introduction to the LARES2 space experiment", arXiv:1910.13818.
 6. **Explicit OK from Nicolás** on: channel (arXiv hep-th + PRD/JCAP as per the
    campaign plan), timing, and the final text. House policy: nothing public
    without per-piece sign-off.
+7. **Reconcile the C5d check** of `colA_causal.py` (nonzero residue ∝ m₁²p⁴ρ_op²
+   printed against "expected 0") with the scalar-pipeline result that m₁²
+   cancels exactly — likely a ρ vs ρ_op convention mismatch or an obsolete
+   check; state documented in the script.
+8. **Verify the quoted characterizations of [16]–[18]** (solid inflation's
+   m₂ ≠ 0, holographic mass↔elasticity, crystal gravity) against their texts —
+   currently cited from general knowledge of that literature, not from a
+   read-and-verified pass.
+9. **Completeness of {X, Y}**: state or cite a classification argument that X
+   and Y exhaust the leading-order invariants of unrestricted internal
+   diffeomorphisms (the scripts verify invariance, not exhaustiveness).

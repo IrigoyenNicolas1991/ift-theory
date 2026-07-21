@@ -20,7 +20,8 @@ verificador independiente); el limite RG se contrasta ademas contra Kerr en
 el script 02.
 """
 import sys, os
-sys.path.insert(0, r"C:\ClaudeInMyComputer\TCI CON Fable New folder\ift-theory\especulativo\campana-m2\escalar\derivador")
+# fix 2026-07-21: ruta relativa (antes venia hardcodeada la ruta absoluta de la maquina de la campana)
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "escalar", "derivador"))
 import sympy as sp
 from eh_lib import t, z, p, X, zavg, check_zavg, L12_of_ansatz, EL
 

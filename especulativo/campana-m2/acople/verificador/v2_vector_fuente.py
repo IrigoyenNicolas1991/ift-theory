@@ -1,6 +1,7 @@
 # Verificador adversarial - columna B: vector con fuente rotante, desde cero.
 import sys, os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'verificador-m2'))
+# fix 2026-07-21: la lib vive en escalar/verificador (en la sesion original de la campana estaba en una carpeta 'verificador-m2/' que no entro al repo)
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'escalar', 'verificador'))
 import sympy as sp
 from lib_eh import t, z, p, Mp2, build_L, zavg, EL
 
@@ -82,7 +83,9 @@ print("[4] minimo: S =", Smin, " Fdot = S - sigma =", sp.simplify(Smin - sigmin)
 Hret = sp.simplify(Hred.subs(piv, tc/2))
 Hmin = sp.simplify(Hred.subs(piv, pimin))
 print("[4] H_ret - H_min =", sp.simplify(Hret - Hmin))
-num = {A: 1, p: 1, m12: sp.Rational(1, 10), tc: 1}
+# fix 2026-07-21: A = Mp2 + al es una expresion, no un simbolo — subs con {A: 1} dejaba
+# Mp2 y al libres y el float() de abajo moria. Mismo punto de test: Mp2=1, al=0 => A=1.
+num = {Mp2: 1, al: 0, p: 1, m12: sp.Rational(1, 10), tc: 1}
 print("[4] modo test: H_ret =", float(Hret.subs(num)), " H_min =", float(Hmin.subs(num)))
 
 # ---------- 5. solucion radial Yukawa + esfera uniforme + Kerr ----------
@@ -120,8 +123,12 @@ def curl(V):
                       sp.diff(V[1], x1) - sp.diff(V[0], x2)])
 Bv = curl(h)
 rhat = X/rr
-Bclaim = -(2*f(rr) + rr*sp.Derivative(f(rr), rr))*J + (rr*sp.Derivative(f(rr), rr))*(J.dot(rhat))*rhat
-print("[6] B - Bclaim =", list(sp.simplify(sp.expand(Bv - Bclaim.doit()))))
+# fix 2026-07-21: Derivative(f(rr), rr) con rr compuesto no es valido en sympy — se
+# deriva respecto de un simbolo auxiliar y se sustituye (misma identidad, misma f generica).
+r_aux = sp.symbols('r_aux', positive=True)
+fp_rr = sp.diff(f(r_aux), r_aux).subs(r_aux, rr)
+Bclaim = -(2*f(rr) + rr*fp_rr)*J + (rr*fp_rr)*(J.dot(rhat))*rhat
+print("[6] B - Bclaim =", list(sp.simplify(sp.expand(Bv - Bclaim))))
 # promedio orbital con Bclaim evaluado en la orbita (identidad ya verificada)
 th, i_ = sp.symbols('theta iota', real=True)
 av, Om = sp.symbols('a_orb Omega_orb', positive=True)

@@ -1,7 +1,8 @@
 # Verificador adversarial - [4bis] Hamiltoniano vectorial: claim en la forma canonica de la campania
 # + energia de Noether en MI forma cruda (EH sin IBP) para chequear robustez del ordenamiento.
 import sys, os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'verificador-m2'))
+# fix 2026-07-21: la lib vive en escalar/verificador (en la sesion original de la campana estaba en una carpeta 'verificador-m2/' que no entro al repo)
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'escalar', 'verificador'))
 import sympy as sp
 from lib_eh import t, z, p, Mp2, build_L, zavg, EL
 

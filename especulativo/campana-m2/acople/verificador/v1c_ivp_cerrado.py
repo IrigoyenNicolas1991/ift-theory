@@ -2,7 +2,8 @@
 # Rama con datos RG + medio en reposo (c0=0 => B=0): psi = psi* + (psiN-psi*) cos(Om t),
 # phi = (4 Mp2 p^2 psi - M)/(2 m02), B=0, Edot = (6 - 4Mp2/beta) psidot / p^2.
 import sys, os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'verificador-m2'))
+# fix 2026-07-21: la lib vive en escalar/verificador (en la sesion original de la campana estaba en una carpeta 'verificador-m2/' que no entro al repo)
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'escalar', 'verificador'))
 import sympy as sp
 from lib_eh import t, z, p, Mp2, zavg, EL
 
