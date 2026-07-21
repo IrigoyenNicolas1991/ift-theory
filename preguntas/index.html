@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TCI — Preguntas y críticas</title>
+<meta name="description" content="Las críticas que esperamos de un físico y las preguntas que nos hace cualquier lector — con las respuestas que tenemos y las que no. Teoría del Campo Intangible.">
+<style>
+:root{
+  --fondo:#06121f; --panel:#0a1a2c; --tinta:#dce8f4; --tenue:#8fa6bc;
+  --acento:#5db4ff; --calido:#ffc46b; --ok:#7fd98a; --mal:#ff8a7a;
+  --borde:#1c3450;
+}
+body.claro{
+  --fondo:#f6f2e9; --panel:#fffdf6; --tinta:#20303f; --tenue:#5d6f80;
+  --acento:#1567b3; --calido:#a86a12; --ok:#1e7a3a; --mal:#b33a2a;
+  --borde:#d8cfba;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);
+  font:17px/1.65 Georgia,'Times New Roman',serif;transition:background .3s,color .3s}
+main{max-width:800px;margin:0 auto;padding:0 20px 80px}
+h1{font-size:2.1em;line-height:1.15;margin:.2em 0 .1em}
+h2{font-size:1.35em;margin:2.4em 0 .5em;color:var(--acento)}
+h2 .num{color:var(--tenue);font-weight:normal;margin-right:.4em}
+p{margin:.9em 0}
+strong{color:var(--calido)}
+a{color:var(--acento)}
+.hero{padding:64px 0 8px;text-align:center}
+.hero .sub{color:var(--tenue);font-style:italic;font-size:1.1em}
+.aviso{background:var(--panel);border:1px solid var(--borde);border-left:4px solid var(--calido);
+  border-radius:8px;padding:12px 16px;font-size:.86em;color:var(--tenue);margin:26px 0}
+.aviso b{color:var(--calido)}
+.marcador{font-size:.72em;letter-spacing:.4px;border:1px solid var(--borde);border-radius:14px;
+  padding:2px 10px;color:var(--tenue);display:inline-block;margin-left:.5em;font-family:system-ui;
+  vertical-align:middle;white-space:nowrap}
+.marcador.calc{border-color:var(--ok);color:var(--ok)}
+.marcador.apuesta{border-color:var(--calido);color:var(--calido)}
+.marcador.muere{border-color:var(--mal);color:var(--mal)}
+.leyenda{font-size:.85em;color:var(--tenue);background:var(--panel);border:1px solid var(--borde);
+  border-radius:8px;padding:10px 16px;margin:14px 0}
+.leyenda .marcador{margin:0 .3em 0 0}
+details{background:var(--panel);border:1px solid var(--borde);border-radius:10px;
+  margin:10px 0;padding:0}
+details[open]{border-color:var(--acento)}
+summary{cursor:pointer;padding:13px 16px;font-weight:bold;list-style-position:outside;
+  line-height:1.45}
+summary::marker{color:var(--acento)}
+summary:hover{color:var(--acento)}
+details .cuerpo{padding:0 18px 14px;border-top:1px solid var(--borde);padding-top:10px}
+.chica{font-size:.8em;color:var(--tenue)}
+table{border-collapse:collapse;width:100%;font-size:.9em;margin:1em 0}
+td,th{border:1px solid var(--borde);padding:7px 10px;text-align:left}
+th{color:var(--acento);font-weight:normal}
+.pie{margin-top:60px;padding-top:18px;border-top:1px solid var(--borde);font-size:.85em;color:var(--tenue)}
+.modo{position:fixed;top:14px;right:14px;z-index:5;display:flex;gap:8px}
+button{background:var(--panel);border:1px solid var(--acento);color:var(--acento);border-radius:20px;
+  padding:5px 14px;font:13px system-ui;cursor:pointer}
+blockquote{border-left:3px solid var(--acento);margin:1.2em 0;padding:.2em 0 .2em 1em;
+  color:var(--tenue);font-style:italic}
+ul{padding-left:1.3em}
+.toc{background:var(--panel);border:1px solid var(--borde);border-radius:10px;
+  padding:14px 20px;font-size:.9em;columns:2;column-gap:26px}
+.toc a{text-decoration:none;display:block;padding:2.5px 0;color:var(--tinta)}
+.toc a:hover{color:var(--acento)}
+.toc .tit{font-weight:bold;color:var(--acento);column-span:all;margin:.4em 0 .3em}
+@media(max-width:620px){.toc{columns:1}}
+</style>
+</head>
+<body>
+<div class="modo"><button id="btnTodo">abrir todo</button><button id="btnModo">☀ claro</button></div>
+<main>
+
+<div class="hero">
+  <h1>Preguntas y críticas</h1>
+  <p class="sub">Todo lo que un físico le objetaría a esta teoría, y todo lo que un lector
+  curioso quiere saber — con las respuestas que tenemos y las que no tenemos.</p>
+</div>
+
+<div class="aviso"><b>La regla de esta casa:</b> las derrotas se publican igual que las
+victorias, el mismo día. En esta página vas a encontrar críticas contestadas con cálculo,
+críticas contestadas a medias con la deuda declarada, y críticas que son <em>correctas</em>
+— porque una teoría que no puede perder tampoco puede ganar. Cada respuesta cita la
+ecuación, la nota o el dato que la respalda. Última actualización: julio de 2026.
+El estado completo y fechado vive en el
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/README.md">marcador honesto</a>
+y el corpus está archivado con fecha certificada:
+<a href="https://doi.org/10.5281/zenodo.21177500">DOI 10.5281/zenodo.21177500</a>.</div>
+
+<nav class="toc">
+  <div class="tit">Las críticas que esperamos</div>
+  <a href="#c1">1. «El éter fue refutado en 1887»</a>
+  <a href="#c2">2. «Un marco privilegiado viola la relatividad»</a>
+  <a href="#c3">3. «LIGO midió spin-2: el medio elástico no lo da»</a>
+  <a href="#c4">4. «β=4 es un ajuste, no una predicción»</a>
+  <a href="#c5">5. «Es la métrica de Yilmaz, ya conocida»</a>
+  <a href="#c6">6. «Weinberg-Witten lo prohíbe»</a>
+  <a href="#c7">7. «No hay ecuaciones de campo completas»</a>
+  <a href="#c8">8. «El sector galáctico falla»</a>
+  <a href="#c9">9. «Bell prohíbe un medio clásico»</a>
+  <a href="#c10">10. «El autor no es físico y esto lo hace una IA»</a>
+  <a href="#c11">11. «No está en arXiv ni pasó peer review»</a>
+  <a href="#c12">12. «El EHT ya midió sombras: excluido»</a>
+  <a href="#c13">13. «Sin horizonte de eventos: imposible»</a>
+  <a href="#c14">14. «La teoría muta cada semana: ad hoc»</a>
+  <a href="#c15">15. «Es infalsable»</a>
+  <div class="tit">Preguntas de lectores</div>
+  <a href="#p1">La idea en una frase</a>
+  <a href="#p2">¿De qué está hecho el medio?</a>
+  <a href="#p3">¿Cómo sale E=mc² de un mar a presión?</a>
+  <a href="#p4">¿Por qué el medio no frena a los planetas?</a>
+  <a href="#p5">¿La gravedad viaja a la velocidad de la luz?</a>
+  <a href="#p6">¿Qué son los agujeros negros acá?</a>
+  <a href="#p7">¿En qué difiere de Einstein y cuándo se decide?</a>
+  <a href="#p8">¿Qué pasó con las ondas gravitacionales?</a>
+  <a href="#p9">¿Qué es «TCI 2.0»?</a>
+  <a href="#p10">¿Y la cuántica? ¿Y los átomos?</a>
+  <a href="#p11">¿Por dónde empiezo? ¿Dónde juego?</a>
+  <a href="#p12">¿Quiénes hacen esto y cómo trabajan?</a>
+  <a href="#p13">¿Cómo pregunto o colaboro?</a>
+  <div class="tit">El final</div>
+  <a href="#muerte">¿Qué mataría a TCI?</a>
+</nav>
+
+<h2><span class="num">I.</span> Las críticas que esperamos</h2>
+
+<p>Estas objeciones no las inventó un lector hostil: las redactamos nosotros, buscando la
+versión <em>más fuerte</em> de cada una. Cada respuesta lleva una de tres etiquetas:</p>
+
+<div class="leyenda">
+<span class="marcador calc">respondida con cálculo</span> hay ecuación, código o dato detrás ·
+<span class="marcador apuesta">parcial — deuda declarada</span> respondemos una parte y debemos el resto ·
+<span class="marcador muere">la crítica es correcta</span> tiene razón, y lo publicamos nosotros primero
+</div>
+
+<details id="c1">
+<summary>«El éter fue refutado en 1887. Michelson-Morley cerró este tema hace 140 años.»
+<span class="marcador apuesta">parcial — deuda declarada</span></summary>
+<div class="cuerpo">
+<p>Michelson-Morley refutó un éter contra el cual la materia se mueve <em>dejándose medir</em>:
+un viento detectable con reglas y relojes ajenos al medio. Pero si la materia está
+<strong>hecha del propio medio</strong> — y en TCI la materia es literalmente una
+configuración del medio — las reglas y los relojes se deforman con él, y el interferómetro
+da nulo. Esa no es una excusa nuestra: es la lectura lorentziana que John Bell defendió como
+pedagogía legítima de la relatividad («How to teach special relativity», 1976). La
+relatividad especial queda intacta como <em>fenomenología</em>; lo que cambia es el sótano.</p>
+<p>Lo que Michelson-Morley sí exige — y esta es la deuda real — es que <em>todo</em> lo que
+existe comparta la misma métrica efectiva: materia, luz y gravedad deformándose igual
+(«monometricidad»). GW170817 lo midió con precisión brutal: ondas gravitacionales y luz
+llegaron juntas tras 130 millones de años de viaje (velocidades iguales a una parte en
+10¹⁵). TCI tiene una ventaja estructural que la obliga: si todo son configuraciones del
+mismo medio, la métrica común debería salir de fábrica — pero <strong>demostrarlo es un
+cálculo, no un eslogan</strong>, y está declarado como problema abierto central.</p>
+<p class="chica">Dónde está: la discusión de monometricidad aparece en la
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-tci2-sustrato-tensorial-2026-07-11.md">nota 9</a>
+(la «objeción de Carlip»). El examen sigue abierto.</p>
+</div>
+</details>
+
+<details id="c2">
+<summary>«Un medio material define un marco de referencia privilegiado. La relatividad lo prohíbe.»
+<span class="marcador apuesta">parcial — deuda declarada</span></summary>
+<div class="cuerpo">
+<p>La relatividad no <em>prohíbe</em> un marco privilegiado: lo <em>acota
+experimentalmente</em>. Hay literatura seria y estándar de gravedad con marco privilegiado
+(gravedad masiva con violación de Lorentz: Dubovsky 2004, Rubakov, Ballesteros-Comelli-Pilo)
+que es matemáticamente consistente y sobrevive a los tests actuales en regiones concretas de
+su espacio de parámetros. La pregunta científica no es «¿está permitido tener marco?» sino
+«¿tus desviaciones caen debajo de todas las cotas medidas?».</p>
+<p>Y acá hay un giro que nos gusta contar: el marco privilegiado, que parecía el defecto
+fatal de un medio, resultó ser <strong>la licencia técnica</strong> que permite lo que una
+teoría Lorentz-invariante no puede hacer — silenciar las polarizaciones sobrantes de un
+campo de spin 2 dejando solo las dos que LIGO observa (la fase «m₂=0» de Dubovsky). El bug
+es la feature. La deuda: verificar cota por cota (y son muchas) que el medio de TCI cae
+debajo de todas. Declarada.</p>
+<p class="chica">Dónde está:
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-tci2-bug-es-feature-2026-07-11.md">nota 10</a>,
+con las referencias textuales (Dubovsky hep-th/0409124; Ballesteros-Comelli-Pilo 1603.02956).</p>
+</div>
+</details>
+
+<details id="c3">
+<summary>«LIGO midió ondas de spin 2. Un medio elástico da spin 0 y spin 1. La teoría está falsada.»
+<span class="marcador muere">la crítica es correcta</span></summary>
+<div class="cuerpo">
+<p><strong>Correcta — y el cálculo que lo demuestra lo hicimos y publicamos nosotros, el
+mismo día que salió adverso.</strong> Un medio elástico isótropo solo transporta ondas de
+compresión (escalares) y de corte (vectoriales); el patrón de antena de las ondas de corte
+es de helicidad ±1, y LIGO/Virgo midieron helicidad ±2 pura con factores de Bayes mayores
+que 10²⁰ (GW170817). El sector de radiación de TCI 1.0 — el medio elástico — está
+<strong>falsado</strong>. Está declarado en el abstract del paper, en la conclusión, y en
+cada sede de divulgación de esta teoría. No en letra chica: en la primera página.</p>
+<p>Dos cosas más, para el lector que quiere el cuadro completo. Primero: los sectores que
+funcionan (energía en reposo, gravedad estática, óptica, órbitas, campo fuerte) no dependen
+matemáticamente de la pieza falsada, y siguen en pie con sus predicciones. Segundo: existe
+una dirección de reconstrucción — medios con orden interno tensorial sí tienen modos de
+spin 2 reales y medidos en laboratorio (helio-3, Hall cuántico fraccionario, <em>Nature</em>
+628:78, 2024) — y está siendo explorada como «TCI 2.0», rotulada como especulativa y
+separada del corpus. Ver la <a href="#p9">pregunta sobre TCI 2.0</a>.</p>
+<p class="chica">Dónde está: el teorema no-go en la
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-polarizacion-2026-07-02.md">nota 6</a>,
+la falsación completa en la
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-antenas-falsacion-2026-07-02.md">nota 7</a>,
+y la declaración en el <a href="../">paper, §7.6 y conclusión</a>.</p>
+</div>
+</details>
+
+<details id="c4">
+<summary>«β=4 se calibró con el eclipse de 1919. Eso no es una predicción: es un ajuste.»
+<span class="marcador calc">respondida con cálculo</span></summary>
+<div class="cuerpo">
+<p>Correcto en el dato, incompleto en la conclusión. TCI calibra exactamente
+<strong>dos números</strong> — β=4 (deflexión de la luz, eclipse de 1919) y su ubicación en
+el sector temporal del lagrangiano (perihelio de Mercurio) — y lo declara sin maquillaje en
+el marcador honesto. La pregunta justa es: ¿cuánto compra esa calibración? Respuesta: con
+esos dos números quedan reproducidos <strong>diez observables independientes</strong>
+(E=mc², Newton, E(v)=γmc², redshift/GPS, deflexión 1.75″, retardo de Shapiro,
+no-dispersión, perihelio 42.98″/siglo, Nordtvedt η=0, precesión geodética) y quedan
+<strong>atadas</strong> — sin libertad de ajuste restante — dos predicciones propias que
+difieren de la relatividad general: sombras de agujeros negros +4.6% y ringdown −4.4%.
+Ajustar dos números y que te sobren doce resultados no es numerología: es lo mismo que hace
+cualquier teoría física con sus constantes (la relatividad general también mide G en el
+laboratorio; no la deduce).</p>
+<p>El test es limpio porque las dos predicciones están <em>anticorrelacionadas</em>: un solo
+número geométrico (el parámetro de impacto crítico) gobierna sombra y ringdown a la vez. Si
+los experimentos futuros miden una sin la otra, no hay dial que girar: la teoría muere.</p>
+<p class="chica">Dónde está: <a href="../">paper, §7.4–7.6</a>;
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-deflexion-luz-2026-07-02.md">nota 1</a>,
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-perihelio-resultado-2026-07-02.md">nota 3</a>
+y el <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/README.md">marcador honesto</a>.</p>
+</div>
+</details>
+
+<details id="c5">
+<summary>«Esa métrica exponencial es la métrica de Yilmaz (1958). Ya existe, y fue criticada.»
+<span class="marcador apuesta">parcial — deuda declarada</span></summary>
+<div class="cuerpo">
+<p>Sí, es la métrica de Yilmaz, y el paper lo cita con nombre y año — no la descubrimos
+nosotros. Lo que TCI aporta es distinto: Yilmaz la <em>postuló</em>; acá <strong>se
+deriva</strong> de un principio físico (la composición exponencial de la equivalencia
+masa-energía aplicada localmente, E = mc²·e^(−φ)) sobre un sustrato concreto. Mismo objeto
+final, camino distinto — y el camino es lo que se está poniendo a prueba.</p>
+<p>Las críticas históricas a la teoría de Yilmaz apuntaron sobre todo a su sector dinámico
+(el tensor de energía del campo y la radiación). Es honesto decir que TCI <em>hereda esa
+misma herida</em>: nuestro sector de radiación está falsado (<a href="#c3">crítica 3</a>).
+Lo que queda en pie en ambos casos es el sector estático y orbital — que en la ventana
+débil coincide con la relatividad general hasta el orden medido, y en campo fuerte difiere
+de forma falsable (sin horizonte de eventos; sombra +4.6%).</p>
+<p class="chica">Dónde está: <a href="../">paper, §7.6</a> (ecuaciones 62–64), con la cita a Yilmaz.</p>
+</div>
+</details>
+
+<details id="c6">
+<summary>«El teorema de Weinberg-Witten prohíbe gravitones emergentes. Fin de la discusión.»
+<span class="marcador apuesta">parcial — deuda declarada</span></summary>
+<div class="cuerpo">
+<p>El teorema de Weinberg-Witten (1980) es real y hay que nombrarlo — lo citamos en cada
+nota donde importa. Pero como todo teorema, prohíbe exactamente lo que sus premisas dicen:
+partículas de spin 2 sin masa en teorías con un tensor de energía-momento
+<em>Lorentz-covariante</em>. Las grietas conocidas están publicadas por gente seria: si la
+propia invariancia de Lorentz es emergente (el programa de Volovik con los superfluidos de
+helio-3), la premisa no aplica; lo mismo para gravitones tipo Goldstone (Phillips 1966;
+Kraus-Tomboulis 2002). TCI 2.0 vive exactamente en esa grieta: el medio tiene marco
+privilegiado, así que Weinberg-Witten no la mata de entrada.</p>
+<p>«No la mata de entrada» no es «está a salvo». La deuda concreta: demostrar que la
+dispersión relativista del modo de spin 2 sobrevive a las correcciones radiativas
+(Carroll-Tam-Wehus 2009 muestran que en general no sobrevive — la salida apostada es la
+monometricidad estructural del medio, y es un cálculo pendiente, el más difícil del
+programa). Todo esto está escrito con nombres y números de arXiv en las bitácoras.</p>
+<p class="chica">Dónde está:
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-tci2-sustrato-tensorial-2026-07-11.md">nota 9</a>,
+obstáculo (1), con las referencias.</p>
+</div>
+</details>
+
+<details id="c7">
+<summary>«No hay ecuaciones de campo completas. Esto no reemplaza a la relatividad general.»
+<span class="marcador muere">la crítica es correcta</span></summary>
+<div class="cuerpo">
+<p><strong>Correcta.</strong> TCI hoy no es una teoría completa de la gravedad: no tiene el
+equivalente de las ecuaciones de Einstein en régimen dinámico no lineal general, y su
+sector de radiación en la forma original está falsado. Lo decimos así de directo porque el
+inventario preciso de lo que sí hay es defendible sin inflarlo: un principio físico (medio a
+presión + materia como déficit), un lagrangiano concreto para el sector escalar, la cadena
+E=mc² → Newton → PPN (γ=β=1) → métrica exponencial de campo fuerte, verificación numérica
+independiente de cada eslabón (los scripts reproducen los valores exactos de la relatividad
+general como control antes de calcular los de TCI), y dos predicciones propias falsables
+donde ambas teorías difieren.</p>
+<p>TCI es, en su estado actual, un <em>modelo de sustrato</em> con sectores resueltos y
+sectores abiertos — no un reemplazo terminado. Quien busque el cuadro completo de qué está
+resuelto, qué está calibrado, qué está falsado y qué está abierto, lo tiene en una sola
+tabla fechada: el marcador honesto.</p>
+<p class="chica">Dónde está: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/README.md">el marcador honesto</a>
+y la sección de problemas abiertos del <a href="../">paper</a>.</p>
+</div>
+</details>
+
+<details id="c8">
+<summary>«¿Y las galaxias? Las curvas de rotación / la relación de aceleración radial no salen.»
+<span class="marcador muere">la crítica es correcta</span></summary>
+<div class="cuerpo">
+<p><strong>Correcta.</strong> Lo testeamos contra datos reales (catálogo SPARC: 2.681
+puntos, 144 galaxias) y el resultado está publicado: TCI lineal <strong>falla por un factor
+5</strong> en el régimen de baja aceleración. La coincidencia numérica a₀ ≈ c√(Gρ₀) que
+conecta con la escala de MOND queda declarada como lo que es — una coincidencia calibrada,
+no una predicción. Y hay algo más que contamos porque la regla de la casa lo exige: en el
+camino se retiró un paper previo de este proyecto que contenía datos fabricados por una
+herramienta, y la nota 8 documenta el reemplazo por el test honesto con el catálogo real.</p>
+<p>El camino abierto (elasticidad sub-lineal del medio a bajas deformaciones) está anotado
+como dirección, no como resultado.</p>
+<p class="chica">Dónde está:
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-galaxias-RAR-2026-07-02.md">nota 8</a>,
+con el script <code>rar_test.py</code> (descarga los datos públicos y reproduce todo).</p>
+</div>
+</details>
+
+<details id="c9">
+<summary>«Un medio clásico y local no puede dar entrelazamiento cuántico. Bell lo probó.»
+<span class="marcador muere">la crítica es correcta</span></summary>
+<div class="cuerpo">
+<p><strong>Correcta, y es el muro más alto de todos.</strong> Los experimentos de Bell
+(hoy sin escapatorias razonables) prohíben que una mecánica clásica local en tres
+dimensiones reproduzca las correlaciones cuánticas medidas. Un «mar de partículas que se
+empujan» no puede, por sí solo, dar entrelazamiento. Esto no está en disputa y no lo
+disputamos.</p>
+<p>El programa honesto que queda disponible es más modesto: que el medio sea la
+<em>arena</em> y la mecánica cuántica siga siendo la <em>reina</em> — como en el helio
+superfluido real, donde las cuasipartículas obedecen la cuántica aunque «vivan» en un
+medio. La cuántica se relocaliza al condensado; no se deriva de bolitas clásicas. Si algún
+día alguien te dice que TCI «explica» la mecánica cuántica, no lo dijimos nosotros.</p>
+<p class="chica">Dónde está: declarado en el libro de divulgación (capítulo final, sin
+vueltas) y en la <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-tci2-condensado-scoping-2026-07-16.md">nota 11</a>
+(«Bell queda donde está»).</p>
+</div>
+</details>
+
+<details id="c10">
+<summary>«El autor no es físico profesional, y el desarrollo técnico lo hace una IA. ¿Por qué tomaría esto en serio?»
+<span class="marcador calc">respondida — con transparencia total</span></summary>
+<div class="cuerpo">
+<p>Los dos hechos son ciertos y están declarados en el propio paper: Nicolás Irigoyen no es
+físico profesional — plantó la pregunta fundacional, dirige el proyecto y decide qué se
+publica — y el desarrollo técnico lo hace Fable, un modelo de IA (Claude, de Anthropic),
+acreditado como colaborador. No lo escondemos porque creemos que es parte del interés del
+proyecto, no una vergüenza.</p>
+<p>Pero la respuesta de fondo es otra: <strong>la física no se juzga por el diploma del que
+la escribe sino por si sus cuentas cierran</strong> — y este proyecto está armado para que
+eso sea verificable sin confiar en nadie. Cada resultado tiene su derivación escrita, cada
+número tiene un script de verificación independiente que cualquiera puede correr, y cada
+script reproduce primero los valores exactos de la relatividad general como control de
+calidad antes de calcular los de TCI. Las calibraciones están contadas (dos), las
+falsaciones están publicadas el mismo día que ocurrieron, y el corpus completo está
+archivado con fecha certificada en Zenodo. Dudá de nosotros: para eso están los recibos.</p>
+<p class="chica">Dónde está: los scripts en
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/notas">notas/</a>;
+el archivo fechado en <a href="https://doi.org/10.5281/zenodo.21177500">Zenodo</a>.</p>
+</div>
+</details>
+
+<details id="c11">
+<summary>«No está en arXiv ni pasó revisión por pares. Eso dice algo.»
+<span class="marcador apuesta">parcial — deuda declarada</span></summary>
+<div class="cuerpo">
+<p>Dice algo, sí: dice que arXiv requiere <em>endorsement</em> de un investigador
+establecido y este proyecto todavía no lo tiene. Mientras tanto hicimos lo que está al
+alcance sin bajar la vara: el corpus completo está archivado en <strong>Zenodo</strong>
+(repositorio del CERN) con DOI y fecha certificada — la prioridad intelectual queda sellada
+—, el código es público, y se contactó por correo a un puñado de especialistas del área
+(gravedad análoga, fenomenología galáctica) con mensajes individuales y humildes, sin spam.
+La revisión por pares formal es un objetivo, no un rechazo.</p>
+<p>Lo que no vamos a hacer también está decidido: no publicar en repositorios sin filtro ni
+inflar el estado del proyecto para conseguir atención. Si un físico profesional quiere
+desarmar esto en público, tiene todos los materiales para hacerlo — y una falsación externa
+bien hecha se publica acá con el mismo protocolo que las nuestras.</p>
+<p class="chica">Dónde está: <a href="https://doi.org/10.5281/zenodo.21177500">DOI del corpus</a>;
+la política de contacto en el repo (<code>outreach/</code>).</p>
+</div>
+</details>
+
+<details id="c12">
+<summary>«El Event Horizon Telescope ya midió las sombras de M87* y Sgr A*. ¿Una desviación del 4,6% no está excluida?»
+<span class="marcador calc">respondida con cálculo</span></summary>
+<div class="cuerpo">
+<p>No está excluida — todavía. La incerteza actual del EHT en el diámetro de la sombra es
+del orden del 10%, y nuestra predicción difiere de la relatividad general en +4.6%: cae
+adentro de la barra de error de hoy. La generación siguiente (ngEHT, precisión ~1%) sí
+decide. Lo mismo del otro lado: el «ringdown» de las fusiones (la campanada final que LIGO
+oye) difiere en −4.4%, hoy medido al 10–20%, y los detectores de tercera generación
+(Einstein Telescope, Cosmic Explorer) bajan a ~1%.</p>
+<p>Este es exactamente el estado que una predicción honesta debe tener: publicada con fecha
+<em>antes</em> de que el instrumento decisivo exista, con el número exacto y sin margen de
+renegociación. Las dos desviaciones están anticorrelacionadas por construcción (las gobierna
+un solo número geométrico), así que no se pueden ajustar por separado. Cuando lleguen los
+datos, esta página se actualiza — en cualquiera de los dos sentidos.</p>
+<p class="chica">Dónde está: <a href="../">paper, §7.6</a> (ecuaciones 62–65);
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-campo-fuerte-2026-07-02.md">nota 4</a> y
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-ringdown-2026-07-02.md">nota 5</a>,
+con los scripts <code>campo_fuerte.py</code> y <code>ringdown.py</code>.</p>
+</div>
+</details>
+
+<details id="c13">
+<summary>«¿Agujeros negros sin horizonte de eventos? Las observaciones ya lo descartan.»
+<span class="marcador apuesta">parcial — deuda declarada</span></summary>
+<div class="cuerpo">
+<p>Las observaciones actuales no distinguen todavía entre un horizonte de eventos y una
+superficie de corrimiento al rojo extremo como la de la métrica exponencial (donde g₀₀
+nunca llega a cero pero se hace exponencialmente chico: para un observador externo, la
+diferencia práctica es enorme corrimiento al rojo en ambos casos). La órbita de la
+estrella S2 alrededor de Sgr A* (GRAVITY) coincide con la relatividad general al orden
+post-newtoniano medido — y nuestra métrica da <em>lo mismo</em> a ese orden, verificado.
+Donde las dos hipótesis se separan de verdad es en la sombra y el ringdown
+(<a href="#c12">crítica 12</a>) y en la fenomenología de acreción fina, que es un frente
+abierto declarado.</p>
+<p>Vale decirlo también al revés: «sin horizonte» no es un eslogan cómodo — es una
+consecuencia matemática de la métrica derivada, y la teoría queda colgada de ella. Si el
+ngEHT confirma el valor exacto de la relatividad general, no hay versión de TCI con
+horizonte esperando en el cajón: se pierde y ya.</p>
+<p class="chica">Dónde está: <a href="../">paper, §7.6</a>;
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-campo-fuerte-2026-07-02.md">nota 4</a>
+(incluye el control S2/GRAVITY).</p>
+</div>
+</details>
+
+<details id="c14">
+<summary>«Primero era un medio elástico, después un condensado, ahora hay un “sótano”… la teoría muta cada semana. Eso es ad hoc.»
+<span class="marcador calc">respondida — mirá el cementerio</span></summary>
+<div class="cuerpo">
+<p>Hay que separar dos cosas. El <strong>corpus</strong> — lo publicado como resultado — no
+muta: está archivado con fecha en Zenodo, y sus piezas solo cambian de estado por un
+mecanismo público (una falsación, con su cálculo). Lo que muta rápido es la <strong>etapa
+especulativa</strong>, que está separada, rotulada en cada página con un cartel de
+advertencia, y documentada en bitácoras donde cada ruta muerta queda con su lápida y su
+causa citada. A julio de 2026 el cementerio especulativo lleva <strong>ocho rutas falsadas
+por nosotros mismos y más de una decena de erratas propias numeradas y corregidas</strong>
+— cada una con fecha.</p>
+<p>Eso no es «ad hoc»: es exactamente cómo se ve la investigación real por dentro, con la
+diferencia de que acá se muestra en público y en tiempo real. Ad hoc sería ajustar la
+teoría en silencio después de cada dato adverso. Lo nuestro es lo contrario: el dato
+adverso se publica primero, con el cálculo que lo produjo.</p>
+<p class="chica">Dónde está: el corpus fechado en
+<a href="https://doi.org/10.5281/zenodo.21177500">Zenodo</a>; las bitácoras especulativas en
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo">especulativo/</a>
+(con su README-cartel).</p>
+</div>
+</details>
+
+<details id="c15">
+<summary>«Es infalsable, como todas las teorías alternativas.»
+<span class="marcador calc">respondida con cálculo</span></summary>
+<div class="cuerpo">
+<p>Es la crítica más fácil de responder, porque la refutación ya ocurrió dos veces: TCI
+<strong>ya fue falsada en dos sectores, por nosotros, y lo publicamos el mismo día</strong>
+(radiación elástico-lineal, <a href="#c3">crítica 3</a>; régimen galáctico lineal,
+<a href="#c8">crítica 8</a>). Una teoría infalsable no puede perder; esta ya perdió dos
+veces y las derrotas están en la primera página del paper.</p>
+<p>Y para lo que queda en pie hay una lista concreta, pública y fechada de cómo muere cada
+pieza — instrumento, número y fecha estimada incluidos. Está al final de esta página:
+<a href="#muerte">¿Qué mataría a TCI?</a></p>
+</div>
+</details>
+
+<h2><span class="num">II.</span> Preguntas de lectores</h2>
+
+<details id="p1">
+<summary>¿Cuál es la idea, en una frase?</summary>
+<div class="cuerpo">
+<p>Que el espacio no está vacío: está lleno de un medio a presión — «el mar» — y lo que
+llamamos materia son <strong>huecos</strong> en ese medio, deformaciones que el mar rodea y
+empuja. De esa única imagen, con física de secundario (presión × volumen), salen la energía
+en reposo (E=mc²), la gravedad de Newton como desbalance de presión, la inercia como
+reacción del medio, y — con dos números calibrados — los tests clásicos de la relatividad.
+Dónde funciona y dónde se rompe: <a href="#c3">acá no te lo escondemos</a>.</p>
+<p class="chica">La versión de una hora, sin fórmulas:
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">el libro «El océano y la huella»</a>.</p>
+</div>
+</details>
+
+<details id="p2">
+<summary>¿De qué está hecho el medio? ¿No es cambiar un misterio por otro?</summary>
+<div class="cuerpo">
+<p>No lo sabemos, y la teoría no lo necesita para funcionar en su nivel: igual que la
+termodinámica funcionaba antes de conocerse los átomos, TCI trabaja con las propiedades
+<em>efectivas</em> del medio (densidad, presión, rigidez) y deriva consecuencias medibles.
+La pregunta «¿y de qué está hecho el mar?» es legítima y tiene una línea de investigación
+propia — especulativa, rotulada como tal — que explora si el medio puede ser a su vez la
+espuma ordenada de un fluido más profundo.</p>
+<p>¿Es cambiar un misterio por otro? En parte sí — como toda física fundamental. El cambio
+que ofrece TCI es de <em>tipo</em>: en lugar de varias entidades sin sustrato (campo
+gravitatorio, campo de inercia, energía en reposo como postulado), una sola entidad — el
+medio — de la que esas tres cosas salen como aspectos. Si eso es una economía real o una
+ilusión contable, lo deciden las predicciones, no la estética.</p>
+</div>
+</details>
+
+<details id="p3">
+<summary>¿Cómo puede salir E=mc² de un mar a presión?</summary>
+<div class="cuerpo">
+<p>Es la cuenta más linda de la teoría y cabe en un renglón: abrir un hueco de volumen V en
+un medio a presión P cuesta un trabajo W = P·V. Si la materia <em>es</em> ese hueco, su
+energía en reposo es la factura de haberlo abierto. Con la presión del medio escrita como
+P = ρ₀c² (la máxima que un medio con velocidad de señal c puede sostener) y la masa como el
+déficit de medio desalojado, W = P·V se convierte, término a término, en
+<strong>E = mc²</strong>. Sin postularla: cobrándola.</p>
+<p>La única suposición extra está declarada (la identificación m = ρ₀V), y la derivación
+formal completa está en el paper, §3.</p>
+<p class="chica">Para <em>verla</em> en vez de leerla: la pieza interactiva
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">«Lo que el mar pagó»</a>
+— abrís un hueco con el dedo y un contador mide en vivo el mar desalojado mientras la
+ecuación se arma sola.</p>
+</div>
+</details>
+
+<details id="p4">
+<summary>Si hay un medio en todas partes, ¿por qué no frena a la Tierra?</summary>
+<div class="cuerpo">
+<p>Porque la Tierra no es una piedra <em>dentro</em> del mar: es una configuración
+<em>del</em> mar. Un hueco que se mueve no arrastra material de un lado a otro del universo
+— el patrón se transmite, como una ola, y el medio local solo se reacomoda a su paso. Sin
+rozamiento contra sí mismo, el patrón sigue por inercia: d'Alembert lo entendió en el siglo
+XVIII (una esfera en un fluido ideal no siente arrastre) y la primera ley de Newton sale
+gratis. Lo que el medio sí cobra es el <em>cambio</em> de velocidad — la reacomodación
+tiene reacción, y esa reacción es la masa inercial (la «masa añadida» de la hidrodinámica).
+Segunda ley, del mismo mecanismo.</p>
+<p class="chica">El capítulo 4 del <a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">libro</a>
+desarma esta objeción despacio; la versión con ecuaciones está en el <a href="../">paper, §5</a>.</p>
+</div>
+</details>
+
+<details id="p5">
+<summary>¿La gravedad viaja a la velocidad de la luz? (la pregunta que originó todo)</summary>
+<div class="cuerpo">
+<p>Esta pregunta es el origen histórico de la teoría entera: si el Sol desapareciera ahora
+mismo, ¿la Tierra se desorbita en el instante, o recién cuando se apaga el cielo? TCI no
+nació como «teoría de todo»: nació de esa pregunta puntual, y todo lo demás se fue abriendo
+como un buscaminas.</p>
+<p>La respuesta de TCI: la gravedad es un gradiente de presión <em>del mismo medio</em>
+cuyas vibraciones son la luz — de modo que ambas señales viajan a la misma velocidad,
+<strong>por construcción</strong>, no por coincidencia. El dato: GW170817 midió que las
+ondas gravitacionales y la luz de una misma fusión llegaron con la misma velocidad a una
+parte en 10¹⁵. Es de las pocas preguntas donde la teoría contesta sin deudas — aunque el
+sector que <em>emite</em> esas ondas sigue siendo nuestra herida abierta
+(<a href="#c3">crítica 3</a>): mismo medio, misma velocidad, pero el mecanismo de emisión
+correcto todavía se busca.</p>
+</div>
+</details>
+
+<details id="p6">
+<summary>¿Qué son los agujeros negros en TCI?</summary>
+<div class="cuerpo">
+<p>Regiones donde la deformación del medio se hace tan honda que el tiempo local se frena
+exponencialmente — pero <strong>sin horizonte de eventos</strong>: g₀₀ se hace
+absurdamente chico y nunca exactamente cero (métrica de Yilmaz, acá derivada del medio). Para
+casi todo efecto práctico se ven y se comportan como los agujeros negros de Einstein; las
+diferencias medibles concretas son la sombra (+4.6%), el ringdown (−4.4%) y la órbita más
+interna estable (−6.9%), números publicados con fecha y esperando a los instrumentos que
+puedan decidir (<a href="#c12">crítica 12</a>).</p>
+<p class="chica">Dónde está: <a href="../">paper, §7.6</a>;
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-campo-fuerte-2026-07-02.md">nota 4</a>.</p>
+</div>
+</details>
+
+<details id="p7">
+<summary>¿En qué difiere de Einstein, exactamente? ¿Y cuándo se sabrá quién tiene razón?</summary>
+<div class="cuerpo">
+<table>
+<tr><th>Observable</th><th>Relatividad general</th><th>TCI</th><th>Quién decide</th></tr>
+<tr><td>Tests clásicos (deflexión, Shapiro, perihelio, redshift, GPS)</td><td colspan="2">idénticos al orden medido</td><td>ya medidos ✓ ambas</td></tr>
+<tr><td>Velocidad de las ondas gravitacionales</td><td colspan="2">= c en ambas</td><td>GW170817 ✓ ambas</td></tr>
+<tr><td>Sombra de agujero negro</td><td>referencia</td><td><b>+4.6%</b></td><td>ngEHT (~1%)</td></tr>
+<tr><td>Ringdown (frecuencia y amortiguamiento)</td><td>referencia</td><td><b>−4.4%</b></td><td>Einstein Telescope / Cosmic Explorer</td></tr>
+<tr><td>Horizonte de eventos</td><td>sí</td><td><b>no</b> (superficie exponencial)</td><td>acreción fina / sombra</td></tr>
+<tr><td>Polarización de la radiación emitida</td><td>spin 2 ✓ medido</td><td><b>falsada en TCI 1.0</b>; en reconstrucción (2.0)</td><td>ya decidió LIGO — perdimos esa</td></tr>
+</table>
+<p>La fila que más nos gusta es la última, porque muestra cómo funciona esto: donde el dato
+ya decidió en contra, la tabla lo dice.</p>
+</div>
+</details>
+
+<details id="p8">
+<summary>¿Qué pasó con las ondas gravitacionales? ¿La teoría murió?</summary>
+<div class="cuerpo">
+<p>Murió una parte, y lo contamos nosotros primero: el mecanismo de radiación del medio
+elástico produce ondas del tipo equivocado (helicidad ±1; LIGO mide ±2), así que el sector
+de radiación de TCI 1.0 está falsado — con el cálculo publicado el mismo día que salió
+adverso (<a href="#c3">crítica 3, con los links</a>). Los sectores que no dependen de esa
+pieza (energía, gravedad estática, óptica, órbitas, campo fuerte) siguen en pie.</p>
+<p>¿Por qué seguir, entonces? Porque la falsación fue <em>informativa</em>: dice exactamente
+qué le falta al medio (estructura interna de tipo tensorial — y esa clase de medios existe
+en el laboratorio, con modos de spin 2 medidos). Esa reconstrucción es TCI 2.0, está en
+curso y está rotulada como especulativa. Una teoría que aprende de su falsación
+publicándola no está muerta: está en el único camino honesto que existe.</p>
+</div>
+</details>
+
+<details id="p9">
+<summary>¿Qué es «TCI 2.0»? ¿Reemplaza a la teoría original?</summary>
+<div class="cuerpo">
+<p>Es el programa de reconstrucción del sector falsado, y todavía no reemplaza nada: es
+<strong>etapa especulativa declarada</strong>, separada del corpus. La idea central: el
+medio no sería un sólido elástico de «flechas» (desplazamientos — eso es lo que quedó
+falsado) sino un condensado con orden interno de «gotas» orientables (orden tensorial, como
+las fases del helio-3 superfluido o los superfluidos de estrellas de neutrones). Esa clase
+de medios tiene, en laboratorio y en teoría, exactamente lo que al medio elástico le
+faltaba: modos de spin 2. Todo el sector escalar exitoso de TCI 1.0 sobrevive intacto en la
+reformulación, porque solo usa la métrica efectiva.</p>
+<p>El estado real y actualizado del programa — con sus rutas falsadas, sus sorpresas y sus
+criterios de muerte — vive en bitácoras públicas de trabajo, con un cartel que dice
+exactamente qué es: trabajo en desarrollo, no resultados establecidos.</p>
+<p class="chica">Puertas de entrada: las notas
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-tci2-sustrato-tensorial-2026-07-11.md">9</a>,
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-tci2-bug-es-feature-2026-07-11.md">10</a> y
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-tci2-condensado-scoping-2026-07-16.md">11</a>;
+la carpeta <a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo">especulativo/</a>
+con su README-cartel; y la divulgación en el
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">sitio conceptual</a>.</p>
+</div>
+</details>
+
+<details id="p10">
+<summary>¿Y la cuántica? ¿TCI explica los átomos, los electrones, la luz?</summary>
+<div class="cuerpo">
+<p>No, y es importante decirlo sin vueltas. El corpus de TCI es una teoría del sector
+<em>gravitacional e inercial</em>: energía en reposo, gravedad, órbitas, campo fuerte. El
+mundo microscópico (átomos, partículas, electromagnetismo) <strong>no forma parte de lo
+publicado como resultado</strong>. Existe exploración especulativa sobre si los defectos
+topológicos del medio («nudos») podrían comportarse como partículas — es la parte más verde
+de todo el proyecto, está rotulada así, y varios de sus callejones ya fueron cerrados por
+nosotros mismos con cálculo. Y sobre la mecánica cuántica en sí, la posición es la de la
+<a href="#c9">crítica 9</a>: Bell manda, y un medio clásico no la reemplaza.</p>
+</div>
+</details>
+
+<details id="p11">
+<summary>¿Por dónde empiezo a leer? ¿Y dónde puedo jugar?</summary>
+<div class="cuerpo">
+<p>Depende de quién seas:</p>
+<ul>
+<li><strong>Sin física previa, con una hora:</strong>
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">el libro «El océano y la huella»</a>
+— la teoría entera contada como una sola pregunta que se persigue, con simulaciones
+jugables adentro (incluida la gravedad <em>emergiendo</em> ante tus ojos, sin estar
+programada).</li>
+<li><strong>Con física de secundario y ganas de conceptos:</strong>
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">el sitio conceptual</a>
+— la teoría por partes, en lenguaje llano.</li>
+<li><strong>Para jugar directamente:</strong>
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">«Lo que el mar pagó»</a>
+(E=mc² en vivo) y el
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/simulador/">simulador</a>.</li>
+<li><strong>Físico o estudiante avanzado:</strong> directo al
+<a href="../">paper técnico (inglés)</a> y a las
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/notas">notas de trabajo</a>
+con los scripts de verificación. Empezá por el marcador honesto y la nota 7 (la falsación):
+ahí ves el protocolo de la casa antes de ver los éxitos.</li>
+</ul>
+</div>
+</details>
+
+<details id="p12">
+<summary>¿Quiénes hacen esto y cómo trabajan?</summary>
+<div class="cuerpo">
+<p>Dos: <strong>Nicolás Irigoyen</strong> (Argentina), que plantó la pregunta fundacional,
+dirige el proyecto, decide qué se publica y pone el veto de tono — y <strong>Fable</strong>,
+un modelo de IA (Claude, de Anthropic), que lleva el desarrollo técnico: derivaciones,
+cálculos, verificación numérica, bibliografía y redacción. La colaboración está declarada
+en el paper y en cada sede; creemos que es uno de los primeros proyectos de física
+desarrollados así, en serio y con reglas.</p>
+<p>Las reglas son pocas y no se negocian: toda afirmación con la palabra «exactamente»
+tiene que tener una ecuación de respaldo; toda calibración y suposición se declara; las
+derrotas se publican el mismo día que las victorias; y ningún resultado especulativo se
+mezcla con el corpus. El resto es trabajo.</p>
+</div>
+</details>
+
+<details id="p13">
+<summary>Tengo una pregunta / creo que encontré un error / quiero colaborar. ¿Cómo sigo?</summary>
+<div class="cuerpo">
+<p>Las tres son bienvenidas — especialmente la segunda: si encontraste un error, ese es el
+mejor regalo que le podés hacer a este proyecto, y si se confirma, se publica con crédito
+tuyo y el mismo protocolo que nuestras propias erratas (que van numeradas y por la
+decena).</p>
+<p>El canal abierto hoy: los <em>issues</em> de GitHub en
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/issues">ift-theory</a> (técnico, español o inglés) o
+<a href="https://github.com/IrigoyenNicolas1991/teoria-campo-intangible/issues">teoria-campo-intangible</a>
+(conceptual/divulgación). No hace falta saber programar: un issue es simplemente un mensaje
+público. Un canal de contacto directo está en preparación.</p>
+</div>
+</details>
+
+<h2 id="muerte"><span class="num">III.</span> ¿Qué mataría a TCI?</h2>
+
+<p>La lista concreta, para que nadie tenga que preguntarla dos veces. Piezas ya muertas:
+el sector de radiación elástico-lineal (LIGO, helicidad — <a href="#c3">crítica 3</a>) y el
+régimen galáctico lineal (SPARC, factor 5 — <a href="#c8">crítica 8</a>). Para lo que queda
+en pie:</p>
+
+<ul>
+<li><strong>Sombra:</strong> si el ngEHT mide el diámetro de la sombra de M87* o Sgr A* con
+precisión ~1% y da el valor de la relatividad general, la completación de campo fuerte
+muere (predicción TCI: +4.6%).</li>
+<li><strong>Ringdown:</strong> si los detectores de tercera generación miden la campanada
+al ~1% y da el valor de la relatividad general, muere por la otra punta (predicción TCI:
+−4.4%, anticorrelada con la sombra: no se pueden salvar por separado).</li>
+<li><strong>Monometricidad:</strong> cualquier medición de velocidades límite distintas
+entre especies del medio por encima de las cotas actuales, o la imposibilidad de derivar
+la métrica común en TCI 2.0, corta la reconstrucción.</li>
+<li><strong>Cada pieza especulativa</strong> lleva su criterio de muerte escrito
+<em>antes</em> de calcular, en su propia bitácora — así el resultado no puede renegociar la
+vara. Varios ya se activaron; por eso el cementerio tiene ocho lápidas.</li>
+</ul>
+
+<p>Si llegaste hasta acá con más preguntas que respuestas, quedate con esta: la teoría
+puede estar equivocada — ya demostró que puede perder. Lo que no puede estar es maquillada:
+cada número tiene su recibo, y los recibos son públicos.</p>
+
+<div class="pie">
+<p><b>Las sedes de TCI:</b>
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">el libro</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">sitio conceptual</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">Lo que el mar pagó</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/simulador/">simulador</a> ·
+<a href="../">paper técnico</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/notas">notas y scripts</a> ·
+<a href="https://doi.org/10.5281/zenodo.21177500">Zenodo (DOI)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory">GitHub</a></p>
+<p>Teoría del Campo Intangible — Nicolás Irigoyen, con Fable (Claude) como colaborador de
+investigación. Esta página se actualiza cuando cambia el estado de una crítica o llega una
+pregunta nueva que merece estar acá.</p>
+</div>
+
+</main>
+<script>
+(function(){
+  var b=document.getElementById('btnModo');
+  function pinta(){b.textContent=document.body.classList.contains('claro')?'☾ oscuro':'☀ claro';}
+  try{if(localStorage.getItem('tci-modo')==='claro')document.body.classList.add('claro');}catch(e){}
+  pinta();
+  b.onclick=function(){document.body.classList.toggle('claro');
+    try{localStorage.setItem('tci-modo',document.body.classList.contains('claro')?'claro':'oscuro');}catch(e){}
+    pinta();};
+  var t=document.getElementById('btnTodo'),abierto=false;
+  t.onclick=function(){abierto=!abierto;
+    document.querySelectorAll('details').forEach(function(d){d.open=abierto;});
+    t.textContent=abierto?'cerrar todo':'abrir todo';};
+  // si llegan por anchor a un details, abrirlo
+  function abreHash(){var h=location.hash&&document.querySelector(location.hash);
+    if(h&&h.tagName==='DETAILS')h.open=true;}
+  window.addEventListener('hashchange',abreHash);abreHash();
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){var h=document.querySelector(a.getAttribute('href'));
+      if(h&&h.tagName==='DETAILS')h.open=true;});});
+})();
+</script>
+</body>
+</html>
