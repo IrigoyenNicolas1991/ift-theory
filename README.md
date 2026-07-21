@@ -1,6 +1,7 @@
 # Intangible Field Theory (TCI) — technical repository
 
 **[❓ Preguntas y críticas — FAQ](https://irigoyennicolas1991.github.io/ift-theory/preguntas/)** · the honest FAQ: expected criticisms, labeled answers
+**[🏆 La vidriera — milestones](https://irigoyennicolas1991.github.io/ift-theory/vidriera/)** · every result on one live page, each linked to its document
 
 A substrate model of gravity, inertia and rest energy: space as a pressurized medium,
 matter as deficits ("holes") in it. Developed in the open, with a strict honesty protocol:
@@ -23,6 +24,7 @@ and the answers we have — including the ones where the critic is right.)
 |---|---|---|
 | [Paper técnico](https://irigoyennicolas1991.github.io/ift-theory/) | The full field-theoretic formulation, with the falsified sectors declared up front | EN |
 | [Preguntas y críticas (FAQ)](https://irigoyennicolas1991.github.io/ift-theory/preguntas/) | Expected criticisms + reader questions, honestly labeled | ES |
+| [La vidriera (hitos)](https://irigoyennicolas1991.github.io/ift-theory/vidriera/) | Todos los hitos en una página viva, cada uno con su documento | ES |
 | [Notas de trabajo](notas/) | Bitácora de desarrollo: derivaciones, calibraciones, falsaciones, con scripts de verificación | ES |
 | [Sitio conceptual](https://irigoyennicolas1991.github.io/teoria-campo-intangible/) | La teoría por partes, en lenguaje llano | ES |
 | [El libro «El océano y la huella»](https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/) | La teoría contada como una sola pregunta, con simulaciones jugables | ES |

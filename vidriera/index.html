@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TCI — La vidriera: los hitos de la teoría</title>
+<meta name="description" content="Todos los hitos de la Teoría del Campo Intangible en una página viva: lo derivado, lo verificado y lo construido — cada pieza con su documento. La vidriera de la teoría.">
+<style>
+:root{
+  --fondo:#06121f; --panel:rgba(10,26,44,.78); --tinta:#dce8f4; --tenue:#8fa6bc;
+  --acento:#5db4ff; --calido:#ffc46b; --ok:#7fd98a; --violeta:#b89aff;
+  --borde:#1c3450;
+  --g1:rgba(93,180,255,.11); --g2:rgba(123,107,255,.10); --g3:rgba(127,217,138,.07);
+  --velo:linear-gradient(180deg,rgba(2,8,16,.55) 0%,rgba(2,8,16,0) 30%,rgba(2,8,16,0) 70%,rgba(2,8,16,.45) 100%);
+}
+body.claro{
+  --fondo:#f6f2e9; --panel:rgba(255,253,246,.82); --tinta:#20303f; --tenue:#5d6f80;
+  --acento:#1567b3; --calido:#a86a12; --ok:#1e7a3a; --violeta:#6b4fa8;
+  --borde:#d8cfba;
+  --g1:rgba(21,103,179,.12); --g2:rgba(107,79,168,.09); --g3:rgba(30,122,58,.08);
+  --velo:linear-gradient(180deg,rgba(255,252,244,.5) 0%,rgba(255,252,244,0) 30%,rgba(255,252,244,0) 70%,rgba(255,252,244,.4) 100%);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);
+  font:17px/1.65 Georgia,'Times New Roman',serif;transition:color .3s}
+
+/* ——— el fondo vivo: gradientes a la deriva ——— */
+.fondo{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--fondo);transition:background .3s}
+.fondo::before,.fondo::after,.fondo .b3{content:"";position:absolute;width:95vmax;height:95vmax;
+  border-radius:50%;pointer-events:none}
+.fondo::before{left:-30vmax;top:-35vmax;
+  background:radial-gradient(closest-side,var(--g1) 0%,transparent 64%);
+  animation:drift1 70s ease-in-out infinite alternate}
+.fondo::after{right:-38vmax;bottom:-38vmax;
+  background:radial-gradient(closest-side,var(--g2) 0%,transparent 64%);
+  animation:drift2 95s ease-in-out infinite alternate}
+.fondo .b3{left:12vw;bottom:-60vmax;width:85vmax;height:85vmax;
+  background:radial-gradient(closest-side,var(--g3) 0%,transparent 64%);
+  animation:drift3 80s ease-in-out infinite alternate}
+.fondo .velo{position:absolute;inset:0;background:var(--velo)}
+@keyframes drift1{0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(20vmax,12vmax,0) scale(1.18)}
+  100%{transform:translate3d(6vmax,26vmax,0) scale(.92)}}
+@keyframes drift2{0%{transform:translate3d(0,0,0) scale(1.05)}
+  50%{transform:translate3d(-18vmax,-10vmax,0) scale(.9)}
+  100%{transform:translate3d(-30vmax,8vmax,0) scale(1.15)}}
+@keyframes drift3{0%{transform:translate3d(0,0,0) scale(1)}
+  100%{transform:translate3d(14vmax,-22vmax,0) scale(1.12)}}
+@media (prefers-reduced-motion:reduce){
+  .fondo::before,.fondo::after,.fondo .b3{animation:none}}
+
+main{max-width:840px;margin:0 auto;padding:0 20px 80px}
+h1{font-size:2.5em;line-height:1.1;margin:.2em 0 .1em;letter-spacing:.5px}
+h2{font-size:1.35em;margin:2.6em 0 .35em;color:var(--acento)}
+h2 .num{color:var(--tenue);font-weight:normal;margin-right:.4em}
+p{margin:.9em 0}
+strong{color:var(--calido)}
+a{color:var(--acento)}
+.hero{padding:70px 0 6px;text-align:center}
+.hero .sub{color:var(--tenue);font-style:italic;font-size:1.08em;max-width:620px;margin:.6em auto}
+
+/* contadores en vivo */
+.stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 6px}
+.stat{background:var(--panel);border:1px solid var(--borde);border-radius:12px;
+  padding:10px 18px;min-width:130px}
+.stat .n{display:block;font-size:1.9em;line-height:1.1;font-family:Georgia,serif}
+.stat .l{display:block;font-size:.72em;font-family:system-ui;color:var(--tenue);letter-spacing:.3px}
+.stat.verde .n{color:var(--ok)} .stat.azul .n{color:var(--acento)}
+.stat.ambar .n{color:var(--calido)} .stat.sede .n{color:var(--violeta)}
+
+.aviso{background:var(--panel);border:1px solid var(--borde);border-left:4px solid var(--calido);
+  border-radius:8px;padding:12px 16px;font-size:.86em;color:var(--tenue);margin:26px 0}
+.aviso b{color:var(--calido)}
+
+/* leyenda de puntitos */
+.leyenda{font-size:.83em;font-family:system-ui;color:var(--tenue);background:var(--panel);
+  border:1px solid var(--borde);border-radius:8px;padding:10px 16px;margin:14px 0;
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.leyenda span{white-space:nowrap}
+.punto{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none;
+  vertical-align:baseline;margin-right:8px}
+.pv{background:var(--ok);box-shadow:0 0 6px var(--ok)}
+.pa{background:var(--acento);box-shadow:0 0 6px var(--acento)}
+.pm{background:var(--calido);box-shadow:0 0 6px var(--calido)}
+.ps{background:var(--violeta);box-shadow:0 0 6px var(--violeta)}
+
+.intro{color:var(--tenue);font-size:.95em;margin:.2em 0 1em}
+.chip{font-size:.55em;font-weight:normal;font-family:system-ui;letter-spacing:.6px;
+  border:1px solid var(--calido);color:var(--calido);border-radius:12px;padding:2px 9px;
+  vertical-align:middle;margin-left:.6em;white-space:nowrap;opacity:.8}
+.chip.corpus{border-color:var(--ok);color:var(--ok)}
+
+/* los hitos */
+details.hito{background:var(--panel);border:1px solid var(--borde);border-radius:10px;
+  margin:8px 0;padding:0;transition:border-color .2s}
+details.hito[open]{border-color:var(--acento)}
+details.hito summary{cursor:pointer;padding:11px 14px;line-height:1.45;
+  display:flex;align-items:baseline;gap:0;list-style:none}
+details.hito summary::-webkit-details-marker{display:none}
+details.hito summary:hover .tit b{color:var(--acento)}
+.hito .punto{position:relative;top:-1px}
+.hito.verde .punto{background:var(--ok);box-shadow:0 0 6px var(--ok)}
+.hito.azul .punto{background:var(--acento);box-shadow:0 0 6px var(--acento)}
+.hito.ambar .punto{background:var(--calido);box-shadow:0 0 6px var(--calido)}
+.tit{flex:1 1 auto;min-width:0}
+.tit .mini{color:var(--tenue);font-size:.92em}
+.meta{flex:none;margin-left:14px;font-family:system-ui;font-size:.78em;white-space:nowrap}
+.meta .fecha{color:var(--tenue);opacity:.75;margin-right:10px}
+.meta a.doc{text-decoration:none;border:1px solid var(--borde);border-radius:11px;
+  padding:2px 9px;color:var(--acento)}
+.meta a.doc:hover{border-color:var(--acento)}
+.hito .cuerpo{padding:2px 18px 13px;border-top:1px solid var(--borde);padding-top:10px;
+  font-size:.95em}
+.hito .cuerpo p{margin:.6em 0}
+.recibos{font-size:.83em;color:var(--tenue)}
+
+/* las sedes */
+.sedes{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:14px 0}
+a.sede-card{display:block;background:var(--panel);border:1px solid var(--borde);border-radius:10px;
+  padding:13px 15px;text-decoration:none;color:var(--tinta);transition:border-color .2s,transform .15s}
+a.sede-card:hover{border-color:var(--violeta);transform:translateY(-2px)}
+.sede-card .emo{font-size:1.35em;display:block;margin-bottom:2px}
+.sede-card b{color:var(--tinta)}
+a.sede-card:hover b{color:var(--violeta)}
+.sede-card .que{display:block;font-size:.82em;color:var(--tenue);margin-top:3px;line-height:1.45}
+
+.pie{margin-top:60px;padding-top:18px;border-top:1px solid var(--borde);font-size:.85em;color:var(--tenue)}
+.modo{position:fixed;top:14px;right:14px;z-index:5;display:flex;gap:8px}
+button{background:var(--panel);border:1px solid var(--acento);color:var(--acento);border-radius:20px;
+  padding:5px 14px;font:13px system-ui;cursor:pointer;backdrop-filter:blur(4px)}
+.faqpill{position:fixed;top:14px;left:14px;z-index:5;background:var(--panel);
+  border:1px solid var(--borde);border-radius:20px;padding:5px 14px;font:13px system-ui;
+  color:var(--tenue);text-decoration:none;backdrop-filter:blur(4px)}
+.faqpill:hover{color:var(--acento);border-color:var(--acento)}
+.hint{text-align:center;font-size:.8em;font-family:system-ui;color:var(--tenue);margin:4px 0 0}
+
+@media(max-width:620px){
+  h1{font-size:2em}
+  details.hito summary{flex-wrap:wrap}
+  .meta{margin-left:17px;margin-top:2px;flex-basis:100%}
+  .stat{min-width:104px;padding:8px 12px}
+  .stat .n{font-size:1.5em}
+  .faqpill .txt{display:none}
+  .faqpill{padding:5px 11px}
+}
+</style>
+</head>
+<body>
+<div class="fondo" aria-hidden="true"><div class="b3"></div><div class="velo"></div></div>
+<a class="faqpill" href="../preguntas/">❓<span class="txt"> preguntas y críticas</span></a>
+<div class="modo"><button id="btnDetalle">ver en detalle</button><button id="btnModo">☀ claro</button></div>
+<main>
+
+<div class="hero">
+  <h1>La vidriera</h1>
+  <p class="sub">Los hitos de la Teoría del Campo Intangible, todos en una página:
+  lo derivado, lo verificado y lo construido — cada pieza con su documento.</p>
+
+  <div class="stats">
+    <div class="stat verde"><span class="n" id="nVerde">–</span><span class="l">resultados verificados</span></div>
+    <div class="stat azul"><span class="n" id="nAzul">–</span><span class="l">predicciones falsables</span></div>
+    <div class="stat ambar"><span class="n" id="nAmbar">–</span><span class="l">apuestas vivas</span></div>
+    <div class="stat sede"><span class="n" id="nSedes">–</span><span class="l">sedes construidas</span></div>
+  </div>
+  <p class="hint">tocá cualquier hito para leerlo en detalle · el botón de arriba los abre todos</p>
+</div>
+
+<div class="aviso"><b>La regla de esta casa</b> dice que las derrotas se publican igual que las
+victorias — y ya tienen su casa: viven en las <a href="../preguntas/">preguntas y críticas</a>,
+en el <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/README.md">marcador
+honesto</a> y en cada bitácora, fechadas el mismo día. Esta página es la otra mitad del trato:
+la vidriera de lo ganado. Trofeos todavía no hay ninguno — lo que se exhibe es el orgullo del
+trabajo: derivado, verificado y con el documento a un click. Última actualización: 21 de julio de 2026.</div>
+
+<div class="leyenda">
+  <span><span class="punto pv"></span>verificado con cálculo</span>
+  <span><span class="punto pa"></span>predicción falsable propia</span>
+  <span><span class="punto pm"></span>apuesta viva, declarada</span>
+  <span><span class="punto ps"></span>sede construida</span>
+</div>
+
+<!-- ══════════════ I. TCI 1.0 ══════════════ -->
+
+<h2 id="tci1"><span class="num">I.</span> TCI 1.0 — el sector escalar <span class="chip corpus">corpus publicado</span></h2>
+<p class="intro">La versión publicada y examinada: la materia como huecos en un medio a presión,
+descripta por un campo escalar. Balance declarado: <b>2 números calibrados, 7 observables
+reproducidos</b>, y una predicción propia que un telescopio puede matar.</p>
+
+<details class="hito verde" id="pregunta">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La pregunta fundacional, bien respondida</b> <span class="mini">— ¿la gravedad viaja a la velocidad de la luz?</span></span>
+  <span class="meta"><span class="fecha">origen</span><a class="doc" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">sitio →</a></span></summary>
+<div class="cuerpo"><p>TCI no nació buscando una teoría del todo: nació de una sola pregunta —
+si el sol desapareciera, ¿la Tierra se desorbita al instante o recién cuando se apaga la luz?
+La respuesta del medio es estructural: gravedad y luz viajan por el mismo mar, así que llegan
+juntas. GW170817 midió esa coincidencia a una parte en 10¹⁵. Todo lo demás se fue abriendo
+después, "como un buscaminas".</p>
+<p class="recibos">Recibos: <a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">el sitio conceptual</a> ·
+<a href="../preguntas/">el FAQ</a></p></div>
+</details>
+
+<details class="hito verde" id="emc2">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>E = mc² desde P·V</b> <span class="mini">— la energía en reposo es el trabajo de abrir el hueco</span></span>
+  <span class="meta"><span class="fecha">fundacional</span><a class="doc" href="../">paper →</a></span></summary>
+<div class="cuerpo"><p>La primera derivación de la teoría, y es de Nicolás: sacar un volumen V
+de un medio a presión P cuesta un trabajo W = P·V; con P = ρ₀c², la energía de la vacancia es
+E = mc². No se postula: sale de la contabilidad del desalojo. La pieza interactiva
+<em>Lo que el mar pagó</em> la deja tocar — abrís un hueco y un contador mide en vivo el mar
+desalojado, un solo número con dos nombres.</p>
+<p class="recibos">Recibos: <a href="../">el paper técnico</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">Lo que el mar pagó</a></p></div>
+</details>
+
+<details class="hito verde" id="newton">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>Newton en el límite débil</b> <span class="mini">— la gravedad como desbalance de presión, con G derivada</span></span>
+  <span class="meta"><span class="fecha">fundacional</span><a class="doc" href="../">paper →</a></span></summary>
+<div class="cuerpo"><p>Dos huecos se hacen sombra en el mar y el desbalance de presión los
+empuja a juntarse. En campo débil la teoría reproduce la ley de Newton con
+G = Kμ⁴/4πρ₀² — la constante de gravitación deja de ser un número misterioso y pasa a ser
+una propiedad medible del medio.</p>
+<p class="recibos">Recibos: <a href="../">el paper técnico</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">la versión conceptual</a></p></div>
+</details>
+
+<details class="hito verde" id="inercia">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La inercia como reacción del medio</b> <span class="mini">— d'Alembert, masa añadida, y E(v)=γmc² con techo c</span></span>
+  <span class="meta"><span class="fecha">fundacional</span><a class="doc" href="../">paper →</a></span></summary>
+<div class="cuerpo"><p>La resistencia a acelerar es la reacción del mar: mover una huella exige
+reacomodar el medio alrededor, como una esfera acelerando en un fluido (masa añadida). En
+movimiento uniforme el mar no frena nada — por eso la Tierra no se frena —, pero acelerar sí
+cuesta, y la cuenta reproduce E(v) = γmc², con el techo de la velocidad de la luz incluido:
+no podés usar al cartero para mandar algo más rápido que el correo.</p>
+<p class="recibos">Recibos: <a href="../">el paper técnico (§5)</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">el libro, caps. 6-7</a></p></div>
+</details>
+
+<details class="hito verde" id="deflexion">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La luz que se curva</b> <span class="mini">— resuelto el problema de Nordström: n = 1+2GM/c²r, PPN γ=1</span></span>
+  <span class="meta"><span class="fecha">jul 02</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-deflexion-luz-2026-07-02.md">nota →</a></span></summary>
+<div class="cuerpo"><p>El problema que mató a la teoría de Nordström en 1913: un medio con
+velocidad de sonido constante no curva la luz. La salida vive en la curvatura de la ecuación
+de estado (β=4, calibrado con el eclipse de 1919): el índice efectivo da n = 1 + 2GM/c²r —
+la deflexión correcta, PPN γ=1. Y de regalo, sin pedirlos: el retardo de Shapiro y la
+no-dispersión (radio y óptico se curvan igual, como exige VLBI).</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-deflexion-luz-2026-07-02.md">la nota de deflexión</a> ·
+<a href="../">paper §7.4 (ecs. 49-54)</a></p></div>
+</details>
+
+<details class="hito verde" id="perihelio">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>El perihelio de Mercurio: 42.98″/siglo</b> <span class="mini">— verificado numéricamente a 4 cifras</span></span>
+  <span class="meta"><span class="fecha">jul 02</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-perihelio-resultado-2026-07-02.md">nota →</a></span></summary>
+<div class="cuerpo"><p>Con la no-linealidad ubicada en el término cinético temporal, β_PPN=1 y
+salen los 42.98 segundos de arco por siglo — verificados con integración numérica de órbitas
+a 4 cifras contra la fórmula PPN. Las ubicaciones alternativas dan 50.15, 57.31 o 28.66:
+excluidas. De regalo: el test lunar de Nordtvedt (η=0) y la precesión geodética correcta.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-perihelio-resultado-2026-07-02.md">la nota de resultado</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/perihelio.py">perihelio.py</a> ·
+<a href="../">paper §7.5 (ecs. 55-61)</a></p></div>
+</details>
+
+<details class="hito verde" id="yilmaz">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La métrica de Yilmaz, derivada del medio</b> <span class="mini">— campo fuerte sin horizonte de eventos</span></span>
+  <span class="meta"><span class="fecha">jul 02</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-campo-fuerte-2026-07-02.md">nota →</a></span></summary>
+<div class="cuerpo"><p>Pidiendo el mismo principio de composición que da E = mc²e^(−φ), la
+métrica de campo fuerte sale exponencial: ds² = e^(−2φ)dt² − e^(2φ)dx². Es la métrica de
+Yilmaz (1958) — acá no postulada sino derivada del medio. Coincide con Schwarzschild en todos
+los tests débiles y se separa en campo fuerte: no hay horizonte de eventos; hay un objeto
+oscuro sin punto de no retorno.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-campo-fuerte-2026-07-02.md">la nota de campo fuerte</a> ·
+<a href="../">paper §7.6 (ecs. 62-64)</a></p></div>
+</details>
+
+<details class="hito azul" id="prediccion">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La predicción propia: sombras +4.6%, ISCO −6.9%, ringdown −4.4%</b> <span class="mini">— tres observables, un solo número</span></span>
+  <span class="meta"><span class="fecha">jul 02</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-ringdown-2026-07-02.md">nota →</a></span></summary>
+<div class="cuerpo"><p>Si el mar tiene razón, los agujeros negros muestran una sombra un 4.6%
+más grande que en relatividad general, giran su última órbita estable un 6.9% más despacio y
+suenan un 4.4% más grave en el ringdown. Los tres observables los gobierna un solo número
+geométrico (b_c), así que están <em>atados</em>: no se puede ajustar uno sin mover los otros.
+Compatible con el EHT actual (±10%); el ngEHT y los detectores de tercera generación (~1%)
+deciden. Predicción fechada y archivada — el riesgo es la credencial.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-campo-fuerte-2026-07-02.md">nota de campo fuerte</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/NOTA-ringdown-2026-07-02.md">nota de ringdown</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/campo_fuerte.py">campo_fuerte.py</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/ringdown.py">ringdown.py</a></p></div>
+</details>
+
+<!-- ══════════════ II. TCI 2.0 — condensado ══════════════ -->
+
+<h2 id="tci2"><span class="num">II.</span> TCI 2.0 — el mar y sus nudos <span class="chip">etapa especulativa</span></h2>
+<p class="intro">La reconstrucción en marcha: el medio no es un sólido de flechas sino un
+<b>condensado de gotas</b> — un superfluido con orden J=2. Nada de esto es corpus todavía y
+así está declarado en cada documento; el cuaderno de laboratorio completo es la
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora de campaña</a>.</p>
+
+<details class="hito verde" id="dos-tt">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>Las dos polarizaciones de la onda gravitatoria, sin masa</b> <span class="mini">— el espectro del mar de gotas sobre su eje</span></span>
+  <span class="meta"><span class="fecha">jul 16</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-graviton-dos-polarizaciones.md">paper →</a></span></summary>
+<div class="cuerpo"><p>El resultado central de la campaña: en la fase D₄ del superfluido J=2,
+el espectro sobre el eje especial de la fase da <em>exactamente dos</em> modos
+transverso-sin-traza sin masa — las dos polarizaciones de una onda gravitatoria — más dos
+vectoriales que no radian. Donde TCI 1.0 murió por spin-1, el mar de gotas paga spin-2.
+Verificado con tres modelos independientes, incluido el funcional textual de la literatura
+de estrellas de neutrones (cuyo caso publicado se reprodujo primero, como control).</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-graviton-dos-polarizaciones.md">el paper en gestación</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §14-§17</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/espectro_biaxial_3p2.py">espectro_biaxial_3p2.py</a></p></div>
+</details>
+
+<details class="hito verde" id="fonon">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>«La segunda polarización es el sonido»</b> <span class="mini">— el mecanismo fonón-U(1), candidato a aporte original</span></span>
+  <span class="meta"><span class="fecha">jul 16</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-graviton-dos-polarizaciones.md">paper →</a></span></summary>
+<div class="cuerpo"><p>De las dos polarizaciones, una es el Goldstone rotacional esperable. La
+otra es una sorpresa: el modo de fase del superfluido — su sonido — que en la fase biaxial
+hereda el tensor del condensado y resulta transverso-sin-traza respecto de su propio eje.
+El sonido del mar y la segunda polarización de la onda gravitatoria son el mismo objeto visto
+en direcciones distintas. Catorce búsquedas dirigidas no encontraron precedente del mecanismo;
+el barrido exhaustivo final figura en la lista de bloqueo del paper, como manda la casa.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-graviton-dos-polarizaciones.md">el paper en gestación</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §15-§17</a></p></div>
+</details>
+
+<details class="hito verde" id="nudos">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La tabla de nudos</b> <span class="mini">— π₁ no abeliano: 7 familias de vórtices, Majoranas, anyones</span></span>
+  <span class="meta"><span class="fecha">jul 17</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>Los defectos del mar de gotas forman un catálogo con estructura: el
+grupo fundamental de la fase es no abeliano (ℤ×ₕD₄*), con siete familias de vórtices,
+medios-cuantos como objetos fundamentales, moléculas unidas por solitones y modos de Majorana
+en los núcleos — anyones no abelianos por dos vías, algo que ningún otro sistema conocido
+junta. La conjetura de la casa: las partículas son los nudos del mar.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §20</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/NUCLEO-TCI2-lagrangiano.md">el tronco (lagrangiano maestro)</a></p></div>
+</details>
+
+<details class="hito verde" id="anillos">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>Partículas = anillos: el twist estabiliza</b> <span class="mini">— y el mar solo acuña la moneda mínima</span></span>
+  <span class="meta"><span class="fecha">jul 17</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>Un vórtice recto es una cuerda infinita; una partícula tiene que ser un
+anillo cerrado. El cálculo del vortón de juguete muestra que el twist interno estabiliza el
+anillo contra el colapso (el teorema de Derrick pierde), y que la torre de energías es
+superlineal: E₂ &gt; 2E₁ — solo el twist ±1 es absolutamente estable, los superiores fisionan.
+Un mar tacaño, que fabrica una sola especie estable por sector: como los leptones.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §21</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/anillos_toy.py">anillos_toy.py</a></p></div>
+</details>
+
+<details class="hito verde" id="coulomb">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>El Coulomb del mar: dos electricidades</b> <span class="mini">— el teorema de las dos monedas, verificado no lineal</span></span>
+  <span class="meta"><span class="fecha">jul 18</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>En la fase D₄ conviven dos sectores U(1) exactamente desacoplados y de
+igual rigidez: dos electricidades. El teorema — estilo London, con el cambio de variables 4:1
+exacto porque el cuadrupolo acopla rotación con carga 2 — se confrontó contra el modelo no
+lineal completo: pendientes de Coulomb al 1-3.5% de lo predicho, y los pares neutros, neutros.
+La química de la red de nudos tiene su electrostática calculada.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §30</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/coulomb_del_mar.py">coulomb_del_mar.py</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-dos-electricidades.md">paper en gestación</a></p></div>
+</details>
+
+<details class="hito verde" id="molecula">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La molécula del mar, ligada y medida</b> <span class="mini">— el «van der Waals» de los nudos: atracción ~1/d³</span></span>
+  <span class="meta"><span class="fecha">jul 18</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>Un vórtice entero suelto se parte solo en dos medios-nudos — uno por
+electricidad — que quedan ligados. La fuerza entre los socios se midió directa sobre el campo:
+atractiva, con ley ~1/d³ (potencia dipolar), y explica el tamaño de equilibrio de la molécula:
+atracción de largo alcance más repulsión de núcleo. Dos métodos independientes coinciden al
+0.6-1.5%, y el control del nudo solo da fuerza cero exacta.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §30 (nightcap)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/coulomb_del_mar.py">coulomb_del_mar.py (modo residuo)</a></p></div>
+</details>
+
+<details class="hito verde" id="oscuros">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>Vectoriales oscuros: 0.00% en la fusión</b> <span class="mini">— primer test dinámico de los canales de más</span></span>
+  <span class="meta"><span class="fecha">jul 18</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>El espectro trae dos modos vectoriales que LIGO no ve — un peligro
+clásico de las teorías alternativas. Primer test dinámico: en la evolución temporal completa
+de una binaria de nudos hasta la fusión, la energía radiada por los canales vectoriales fue
+0.00% — exacto, por simetría, en todas las ventanas medidas. Los sectores no se mezclan ni
+en el choque. Alentador, y declarado como lo que es: un test en el juguete 2D, no el veredicto
+final.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §31</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/binaria_del_mar.py">binaria_del_mar.py</a></p></div>
+</details>
+
+<details class="hito verde" id="cuadrupolo">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La forma del cuadrupolo es universal</b> <span class="mini">— P ∝ Ω⁶d⁴/v⁵ exacto para cualquier canal sin masa</span></span>
+  <span class="meta"><span class="fecha">jul 17</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>Verificado numéricamente, sin expansión multipolar: la potencia radiada
+por una binaria escala P ∝ Ω⁶·d⁴/v⁵ — la forma exacta del cuadrupolo de Einstein — para
+cualquier canal lineal sin masa. Consecuencia afilada para el programa: el púlsar de
+Hulse-Taylor no examina la <em>forma</em> de la fórmula (esa viene gratis) sino su
+<em>coeficiente</em>. El examen quedó desarmado en tres piezas concretas, cada una con su
+cálculo pendiente bien definido.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §28</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/scaling_cuadrupolo.py">scaling_cuadrupolo.py</a></p></div>
+</details>
+
+<details class="hito verde" id="z2">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>Una calibración de TCI 1.0, vuelta estructura</b> <span class="mini">— σ(Mercurio)=0 es automático por simetría Z₂</span></span>
+  <span class="meta"><span class="fecha">jul 19</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-NUCLEO-2026-07-19.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>TCI 1.0 necesitaba elegir a mano dónde vive la no-linealidad para que
+Mercurio saliera (una elección a ~300σ contra las alternativas). En el mar de gotas eso es un
+teorema: la simetría Z₂ de la fase mata el término exacto — el modo relevante es impar y el
+vacío es invariante. Una calibración menos: la estructura la paga sola. El mismo día salió
+también una ley cerrada nueva para la masa del modo (m²ᵣ = 32γa₀⁴).</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-NUCLEO-2026-07-19.md">bitácora del núcleo §N8</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-censo-nucleo.md">paper en gestación (censo/núcleo)</a></p></div>
+</details>
+
+<details class="hito verde" id="pe">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>El principio de equivalencia emerge del nudo</b> <span class="mini">— E = E₀(1−pφ) con p≈1, derivado desde abajo</span></span>
+  <span class="meta"><span class="fecha">jul 19</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-NUCLEO-2026-07-19.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>La energía de un defecto responde al estado local del mar como
+E = E₀(1−pφ) con p ≈ 1 (más una corrección logarítmica, declarada): es el ancla
+E = mc²·e^(−φ) de TCI 1.0, ahora derivada desde la microestructura en vez de postulada.
+El control de la constante contra la literatura del vórtice dio exacto.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-NUCLEO-2026-07-19.md">bitácora del núcleo §N9</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-censo-nucleo.md">paper en gestación (censo/núcleo)</a></p></div>
+</details>
+
+<details class="hito verde" id="leybeta">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La ley de refracción β = 2(1−v²)</b> <span class="mini">— teorema de clase, exacto en el modelo mínimo</span></span>
+  <span class="meta"><span class="fecha">jul 19</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-NUCLEO-2026-07-19.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>Un teorema con filo propio: en toda una clase de condensados (potencial
+polinómico, cinética canónica), la curvatura gravitatoria efectiva que un modo puede sentir
+está atada a su velocidad: β = 2(1−v²/c²) — exacta en el modelo mínimo U(1), con raíz cerrada,
+y verificada en el modelo completo. Una sola fórmula ordena qué clases de modelos pueden y no
+pueden pagar la refracción gravitatoria de la luz. Ese filo ya cortó: señaló dónde debe vivir
+la no-linealidad del 4 (en la cinética temporal — la misma forma que TCI 1.0 encontró a mano).</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-NUCLEO-2026-07-19.md">bitácora del núcleo §N5-N7</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/nucleo_beta4.py">nucleo_beta4.py</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-censo-nucleo.md">paper en gestación</a></p></div>
+</details>
+
+<details class="hito verde" id="core">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>El corazón del nudo, resuelto</b> <span class="mini">— se llena solo, alineado al eje, con quiralidad esclava del winding</span></span>
+  <span class="meta"><span class="fecha">jul 21</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PASO-A-bisagra-core-2026-07-21.md">acta →</a></span></summary>
+<div class="cuerpo"><p>La compuerta de la materia se abrió: el núcleo del medio-nudo se llena
+espontáneamente con la mezcla FM+cíclica alineada al eje del tubo — atractor único desde
+cuatro semillas independientes, con control de espejo exacto: la quiralidad del relleno es
+esclava del sentido del nudo. El pinning de orientación es duro (no hay cuencas mudas), así
+que el conteo fermiónico del tubo (Paso B) arranca con semáforo verde — y con su criterio de
+muerte firmado de antemano, como corresponde.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PASO-A-bisagra-core-2026-07-21.md">el acta del Paso A</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/paso_a_bisagra_core.py">paso_a_bisagra_core.py</a></p></div>
+</details>
+
+<details class="hito ambar" id="familias">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>¿Familias e/μ/τ = niveles del anillo?</b> <span class="mini">— primer mecanismo candidato, especulación declarada</span></span>
+  <span class="meta"><span class="fecha">jul 17</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora →</a></span></summary>
+<div class="cuerpo"><p>Si la partícula es un anillo, su núcleo tiene niveles internos discretos
+(dos torres de energía calculables). Eso es un candidato natural para el misterio de las tres
+familias: misma carga topológica, distinto estado interno — la misma partícula, más pesada.
+Es especulación al cubo y lleva esa etiqueta en la bitácora; está acá porque es la primera vez
+que el programa tiene <em>algún</em> mecanismo para ese misterio.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora §25</a></p></div>
+</details>
+
+<details class="hito ambar" id="pasob">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>El frente vivo: la compuerta única</b> <span class="mini">— el conteo fermiónico del tubo (Paso B), en marcha</span></span>
+  <span class="meta"><span class="fecha">hoy</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PASO-A-bisagra-core-2026-07-21.md">acta →</a></span></summary>
+<div class="cuerpo"><p>De un solo cálculo cuelga la materia del programa: resolver la
+estructura fermiónica de la sección del tubo (con el campo real del núcleo, medido en el
+Paso A) y contar las ramas por flujo espectral. Si el conteo da cero, hay lápida nueva y se
+publica como todas; si da distinto de cero, los nudos llevan fermiones de serie. El diseño
+del cálculo, los controles y el criterio de muerte ya están escritos.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PASO-A-bisagra-core-2026-07-21.md">acta del Paso A (§7: diseño del B)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/README.md">el índice de frentes vivos</a></p></div>
+</details>
+
+<!-- ══════════════ III. campaña m₂=0 ══════════════ -->
+
+<h2 id="m2"><span class="num">III.</span> TCI 2.0 — la campaña m₂=0 <span class="chip">etapa especulativa</span></h2>
+<p class="intro">La otra pata de la etapa: el diccionario exacto entre el medio y la
+<b>gravedad masiva con violación de Lorentz</b>. Acá vive el paper más maduro de la casa —
+y la segunda predicción falsable propia.</p>
+
+<details class="hito verde" id="fila">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La fila que faltaba</b> <span class="mini">— el medio U(X,Y) realiza la fase protegida de Dubovsky</span></span>
+  <span class="meta"><span class="fecha">jul 20</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">paper →</a></span></summary>
+<div class="cuerpo"><p>En el diccionario publicado entre medios continuos y gravedad masiva
+faltaba una fila: el medio invariante bajo difeomorfismos internos irrestrictos. Su gravedad
+tiene m₂=m₃=m₄=0 emergentes de los tadpoles — exactamente la esquina sin fantasma que
+Dubovsky describió en 2004 y que no tenía constructor conocido. La simetría dio 0 resultados
+en INSPIRE full-text; los parientes por otros marcos están citados en el paper, como
+corresponde.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">el paper (draft v0.2)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo/campana-m2">la carpeta de campaña con scripts</a></p></div>
+</details>
+
+<details class="hito verde" id="lema">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>El lema masa↔rigidez</b> <span class="mini">— m₂² = −2×rigidez de corte: la fase protegida exige mar fluido</span></span>
+  <span class="meta"><span class="fecha">jul 20</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">paper →</a></span></summary>
+<div class="cuerpo"><p>La masa del gravitón y la rigidez de corte del medio son el mismo número
+con el signo cruzado: m₂² = −2×(rigidez). Corolario con filo: pedir la fase protegida es pedir
+un mar <em>fluido</em> a orden dominante — la ironía de TCI 1.0 (que concluyó "el medio debe
+ser sólido" y murió por eso) resuelta por teorema. En otros marcos existen parientes del lema;
+en el marco del diccionario medio↔gravedad, no tenía precedente.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">el paper (draft v0.2)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/BARRIDO-INSPIRE-2026-07-21.md">acta del barrido de novedad</a></p></div>
+</details>
+
+<details class="hito verde" id="errata">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>Una errata en un PRD ajeno, cazada</b> <span class="mini">— verificada por cinco vías; el correo a los autores ya salió</span></span>
+  <span class="meta"><span class="fecha">jul 21</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/VERIFICACION-BCP-2026-07-21.md">acta →</a></span></summary>
+<div class="cuerpo"><p>En el camino apareció una errata en las fórmulas de masas de un paper
+publicado en Physical Review D (Ballesteros-Comelli-Pilo 2016): verificada por cinco vías
+independientes — cálculo directo, verificación ciega de un refutador sin acceso a la carpeta,
+una contradicción interna del propio paper, y los apéndices posteriores del mismo grupo, que
+usan los pesos correctos sin señalar nunca la discrepancia. El correo a los autores salió el
+21 de julio; la caza de erratas ajenas con recibos es parte del oficio.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/VERIFICACION-BCP-2026-07-21.md">el acta de verificación</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/verificacion_independiente.py">verificacion_independiente.py</a></p></div>
+</details>
+
+<details class="hito verde" id="causal">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>Teorema causal: RG exacta al orden dominante</b> <span class="mini">— γ_PPN=1 exacto; la masa solo fija el gauge</span></span>
+  <span class="meta"><span class="fecha">jul 21</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/ACOPLE-MATERIA-PPN-2026-07-21.md">acta →</a></span></summary>
+<div class="cuerpo"><p>Con materia adentro, la solución del sistema al orden dominante es
+relatividad general pura, exacta — residuo cero en las ocho ecuaciones de movimiento: la masa
+del medio no deforma la física local, solo fija el sistema de referencia. γ_PPN = 1 exacto,
+Newton estándar, y las modificaciones quedan empujadas a escalas cosmológicas. El medio pasa
+todos los tests del sistema solar sin pedir permiso.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/ACOPLE-MATERIA-PPN-2026-07-21.md">el acta de acople y PPN</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo/campana-m2/acople">los scripts de verificación</a></p></div>
+</details>
+
+<details class="hito azul" id="framedragging">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La firma propia: frame dragging apantallado</b> <span class="mini">— Yukawa-Meissner; LARES-2 puede acotarla hoy</span></span>
+  <span class="meta"><span class="fecha">jul 21</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">paper →</a></span></summary>
+<div class="cuerpo"><p>La predicción falsable de la campaña: si el medio está en su estado
+relajado, el arrastre de marcos (frame dragging) se apantalla tipo Yukawa a una escala fijada
+por Λ — un efecto Meissner gravitacional, derivado, no ajustado. La medición de LARES-2
+publicada en Nature en julio de 2026 (0.2%, presupuesto de error en disputa — ambos lados
+citados) pondría hoy Λ &lt; 1.12 MeV. En la literatura de fuentes de gravedad masiva LV no hay
+nada comparable: todas las soluciones publicadas viven en la fase espejo. La condición de
+estado del medio quedó declarada como la pregunta abierta central del paper.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">el paper (draft v0.2)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/ACOPLE-MATERIA-PPN-2026-07-21.md">acta con la derivación</a></p></div>
+</details>
+
+<details class="hito ambar" id="frw">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>¿La protección es un atractor cosmológico?</b> <span class="mini">— la expansión llevaría sola a la esquina protegida</span></span>
+  <span class="meta"><span class="fecha">hoy</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo/campana-m2/frw">carpeta →</a></span></summary>
+<div class="cuerpo"><p>En verificación ahora mismo: sobre el fondo cosmológico, la corriente
+conservada del medio diluye con la expansión y el sistema cae solo a la esquina protegida —
+con w=−1 exacto sobre el atractor y desviaciones que diluyen como polvo. Si aguanta la
+verificación adversarial, la fase protegida deja de ser una elección: es a donde el universo
+va por su cuenta. El fondo ya está calculado con seis chequeos; la rederivación independiente
+está en curso.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo/campana-m2/frw">la carpeta FRW</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/frw/fondo_frw.py">fondo_frw.py</a></p></div>
+</details>
+
+<!-- ══════════════ IV. el sótano ══════════════ -->
+
+<h2 id="sotano"><span class="num">IV.</span> El sótano — la espuma de vortones <span class="chip">etapa especulativa</span></h2>
+<p class="intro">Un piso más abajo, con una pregunta de Nicolás: ¿y si el mar de gotas es la
+<b>espuma de un fluido más profundo</b>, lleno de anillos de vórtice? Formalizado, auditado
+y con su primer paper.</p>
+
+<details class="hito verde" id="espuma">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>El teorema de la espuma</b> <span class="mini">— el fundamental de la red de anillos es la gota J=2, sin flecha</span></span>
+  <span class="meta"><span class="fecha">jul 20</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-espuma-nematica-DRAFT.md">paper →</a></span></summary>
+<div class="cuerpo"><p>Sobre las redes examinadas, el estado fundamental de una red de anillos
+de vórtice es el apilado laminar antialineado: un nemático uniforme <em>sin flecha neta</em> —
+exactamente el tipo de orden (J=2, dirección sin cabeza) que TCI 2.0 le pide al mar. El
+resultado satura una cota exacta (Luttinger-Tisza con suma de Ewald certificada contra tres
+controles publicados) y pasó una auditoría adversarial de tres escépticos antes de sellarse,
+con sus hipótesis H1-H3 declaradas en el paper.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-espuma-nematica-DRAFT.md">el paper (draft v0.9)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/NUCLEO-SOTANO-espuma-de-vortones.md">el tronco del sótano</a></p></div>
+</details>
+
+<details class="hito verde" id="panal">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>Imanes al revés y el panal triangular</b> <span class="mini">— la interacción exacta de Neumann, a cuadratura espectral</span></span>
+  <span class="meta"><span class="fecha">jul 20</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-espuma-nematica-DRAFT.md">paper →</a></span></summary>
+<div class="cuerpo"><p>Los anillos de vórtice interactúan como dipolos <em>invertidos</em>
+respecto de los imanes — prefieren exactamente lo contrario, con tabla de signos calculada
+(es energía cinética compartida, no potencial: el teorema del signo del paper). Con la
+fórmula exacta de Neumann evaluada a precisión 10⁻¹⁶: las capas ganadoras son panales
+triangulares de anillos en contacto lateral. La espuma tiene arquitectura, y es calculable.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-espuma-nematica-DRAFT.md">el paper (draft v0.9)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/sotano_neumann_exacto.py">sotano_neumann_exacto.py</a></p></div>
+</details>
+
+<details class="hito verde" id="tkachenko">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>El control de Tkachenko, a 4 cifras</b> <span class="mini">— la maquinaria propia reproduce física publicada antes de opinar</span></span>
+  <span class="meta"><span class="fecha">jul 19</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/HIPOTESIS-SOTANO-fluido-continuo.md">doc →</a></span></summary>
+<div class="cuerpo"><p>Regla de la casa: antes de dictaminar nada nuevo, la maquinaria tiene
+que reproducir algo viejo y medido. La velocidad de las ondas de Tkachenko de una red de
+vórtices — derivada acá desde la dinámica microscópica con suma de Ewald propia — coincide a
+4 cifras con la fórmula publicada (c_T = √(κΩ/8π)); y el mismo código reprodujo después el
+spin ice dipolar al 1.5% antes de examinar el hielo de vortones. Los árbitros primero, el
+veredicto después.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/HIPOTESIS-SOTANO-fluido-continuo.md">la hipótesis del sótano (Fase C)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/sotano_tkachenko.py">sotano_tkachenko.py</a></p></div>
+</details>
+
+<details class="hito ambar" id="rama8">
+<summary><span class="punto" aria-hidden="true"></span>
+  <span class="tit"><b>La condición de vida: el líquido nemático de anillos</b> <span class="mini">— fase pedida, aún no demostrada</span></span>
+  <span class="meta"><span class="fecha">en cola</span><a class="doc" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/NUCLEO-SOTANO-espuma-de-vortones.md">tronco →</a></span></summary>
+<div class="cuerpo"><p>Para que el sótano sostenga al piso de arriba, la espuma debe ser
+líquida en posiciones y ordenada en direcciones — un líquido nemático de anillos. Hoy es una
+fase pedida, no demostrada, y lleva esa etiqueta con vara puesta: el examen (rama 8) tiene su
+criterio escrito antes de correrse. Así se trabaja acá: primero la vara, después el salto.</p>
+<p class="recibos">Recibos: <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/NUCLEO-SOTANO-espuma-de-vortones.md">el tronco del sótano (§9, ramas)</a></p></div>
+</details>
+
+<!-- ══════════════ V. las sedes ══════════════ -->
+
+<h2 id="sedes"><span class="num">V.</span> Las sedes — lo construido para contarlo</h2>
+<p class="intro">Una teoría también se construye en páginas, simulaciones y cuadernos
+públicos. Todo esto está en línea, gratis, y con el código a la vista.</p>
+
+<div class="sedes">
+<a class="sede-card" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">
+  <span class="emo">📖</span><b>El océano y la huella</b>
+  <span class="que">El libro: 11 capítulos sin fórmulas y 5 simulaciones donde la física emerge sola — nada está programado para atraer.</span></a>
+<a class="sede-card" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">
+  <span class="emo">⚡</span><b>Lo que el mar pagó</b>
+  <span class="que">E=mc² para tocar: abrís el hueco, el contador mide el mar desalojado, y la ecuación se transforma delante tuyo.</span></a>
+<a class="sede-card" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/simulador/">
+  <span class="emo">🪐</span><b>El simulador</b>
+  <span class="que">Una órbita emergente de 38.7 vueltas alrededor de un sol de presión — con el truco declarado en pantalla.</span></a>
+<a class="sede-card" href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">
+  <span class="emo">🌊</span><b>El sitio conceptual</b>
+  <span class="que">La teoría contada de punta a punta en español, sin matemática y sin maquillaje.</span></a>
+<a class="sede-card" href="../">
+  <span class="emo">📜</span><b>El paper técnico</b>
+  <span class="que">El corpus en inglés: derivaciones, 65 ecuaciones, tests clásicos y las predicciones fechadas.</span></a>
+<a class="sede-card" href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/notas">
+  <span class="emo">🗒️</span><b>Las notas</b>
+  <span class="que">11 notas en español + scripts de verificación: cada resultado con su cuaderno público y su marcador honesto.</span></a>
+<a class="sede-card" href="../preguntas/">
+  <span class="emo">❓</span><b>Preguntas y críticas</b>
+  <span class="que">Las 15 objeciones más fuertes que supimos redactar contra nosotros mismos — con respuestas, deudas y derrotas.</span></a>
+<a class="sede-card" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">
+  <span class="emo">🔬</span><b>La bitácora TCI 2.0</b>
+  <span class="que">El cuaderno de laboratorio de la etapa especulativa, día por día: hallazgos, erratas propias y lápidas con causa.</span></a>
+<a class="sede-card" href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/README.md">
+  <span class="emo">📄</span><b>Los papers en gestación</b>
+  <span class="que">Cinco borradores técnicos, cada uno con su lista de bloqueo declarada antes de cualquier publicación.</span></a>
+<a class="sede-card" href="https://doi.org/10.5281/zenodo.21177500">
+  <span class="emo">🏛️</span><b>Zenodo</b>
+  <span class="que">El corpus archivado con fecha certificada: DOI 10.5281/zenodo.21177500. La prioridad, sellada.</span></a>
+<a class="sede-card" href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/simulador-lab">
+  <span class="emo">🚀</span><b>El simulador-laboratorio</b>
+  <span class="que">Taichi + GPU, 60.000 gotas: el laboratorio que mide (no solo muestra), para correr en tu máquina.</span></a>
+</div>
+
+<div class="pie">
+<p><b>¿Y las deudas?</b> Tienen su propia casa, con la puerta bien abierta: las
+<a href="../preguntas/">preguntas y críticas</a> (incluidas las críticas que son correctas),
+el <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/notas/README.md">marcador honesto</a>
+y el cementerio de rutas falsadas que vive en cada
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/BITACORA-campana-condensado-2026-07-16.md">bitácora</a>.
+Acá no faltan por ocultamiento: faltan porque ya están declaradas ahí, el mismo día que
+nacieron.</p>
+<p><b>Las sedes de TCI:</b>
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/libro/">el libro</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/">sitio conceptual</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">Lo que el mar pagó</a> ·
+<a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/simulador/">simulador</a> ·
+<a href="../">paper técnico</a> ·
+<a href="../preguntas/">preguntas y críticas</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/notas">notas y scripts</a> ·
+<a href="https://doi.org/10.5281/zenodo.21177500">Zenodo (DOI)</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory">GitHub</a></p>
+<p>Teoría del Campo Intangible — Nicolás Irigoyen, con Fable (Claude, una IA de Anthropic)
+como asistente de investigación. Contacto:
+<a href="mailto:nicolasirigoyen@teoriadelcampointangible.org">nicolasirigoyen@teoriadelcampointangible.org</a>.
+Esta vidriera se actualiza cuando un hito nuevo cierra — los contadores de arriba se cuentan
+solos desde la lista, así que lo que ves es el estado real de la página, no un número
+prometido.</p>
+</div>
+
+</main>
+<script>
+(function(){
+  // modo claro/profundo (clave compartida con las demás páginas de la casa)
+  var b=document.getElementById('btnModo');
+  function pinta(){b.textContent=document.body.classList.contains('claro')?'☾ profundo':'☀ claro';}
+  try{if(localStorage.getItem('tci-modo')==='claro')document.body.classList.add('claro');}catch(e){}
+  pinta();
+  b.onclick=function(){document.body.classList.toggle('claro');
+    try{localStorage.setItem('tci-modo',document.body.classList.contains('claro')?'claro':'oscuro');}catch(e){}
+    pinta();};
+
+  // ver todo en detalle / al grano
+  var t=document.getElementById('btnDetalle'),abierto=false;
+  t.onclick=function(){abierto=!abierto;
+    document.querySelectorAll('details.hito').forEach(function(d){d.open=abierto;});
+    t.textContent=abierto?'ver al grano':'ver en detalle';};
+
+  // contadores en vivo: se cuentan desde la lista real
+  document.getElementById('nVerde').textContent=document.querySelectorAll('details.hito.verde').length;
+  document.getElementById('nAzul').textContent=document.querySelectorAll('details.hito.azul').length;
+  document.getElementById('nAmbar').textContent=document.querySelectorAll('details.hito.ambar').length;
+  document.getElementById('nSedes').textContent=document.querySelectorAll('a.sede-card').length;
+
+  // los links dentro de un summary navegan sin togglear el pliegue
+  document.querySelectorAll('summary a').forEach(function(a){
+    a.addEventListener('click',function(e){e.stopPropagation();});});
+
+  // si llegan por anchor a un hito, abrirlo
+  function abreHash(){var h=location.hash&&document.querySelector(location.hash);
+    if(h&&h.tagName==='DETAILS')h.open=true;}
+  window.addEventListener('hashchange',abreHash);abreHash();
+})();
+</script>
+</body>
+</html>

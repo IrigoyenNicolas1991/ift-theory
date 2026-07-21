@@ -56,6 +56,24 @@
     text-rendering:optimizeLegibility;
   }
 
+  /* living background: drifting gradient washes (from La vidriera) */
+  .fondo{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--paper);}
+  .fondo::before,.fondo::after{content:"";position:absolute;width:95vmax;height:95vmax;
+    border-radius:50%;pointer-events:none;}
+  .fondo::before{left:-30vmax;top:-35vmax;
+    background:radial-gradient(closest-side,rgba(44,110,127,.07) 0%,transparent 64%);
+    animation:fdrift1 80s ease-in-out infinite alternate;}
+  .fondo::after{right:-38vmax;bottom:-38vmax;
+    background:radial-gradient(closest-side,rgba(31,82,96,.05) 0%,transparent 64%);
+    animation:fdrift2 105s ease-in-out infinite alternate;}
+  @keyframes fdrift1{0%{transform:translate3d(0,0,0) scale(1)}
+    50%{transform:translate3d(18vmax,10vmax,0) scale(1.15)}
+    100%{transform:translate3d(5vmax,24vmax,0) scale(.93)}}
+  @keyframes fdrift2{0%{transform:translate3d(0,0,0) scale(1.05)}
+    100%{transform:translate3d(-26vmax,7vmax,0) scale(1.14)}}
+  @media (prefers-reduced-motion: reduce){
+    .fondo::before,.fondo::after{animation:none;}}
+
   .eyebrow,
   .meta,
   .label,
@@ -398,6 +416,7 @@
 </style>
 </head>
 <body>
+<div class="fondo" aria-hidden="true"></div>
 
 <header class="masthead">
   <div class="masthead-inner">
@@ -408,7 +427,8 @@
       <span class="author">Nicolás Irigoyen</span><br>
       <span class="aff">Independent researcher · La Plata, Argentina</span><br>
       <span class="when">February 2026</span><br>
-      <span class="aff"><a href="preguntas/">Preguntas y críticas — FAQ</a> · expected criticisms &amp; honest answers (Spanish)</span>
+      <span class="aff"><a href="preguntas/">Preguntas y críticas — FAQ</a> · expected criticisms &amp; honest answers (Spanish)</span><br>
+      <span class="aff"><a href="vidriera/">La vidriera — milestones</a> · every result on one live page, each linked to its document (Spanish)</span>
     </p>
   </div>
 </header>
@@ -436,6 +456,7 @@
       <li><a href="#appB"><span class="n">B</span><span>Summary of Notation</span></a></li>
       <li><a href="#refs"><span class="n">—</span><span>References</span></a></li>
       <li><a href="preguntas/"><span class="n">?</span><span>FAQ — Preguntas y críticas (Spanish)</span></a></li>
+      <li><a href="vidriera/"><span class="n">★</span><span>Milestones — La vidriera (Spanish)</span></a></li>
     </ol>
   </nav>
 
@@ -940,7 +961,8 @@
   <p><span class="fauthor">Nicolás Irigoyen</span> · Independent researcher · La Plata, Argentina · February 2026<br>
   Intangible Field Theory (TCI) — Field-Theoretic Formulation.<br>
   Archived corpus: DOI <a href="https://doi.org/10.5281/zenodo.21177501">10.5281/zenodo.21177501</a> (July 2026).<br>
-  <a href="preguntas/">Preguntas y críticas (FAQ)</a> — the criticisms we expect and the answers we have, including the ones where the critic is right.</p>
+  <a href="preguntas/">Preguntas y críticas (FAQ)</a> — the criticisms we expect and the answers we have, including the ones where the critic is right.<br>
+  <a href="vidriera/">La vidriera (milestones)</a> — every derived, verified and built piece of the theory on one live page, each linked to its document.</p>
 </footer>
 
 </body>
