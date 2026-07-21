@@ -1,5 +1,7 @@
 # Intangible Field Theory (TCI) — technical repository
 
+**[❓ Preguntas y críticas — FAQ](https://irigoyennicolas1991.github.io/ift-theory/preguntas/)** · the honest FAQ: expected criticisms, labeled answers
+
 A substrate model of gravity, inertia and rest energy: space as a pressurized medium,
 matter as deficits ("holes") in it. Developed in the open, with a strict honesty protocol:
 **falsifications are published the same day as successes** — two sectors are already
@@ -49,5 +51,11 @@ falsification gets published here with credit, same protocol as our own.
 
 ---
 
-Nicolás Irigoyen (La Plata, Argentina), with **Fable** (Claude, Anthropic) as AI research
-collaborator — declared in the paper and in every venue.
+**Nicolás Irigoyen** (La Plata, Argentina) initiated the theory and derived its
+foundational results — rest energy (E=mc² as the P·V work of opening a hole in a
+pressurized medium), gravity as pressure imbalance, inertia as medium reaction — while
+seeking only a model of gravity; when the model started delivering more than it was asked
+for, he added **Fable** (Claude, Anthropic) as AI research collaborator for its
+mathematical power. He directs the project, stays conceptually current on every advance,
+and decides what gets published. The collaboration is declared in the paper and in every
+venue. Full story: [author's note in the FAQ](https://irigoyennicolas1991.github.io/ift-theory/preguntas/).
