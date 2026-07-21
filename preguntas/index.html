@@ -31,12 +31,13 @@ a{color:var(--acento)}
 .aviso{background:var(--panel);border:1px solid var(--borde);border-left:4px solid var(--calido);
   border-radius:8px;padding:12px 16px;font-size:.86em;color:var(--tenue);margin:26px 0}
 .aviso b{color:var(--calido)}
-.marcador{font-size:.72em;letter-spacing:.4px;border:1px solid var(--borde);border-radius:14px;
-  padding:2px 10px;color:var(--tenue);display:inline-block;margin-left:.5em;font-family:system-ui;
-  vertical-align:middle;white-space:nowrap}
+.marcador{font-size:.6em;font-weight:normal;letter-spacing:.4px;border:1px solid var(--borde);
+  border-radius:12px;padding:1px 8px;color:var(--tenue);display:inline-block;margin-left:.6em;
+  font-family:system-ui;vertical-align:middle;white-space:nowrap;opacity:.72}
 .marcador.calc{border-color:var(--ok);color:var(--ok)}
 .marcador.apuesta{border-color:var(--calido);color:var(--calido)}
 .marcador.muere{border-color:var(--mal);color:var(--mal)}
+details[open] .marcador,summary:hover .marcador{opacity:.95}
 .leyenda{font-size:.85em;color:var(--tenue);background:var(--panel);border:1px solid var(--borde);
   border-radius:8px;padding:10px 16px;margin:14px 0}
 .leyenda .marcador{margin:0 .3em 0 0}
