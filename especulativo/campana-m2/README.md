@@ -89,4 +89,20 @@ Colateral valioso: la suite de `acople/` quedó REPARADA y corre entera desde el
 `v2_vector_fuente.py`; v1a 6s · v1b 4s · v1c 4s · v2 16s · v2b 4s · 01 8s ·
 colA_causal ~2 min) y reproduce todos los chequeos citados en el paper. Pendiente
 anotado: dirimir el chequeo C5d de `colA_causal.py` (residuo ∝ m₁²p⁴ρ_op², comentario
-en el script + block list). Falta: 2ª pasada de auditoría sobre v0.2 antes de someter.
+en el script + block list). **2ª PASADA HECHA Y APLICADA el mismo día → v0.3** (12
+hallazgos nuevos, N1 medio: la cirugía de H9 identificaba ρ≡ρ_op — deshecho; informe
+completo en el acta de auditoría).
+**TAREA 4 (FRW) SALDADA 2026-07-21 — acta `frw/FRW-2026-07-21.md` + bibliografía
+`frw/BIBLIOGRAFIA-FRW-2026-07-21.md` (9 fuentes .tex leídas por el bibliógrafo)**: la
+protección tensorial es IDENTIDAD sobre cualquier FLRW (M₂²=0 sin tadpoles, c_T²=1);
+el vacío protegido de Minkowski es el ATRACTOR cosmológico (J=a³(U_Y−2φ̇U_X) ∝ a⁻³ → 0
+= superficie de tadpoles; contraste publicable: en la fase espejo DTT 0504067 el
+atractor explícitamente NO es su Minkowski; responde el "future work" de KSS
+1805.05937, sin hacer en 21 citas); w=−1 exacto sobre el atractor; transitorio = polvo
+EXACTO (δp=0 a orden lineal); escalar sigue congelado sobre FRW con dispersión propia
+ω=±(H/√2)k+3iH; criterios de muerte D1-D3: 0/3. Puntos fijos extra de la U de juguete
+declarados (AdS-like inalcanzable como endpoint; dS-like con vector enfermo; solo
+Minkowski es estructural). Respuesta a la objeción Λ-media/di Donato-Pilo: su
+inestabilidad es el cero doble sin curar — el NLO k⁴ (diccionario GC) la cura.
+**La sección entró al paper como §9 (→ v0.4)**; pendiente: auditoría propia de §9,
+acción cuadrática FRW completa, factor 2 global vs (7.22) de BCP.
