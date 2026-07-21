@@ -1,7 +1,11 @@
 # Correo a Comelli/Pilo — presunta errata en BCP (7.6)–(7.7)
 
-**Estado: LISTO PARA ENVIAR (2026-07-21, chequeos pre-envío SALDADOS). El envío lo
-hace Nicolás desde su casilla, con su OK final.** Chequeos hechos el mismo día:
+**Estado: BORRADOR CREADO EN GMAIL (2026-07-21) — está en la carpeta Borradores de
+irigoyennicolas1991@gmail.com, con destinatarios y asunto cargados; Nicolás lo revisa
+y aprieta enviar. Ajuste respecto de este archivo: la firma va sin la línea de email
+(sale desde Gmail; mezclar la dirección del dominio propio en un primer contacto
+quedaba inconsistente — si Nico prefiere firmarlo con el dominio, lo agrega antes de
+enviar). Chequeos pre-envío SALDADOS.** Chequeos hechos el mismo día:
 (1) direcciones verificadas en fuente primaria — **comelli@fe.infn.it** (PDF de su
 paper arXiv:2501.07968, ene-2025; afiliación real: **INFN Ferrara**, NO Padova como
 decía este borrador) y **luigi.pilo@aquila.infn.it** (PDF de arXiv:2208.00075);
