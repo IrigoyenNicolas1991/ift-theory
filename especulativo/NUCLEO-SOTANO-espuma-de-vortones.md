@@ -295,6 +295,67 @@ número uno, confirmado por geometría. Lo robusto se sostiene y refina:
 | EOS P=ρc² del mar | energía/compresibilidad de la espuma ordenada | [ABIERTO] |
 | Van der Waals del mar ~1/d^3.19 (§30) | dipolar 1/d³ genérico; además Eto PRA 83:063603: fuerza intercomponente [ln(R/ξ)−½]/R³ — ¿mismo mecanismo? | [ABIERTO — rima anotada] |
 | Cores con estructura (luz/materia §24-§33) | vortones = anillos CON carga nuclear de fábrica | rima estructural — dos pisos piden el mismo órgano |
+| Fase m₂=0 protegida (gravitón sin masa, campaña m₂=0) | exige espuma SIN rigidez de corte a LO → líquido nemático, no cristal | [ABIERTO — §6-bis, dragón 9] |
+
+## §6-bis. El lema de exclusión visto desde el sótano (2026-07-21)
+
+Contexto: la campaña m₂=0 (`campana-m2/` en este directorio, integrada
+2026-07-21) estableció que el medio U(X,Y) realiza la fase protegida de
+Dubovsky (m₂=m₃=m₄=0, esquina sin fantasma) y probó el **lema de exclusión**:
+sobre el vacío, m₂² = −2×(rigidez de corte del medio a orden dominante) —
+**proteger la masa del gravitón ⟺ apagar los fonones de corte**. Estado del
+lema: verificado con SymPy (chequeo B6), pendientes la rederivación xAct y el
+mapeo preciso con la fase de la nota 10 (m₀=0∧m₂=0 ≠ m₂=m₃=m₄=0). Todo lo de
+abajo hereda esa condicionalidad, más los escapes que el propio handoff
+declara (efectos NLO, gravedad inducida).
+
+Aclaración de pisos: el lema restringe al **medio efectivo cuyos Goldstones
+se acoplan a la gravedad** — es decir, al continuo efectivo de la espuma (el
+mar I), no al fluido del piso cero (que es fluido por axioma). Lo que el lema
+le exige al sótano son los módulos elásticos EFECTIVOS de la espuma ordenada.
+
+Tres consecuencias:
+
+1. **Convergencia de dos caminos [observación estructural]**. El axioma del
+   piso cero (§1: fluido perfecto barotrópico) era una elección de diseño del
+   sótano; el lema convierte "fluidez" en un requisito DERIVADO desde el lado
+   gravedad: cualquier rigidez de corte a LO regenera m₂²≠0. Dos frentes
+   independientes — la microfundación (este documento) y la campaña de
+   gravedad masiva — exigen lo mismo. Rima exacta con la apuesta de la nota
+   11: "gotas, no flechas — fluido en desplazamientos, rígido en orientación".
+
+2. **El teorema de la espuma queda bajo tensión declarada [dragón 9]**. El
+   fundamental del §5 es un CRISTAL laminar (láminas triangulares
+   antialineadas). Un cristal posicional tiene fonones de corte → G_T≠0 →
+   m₂²=−2G_T≠0: exactamente lo que el lema prohíbe. Para servir de vacío del
+   piso de arriba, la espuma tiene que ser **líquido nemático, no cristal
+   nemático**: posiciones fluidas (sin corte estático a LO), directores
+   ordenados (J=2). Precedente físico de la fase pedida: los cristales
+   líquidos nemáticos existen; la pregunta nueva es si la espuma de vortones
+   tiene esa fase (¿el orden J=2 del teorema sobrevive al fundido posicional
+   de las láminas? — el teorema fijó la familia orientacional SOBRE la red;
+   fundida la red, hay que recalcular). Pista a favor, no prueba: la
+   blandura de politipos de la rama 1 (registros de apilado cuasi-degenerados,
+   gaps 0.0008-0.005) sugiere un sector posicional blando.
+
+3. **Pendientes que ahora son exámenes.** (a) El μ de cizalla del **tangle
+   isótropo** (virgen en la literatura, anotado en HIPOTESIS Fase A) ya no es
+   curiosidad: decide si la variante desordenada es vacío viable — cizalla
+   estática ≠0 a LO la mata como vacío protegido. (b) La rama 3 (espectro
+   dinámico del cristal) gana un veredicto extra: si el espectro da corte
+   estático real, el cristal laminar no puede ser EL vacío — hay que fundirlo
+   o descartarlo. (c) Tkachenko con el signo dado vuelta: nuestro propio
+   cálculo 1 certificó c_T = √(κΩ/8π) — **sin rotación de fondo no hay
+   rigidez de red de vórtices**, y la rotación global está muerta por CMB
+   (Saadeh 2016). La esquina a la que el CMB empujó al sótano (espuma
+   isótropa sin Ω) es la misma a la que empuja el lema (sin corte a LO).
+   Restricciones independientes apuntando a la misma esquina: **espuma
+   isótropa, posicionalmente fluida, orientacionalmente ordenada**.
+
+Qué NO dice esto: no valida nada. El lema es LO y su rederivación
+independiente está pendiente; la deuda Einstein-Hilbert/Weinberg-Witten la
+comparten los dos frentes; y "líquido nemático de vortones" hoy es una fase
+pedida, no una fase demostrada — es la rama 8 del §9.
 
 ## §7. Dragones vivos (por peso, actualizado tras la auditoría)
 
@@ -328,6 +389,11 @@ número uno, confirmado por geometría. Lo robusto se sostiene y refina:
    juego arriba.) [ABIERTO]
 8. **Kelvin-Benjamin residual**: subsistemas con impulso neto pueden
    invertir el extremo relevante localmente [vigilar].
+9. **El corte del cristal (lema de exclusión, §6-bis)**: si el vacío es el
+   cristal laminar del §5, sus fonones de corte regeneran m₂²≠0 y rompen la
+   fase protegida de la campaña m₂=0. La espuma debe ser líquido nemático
+   (posiciones fluidas, directores ordenados) o el sótano no funda el sector
+   de gravedad. Condicional al lema (LO, xAct pendiente) [ABIERTO].
 
 ## §8. Caja de herramientas (para el próximo que calcule)
 
@@ -375,6 +441,13 @@ número uno, confirmado por geometría. Lo robusto se sostiene y refina:
    2D (PRA 83:063603).
 7. **La población térmica** (dragón 5). Muerte: si los anillos chicos
    dominan a toda T, la espuma no es EL vacío.
+8. **La fase líquido-nemática de la espuma (dragón 9, §6-bis)**: ¿existe una
+   fase de la espuma de vortones con posiciones fundidas y orden J=2 de
+   directores intacto, y con módulo de corte estático nulo a LO? Incluye el
+   μ de cizalla del tangle isótropo (nadie lo calculó — hueco). Muerte: si
+   toda fase con orden J=2 tiene corte estático a LO, el lema de exclusión
+   deja al sótano sin vacío compatible con gravitón sin masa (salvo escapes
+   NLO declarados en campana-m2).
 
 ## §10. Registro de auditoría adversarial (2026-07-20)
 
