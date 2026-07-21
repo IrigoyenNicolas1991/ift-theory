@@ -7,18 +7,51 @@
 <meta name="description" content="Las críticas que esperamos de un físico y las preguntas que nos hace cualquier lector — con las respuestas que tenemos y las que no. Teoría del Campo Intangible.">
 <style>
 :root{
-  --fondo:#06121f; --panel:#0a1a2c; --tinta:#dce8f4; --tenue:#8fa6bc;
+  --fondo:#06121f; --panel:rgba(10,26,44,.78); --tinta:#dce8f4; --tenue:#8fa6bc;
   --acento:#5db4ff; --calido:#ffc46b; --ok:#7fd98a; --mal:#ff8a7a;
   --borde:#1c3450;
+  --g1:rgba(93,180,255,.11); --g2:rgba(123,107,255,.10); --g3:rgba(127,217,138,.07);
+  --velo:linear-gradient(180deg,rgba(2,8,16,.55) 0%,rgba(2,8,16,0) 30%,rgba(2,8,16,0) 70%,rgba(2,8,16,.45) 100%);
 }
 body.claro{
-  --fondo:#f6f2e9; --panel:#fffdf6; --tinta:#20303f; --tenue:#5d6f80;
+  --fondo:#f6f2e9; --panel:rgba(255,253,246,.82); --tinta:#20303f; --tenue:#5d6f80;
   --acento:#1567b3; --calido:#a86a12; --ok:#1e7a3a; --mal:#b33a2a;
   --borde:#d8cfba;
+  --g1:rgba(21,103,179,.12); --g2:rgba(107,79,168,.09); --g3:rgba(30,122,58,.08);
+  --velo:linear-gradient(180deg,rgba(255,252,244,.5) 0%,rgba(255,252,244,0) 30%,rgba(255,252,244,0) 70%,rgba(255,252,244,.4) 100%);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--fondo);color:var(--tinta);
   font:17px/1.65 Georgia,'Times New Roman',serif;transition:background .3s,color .3s}
+/* el fondo vivo: gradientes a la deriva (estrenado en la vidriera) */
+.fondo{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--fondo);transition:background .3s}
+.fondo::before,.fondo::after,.fondo .b3{content:"";position:absolute;width:95vmax;height:95vmax;
+  border-radius:50%;pointer-events:none}
+.fondo::before{left:-30vmax;top:-35vmax;
+  background:radial-gradient(closest-side,var(--g1) 0%,transparent 64%);
+  animation:drift1 70s ease-in-out infinite alternate}
+.fondo::after{right:-38vmax;bottom:-38vmax;
+  background:radial-gradient(closest-side,var(--g2) 0%,transparent 64%);
+  animation:drift2 95s ease-in-out infinite alternate}
+.fondo .b3{left:12vw;bottom:-60vmax;width:85vmax;height:85vmax;
+  background:radial-gradient(closest-side,var(--g3) 0%,transparent 64%);
+  animation:drift3 80s ease-in-out infinite alternate}
+.fondo .velo{position:absolute;inset:0;background:var(--velo)}
+@keyframes drift1{0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(20vmax,12vmax,0) scale(1.18)}
+  100%{transform:translate3d(6vmax,26vmax,0) scale(.92)}}
+@keyframes drift2{0%{transform:translate3d(0,0,0) scale(1.05)}
+  50%{transform:translate3d(-18vmax,-10vmax,0) scale(.9)}
+  100%{transform:translate3d(-30vmax,8vmax,0) scale(1.15)}}
+@keyframes drift3{0%{transform:translate3d(0,0,0) scale(1)}
+  100%{transform:translate3d(14vmax,-22vmax,0) scale(1.12)}}
+@media (prefers-reduced-motion:reduce){
+  .fondo::before,.fondo::after,.fondo .b3{animation:none}}
+.vidpill{position:fixed;top:14px;left:14px;z-index:5;background:var(--panel);
+  border:1px solid var(--borde);border-radius:20px;padding:5px 14px;font:13px system-ui;
+  color:var(--tenue);text-decoration:none;backdrop-filter:blur(4px)}
+.vidpill:hover{color:var(--acento);border-color:var(--acento)}
+@media(max-width:620px){.vidpill .txt{display:none}.vidpill{padding:5px 11px}}
 main{max-width:800px;margin:0 auto;padding:0 20px 80px}
 h1{font-size:2.1em;line-height:1.15;margin:.2em 0 .1em}
 h2{font-size:1.35em;margin:2.4em 0 .5em;color:var(--acento)}
@@ -69,6 +102,8 @@ ul{padding-left:1.3em}
 </style>
 </head>
 <body>
+<div class="fondo" aria-hidden="true"><div class="b3"></div><div class="velo"></div></div>
+<a class="vidpill" href="../vidriera/">🏆<span class="txt"> la vidriera</span></a>
 <div class="modo"><button id="btnTodo">abrir todo</button><button id="btnModo">☀ claro</button></div>
 <main>
 
@@ -837,6 +872,7 @@ hunda por su propia ley</em>.</p>
 <a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/energia/">Lo que el mar pagó</a> ·
 <a href="https://irigoyennicolas1991.github.io/teoria-campo-intangible/simulador/">simulador</a> ·
 <a href="../">paper técnico</a> ·
+<a href="../vidriera/">la vidriera (hitos)</a> ·
 <a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/notas">notas y scripts</a> ·
 <a href="https://doi.org/10.5281/zenodo.21177500">Zenodo (DOI)</a> ·
 <a href="https://github.com/IrigoyenNicolas1991/ift-theory">GitHub</a></p>
