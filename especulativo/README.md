@@ -51,11 +51,23 @@ el frente actual.
 | **Campaña m₂=0** (el medio U(X,Y) realiza la fase protegida de Dubovsky) | `campana-m2/` (handoff de sesión externa 2026-07-20 + README con advertencias) | `campana-m2/*.py` (SymPy) | verificado en máquina 2026-07-21 (CAL-4 resto=0, B1–B6 ✓): m₂=m₃=m₄=0 emergen de los tadpoles, m₁²=2U_X, esquina sin fantasma; lema de exclusión m₂²=−2·rigidez de corte ⟹ mar fluido a LO; pendientes: rederivación xAct (errata BCP), barrido INSPIRE propio, mapeo con nota 10 |
 | **Sótano, paso 0: censo estático (Newton del hueco)** | `SOTANO-PASO0-censo-estatico-2026-07-21.md` (acta) | `verdugo_checks.py`, `verdugo_bjerknes.py` | **LÁPIDA 2026-07-21** (criterio pre-declarado, gatillado): 20 canales censados — ningún canal de la espuma, estático NI Bjerknes, media 1/r universal atractivo; la conservación que estabiliza la espuma prohíbe la carga monopolar; Bjerknes muerta por la pinza espacio-temporal (retardación vs LLR/BBN, teorema propio); la espuma queda como microfundación de las gotas J=2; la gravedad converge (4ª vez) al piso de arriba |
 
-**4. LAS CARAS VISIBLES** (divulgación semi-oculta, fuentes acá):
+**4. LOS PAPERS EN GESTACIÓN** (borradores técnicos en inglés; NINGUNO sometido a
+ningún lado; política de la casa: nada sale de esta carpeta sin OK explícito + las
+auditorías que cada uno declara adentro):
+
+| Paper | Archivo | Estado |
+|---|---|---|
+| **La espuma nemática** — "Inverted dipolar order: the laminar nematic ground state of vortex-ring arrays" | `PAPER-espuma-nematica-DRAFT.md` | **draft v0.9 completo y auditado** (física de condensados standalone — se defiende sin TCI); bloqueos: cotas con redes con base (obligatorio tras el colateral del hielo 2026-07-21), barrido INSPIRE, canal |
+| **El censo del spin-2** — "Static long-range forces in a spin-2 condensate: a refraction bound, a symmetry-protected perihelion constraint, and a no-go census" | `PAPER-borrador-censo-nucleo.md` | draft v2 completo (incorpora las 17 correcciones del auditor de overclaims); pendiente v3: auditorías de claims y de citas (declaradas en el propio paper) |
+| **El gravitón** — "The phonon as the second graviton polarization: exactly two massless TT modes in the D₄ biaxial-nematic phase of a spin-2 superfluid" | `PAPER-borrador-graviton-dos-polarizaciones.md` | **draft v0.1** (2026-07-21): primera escritura de los resultados §14–§17/§22 — las dos polarizaciones TT sin masa y el mecanismo fonón-U(1), el candidato a aporte original del programa; SIN auditoría todavía (lista de bloqueo adentro) |
+| **Las dos electricidades** — "Two decoupled Coulomb sectors in the vortex electrodynamics of a tensorial superfluid" | `PAPER-borrador-dos-electricidades.md` | esqueleto (claims fijados, bloqueos técnicos saldados); en pausa hasta que haya un cálculo del fotón |
+
+**5. LAS CARAS VISIBLES** (divulgación semi-oculta, fuentes acá):
 `libro2/` (fuente de /mar-y-nudos/), `em/` (fuente de /taller-electromagnetico/),
+`sotano-web/` (fuente de /sotano-del-mar/),
 `LIBRO2.md` + `LIBRO2-esqueleto.md` (el texto completo del libro 2, en el cajón).
 
-**5. EL RESTO DE LOS SCRIPTS** (cada uno nació de una batalla; la sección de la
+**6. EL RESTO DE LOS SCRIPTS** (cada uno nació de una batalla; la sección de la
 bitácora que lo explica va al lado): `espectro_biaxial_real/complejo/_3p2.py` (§14-16,
 las dos polarizaciones TT), `espectro_ciclico.py` (§26), `anisotropia_mapa.py` (§22),
 `monometricidad_test.py` (§23, 5ª lápida), `anillos_toy.py` (§21),
