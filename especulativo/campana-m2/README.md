@@ -40,5 +40,12 @@ Los 3 scripts extraídos del handoff corren con Python 3.14 + SymPy 1.14 y repro
    full-text (pendiente; el barrido del 21/7 cubrió solo la errata).
 4. Estos scripts usan **sympy** (no numpy como el resto de la carpeta): `pip install sympy`.
 
-Tareas abiertas por orden de valor: §6 del handoff (la 1 saldada en sustancia).
+Tareas abiertas por orden de valor: §6 del handoff — **1 y 2 SALDADAS**
+(`VERIFICACION-BCP-2026-07-21.md`, `SECTOR-ESCALAR-2026-07-21.md`). OJO: la tarea 2
+CORRIGE al handoff — al orden dominante el escalar está congelado (cero doble ω⁴=0,
+coincide con Dubovsky ec. 99); el modo p⁴ requiere los NLO del medio y su coeficiente es
+UV-sensible; nuestra ω²(p) exacta con mezcla gravitatoria es la primera escritura
+explícita. Firma falsable propia hallada: m₁²≠0 ⟹ apantallamiento Yukawa del frame
+dragging (LARES-2 la testearía) — PENDIENTE derivación prolija con fuente rotante.
+Siguen: tarea 3 (PPN), frame dragging prolijo, barrido INSPIRE, tareas 4-5.
 Relación con la nota 10 (la fase de ahí era m₀=0 ∧ m₂=0, no la misma): tarea 5, pendiente.
