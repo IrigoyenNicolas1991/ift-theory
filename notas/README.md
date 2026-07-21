@@ -4,6 +4,11 @@ Bitácora del desarrollo en la rama `desarrollo-fable`. Cada nota está escrita 
 en orden de lectura, con la honestidad como regla: qué se derivó, qué se calibró con datos,
 qué queda abierto y qué podría matar la teoría.
 
+> **¿Llegás con objeciones o con preguntas?** Empezá por
+> [**Preguntas y críticas (FAQ)**](https://irigoyennicolas1991.github.io/ift-theory/preguntas/):
+> las críticas que esperamos de un físico y las preguntas de cualquier lector, cada una con
+> su etiqueta — respondida con cálculo, parcial con deuda declarada, o «la crítica es correcta».
+
 | # | Nota | Qué resuelve | Resultado en una línea |
 |---|------|--------------|------------------------|
 | 1 | [Deflexión de la luz](NOTA-deflexion-luz-2026-07-02.md) | El problema Nordström: la teoría lineal no curva la luz | β = 4 (calibrado con el eclipse de 1919) → 1.75″ ✓ y el retardo de Shapiro sale gratis |
