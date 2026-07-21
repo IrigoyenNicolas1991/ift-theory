@@ -2,8 +2,19 @@
 
 **Campaña del núcleo TCI — iniciada 2026-07-19, con OK explícito de Nico**
 *("demosle un poco al núcleo ahora"). Archivo separado de la bitácora de la
-campaña del condensado para no pisar la sesión paralela. Política vigente:
-CERO PUSH — todo local.*
+campaña del condensado para no pisar la sesión paralela. Política al momento
+de escribirse: CERO PUSH — todo local. [Nota 2026-07-20: Nico autorizó
+explícitamente la sincronización general y el push de esta carpeta — el
+material es público desde esa fecha.]*
+
+*[Errata #13, cazada por el auditor de overclaims del paper (2026-07-21): en
+§N5/§N7 esta bitácora resume la verificación de la ley β=2(1−v²) en el ³P₂
+como "3–8%". El rango real de la tabla de §N5 es 0.6–10% (μ=0.25: 0.129 vs
+0.143 = 9.8%; μ=0.60: 0.6%; μ=0.90: 6.9%), en TRES potenciales químicos
+documentados (el punto μ=1.2 de la corrida final perdió los modos en la
+extrapolación de ventana y NO cuenta como verificación). Los modos
+vectoriales gapless NO siguen la ley (β_V≈+0.27, K₂₃-dominados) — la ley es
+de los TT.]*
 
 ---
 
