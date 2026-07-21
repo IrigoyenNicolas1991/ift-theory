@@ -58,5 +58,16 @@ dragging derivado prolijo tiene DOS RAMAS (relajada = Yukawa Meissner con
 condicional al estado del medio (caveat central declarado); cota corregida (𝒮=(1+x)e^(−x),
 sin término lineal): Λ ≲ 2.0–2.6 MeV hoy, LARES-2 → 1.12 MeV; firma VIRGEN confirmada
 (toda la literatura vive en la fase espejo m₁²=0; sin PPN α₁,α₂ publicados para ninguna
-fase de Dubovsky). Siguen: barrido INSPIRE, selección de estado del medio, tareas 4-5.
-Relación con la nota 10 (la fase de ahí era m₀=0 ∧ m₂=0, no la misma): tarea 5, pendiente.
+fase de Dubovsky). **TAREA 6 EN MARCHA (2026-07-21): el paper corto está escrito** —
+`../PAPER-borrador-missing-row-UXY.md`, draft v0.1, standalone, con marcador honesto,
+las erratas ajenas (BCP + Dubovsky), las dos ramas del frame dragging con su caveat de
+selección de estado, y lista de bloqueo pre-publicación adentro (el TEXTO aún no tiene
+auditoría adversarial propia; las 3 patas técnicas sí — estas actas). **El barrido
+INSPIRE de novedad quedó hecho el mismo día** (método declarado en el paper): "unrestricted
+internal diffeomorphisms" 0 hits full-text; la relación masa↔rigidez existe en OTROS
+marcos (holografía sólida 1510.09089, crystal gravity 2109.11325 — citados como parientes)
+pero el lema en el marco BCP/Dubovsky no aparece; frame dragging apantallado: nada
+comparable (eco lejano: Tajmar–de Matos cond-mat/0602591, superconductores de laboratorio);
+19 citas de Dubovsky 2024-2026 revisadas, ninguna construye el medio. Siguen: FRW (tarea 4),
+mapeo nota 10 (tarea 5, la fase de ahí era m₀=0 ∧ m₂=0, no la misma), selección de estado
+del medio (la pregunta nueva), y el envío del correo BCP (SOLO con OK de Nico).
