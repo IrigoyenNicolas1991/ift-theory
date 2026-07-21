@@ -29,13 +29,16 @@ Los 3 scripts extraídos del handoff corren con Python 3.14 + SymPy 1.14 y repro
 
 1. **"Nota 12"**: el número ya se usó y se revirtió el 2026-07-19 (incidente Familia F).
    El texto del anexo A queda acá adentro; si se promueve a `notas/`, renumerar.
-2. **La presunta errata de BCP (7.6)–(7.7)** está respaldada por CAL-4 (ruta
-   independiente) pero NO por una rederivación con otra herramienta. Tarea 1 del
-   handoff (xAct/cadabra) es obligatoria antes de escribir a Comelli/Pilo o reclamar
-   nada en público.
-3. **El barrido de novedad es de la sesión externa** — antes de cualquier claim público
-   aplica el estándar propio: barrido INSPIRE full-text.
+2. **La errata de BCP (7.6)–(7.7): VERIFICADA 2026-07-21** — ver
+   `VERIFICACION-BCP-2026-07-21.md` y `verificacion_independiente.py` (tarea 1 del
+   handoff saldada en sustancia; sin xAct en la máquina, la independencia se logró por
+   ruta exacta propia + panel adversarial de 3 agentes + los apéndices posteriores de
+   los propios autores, que usan nuestros pesos). El contacto con Comelli/Pilo ya es
+   defendible pero **requiere OK explícito de Nico**.
+3. **El barrido de novedad de la fila U(X,Y) sigue siendo de la sesión externa** —
+   antes de cualquier claim público aplica el estándar propio: barrido INSPIRE
+   full-text (pendiente; el barrido del 21/7 cubrió solo la errata).
 4. Estos scripts usan **sympy** (no numpy como el resto de la carpeta): `pip install sympy`.
 
-Tareas abiertas por orden de valor: §6 del handoff. Relación con la nota 10 (la fase
-de ahí era m₀=0 ∧ m₂=0, no la misma): tarea 5, pendiente.
+Tareas abiertas por orden de valor: §6 del handoff (la 1 saldada en sustancia).
+Relación con la nota 10 (la fase de ahí era m₀=0 ∧ m₂=0, no la misma): tarea 5, pendiente.
