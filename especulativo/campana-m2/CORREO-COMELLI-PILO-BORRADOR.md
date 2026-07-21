@@ -1,11 +1,14 @@
 # Correo a Comelli/Pilo — presunta errata en BCP (7.6)–(7.7)
 
-**Estado: BORRADOR LISTO (2026-07-21). El envío lo hace Nicolás desde su casilla,
-con su OK final.** Antes de enviar: (1) verificar direcciones institucionales
-actuales en fuente primaria (páginas de INFN Padova / Univ. dell'Aquila o un paper
-reciente de cada uno); (2) verificar el título exacto del paper contra el PDF
-(Downloads: `1603.02956v2.pdf`). Registro de la casa: la evidencia técnica está en
-`VERIFICACION-BCP-2026-07-21.md` (5 vías, panel adversarial incluido).
+**Estado: LISTO PARA ENVIAR (2026-07-21, chequeos pre-envío SALDADOS). El envío lo
+hace Nicolás desde su casilla, con su OK final.** Chequeos hechos el mismo día:
+(1) direcciones verificadas en fuente primaria — **comelli@fe.infn.it** (PDF de su
+paper arXiv:2501.07968, ene-2025; afiliación real: **INFN Ferrara**, NO Padova como
+decía este borrador) y **luigi.pilo@aquila.infn.it** (PDF de arXiv:2208.00075);
+(2) título verificado contra arXiv abs/1603.02956: "Massive and modified gravity
+as self-gravitating media", Phys. Rev. D 94, 124023 (2016) ✓. Registro de la casa:
+la evidencia técnica está en `VERIFICACION-BCP-2026-07-21.md` (5 vías, panel
+adversarial incluido).
 
 Política aplicada: consulta técnica puntual y humilde — SOLO la errata; la fila
 U(X,Y) aparece en una sola frase de contexto, sin reclamos. Declaración de IA:
@@ -14,8 +17,9 @@ una línea sobria al final, ni tema central ni ocultamiento (política de autor�
 
 ---
 
-**Para:** D. Comelli (INFN Padova) y L. Pilo (Università dell'Aquila / INFN) —
-*direcciones a verificar antes del envío*
+**Para:** D. Comelli (INFN Ferrara) — comelli@fe.infn.it — y L. Pilo (Università
+dell'Aquila / INFN) — luigi.pilo@aquila.infn.it *(verificadas 2026-07-21 en los
+PDFs de sus papers recientes)*
 **Asunto:** Possible misprint in the mass-parameter weights of PRD 94, 124023
 (arXiv:1603.02956), Eqs. (7.6)–(7.7)
 

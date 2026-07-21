@@ -70,4 +70,12 @@ pero el lema en el marco BCP/Dubovsky no aparece; frame dragging apantallado: na
 comparable (eco lejano: Tajmar–de Matos cond-mat/0602591, superconductores de laboratorio);
 19 citas de Dubovsky 2024-2026 revisadas, ninguna construye el medio. Siguen: FRW (tarea 4),
 mapeo nota 10 (tarea 5, la fase de ahí era m₀=0 ∧ m₂=0, no la misma), selección de estado
-del medio (la pregunta nueva), y el envío del correo BCP (SOLO con OK de Nico).
+del medio (la pregunta nueva), y el envío del correo BCP (SOLO con OK de Nico; **direcciones
+verificadas 2026-07-21 en fuente primaria**: comelli@fe.infn.it — INFN Ferrara, no Padova
+como decía el borrador — y luigi.pilo@aquila.infn.it; el correo quedó listo-para-enviar).
+**DATO NUEVO 2026-07-21: la medición del frame dragging que el paper esperaba YA SE PUBLICÓ**
+— Ciufolini et al., Nature (julio 2026, doi:10.1038/s41586-026-10715-0): LARES-2+LAGEOS+GRACE,
+acuerdo con RG al 0.2% reclamado (error budget disputado por Iorio, 2503.07264/Universe 9:211).
+Si el 0.2% aguanta, la cota de la rama relajada ya es Λ<1.12 MeV hoy. Incorporado al paper
+con ambos lados citados (refs [21]-[24]); leer el texto completo de Nature sigue en la
+lista de bloqueo (solo abstract+prensa verificados).

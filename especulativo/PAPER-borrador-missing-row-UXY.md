@@ -33,7 +33,7 @@ Every row says whose each piece is.
 | **Exclusion lemma: on-shell m₁² = 2K_T, m₂² = −2G_T — protecting the graviton mass ⟺ switching off the medium's shear phonons (at leading order)** | **New in this framework** (the mass ↔ rigidity link is known in other settings [17, 18]) | this paper |
 | **The exact scalar dispersion ω²(p) of this phase with gravitational mixing** (Dubovsky's leading-order freeze-out made quantitative; the p⁴ coefficient is NLO and UV-sensitive) | **New (first explicit form)** | this paper |
 | **Causal theorem: with conserved sources the leading-order solution is exactly GR; γ_PPN = 1 exact; the mass only selects the gauge** | **New for this phase** (mechanism anticipated qualitatively by Dubovsky's "gauge-fixing" remark [1]) | this paper |
-| **Frame dragging has two branches: relaxed medium ⟹ Yukawa-screened (gravitomagnetic Meissner); co-rotating medium ⟹ exact GR. Screened Lense–Thirring as the falsifiable signature; LARES-2 reaches Λ < 1.12 MeV** | **New; no prior computation of rotating sources in any m₁² ≠ 0 phase found** | this paper |
+| **Frame dragging has two branches: relaxed medium ⟹ Yukawa-screened (gravitomagnetic Meissner); co-rotating medium ⟹ exact GR. Screened Lense–Thirring as the falsifiable signature; the July-2026 LARES-2 measurement (claimed 0.2% [23]) gives Λ < 1.12 MeV on the relaxed branch if its error budget holds** | **New; no prior computation of rotating sources in any m₁² ≠ 0 phase found** | this paper |
 | Probable misprint in BCP eqs. (7.6)–(7.7); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP case) | this paper (to be confirmed with the authors) |
 | The Einstein–Hilbert kinetic term | **Assumed, not derived** (as in [1, 4, 5]; Weinberg–Witten out of scope) | — |
 
@@ -79,11 +79,13 @@ potential obeys (∇² − μ²)Sᵢ = 16πG̃τᵢ — a gravitomagnetic Meissn
 Lense–Thirring precession screened by (1 + μa)e^(−μa) with μ = 2Λ²/M̄_Pl; if the
 medium co-rotates (a persistent-current state), the prediction is exactly GR. Which
 branch nature picks is a genuine open problem of the phase (it exceeds quadratic
-order), and we state it as such. Current LAGEOS/LARES accuracy (2–5%) gives
-Λ ≲ 2.0–2.6 MeV; **LARES-2 at its design accuracy (0.2%) would reach
-Λ < 1.12 MeV, i.e. screening lengths beyond 30 R⊕**. To our searches (declared
-below), no computation of rotating sources exists in any m₁² ≠ 0 phase: the
-signature is untested territory. As by-products, we report a probable misprint in
+order), and we state it as such. Claimed LAGEOS/LARES accuracy (2–5%, error
+budget contested) gives Λ ≲ 2.0–2.6 MeV; **the LARES-2 measurement published in
+July 2026 — as this draft was being written — reports agreement with GR at its
+0.2% design accuracy, which, if its contested error budget holds, already pushes
+the relaxed-branch bound to Λ < 1.12 MeV, i.e. screening lengths beyond 30 R⊕**.
+To our searches (declared below), no computation of rotating sources exists in
+any m₁² ≠ 0 phase: the signature is untested territory. As by-products, we report a probable misprint in
 the mass-parameter weights of BCP eqs. (7.6)–(7.7), established five independent
 ways, and two minor misprints in Dubovsky's eqs. (73) and (99). All results are
 symbolic (SymPy), run in seconds, and are public.
@@ -450,14 +452,25 @@ gauge-fixing remark describes our co-rotating branch; the relaxed branch is new.
 
     ℓ₁ = 2.40×10⁸ m · (MeV/Λ)²   — at Λ = 1 MeV, roughly the Earth–Moon distance.
 
-Current Lense–Thirring measurements (LAGEOS/LARES, 2–5% accuracy) give
-**Λ ≲ 2.0–2.6 MeV** on the relaxed branch. **LARES-2 at its design accuracy
-(0.2%) would push to Λ < 1.12 MeV**, i.e. ℓ₁ > 30 R⊕ — well into the window
-where the medium is otherwise viable (§6). At Λ = 1 MeV the predicted nodal
-deviation today is 0.13%: the test is real, and a satellite already in orbit is
-the instrument. (An earlier internal bound used a criterion with a spurious
+Lense–Thirring measurements with LAGEOS/LARES (claimed accuracy 2–5% [21]; the
+error budget is contested in the literature [22]) give **Λ ≲ 2.0–2.6 MeV** on
+the relaxed branch. **In July 2026 — while this draft was being written — the
+LARES-2 team published the measurement this test was waiting for** [23]:
+combining LARES-2 (in orbit since 2022) with LAGEOS and GRACE data, they report
+agreement with GR at their design accuracy of 0.2%. Taken at face value this
+already pushes the relaxed-branch bound to **Λ < 1.12 MeV**, i.e. ℓ₁ > 30 R⊕ —
+well inside the window where the medium is otherwise viable (§6); at Λ = 1 MeV
+the predicted nodal deviation is 0.13%. Honesty requires both caveats: the 0.2%
+error budget is actively disputed [22, 24] (the even-zonal cancellation depends
+on achieved orbital injection accuracies), and on the co-rotating branch the
+measurement constrains nothing. What is no longer hypothetical is the
+*instrument*: the measurement exists, and any sharpening of either the
+error-budget dispute or the state-selection problem now converts directly into
+MeV-scale physics. (An earlier internal bound used a criterion with a spurious
 linear term; the corrected suppression factor weakens the bound by 2.7× in Λ —
-the correction is part of this paper's record.)
+the correction is part of this paper's record. We have so far verified [23]
+through its abstract and press coverage only — full-text verification is on the
+pre-publication block list.)
 
 **Virgin territory (searches declared).** Every computation of sources we could
 find in Lorentz-violating massive gravity lives in the *mirror* family m₁² = 0
@@ -586,15 +599,31 @@ arXiv:1510.09089 (and the holographic-elasticity literature that followed).
 mass inside a superconductor", arXiv:cond-mat/0602591.
 [20] LIGO-Virgo-KAGRA, GWTC-3 tests of GR (graviton-mass bound
 m_g ≤ 1.27×10⁻²³ eV), arXiv:2112.06861.
+[21] I. Ciufolini et al., "A test of general relativity using the LARES and
+LAGEOS satellites and a GRACE Earth gravity model", Eur. Phys. J. C (2016).
+[22] L. Iorio, "Limitations in Testing the Lense–Thirring Effect with LAGEOS
+and the Newly Launched Geodetic Satellite LARES 2", Universe 9 (2023) 211; and
+"Will LAGEOS and LARES 2 succeed in accurately measuring frame-dragging?",
+Eur. Phys. J. C (2025), arXiv:2503.07264.
+[23] I. Ciufolini et al., "LARES-2 satellite measures frame-dragging effect
+around the Earth", Nature (2026), doi:10.1038/s41586-026-10715-0 (published
+July 2026).
+[24] I. Ciufolini et al., "On the high accuracy to test dragging of inertial
+frames with the LARES 2 space experiment", Eur. Phys. J. C (2024); and "A new
+laser-ranged satellite for General Relativity and space geodesy: I. An
+introduction to the LARES2 space experiment", arXiv:1910.13818.
 
 ## Pre-publication block list (nothing leaves the repo before these)
 
 1. **In-house adversarial audit of THIS TEXT** (the three technical actas passed
    theirs; the paper's framing, claims-to-evidence map and every number
    transcribed here must be re-audited against the actas and scripts).
-2. **Primary references for the experimental accuracies** quoted (LAGEOS/LARES
-   2–5%, LARES-2 design 0.2%, GP-B) — currently taken from the campaign acta;
-   cite the primary sources and re-verify the percentages before submission.
+2. **Experimental accuracies — partially closed 2026-07-21**: primary references
+   now cited ([21]–[24]) including the July-2026 LARES-2 Nature measurement and
+   the Iorio error-budget dispute (both sides). Remaining: read the FULL TEXT of
+   [23] (only abstract + press verified so far — paywall); complete
+   volume/page data for [21], [22]-EPJC, [24]; add the GP-B primary reference
+   (Everitt et al.) for the gyroscope factor of §8.
 3. **BCP misprint**: send the query letter (drafted; requires Nico's explicit
    OK) and ideally receive an answer before any public claim beyond "probable
    misprint"; an xAct/cadabra run remains desirable redundancy.
