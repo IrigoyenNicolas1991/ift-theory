@@ -57,7 +57,8 @@ falsification gets published here with credit, same protocol as our own.
 foundational results — rest energy (E=mc² as the P·V work of opening a hole in a
 pressurized medium), gravity as pressure imbalance, inertia as medium reaction — while
 seeking only a model of gravity; when the model started delivering more than it was asked
-for, he added **Fable** (Claude, Anthropic) as AI research collaborator for its
+for, he added **Fable** (Claude, Anthropic) as an AI research assistant for its
 mathematical power. He directs the project, stays conceptually current on every advance,
-and decides what gets published. The collaboration is declared in the paper and in every
-venue. Full story: [author's note in the FAQ](https://irigoyennicolas1991.github.io/ift-theory/preguntas/).
+and decides what gets published. The AI assistance is declared in the paper and in every
+venue; in every publication-format piece the sole author is Nicolás Irigoyen, with the
+AI assistance stated in the acknowledgments — never in the author line. Full story: [author's note in the FAQ](https://irigoyennicolas1991.github.io/ift-theory/preguntas/).
