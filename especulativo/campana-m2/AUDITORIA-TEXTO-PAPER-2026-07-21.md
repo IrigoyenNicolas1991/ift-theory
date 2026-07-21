@@ -97,3 +97,48 @@ deudas duras declaradas con la prominencia debida; política de autoría cumplid
   textuales, hits, los 19 papers, limitaciones declaradas).
 - **Texto (todos los demás)**: aplicados en v0.2; el preámbulo del paper registra
   la versión y remite a este informe.
+
+---
+
+# SEGUNDA PASADA (mismo día, auditor independiente nuevo, ~148k tokens)
+
+**Blanco: v0.2. Método: cotejo hallazgo-por-hallazgo de los 31; lectura completa
+contra las 5 actas; verificación de existencia de los ~40 scripts citados (todos
+existen); re-derivación aritmética independiente de TODAS las cotas (cierran:
+ℓ₁=2.40e8, Λ<1.12 desde 0.2% con a=1.227e7 → 1.11, 30 R⊕ → 30.0, 0.13% → 0.126%,
+2.0–2.6 desde 2–5% → 2.01–2.59, factor 2.7×). Las 24 referencias citadas y sin
+huérfanas; fórmulas 100% fieles.**
+
+**Sección A**: 26/31 aplicadas-bien; 5 con residuo: H9 (la definición añadida
+identificaba ρ≡ρ_op, contradiciendo el block list 7 — el hallazgo N1), H12
+(§1 conservaba el claim sin acotar), H22 (el ~2% sin cita), H30 (el radiativo no
+entró al block list), H16-nota (abstract "matching eq. 99" a secas).
+
+**Sección B — los 12 hallazgos nuevos (resumen)**: N1 [MEDIA] contradicción
+ρ/ρ_op introducida por la cirugía de H9; N2 overclaim residual en §1 (radiativo);
+N3 símbolos sin definir en un paper "standalone" (K̄ᵢⱼ, τᵢ, M̄_Pl, ε y Λ con
+doble uso); N4 plural "instances" cuando el script usa UNA instancia por chequeo;
+N5 el ~2% sin referencia (es Ciufolini 2019, EPJC 79:872); N6 "established" en
+abstract más fuerte que "probable/provisional" del cuerpo; N7 "blind refuters"
+en plural cuando el único ciego fue el del diccionario; N8 t_c~18 edades sin el
+"a Λ=10 MeV, ∝Λ⁻³"; N9 "unobservable" sin cálculo; N10 "Exactly two invariants"
+en abstract vs block list 9; N11 normalización de Λ no declarada; N12 restos de
+tono (subtítulo "caveat/discovery", "untested territory" ×3).
+
+**Veredicto textual**: *"v0.2 no está para el OK tal cual: necesita una v0.3
+corta (N1 obligatorio, N2-N7 recomendados fuerte, resto pulido); con esa v0.3 y
+la block list completada, el texto queda listo para el OK de canal."*
+
+**Aplicación (v0.3, mismo día)**: los 12 aplicados + los 5 residuos de la
+sección A saldados. Detalles no triviales: N11 se resolvió con la convención
+REAL de `04_cotas_frame_dragging.py` (m₁² = 2Λ⁴ con Û_X=1 y M_Pl²=1/16πG=M̄_Pl²/2
+— no la conjetura 4Λ⁴ del auditor); N5 con la referencia verificada en INSPIRE
+([21b] EPJC 79 (2019) 872, arXiv:1910.09908); N1 sin identificar ρ↔ρ_op
+(remitido explícitamente al block list 7); N4 en singular (decisión: no tocar
+`parteB_medioXY.py`, que es registro del handoff externo); N12 dejando UNA
+instancia de "untested territory" (cierre de §8) y conservando "a superfluid
+that forgot its lattice" (la imagen que ambos auditores toleraron).
+**Pendiente que la v0.3 NO salda** (sigue en block list): dirimir C5d (ítem 7),
+contenido de [16]-[18] (ítem 8), exhaustividad {X,Y} (ítem 9), full-text de
+Nature (ítem 2), segunda... tercera pasada corta de auditoría si el canal lo
+amerita, y el OK de Nico.
