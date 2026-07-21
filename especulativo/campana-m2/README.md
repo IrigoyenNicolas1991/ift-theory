@@ -51,5 +51,12 @@ coincide con Dubovsky ec. 99); el modo p⁴ requiere los NLO del medio y su coef
 UV-sensible; nuestra ω²(p) exacta con mezcla gravitatoria es la primera escritura
 explícita. Firma falsable propia hallada: m₁²≠0 ⟹ apantallamiento Yukawa del frame
 dragging (LARES-2 la testearía) — PENDIENTE derivación prolija con fuente rotante.
-Siguen: tarea 3 (PPN), frame dragging prolijo, barrido INSPIRE, tareas 4-5.
+**TAREA 3 TAMBIÉN SALDADA** (`ACOPLE-MATERIA-PPN-2026-07-21.md` + `acople/`): γ_PPN=1
+exacta y Newton por teorema causal (la masa = gauge-fixing, verificado); el frame
+dragging derivado prolijo tiene DOS RAMAS (relajada = Yukawa Meissner con
+μ²=m₁²/(M_Pl²+α); retardada = RG exacto — reconcilia a Dubovsky) ⟹ predicción
+condicional al estado del medio (caveat central declarado); cota corregida (𝒮=(1+x)e^(−x),
+sin término lineal): Λ ≲ 2.0–2.6 MeV hoy, LARES-2 → 1.12 MeV; firma VIRGEN confirmada
+(toda la literatura vive en la fase espejo m₁²=0; sin PPN α₁,α₂ publicados para ninguna
+fase de Dubovsky). Siguen: barrido INSPIRE, selección de estado del medio, tareas 4-5.
 Relación con la nota 10 (la fase de ahí era m₀=0 ∧ m₂=0, no la misma): tarea 5, pendiente.
