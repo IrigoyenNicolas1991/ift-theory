@@ -2,12 +2,14 @@
 
 **Nicolás Irigoyen**
 
-*Draft v0.4 — 2026-07-21 (v0.1 through v0.4 same day; v0.2 applied the 31
+*Draft v0.5 — 2026-07-25 (v0.1 through v0.4 on 2026-07-21; v0.2 applied the 31
 findings of the first in-house adversarial audit of the text, v0.3 the 12
 findings of the second — record and both reports in
 `campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`; v0.4 adds the FRW section §9
 from the verified task-4 campaign — §9 has NOT yet had its own audit pass, see
-the block list). First written form of the
+the block list; v0.5 records the authors' confirmation of the BCP misprint —
+L. Pilo, email, 22 Jul 2026, see §2 and
+`campana-m2/RESPUESTA-PILO-2026-07-22.md`). First written form of the
 results of the m₂ = 0 campaign (2026-07-20/21; campaign records and full
 verification chain in `especulativo/campana-m2/`:
 `HANDOFF-campana-m2-2026-07-20.md`, `VERIFICACION-BCP-2026-07-21.md`,
@@ -42,7 +44,7 @@ Each row states whose work each piece is.
 | **Causal theorem: with conserved sources the leading-order solution is exactly GR; γ_PPN = 1 exact; the mass only selects the gauge** | **New for this phase** (mechanism anticipated qualitatively by Dubovsky's "gauge-fixing" remark [1]) | this paper |
 | **Frame dragging has two branches: relaxed medium ⟹ Yukawa-screened (gravitomagnetic Meissner); co-rotating medium ⟹ exact GR. Screened Lense–Thirring as the falsifiable signature; the July-2026 LARES-2 measurement (claimed 0.2% [23]) gives Λ < 1.12 MeV on the relaxed branch if its error budget holds** | **New; no prior computation of rotating sources in any m₁² ≠ 0 phase found** | this paper |
 | **FRW: the tensor masslessness is an FLRW identity; the protected Minkowski vacuum is the cosmological attractor (in the mirror phase it is not [10]); w = −1 exact on the attractor; transient = exact dust; scalar stays frozen, with ω = ±(H/√2)k + 3iH on the attractor** | **New as a package (mechanism from [8, 10], current known to [5] as entropy; verified, §9 pending its own audit)** | this paper |
-| Probable misprint in BCP eqs. (7.6)–(7.7); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP case) | this paper (to be confirmed with the authors) |
+| Misprint in BCP eqs. (7.6)–(7.7) — **confirmed by the authors** (L. Pilo, email to N.I., 22 Jul 2026, after re-checking their original notebooks; formal private-communication citation pending their permission); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP case), then confirmed by the authors | this paper |
 | The Einstein–Hilbert kinetic term | **Assumed, not derived** (as in [1, 4, 5]; Weinberg–Witten out of scope) | — |
 
 No death criterion of the campaign was triggered. The price of the result — the
@@ -102,9 +104,10 @@ Minkowski vacuum is a cosmological attractor, where its mirror-phase analogue
 is explicitly not; on the attractor w = −1 exactly, and the off-attractor
 transient redshifts as exact dust, reproducing the ghost condensate's
 "cosmological constant plus dark matter" phenomenology. As by-products, we
-report a probable misprint in
+report a misprint in
 the mass-parameter weights of BCP eqs. (7.6)–(7.7) — with the correct weights
-established five independent ways — and two minor misprints in Dubovsky's
+established five independent ways and since confirmed by the authors (L. Pilo,
+email, 22 Jul 2026) — and two minor misprints in Dubovsky's
 eqs. (73) and (99). All results are
 symbolic (SymPy) and public; individual scripts run in seconds to about two
 minutes.
@@ -212,9 +215,13 @@ expression carries a^(−2(n−1))), is compatible with our weights and not with
 their printed (7.7); (5) the appendices of the later papers
 of the same group [5, 6, 7] use precisely our weights (flat in yₙ from n = 0, n²
 in τₙ). No erratum of PRD 94, 124023 exists; the equations are unchanged between
-arXiv v1 and v2. We treat this as a probable typographical error, to be confirmed
-with the authors before any public claim harder than this paragraph (a draft
-query letter exists in the campaign records). Caveats: the comparison was made at
+arXiv v1 and v2. **Confirmed by the authors**: the query letter was sent on
+21 Jul 2026, and L. Pilo (email, 22 Jul 2026, cc D. Comelli), after re-checking
+the original Mathematica notebooks, confirmed the misprints in m₁² and m₂² and
+agreed with our expressions (paraphrase; permission for a formal
+private-communication citation has been requested; whether a PRD erratum will be
+filed is the authors' call — record in `campana-m2/RESPUESTA-PILO-2026-07-22.md`).
+Caveats: the comparison was made at
 a = N = 1; the journal PDF itself was not accessible to us (paywall).
 
 For the central result of this paper the issue is moot — U(X,Y) depends on
@@ -633,10 +640,11 @@ list.
   this class underlying gravity must be positionally fluid at leading order —
   solids are out. (This converges with independent falsifications published in
   the program's record.)
-- **The BCP misprint claim is provisional** until the authors confirm; the query
-  letter is drafted and the evidence is public. Our own results do not hinge on
+- **The BCP misprint is no longer provisional**: the authors confirmed it
+  (L. Pilo, email, 22 Jul 2026, after re-checking their original notebooks).
+  Our own results never hinged on
   it (U(X,Y) involves neither τₙ nor yₙ; the lemma's weights are the
-  five-times-verified ones).
+  five-times-verified ones, now author-confirmed).
 
 ## 11. Open problems
 
@@ -770,9 +778,11 @@ introduction to the LARES2 space experiment", arXiv:1910.13818.
    [23] (only abstract + press verified so far — paywall); complete
    volume/page data for [21], [22]-EPJC, [24]; add the GP-B primary reference
    (Everitt et al.) for the gyroscope factor of §8.
-3. **BCP misprint**: send the query letter (drafted; requires Nico's explicit
-   OK) and ideally receive an answer before any public claim beyond "probable
-   misprint"; an xAct/cadabra run remains desirable redundancy.
+3. **BCP misprint — RESOLVED 2026-07-22**: the letter was sent by Nico on
+   21 Jul 2026 and L. Pilo confirmed the misprints the next day (email, cc
+   D. Comelli), agreeing with our expressions. Remaining: their permission for
+   a formal private-communication citation (requested 25 Jul 2026); a PRD
+   erratum is their call; an xAct/cadabra run remains desirable redundancy.
 4. **Verify reference [7]'s** bibliographic data (cited here by arXiv ID only)
    and complete journal data for [6, 9–15, 17–19].
 5. **FRW section — WRITTEN 2026-07-21 (§9, entered in v0.4)** after a verified

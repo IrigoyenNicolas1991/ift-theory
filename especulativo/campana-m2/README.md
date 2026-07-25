@@ -33,12 +33,15 @@ Los 3 scripts extraídos del handoff corren con Python 3.14 + SymPy 1.14 y repro
    Irigoyen & fable" del handoff es registro de proceso de un acta externa — en la
    versión promovida el autor es Nicolás Irigoyen y la asistencia de IA se declara al
    pie, no en la línea de autoría.
-2. **La errata de BCP (7.6)–(7.7): VERIFICADA 2026-07-21** — ver
-   `VERIFICACION-BCP-2026-07-21.md` y `verificacion_independiente.py` (tarea 1 del
-   handoff saldada en sustancia; sin xAct en la máquina, la independencia se logró por
-   ruta exacta propia + panel adversarial de 3 agentes + los apéndices posteriores de
-   los propios autores, que usan nuestros pesos). El contacto con Comelli/Pilo ya es
-   defendible pero **requiere OK explícito de Nico**.
+2. **La errata de BCP (7.6)–(7.7): VERIFICADA 2026-07-21 y CONFIRMADA POR SUS
+   AUTORES 2026-07-22** — ver `VERIFICACION-BCP-2026-07-21.md` y
+   `verificacion_independiente.py` (tarea 1 del handoff saldada en sustancia; sin
+   xAct en la máquina, la independencia se logró por ruta exacta propia + panel
+   adversarial de 3 agentes + los apéndices posteriores de los propios autores, que
+   usan nuestros pesos). El correo salió el 21/7 (lo envió Nico) y **L. Pilo
+   respondió en menos de 24 horas confirmando los misprints en m₁² y m₂² tras
+   revisar sus notebooks originales** — acta y alcance exacto en
+   `RESPUESTA-PILO-2026-07-22.md` (cita formal pendiente de permiso).
 3. **El barrido de novedad de la fila U(X,Y) sigue siendo de la sesión externa** —
    antes de cualquier claim público aplica el estándar propio: barrido INSPIRE
    full-text (pendiente; el barrido del 21/7 cubrió solo la errata).
@@ -69,10 +72,11 @@ marcos (holografía sólida 1510.09089, crystal gravity 2109.11325 — citados c
 pero el lema en el marco BCP/Dubovsky no aparece; frame dragging apantallado: nada
 comparable (eco lejano: Tajmar–de Matos cond-mat/0602591, superconductores de laboratorio);
 19 citas de Dubovsky 2024-2026 revisadas, ninguna construye el medio. Siguen: FRW (tarea 4),
-mapeo nota 10 (tarea 5, la fase de ahí era m₀=0 ∧ m₂=0, no la misma), selección de estado
-del medio (la pregunta nueva), y el envío del correo BCP (SOLO con OK de Nico; **direcciones
-verificadas 2026-07-21 en fuente primaria**: comelli@fe.infn.it — INFN Ferrara, no Padova
-como decía el borrador — y luigi.pilo@aquila.infn.it; el correo quedó listo-para-enviar).
+mapeo nota 10 (tarea 5, la fase de ahí era m₀=0 ∧ m₂=0, no la misma), y selección de
+estado del medio (la pregunta nueva). **El correo BCP ya se envió (Nico, 21/7) y fue
+RESPONDIDO: Pilo confirmó la errata el 22/7** — ver `RESPUESTA-PILO-2026-07-22.md`;
+la respuesta nuestra quedó como borrador en el Gmail de Nico (pide permiso de cita
+formal + pregunta por erratum de PRD + ofrece la nota missing-row).
 **DATO NUEVO 2026-07-21: la medición del frame dragging que el paper esperaba YA SE PUBLICÓ**
 — Ciufolini et al., Nature (julio 2026, doi:10.1038/s41586-026-10715-0): LARES-2+LAGEOS+GRACE,
 acuerdo con RG al 0.2% reclamado (error budget disputado por Iorio, 2503.07264/Universe 9:211).
