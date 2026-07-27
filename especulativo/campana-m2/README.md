@@ -91,9 +91,12 @@ novedad sin acta), TODOS aplicados el mismo día → paper v0.2. Actas nuevas:
 Colateral valioso: la suite de `acople/` quedó REPARADA y corre entera desde el repo
 (imports a `escalar/verificador/`, ruta absoluta relativizada, 2 bugs de runtime en
 `v2_vector_fuente.py`; v1a 6s · v1b 4s · v1c 4s · v2 16s · v2b 4s · 01 8s ·
-colA_causal ~2 min) y reproduce todos los chequeos citados en el paper. Pendiente
-anotado: dirimir el chequeo C5d de `colA_causal.py` (residuo ∝ m₁²p⁴ρ_op², comentario
-en el script + block list). **2ª PASADA HECHA Y APLICADA el mismo día → v0.3** (12
+colA_causal ~2 min) y reproduce todos los chequeos citados en el paper. El chequeo C5d
+de `colA_causal.py` quedó **DIRIMIDO 2026-07-27** (`acople/estatico/C5d_dirimido.py`,
+26 chequeos exactos): el residuo era un artefacto del método de extracción del
+propio chequeo, no física — la cancelación exacta de m₁² queda confirmada TAMBIÉN
+desde el pipeline del acople (Routh + det 4×4), y ρ≡ρ_op demostrado término a
+término (la identificación que el hallazgo N1 hizo deshacer era correcta). **2ª PASADA HECHA Y APLICADA el mismo día → v0.3** (12
 hallazgos nuevos, N1 medio: la cirugía de H9 identificaba ρ≡ρ_op — deshecho; informe
 completo en el acta de auditoría).
 **TAREA 4 (FRW) SALDADA 2026-07-21 — acta `frw/FRW-2026-07-21.md` + bibliografía

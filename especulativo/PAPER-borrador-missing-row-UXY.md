@@ -2,26 +2,38 @@
 
 **Nicolás Irigoyen**
 
-*Draft v0.5 — 2026-07-25 (v0.1 through v0.4 on 2026-07-21; v0.2 applied the 31
+*Draft v0.6 — 2026-07-27 (v0.1 through v0.4 on 2026-07-21; v0.2 applied the 31
 findings of the first in-house adversarial audit of the text, v0.3 the 12
 findings of the second — record and both reports in
-`campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`; v0.4 adds the FRW section §9
-from the verified task-4 campaign — §9 has NOT yet had its own audit pass, see
-the block list; v0.5 records the authors' confirmation of the BCP misprint —
-L. Pilo, email, 22 Jul 2026, see §2 and
-`campana-m2/RESPUESTA-PILO-2026-07-22.md`). First written form of the
+`campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`; v0.4 added the FRW section §9
+from the verified task-4 campaign; v0.5 (2026-07-25) recorded L. Pilo's
+confirmation of the BCP misprint —
+email, 22 Jul 2026, cc D. Comelli, see §2 and
+`campana-m2/RESPUESTA-PILO-2026-07-22.md`; **v0.6 applies the 2026-07-27
+block-list-closure campaign** — third text audit (30 findings), §9's own
+adversarial physics audit (one formula refuted and corrected in place: the
+attractor dispersion; the correction strengthens the freeze-out), the full
+quadratic FRW action (tensor confirmed, vector closed as a new identity,
+(7.22) factor closed as a convention), the {X,Y} completeness proof (§3), the
+C5d reconciliation, the reference-verification pass, and the [16]–[18]
+content checks — record in `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`).
+First written form of the
 results of the m₂ = 0 campaign (2026-07-20/21; campaign records and full
 verification chain in `especulativo/campana-m2/`:
 `HANDOFF-campana-m2-2026-07-20.md`, `VERIFICACION-BCP-2026-07-21.md`,
-`SECTOR-ESCALAR-2026-07-21.md`, `ACOPLE-MATERIA-PPN-2026-07-21.md`). Internal
+`SECTOR-ESCALAR-2026-07-21.md`, `ACOPLE-MATERIA-PPN-2026-07-21.md`,
+`frw/FRW-2026-07-21.md`, `CIERRE-BLOCKLIST-2026-07-27.md`). Internal
 working paper of the speculative stage of the Intangible Field Theory (TCI)
 program, written to stand alone: nothing below depends on any other claim of that
-program. **Not submitted anywhere.** The three technical legs each passed an
+program. **Not submitted anywhere.** The four technical legs (dictionary,
+scalar sector, matter coupling, FRW) each passed an
 independent adversarial verification pass (independent re-derivation pipelines,
-including a blind refuter for the dictionary leg; none refuted); this text
-passed a first audit pass, and
-**a second pass on the current text is required before any submission** — see the
-pre-publication block list at the end. Honesty rules of the house apply: every
+including a blind refuter for the dictionary leg; none refuted — the FRW leg's
+2026-07-27 pass corrected one of its published formulas, declared in §9); this
+text has passed three audit passes;
+**what remains before any submission is on the block list at the end** (one
+final read of the assembled text, one scalar validation run in progress, and
+the author's explicit sign-off). Honesty rules of the house apply: every
 assumption declared, every "exactly" backed by a reproducible computation,
 negative results stated with the same prominence as positive ones.*
 
@@ -37,14 +49,14 @@ Each row states whose work each piece is.
 | The medium → graviton-mass dictionary (unitary gauge, self-gravitating media) | Known since 2016 | Ballesteros–Comelli–Pilo (BCP) [4] |
 | The operator X + Y² and the isentropic class U(X + Y²) | Known since 2017 (thermodynamic route, no connection to the protected phase) | Celoria–Comelli–Pilo (CCP) [5] |
 | Scalar-sector phenomenology of ω² ∝ p⁴ media (Jeans time, r_c, t_c, bounds) | Known since 2003–2005 | ghost condensate, ACLM [8, 9] |
-| **The missing row of BCP's Table 2: Φᵃ → Ψᵃ(Φᵇ) unrestricted ⟹ U(X,Y)** | **New (to the searches declared below)** | this paper |
+| **The missing row of BCP's Table 2: Φᵃ → Ψᵃ(Φᵇ) unrestricted ⟹ U(X,Y) — with a completeness proof: {X, Y} exhausts the leading-order invariants (§3, machine-verified)** | **New (to the searches declared below; no prior classification of the unrestricted case found)** | this paper |
 | **U(X,Y) lands exactly on the protected phase: m₂ = m₃ = m₄ = 0 emerge from the vacuum conditions, no tuning, explicit ghost-free corner** | **New, machine-verified** | this paper |
 | **Exclusion lemma: on-shell m₁² = 2K_T, m₂² = −2G_T — protecting the graviton mass ⟺ switching off the medium's shear phonons (at leading order)** | **New in this framework** (the mass ↔ rigidity link is known in other settings [17, 18]) | this paper |
 | **The exact scalar dispersion ω²(p) of this phase with gravitational mixing** (Dubovsky's leading-order freeze-out made quantitative; the p⁴ coefficient is NLO and UV-sensitive) | **New (first explicit form)** | this paper |
 | **Causal theorem: with conserved sources the leading-order solution is exactly GR; γ_PPN = 1 exact; the mass only selects the gauge** | **New for this phase** (mechanism anticipated qualitatively by Dubovsky's "gauge-fixing" remark [1]) | this paper |
 | **Frame dragging has two branches: relaxed medium ⟹ Yukawa-screened (gravitomagnetic Meissner); co-rotating medium ⟹ exact GR. Screened Lense–Thirring as the falsifiable signature; the July-2026 LARES-2 measurement (claimed 0.2% [23]) gives Λ < 1.12 MeV on the relaxed branch if its error budget holds** | **New; no prior computation of rotating sources in any m₁² ≠ 0 phase found** | this paper |
-| **FRW: the tensor masslessness is an FLRW identity; the protected Minkowski vacuum is the cosmological attractor (in the mirror phase it is not [10]); w = −1 exact on the attractor; transient = exact dust; scalar stays frozen, with ω = ±(H/√2)k + 3iH on the attractor** | **New as a package (mechanism from [8, 10], current known to [5] as entropy; verified, §9 pending its own audit)** | this paper |
-| Misprint in BCP eqs. (7.6)–(7.7) — **confirmed by the authors** (L. Pilo, email to N.I., 22 Jul 2026, after re-checking their original notebooks; formal private-communication citation pending their permission); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP case), then confirmed by the authors | this paper |
+| **FRW: the tensor masslessness is an FLRW identity (and so is the vector freezing — both potentials ∝ the Friedmann-II combination, from the full quadratic action); the protected Minkowski vacuum is the cosmological attractor (in the mirror phase it is not [10]); vacuum-form stress on the attractor (w = −1 whenever U* ≠ 0); transient = exact dust; scalar stays frozen — the attractor spectrum is purely damped, zero phase velocity (the earlier ω = ±(H/√2)k + 3iH was refuted by this paper's own 2026-07-27 audit and corrected in §9)** | **New as a package (mechanism from [8, 10], current known to [5] as entropy; §9 audited 2026-07-27 — one formula corrected, the correction strengthens the freeze-out; rest survived + the quadratic-action pass confirmed tensor and closed vector)** | this paper |
+| Misprint in BCP eqs. (7.6)–(7.7) — **confirmed by L. Pilo** (email to N.I., 22 Jul 2026, cc D. Comelli, after re-checking their original notebooks; formal private-communication citation pending permission); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP case), then confirmed by L. Pilo | this paper |
 | The Einstein–Hilbert kinetic term | **Assumed, not derived** (as in [1, 4, 5]; Weinberg–Witten out of scope) | — |
 
 No death criterion of the campaign was triggered. The price of the result — the
@@ -63,7 +75,8 @@ possible subgroups of the diffeomorphism group." To the searches declared below,
 the medium realizing that phase was never constructed. Ballesteros–Comelli–Pilo (BCP) later built the general
 dictionary from self-gravitating media (four Stückelberg scalars Φ^A) to the five
 graviton mass parameters, classifying media by their internal symmetry — solids,
-fluids, superfluids, supersolids — all protected by *volume-preserving* internal
+fluids, superfluids, supersolids — all protected by (subgroups of)
+*volume-preserving* internal
 diffeomorphisms. We point out that their Table 2 has a missing row: media invariant
 under **unrestricted** internal spatial diffeomorphisms, Φᵃ → Ψᵃ(Φᵇ) with no
 condition on the determinant. Two invariants survive at leading order,
@@ -92,22 +105,26 @@ branch nature picks is a genuine open problem of the phase (it exceeds quadratic
 order), and we state it as such. Claimed LAGEOS/LARES accuracies (few-percent
 level, error budget contested) give Λ ≲ 2.0–2.6 MeV; **the LARES-2 measurement
 published in July 2026 reports agreement with GR at its 0.2% design accuracy
-(verified here through abstract and press so far), which, if its contested error
+(verified here against its openly served Extended Data, Supplementary and
+peer-review material; main text pending), which, if its contested error
 budget holds, pushes the relaxed-branch bound to Λ < 1.12 MeV, i.e. screening
 lengths beyond 30 R⊕**.
 To our searches (declared below), no computation of rotating sources exists in
 any m₁² ≠ 0 phase. On FRW backgrounds the story closes on its own: the tensor
 masslessness is an FLRW *identity* (X and Y are exactly blind to
-transverse-traceless strain); the medium's conserved current dilutes as a⁻³ and
-drives the background precisely onto the protected corner — the phase's
+transverse-traceless strain); the density of the medium's conserved charge
+dilutes as a⁻³ and
+drives the background onto the protected corner (in the Minkowski basin) —
+the phase's
 Minkowski vacuum is a cosmological attractor, where its mirror-phase analogue
-is explicitly not; on the attractor w = −1 exactly, and the off-attractor
+is explicitly not; the attractor's stress is vacuum-form (w = −1 whenever
+U* ≠ 0) with a purely damped scalar spectrum, and the off-attractor
 transient redshifts as exact dust, reproducing the ghost condensate's
-"cosmological constant plus dark matter" phenomenology. As by-products, we
+cosmological-constant-plus-dark-matter phenomenology. As by-products, we
 report a misprint in
 the mass-parameter weights of BCP eqs. (7.6)–(7.7) — with the correct weights
-established five independent ways and since confirmed by the authors (L. Pilo,
-email, 22 Jul 2026) — and two minor misprints in Dubovsky's
+established five independent ways and since confirmed by L. Pilo (email,
+22 Jul 2026, cc D. Comelli) — and two minor misprints in Dubovsky's
 eqs. (73) and (99). All results are
 symbolic (SymPy) and public; individual scripts run in seconds to about two
 minutes.
@@ -151,7 +168,8 @@ from the invariants of C^{AB} = g^{μν}∂_μΦ^A∂_νΦ^B, and a dictionary f
 five mass parameters in unitary gauge. Their Table 2 classifies media by internal
 symmetry: solids U(τₙ), perfect fluids U(b,Y), superfluids U(X,Y,b), supersolids
 (in the effective-field-theory-of-media tradition [14]) — every row protected by
-internal diffeomorphisms that **preserve the volume element**, det(∂Ψ/∂Φ) = 1.
+(a subgroup of) the internal diffeomorphisms that **preserve the volume
+element**, det(∂Ψ/∂Φ) = 1.
 
 This paper adds the row that the table is missing — the medium invariant under
 internal spatial diffeomorphisms with **no restriction at all** — and shows that
@@ -165,8 +183,10 @@ in this class live in the mirror family m₁² = 0, and nothing exists for m₁�
 
 Everything below is machine-verified symbolic algebra (SymPy; exact rational
 arithmetic; no truncations except the declared perturbative orders), reproducible
-in seconds from the public scripts (§ Reproducibility). The three technical
-blocks (dictionary + misprint; scalar sector; matter coupling) were each
+in seconds to minutes from the public scripts (§ Reproducibility). The four
+technical
+blocks (dictionary + misprint; scalar sector; matter coupling; FRW cosmology §9)
+were each
 re-derived from scratch by an independent adversarial pipeline that shared no
 code with the original derivation — plus, for the dictionary leg, a blind
 refutation attempt; none refuted (the verifiers did catch five minor slips —
@@ -179,7 +199,8 @@ We work throughout in BCP's conventions [4]: signature (−,+,+,+), unitary gaug
 Φ⁰ = t, Φᵃ = xᵃ, M_Pl = 1 unless restored, flat background g = η + h. The medium
 invariants are X = C⁰⁰ (background −1), V^a = C^{0a}, the spatial block B^{ab}
 (background δ^{ab}), Z^{ab} = V^aV^b, τₙ = Tr(Bⁿ), yₙ = Tr(BⁿZ), b = √det B, and
-Y = u·∂Φ⁰ = 1/√(−g₀₀) with u^μ the unit vector normal to constant-Φ⁰ slices. The
+Y = u·∂Φ⁰ (equal to 1/√(−g₀₀) in the unitary gauge Φ⁰ = t) with u^μ the unit
+vector normal to constant-Φ⁰ slices. The
 mass pattern is BCP's (7.3):
 
     √−g U ⊃ t^{μν}h_{μν} + ¼[ m₀²h₀₀² + 2m₁²h₀ᵢh₀ᵢ − 2m₄²h₀₀hᵢᵢ + m₃²hᵢᵢ² − m₂²hᵢⱼhᵢⱼ ]
@@ -210,12 +231,14 @@ access to our files) that rederived the weights four ways and confirmed them —
 including the structural observation that δyₙ is *exactly* uniform in n at O(h²)
 (Z is already O(h²)), so the printed weight 2n·U_yₙ would annihilate the n = 0
 term that BCP's printed sum explicitly includes; (4) internal consistency of BCP
-itself: their tensor-sector eq. (7.21), M₂² = Σn²U_τₙ (quoted at a = 1; the full
+itself: their tensor-sector mass formula — their eq. (7.22); we had cited it as
+(7.21) until the equation numbering was verified against the .tex source on
+2026-07-27 — M₂² = Σn²U_τₙ (quoted at a = 1; the full
 expression carries a^(−2(n−1))), is compatible with our weights and not with
 their printed (7.7); (5) the appendices of the later papers
 of the same group [5, 6, 7] use precisely our weights (flat in yₙ from n = 0, n²
 in τₙ). No erratum of PRD 94, 124023 exists; the equations are unchanged between
-arXiv v1 and v2. **Confirmed by the authors**: the query letter was sent on
+arXiv v1 and v2. **Confirmed by L. Pilo**: the query letter was sent on
 21 Jul 2026, and L. Pilo (email, 22 Jul 2026, cc D. Comelli), after re-checking
 the original Mathematica notebooks, confirmed the misprints in m₁² and m₂² and
 agreed with our expressions (paraphrase; permission for a formal
@@ -256,12 +279,42 @@ exactly two invariants survive:
 
 Both invariances were verified *non-linearly* on a randomized exact instance
 each (one rational random metric, one quadratic internal diffeomorphism, exact
-arithmetic: ΔX = ΔY = 0 exactly). That {X, Y} *exhausts* the leading-order invariants is a
-classification statement inherited from the campaign records — the scripts
-verify invariance, not completeness (block list). A Schur identity makes the
-pair concrete (checked exactly on a random instance):
+arithmetic: ΔX = ΔY = 0 exactly). That {X, Y} **exhausts** the leading-order invariants is now proved and
+machine-verified (`campana-m2/exhaustividad_XY.py`, 19/19 checks in exact
+arithmetic), no longer inherited. The argument is elementary. At leading order
+(one derivative per field) the building blocks are the entries of C^{AB} — X,
+V^a, B^{ab} — plus the oriented Jacobian Z_ε = ε^{μνρσ}∂_μΦ⁰∂_νΦ¹∂_ρΦ²∂_σΦ³/√−g,
+the one scalar not a function of C (Dubovsky's general one-derivative action,
+eqs. (14)–(15) of [1]). An internal diffeomorphism acts on these pointwise
+values only through its Jacobian J = ∂Ψ/∂Φ|_{Φ(x)} ∈ GL(3) — already realized
+by linear Ψ; derivatives of J enter only ∂C-operators, NLO by the derivative
+counting. On the physical domain (B positive definite, det C ≠ 0; the
+background sits inside) every (X, V, B) is brought to the normal form
+(X, (√W, 0, 0), δ), W ≡ V·B⁻¹·V, by J = R·A⁻¹ with B = AA^T: the GL(3) orbits
+are exactly the fibers of the pair (X, W), so **every invariant is a function
+of (X, W)** — confirmed by the infinitesimal count (generic orbit dimension
+8 = 9 − 1, hence 10 − 8 = 2 invariants). The Schur identity
+det C = det B·(X − W) gives (C⁻¹)₀₀ = (X − W)⁻¹ = −Y⁻², i.e.
 
-    V · B⁻¹ · V = X + Y² .
+    V · B⁻¹ · V = X + Y² ,
+
+with the sign of Y fixed by time orientation (u future-directed) as in [4];
+the spatial block of the 4×4 inverse yields nothing new either
+(V·(C⁻¹)|ₛ·V = WX/(X−W)). Z_ε itself is *not* invariant — Z_ε → det J·Z_ε with
+det J free — which is precisely how the volume-preserving column of the table
+dies (b, τₙ, yₙ all transform), while Z_ε/b = ±Y adds nothing. Hence U(X, Y),
+with no third argument. Two corollaries close the circle: restricting to
+det J = 1, the same count gives three invariants {X, Y, b} — BCP's superfluid
+row, recovered as a calibration — and dropping the clock leaves no invariant
+at all (GL(3) acts transitively on positive B): a medium of Φᵃ alone with the
+unrestricted symmetry is dynamically empty — the missing row *requires* the
+clock. The classification is the internal, time-independent analogue of the
+unitary-gauge operator classification of the EFT of inflation [27], whose
+larger residual group ξⁱ(t, x⃗) leaves only g⁰⁰; restricting to ξⁱ(x⃗) is
+exactly what lets the counterflow Y survive. Scope declared: leading order
+only (the NLO basis of §6 is a separate statement); Wess–Zumino-type terms
+shifting by a total derivative are outside the algebraic argument (as in
+[1, 4]).
 
 So U(X,Y) is a two-component object — a clock condensate plus flow lines — whose
 only memory of ever having had a lattice is the flow direction: *a superfluid
@@ -356,8 +409,8 @@ protection.
 Declared escapes (they delimit the claim rather than undermine it): higher-derivative
 kinetic structures (spin-nematic Goldstone routes à la Chojnacki [15], with
 non-relativistic dispersion), and induced gravity à la Sakharov — which is
-exactly debt 3 of this paper (the EH term is assumed throughout, here as in
-[1, 4, 5]). Death criterion 2 did not trigger as a no-go: it became this lemma.
+exactly the first non-claim declared in §10 (the EH term is assumed throughout,
+here as in [1, 4, 5]). Death criterion 2 did not trigger as a no-go: it became this lemma.
 
 ## 6. The scalar sector is frozen at leading order
 
@@ -383,8 +436,9 @@ re-derivation from √−g R; no refutation):
    couplings of the two quadratic invariants in K̄ᵢⱼ — the perturbation of the
    extrinsic curvature of the constant-Φ⁰ hypersurfaces — and σ, ρ those of the
    mixed NLO operators entering the scalar channel. (§7's static channel uses σ
-   and ρ_op; whether ρ_op coincides with ρ is precisely block-list item 7, and
-   we do not identify them here.) The precise operator basis is fixed in the
+   and ρ_op; ρ_op ≡ ρ — same operator, same normalization — was verified term
+   by term on 2026-07-27, closing that question:
+   `acople/estatico/C5d_dirimido.py`, checks [7a]/[7b]; see block-list item 7.) The precise operator basis is fixed in the
    public scripts. The coefficient is *not* expressible in the masses alone. Dubovsky left the coefficient
    generic (verified against his source); the exact dispersion below is, to our
    knowledge, its first explicit form for this medium. The second root stays
@@ -490,8 +544,8 @@ in the space of stationary vector states. The physical consequences bifurcate:
 
   with the μ → 0 limit reproducing linearized Kerr exactly. Nodal precession of
   a satellite at semi-major axis a is suppressed by 𝒮 = (1 + x)e^(−x), x = μa —
-  note **no linear term** (the Yukawa dipole cancels it); the gyroscope (GP-B)
-  factor is (1 + x − x²)e^(−x). Ω⃗_nodo ∥ J⃗ holds for arbitrary inclination.
+  note **no linear term** (the Yukawa dipole cancels it); the gyroscope factor —
+  GP-B's observable [28] — is (1 + x − x²)e^(−x). Ω⃗_nodo ∥ J⃗ holds for arbitrary inclination.
 
 - **Co-rotating branch (medium recently stirred, no dissipation).** The exact
   solution is **GR in disguise**: the medium co-rotates with the frames and the
@@ -528,14 +582,22 @@ well inside the window where the medium is otherwise viable (§6); at Λ = 1 MeV
 the predicted nodal deviation is 0.13% (LAGEOS/LARES-2-class semi-major axis
 a = 1.227×10⁷ m, as in the campaign scripts). Honesty requires both caveats: the
 0.2% error budget is disputed by Iorio [22] (the even-zonal cancellation depends
-on achieved orbital injection accuracies) and defended by the team [24], and on
+on achieved orbital injection accuracies) and defended by the team — [23]'s
+Extended Data Table 2 lists the injection errors as negligible, and its public
+Peer Review File carries the quantitative reply (achieved injection ~15× better
+than the pre-launch assumption, inclination sum 180.01°, even-zonal residuals
+folded into the Monte Carlo), alongside [24]; [23] itself does not cite [22] —
+and on
 the co-rotating branch the measurement constrains nothing. The measurement exists; any sharpening of the
 error-budget dispute or of the state-selection problem now converts directly
 into MeV-scale physics. (An earlier internal bound used a criterion with a spurious
 linear term; the corrected suppression factor weakens the bound by 2.7× in Λ —
-the correction is part of this paper's record. We have so far verified [23]
-through its abstract and press coverage only — full-text verification is on the
-pre-publication block list.)
+the correction is part of this paper's record. [23] is verified here against
+its openly served primary material: abstract, reference list, Extended Data
+Tables 1–3 — the 0.2% is the Total-RSS of Table 2(b), with μ = 1.0001 ± 0.0019
+and the LARES-2 semi-major axis 12 264 567 m confirming the value used above —
+the Supplementary Information, and the 88-page Peer Review File. The paywalled
+main text (pp. 332–335) remains unread and stays on the block list.)
 
 **Prior literature (searches declared).** Every computation of sources we could
 find in Lorentz-violating massive gravity lives in the *mirror* family m₁² = 0
@@ -555,8 +617,12 @@ declared below, untested territory.
 
 ## 9. Cosmology: the protected corner is a cosmological attractor
 
-*(This section entered in v0.4, after the two audit passes of §§1–8; it has not
-yet had its own audit pass — block list. Full record: `campana-m2/frw/`.)*
+*(This section entered in v0.4, after the two audit passes of §§1–8; it
+received its own adversarial physics audit on 2026-07-27 — one leading-order
+formula was refuted and corrected (the attractor dispersion, below), the rest
+survived independent re-derivation; record in
+`campana-m2/CIERRE-BLOCKLIST-2026-07-27.md` §5 and the correction addendum of
+`campana-m2/frw/FRW-2026-07-21.md`. Full record: `campana-m2/frw/`.)*
 
 On an FRW background (ds² = −dt² + a²dx², unitary gauge Φ⁰ = φ(t), Φᵃ = xᵃ) the
 medium's invariants collapse to X = −φ̇², Y = φ̇ — the background lives on the
@@ -566,21 +632,45 @@ two routes and both polarizations for the tensor; frozen-coefficient
 perturbation analysis for the scalar):
 
 **The tensor protection is an FLRW identity.** A transverse-traceless
-perturbation leaves X and Y invariant *exactly, to all orders in h*, so U(X,Y)
+perturbation leaves X and Y invariant *exactly, to all orders in h* — in fact
+δX = δY = 0 holds for *any* purely spatial perturbation in synchronous gauge,
+stronger than TT — so U(X,Y)
 touches the tensor sector only through √−g: the tensor mass vanishes
-identically on *any* FLRW background — no vacuum conditions required — with
-c_T² = 1 exactly and the standard 3H friction. (That fluids and superfluids
+identically on any spatially flat FLRW solution of the theory — no vacuum
+conditions required; with additional perfect-fluid matter the standard GR
+cancellation applies (verified here for the self-sourced case) — with
+c_T² = 1 at leading order (the NLO speed shift α of §6 is not recomputed on
+FRW) and the standard 3H friction (H ≡ ȧ/a). Re-derived independently from the
+full quadratic action (2026-07-27, `frw/accion_cuadratica_frw.py`): the tensor
+mass coefficient is proportional to U + 2ä/a + H², which vanishes by
+Friedmann II alone — and the same pass settled the apparent global factor 2
+against BCP's (7.22): their printed formula is **correct**, the factor was
+their M_Pl² = 1/16πG convention (no ½ on R) versus ours
+(`frw/factor_722.py`, 17 checks). **The vector sector is frozen on any FLRW
+too**: from the same quadratic action, the vector potential is proportional to
+the very same Friedmann-II combination — identically zero on-shell for
+arbitrary U(X,Y) and a(t) — leaving a nonpropagating constrained mode (the
+exact FLRW generalization of the Minkowski double zero of §6), verified by
+three routes and, term by term on-shell, against BCP's (7.24). (That fluids
+and superfluids
 have massless cosmological tensors is BCP's and CCP's general statement [4, 5];
-the reading for this row, and its consequence — the frame-dragging signature of
-§8 rides on a tensor sector that is GR's at every cosmological epoch — is
+the reading for this row, the vector-freezing identity, and the consequence —
+the frame-dragging signature of
+§8, a vector-sector effect, rides on a tensor sector that stays GR's at every
+cosmological epoch — are
 ours.)
 
 **The protected Minkowski vacuum is the dynamical attractor of the rest of the
-phase.** The clock's equation of motion is the conservation of
-J = a³(U_Y − 2φ̇U_X) — the quantity CCP identify as the medium's entropy density
-[5], there a piece of thermodynamics, here the whole dynamics: expansion
-dilutes J/a³ ∝ a⁻³, driving the background precisely to the surface
-U_Y = 2φ̇U_X, which is the flat-space tadpole condition of §4. Protection is not
+phase's histories.** The clock's equation of motion is the conservation of
+J = a³s, with s = U_Y − 2φ̇U_X the quantity CCP identify as the medium's
+entropy density
+[5] — there a piece of thermodynamics, here the whole dynamics: expansion
+dilutes the density J/a³ ∝ a⁻³, driving φ̇ to a root of
+U_Y = 2φ̇U_X; in the Minkowski basin that root is exactly the flat-space
+tadpole condition of §4 (the second condition, U* = 0, is the usual
+cosmological-constant adjustment, not dynamics; the basin caveats — three
+roots, and a ρ < 0 strip of the basin needing other matter early on — are in
+Declared limits). Protection is not
 an initial-condition choice; the expanding universe relaxes the medium onto its
 protected corner. The mechanism — a conserved charge diluting onto a
 symmetry-restoration point — is the ghost condensate's [8] and DTT's [10], and
@@ -589,34 +679,79 @@ theory's Minkowski tadpoles* is, to our searches, new — indeed in the mirror
 phase it is explicitly false (DTT's attractor is not their Minkowski point
 [10]), and for the related vacuum-energy-degravitating superfluid of
 Khoury–Sakstein–Solomon the analogous question was posed in 2018 and left as
-future work [25]; none of its citing papers answered it.
+future work [25]; none of its citing papers answered it (21 citing papers
+swept 2026-07-21; record in `campana-m2/frw/BIBLIOGRAFIA-FRW-2026-07-21.md`).
 
-**On the attractor, w = −1 exactly; the transient is exact dust.**
+**On the attractor the stress is vacuum-form; the transient is exact dust.**
 ρ + p = φ̇·J/a³ holds off-shell (Bianchi verified as an identity), so the
-attractor has vacuum equation of state, with ρ* = −U* (the standard
-cosmological-constant adjustment U* = 0 is the same one everybody makes, §4).
+attractor has vacuum-form stress p* = −ρ* = U*: w = −1 exactly whenever
+U* ≠ 0, while with the usual cosmological-constant adjustment (§4) U* = 0 the
+endpoint is Minkowski itself and the approach is pure dust (w → 0 as ρ → 0 —
+the campaign's numerical route shows exactly this).
 The off-attractor component obeys δρ ∝ a⁻³ with δp = 0 *exactly* at linear
-order (an algebraic identity of the class), reproducing the ghost condensate's
-"cosmological constant plus cold dark matter" phenomenology [8, 9] — cited,
+order — an algebraic identity of the class, needing only the simple-root
+condition K = f′(1) = 2m₀² ≠ 0: the same m₀² of the health window m₀²m₁² > 0,
+so the attractor's good conditioning and the scalar's health are one
+requirement — reproducing the ghost condensate's
+cosmological-constant-plus-cold-dark-matter phenomenology [8, 9] — cited,
 not claimed. The scalar sector stays frozen on FRW: the Minkowski double zero
-is reproduced exactly in the flat limit, one zero of the determinant persists
-exactly on the full background (the residual symmetry survives FRW), and the
-broken pair disperses as ω = ±(H/√2)k + 3iH — phase velocity ∝ H, damping 3H
-(the same a⁻³) — with no new O(1)-speed mode and no fast instability in the
-EFT window. This also answers the published objection that w = −1 superfluids
-are exponentially unstable and need a solid component [6, 26]: that
-instability is the uncured leading-order double zero, and this phase cures it
-with the k⁴ NLO exactly as the ghost condensate does (§6) — while its w = −1
+is reproduced exactly in the flat limit, and one zero of the determinant
+persists
+exactly on the full background — provably: the ω⁰ coefficient of the scalar
+determinant is proportional to 3H² − ρ and vanishes by the Friedmann
+constraint itself (the persistent zero *is* the constraint; the residual
+symmetry survives FRW). The rest of the attractor spectrum is **purely
+damped**. The v0.4–v0.5 drafts and the campaign record quoted
+ω = ±(H/√2)k + 3iH here; **this paper's own 2026-07-27 audit refuted that
+formula** — it came from truncating the determinant one order too early. The
+correct leading order is
+
+    det_dom = k³ · [ −8iω⁴ − 48Hω³ + 4iH²(k²+18)ω² + 24k²H³ω ] ,
+
+whose nonzero roots in the EFT window (k ≲ 1 in units of Λ) are all purely
+imaginary in the e^{+iωt} convention (Im ω > 0 = decay): a slow diffusive mode
+ω ≈ i(k²/3)H and a pair ω = i(3 ∓ k/√2)H + O(k²) — the ±k/√2 split is real
+but lives in the *damping*, not the phase velocity, which is zero; a
+propagating pair appears only above k* ≈ 1.27, outside the window.
+Triple-checked (exact symbolic extraction; the real cubic in y = −iω/H;
+60-digit numerics). The correction *strengthens* the freeze-out: no
+propagating mode and no instability at all in the window — every root has
+Im ω ≥ 0. (All nonzero roots have |ω| ≲ 3.6H, inside the frozen-coefficient
+band declared below: the numbers are indicative, the structural statement —
+no propagation, no instability — is the robust part.)
+This also answers, for this class, the published objection that w = −1
+superfluids
+are exponentially unstable and need a solid component [6, 26]: our
+leading-order scalar is frozen (a double zero) rather than gradient-unstable,
+and the k⁴ NLO then governs exactly as in the ghost condensate (§6) — the
+exponential instability of [6, 26] does not arise here (their equation lives
+in a different class; the .tex-level re-verification of [26] stays on the
+block list) — while our w = −1
 is a dynamical fixed point, not a symmetry-imposed constraint as in [6].
 
-**Declared limits.** The toy corner's fixed-point surface has, besides
+**Declared limits.** The explicit corner's (§4) fixed-point surface has,
+besides
 Minkowski, two model-dependent extra roots — an AdS-like point unreachable as
 a flat-FRW endpoint (its basin recollapses) and a dS-like point with U_X < 0,
 i.e. a sick vector sector, outside the healthy corner; only the Minkowski root
-is structural (a linear U has it alone). The scalar analysis uses frozen
-coefficients (valid for ω ≫ H; the ω ~ H band is indicative); the full
-quadratic FRW action, and this section's own audit pass, are on the block
-list.
+is structural (a linear U has it alone). The Minkowski basin of the explicit
+corner requires φ̇ ≳ 0.816, and its 0.816 < φ̇ ≲ 0.97 strip has ρ < 0 —
+inadmissible as the sole source in flat FRW, so histories starting there need
+other matter to dominate early on (declared, not cured); the ω¹ coefficient
+also has a second double-zero point at w ≈ 0.544, inside the AdS basin —
+irrelevant to the attractor, listed for completeness. The scalar analysis uses
+frozen
+coefficients (valid for ω ≫ H; the ω ~ H band, where all the attractor roots
+live, is indicative). The full quadratic FRW action is now derived
+(2026-07-27): tensor and vector sectors closed as identities and the (7.22)
+factor question closed as a convention (see above); the scalar sector's
+four-field action is built, its constraints verified, and its symbolic
+validation run against the corrected spectrum is in progress — that last run
+is the remaining FRW item on the block list. Two further internal misprints
+in BCP's §8 (a flipped k² sign in their GW2 and a factor-2 slip in their
+printed propagation equation) were flagged in the same pass; they do not
+affect our row (M₂² ≡ 0 identically) and await an independent check before
+being reported (campaign acta).
 
 ## 10. What this paper does not claim
 
@@ -640,8 +775,9 @@ list.
   this class underlying gravity must be positionally fluid at leading order —
   solids are out. (This converges with independent falsifications published in
   the program's record.)
-- **The BCP misprint is no longer provisional**: the authors confirmed it
-  (L. Pilo, email, 22 Jul 2026, after re-checking their original notebooks).
+- **The BCP misprint is no longer provisional**: L. Pilo confirmed it
+  (email, 22 Jul 2026, cc D. Comelli, after re-checking their original
+  notebooks).
   Our own results never hinged on
   it (U(X,Y) involves neither τₙ nor yₙ; the lemma's weights are the
   five-times-verified ones, now author-confirmed).
@@ -659,7 +795,7 @@ list.
    earlier note of our program (m₀ = 0 ∧ m₂ = 0); the exact relation remains to
    be written.
 4. **Independent CAS re-derivation** (xAct/cadabra) of the dictionary — desirable
-   redundancy before contacting the BCP authors, not load-bearing.
+   redundancy (L. Pilo has since confirmed the misprints, §2), not load-bearing.
 5. **NLO frame dragging on the co-rotating branch**: the first observable that
    could distinguish a persistent current from GR proper, if any exists.
 6. **The radiative sector**: binary-pulsar damping (Hulse–Taylor) is untouched
@@ -684,7 +820,9 @@ suite a few minutes on a laptop. (2026-07-21: the verifier-pipeline scripts of
 `acople/` were repaired to run from the repository as published — import paths
 and two runtime bugs, listed in the audit record; the repaired suite reproduces
 every check quoted in this paper. The C5d check of `colA_causal.py` prints a
-nonzero residue pending reconciliation — see the block list.)
+nonzero residue that was reconciled on 2026-07-27: an artifact of that check's
+own extraction method, not physics — `acople/estatico/C5d_dirimido.py`, 26
+exact checks; see block-list item 7.)
 
 | Block | Scripts | What they verify |
 |---|---|---|
@@ -693,6 +831,9 @@ nonzero residue pending reconciliation — see the block list.)
 | Misprint verification | `verificacion_independiente.py`, `refutador_pesos_bcp.py` | exact-inverse rederivation; blind refutation (4 methods) |
 | Scalar sector | `escalar/derivador/*`, `escalar/verificador/*`, `escalar/cotas_fenomenologicas.py` | EH from scratch; LO freeze-out; NLO dispersion; ACLM dictionary; bounds — derivation and independent verification pipelines share no code |
 | Matter coupling | `acople/estatico/*`, `acople/frame-dragging/*`, `acople/verificador/*` | causal theorem; γ(p); two branches; rotating-sphere exterior; precession factors; bounds — again with a disjoint verification pipeline |
+| C5d reconciliation | `acople/estatico/C5d_dirimido.py` | the C5d residue as an extraction artifact (symbolic identity); physical dispersion by Routhian and 4×4 determinant = scalar-pipeline formula; ∂ω²/∂m₁² = 0; ρ_op ≡ ρ term by term |
+| Completeness of {X, Y} | `exhaustividad_XY.py` | chain-rule pointwise reduction; normal form and explicit connecting group elements; orbit count 10−8 = 2; symbolic Schur; candidate invariants dismissed (incl. Z_ε); sl(3) calibration (recovers BCP's superfluid row); no-clock corollary |
+| FRW (§9) | `frw/fondo_frw.py`, `frw/verificador/v1_fondo_covariante.py`–`v4b_escalar_frw_analisis.py`, `frw/accion_cuadratica_frw.py`, `frw/factor_722.py` | three-route background; FLRW tensor identity + BCP (7.22) control; fixed-point map and basins; frozen-coefficient scalar analysis; full quadratic action (tensor/vector closed as identities, 17-check (7.22)-convention audit; scalar validation run in progress, block list) |
 
 ## Novelty search (method declared)
 
@@ -710,10 +851,24 @@ campaign additionally swept arXiv/INSPIRE 2004–2026 for the U(X,Y)
 identification (closest: CCP's isentropic U(X+Y²) [5], without the symmetry or
 the phase connection). The full search log — queries verbatim, hit lists, the
 19 citing papers, and declared limitations — is recorded in
-`campana-m2/BARRIDO-INSPIRE-2026-07-21.md`. If prior art exists that these
-searches missed, the novelty rows above are forfeit and this file will say so.
+`campana-m2/BARRIDO-INSPIRE-2026-07-21.md`. The FRW novelty claims of §9 rest
+on the 2026-07-21 FRW bibliographic campaign: the 21 papers citing [25] and the
+34 citing [5] were listed and checked (none does the U(X,Y) cosmology; KSS's
+2018 question stands unanswered), plus full-text sweeps for
+cosmological-attractor ∧ massive-gravity variants; record in
+`campana-m2/frw/BIBLIOGRAFIA-FRW-2026-07-21.md`. The completeness claim of §3
+rests on the 2026-07-27 pass: full-text checks of [1] (eqs. (14)–(15), stops at
+the mass pattern), [4] ((4.9), §5.1.2, det = 1 imposed), [7] (det = 1), and
+NPPR arXiv:1501.03845 (§2.1, stops at Diff′(3)), plus web sweeps for the
+unrestricted case — no prior classification found. If prior art exists that
+these searches missed, the novelty rows above are forfeit and this file will
+say so.
 
 ## References
+
+*(Bibliographic data verified against INSPIRE-HEP / primary sources,
+2026-07-27; the record of that verification pass, including the [16]–[18]
+content checks, lives in `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`.)*
 
 [1] S. L. Dubovsky, "Phases of massive gravity", JHEP 10 (2004) 076,
 arXiv:hep-th/0409124.
@@ -723,87 +878,145 @@ gravitons", Phys. Usp. 51 (2008) 759, arXiv:0802.4379.
 [4] G. Ballesteros, D. Comelli, L. Pilo, "Massive and modified gravity as
 self-gravitating media", Phys. Rev. D 94 (2016) 124023, arXiv:1603.02956.
 [5] M. Celoria, D. Comelli, L. Pilo, JCAP 09 (2017) 036, arXiv:1704.00322.
-[6] M. Celoria, D. Comelli, L. Pilo, arXiv:1712.04827.
-[7] arXiv:1907.11784 (same group; appendix mass formulas used in §2).
+[6] M. Celoria, D. Comelli, L. Pilo, "Self-gravitating Λ-media", JCAP 01 (2019)
+057, arXiv:1712.04827.
+[7] M. Celoria, D. Comelli, L. Pilo, R. Rollo, "Adiabatic Media Inflation",
+JCAP 12 (2019) 018, arXiv:1907.11784 (appendix A mass formulas used in §2).
 [8] N. Arkani-Hamed, H.-C. Cheng, M. A. Luty, S. Mukohyama, "Ghost
 condensation...", arXiv:hep-th/0312099.
 [9] N. Arkani-Hamed, H.-C. Cheng, M. A. Luty, S. Mukohyama, T. Wiseman,
 "Dynamics of gravity in a Higgs phase", JHEP 01 (2007) 036,
 arXiv:hep-ph/0507120 (CMB "twinkling" bound; ghost dark matter).
-[10] S. L. Dubovsky, P. G. Tinyakov, I. I. Tkachev, arXiv:hep-th/0504067.
-[11] M. V. Bebronne, P. G. Tinyakov, arXiv:0705.1301; arXiv:0902.3899.
-[12] D. Comelli, F. Nesti, L. Pilo, arXiv:1010.4773.
+[10] S. L. Dubovsky, P. G. Tinyakov, I. I. Tkachev, "Cosmological attractors in
+massive gravity", Phys. Rev. D 72 (2005) 084011, arXiv:hep-th/0504067.
+[11] M. V. Bebronne, P. G. Tinyakov, "Massive gravity and structure formation",
+Phys. Rev. D 76 (2007) 084011, arXiv:0705.1301; and "Black hole solutions in
+massive gravity", JHEP 04 (2009) 100 [Erratum: JHEP 06 (2011) 018],
+arXiv:0902.3899.
+[12] D. Comelli, F. Nesti, L. Pilo, "Stars and (furry) black holes in Lorentz
+breaking massive gravity", Phys. Rev. D 83 (2011) 084042, arXiv:1010.4773.
 [13] S. Dubovsky, P. Tinyakov, M. Zaldarriaga, "Bumpy black holes from
-spontaneous Lorentz violation", arXiv:0706.0288.
-[14] D. T. Son, arXiv:cond-mat/0501658.
-[15] L. Chojnacki, arXiv:2310.10078.
-[16] S. Endlich, A. Nicolis, J. Wang, "Solid inflation", arXiv:1210.0569.
-[17] L. Alberte et al., "Solid Holography and Massive Gravity",
-arXiv:1510.09089 (and the holographic-elasticity literature that followed).
-[18] J. Zaanen et al., "Crystal gravity", arXiv:2109.11325.
-[19] M. Tajmar, C. J. de Matos, "Gravitomagnetic London moment and the graviton
-mass inside a superconductor", arXiv:cond-mat/0602591.
+spontaneous Lorentz violation", JHEP 11 (2007) 083, arXiv:0706.0288.
+[14] D. T. Son, "Effective Lagrangian and topological interactions in
+supersolids", Phys. Rev. Lett. 94 (2005) 175301, arXiv:cond-mat/0501658.
+[15] L. Chojnacki, R. Pohle, H. Yan, Y. Akagi, N. Shannon, "Gravitational wave
+analogs in spin nematics and cold atoms", Phys. Rev. B 109 (2024) L220407,
+arXiv:2310.10078.
+[16] S. Endlich, A. Nicolis, J. Wang, "Solid Inflation", JCAP 10 (2013) 011,
+arXiv:1210.0569.
+[17] L. Alberte, M. Baggioli, A. Khmelnitsky, O. Pujolàs, "Solid Holography and
+Massive Gravity", JHEP 02 (2016) 114, arXiv:1510.09089 (and the
+holographic-elasticity literature that followed).
+[18] J. Zaanen, F. Balm, A. J. Beekman, "Crystal gravity", SciPost Phys. 13
+(2022) 039, arXiv:2109.11325.
+[19] C. J. de Matos, M. Tajmar, "Gravitomagnetic London moment and the graviton
+mass inside a superconductor", Physica C 432 (2005) 167, arXiv:cond-mat/0602591.
 [20] LIGO-Virgo-KAGRA, GWTC-3 tests of GR (graviton-mass bound
 m_g ≤ 1.27×10⁻²³ eV), arXiv:2112.06861.
-[25] J. Khoury, J. Sakstein, A. R. Solomon, "Superfluids and the Cosmological
-Constant Problem", JCAP (2018), arXiv:1805.05937.
-[26] G. di Donato, L. Pilo, "Dynamical cosmological constant",
-arXiv:2503.03589.
 [21] I. Ciufolini et al., "A test of general relativity using the LARES and
-LAGEOS satellites and a GRACE Earth gravity model", Eur. Phys. J. C (2016).
+LAGEOS satellites and a GRACE Earth gravity model", Eur. Phys. J. C 76 (2016)
+120, arXiv:1603.09674.
 [21b] I. Ciufolini et al., "An improved test of the general relativistic effect
 of frame-dragging using the LARES and LAGEOS satellites", Eur. Phys. J. C 79
 (2019) 872, arXiv:1910.09908.
 [22] L. Iorio, "Limitations in Testing the Lense–Thirring Effect with LAGEOS
-and the Newly Launched Geodetic Satellite LARES 2", Universe 9 (2023) 211; and
-"Will LAGEOS and LARES 2 succeed in accurately measuring frame-dragging?",
-Eur. Phys. J. C (2025), arXiv:2503.07264.
+and the Newly Launched Geodetic Satellite LARES 2", Universe 9 (2023) 211,
+arXiv:2304.14649; and "Will LAGEOS and LARES 2 succeed in accurately measuring
+frame-dragging?", Eur. Phys. J. C 85 (2025) 255, arXiv:2503.07264.
 [23] I. Ciufolini et al., "LARES-2 satellite measures frame-dragging effect
-around the Earth", Nature (2026), doi:10.1038/s41586-026-10715-0 (published
-July 2026).
+around the Earth", Nature 655 (2026) 332–335, doi:10.1038/s41586-026-10715-0
+(published 8 July 2026).
 [24] I. Ciufolini et al., "On the high accuracy to test dragging of inertial
-frames with the LARES 2 space experiment", Eur. Phys. J. C (2024); and "A new
-laser-ranged satellite for General Relativity and space geodesy: I. An
-introduction to the LARES2 space experiment", arXiv:1910.13818.
+frames with the LARES 2 space experiment", Eur. Phys. J. C 84 (2024) 998; and
+"A new laser-ranged satellite for General Relativity and space geodesy: I. An
+introduction to the LARES2 space experiment", Eur. Phys. J. Plus 132 (2017)
+336, arXiv:1910.13818.
+[25] J. Khoury, J. Sakstein, A. R. Solomon, "Superfluids and the Cosmological
+Constant Problem", JCAP (2018), arXiv:1805.05937.
+[26] G. di Donato, L. Pilo, "Dynamical cosmological constant",
+arXiv:2503.03589.
+[27] C. Cheung, P. Creminelli, A. L. Fitzpatrick, J. Kaplan, L. Senatore, "The
+Effective Field Theory of Inflation", JHEP 03 (2008) 014, arXiv:0709.0293
+(unitary-gauge operator classification, §2 and App. A).
+[28] C. W. F. Everitt et al., "Gravity Probe B: Final Results of a Space
+Experiment to Test General Relativity", Phys. Rev. Lett. 106 (2011) 221101,
+arXiv:1105.3456.
 
 ## Pre-publication block list (nothing leaves the repo before these)
 
-1. **In-house adversarial audit of THIS TEXT — first pass DONE 2026-07-21** (31
-   findings, all applied in v0.2; record in
-   `campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`). A second pass on the v0.2
-   text is required before submission.
-2. **Experimental accuracies — partially closed 2026-07-21**: primary references
-   now cited ([21]–[24]) including the July-2026 LARES-2 Nature measurement and
-   the Iorio error-budget dispute (both sides). Remaining: read the FULL TEXT of
-   [23] (only abstract + press verified so far — paywall); complete
-   volume/page data for [21], [22]-EPJC, [24]; add the GP-B primary reference
-   (Everitt et al.) for the gyroscope factor of §8.
-3. **BCP misprint — RESOLVED 2026-07-22**: the letter was sent by Nico on
+1. **In-house adversarial audit of THIS TEXT — three passes DONE** (2026-07-21:
+   31 findings applied in v0.2, then 12 more in v0.3, record in
+   `campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`; 2026-07-27: third pass on
+   the full v0.5 text — 30 findings, applied in v0.6 together with the §9
+   physics audit — record in `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`).
+   Remaining: one final short read of the assembled text before submission.
+2. **Experimental accuracies — closed to the paywall line 2026-07-27**: primary
+   references cited ([21]–[24], [28]) with complete bibliographic data (INSPIRE
+   pass; two corrections caught: [19] author order, [24]'s second item is EPJ
+   Plus). [23] verified against its openly served primary material — Extended
+   Data Tables 1–3 (the 0.2% Total-RSS, μ = 1.0001 ± 0.0019, semi-major axes),
+   Supplementary, and the 88-page Peer Review File (which contains the
+   quantitative reply to the injection-accuracy objection). Remaining: the
+   paywalled main text of [23] (pp. 332–335, no preprint exists); full titles
+   for [2], [5]; journal data for [8], [25], [26] if published.
+3. **BCP misprint — RESOLVED 2026-07-22**: the letter was sent by the author on
    21 Jul 2026 and L. Pilo confirmed the misprints the next day (email, cc
    D. Comelli), agreeing with our expressions. Remaining: their permission for
    a formal private-communication citation (requested 25 Jul 2026); a PRD
    erratum is their call; an xAct/cadabra run remains desirable redundancy.
-4. **Verify reference [7]'s** bibliographic data (cited here by arXiv ID only)
-   and complete journal data for [6, 9–15, 17–19].
-5. **FRW section — WRITTEN 2026-07-21 (§9, entered in v0.4)** after a verified
-   campaign (three-route background verification, tensor identity, fixed-point
-   map, frozen-coefficient scalars; records in `campana-m2/frw/`). Remaining
-   before submission: **§9's own adversarial audit pass** (it entered after the
-   two audits of §§1–8), re-verification of the quoted primary-source citations
-   against the downloaded .tex files, the full quadratic FRW action, and a
-   global-factor check against BCP's (7.22). The radiative sector stays open
-   and named (§7, §11.6).
+4. **Reference data — RESOLVED 2026-07-27** (INSPIRE-HEP verification pass,
+   record in `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`): [7] verified in
+   full — authors, journal, and content (its appendix-A mass formulas carry
+   exactly the weights our §2 attributes to it, flat in U_yₙ including n = 0,
+   n² in U_τₙ, signs included); journal data completed for [6], [10]–[15],
+   [17]–[19], [21]–[24]. Residual items folded into item 2.
+5. **FRW section — WRITTEN 2026-07-21, AUDITED AND UPGRADED 2026-07-27**.
+   The 2026-07-27 adversarial physics audit refuted one leading-order formula
+   (the attractor dispersion — corrected in §9 with the refutation declared;
+   correction addendum in `frw/FRW-2026-07-21.md`; the correction strengthens
+   the freeze-out) and confirmed the rest by independent re-derivation. The
+   full quadratic FRW action was then derived
+   (`frw/accion_cuadratica_frw.py`): tensor and vector closed as FLRW
+   identities (vector: new result, three routes + BCP (7.24) term-by-term
+   on-shell), and the (7.22) global factor closed as a convention
+   (`frw/factor_722.py`, 17 checks; BCP's printed (7.22) is correct — and our
+   earlier citations of it as "(7.21)" were renumbered after checking the .tex).
+   **Remaining**: the scalar-sector symbolic validation run of the new
+   quadratic action against the corrected spectrum (in progress at v0.6
+   close; instructions and expected outputs in
+   `CIERRE-BLOCKLIST-2026-07-27.md` §6 — if it contradicts the corrected
+   spectrum, that is reportable, not fudgeable), and the .tex-level
+   re-verification of [26]'s quoted instability equation. The radiative
+   sector stays open and named (§7, §11.6).
 6. **Explicit OK from Nicolás** on: channel (arXiv hep-th + PRD/JCAP as per the
    campaign plan), timing, and the final text. House policy: nothing public
    without per-piece sign-off.
-7. **Reconcile the C5d check** of `colA_causal.py` (nonzero residue ∝ m₁²p⁴ρ_op²
-   printed against "expected 0") with the scalar-pipeline result that m₁²
-   cancels exactly — likely a ρ vs ρ_op convention mismatch or an obsolete
-   check; state documented in the script.
-8. **Verify the quoted characterizations of [16]–[18]** (solid inflation's
-   m₂ ≠ 0, holographic mass↔elasticity, crystal gravity) against their texts —
-   currently cited from general knowledge of that literature, not from a
-   read-and-verified pass.
-9. **Completeness of {X, Y}**: state or cite a classification argument that X
-   and Y exhaust the leading-order invariants of unrestricted internal
-   diffeomorphisms (the scripts verify invariance, not exhaustiveness).
+7. **C5d check — RESOLVED 2026-07-27** (`acople/estatico/C5d_dirimido.py`, 26
+   symbolic checks, ~10 s). The nonzero residue was an artifact of the check's
+   own extraction method, not physics: with ρ_op ≠ 0 the tr K̄·R3 operator
+   couples ψ to Ė in the reduced Lagrangian, so reading ω² off the raw ψ̈
+   coefficient omits exactly −G²/(4AF−D²) — reproduced symbolically as the
+   printed residue. The physical dispersion of the same Lagrangian (Routhian at
+   conserved Π_E, and the 4×4 determinant — `colA_cierre.py` D1) equals the
+   scalar-pipeline formula exactly, with ∂ω²/∂m₁² = 0: the exact m₁²
+   cancellation is confirmed from the coupling pipeline too. Bonus closure:
+   ρ_op ≡ ρ (same operator, same normalization, term-by-term check [7a]/[7b]),
+   so §6's former non-identification caveat is dropped.
+8. **Characterizations of [16]–[18] — RESOLVED 2026-07-27**: all three verified
+   against their source texts (record with textual quotes and locations in
+   `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`). All three RESPALDA: [16]'s
+   tensor mass term m_γ² = 4εH²c_T² with c_T² carrying the solid's moduli
+   (vanishing for the perfect fluid), celebrated there as the blue-tilt
+   signature; [17] encodes rigidity "exclusively in the m₂(r) mass parameter"
+   (same name, same role as our lemma); [18] derives m_G = √(16πGμ/c²) with μ
+   the shear modulus, gravitons coupling "exclusively to the shear stress".
+9. **Completeness of {X, Y} — RESOLVED 2026-07-27**: normal-form classification
+   proven and machine-verified (`campana-m2/exhaustividad_XY.py`, 19/19 checks
+   in exact arithmetic; full statement now in §3): GL(3) orbits = fibers of
+   (X, W = X + Y²) on the non-degenerate domain; the ε-Jacobian Z_ε is not
+   invariant; sl(3) calibration recovers BCP's superfluid row {X, Y, b};
+   no-clock corollary (a medium of Φᵃ alone with the unrestricted symmetry is
+   dynamically empty). No prior classification of the unrestricted case found
+   ([1] stops at the mass pattern; [4], [7] impose det = 1; NPPR 1501.03845
+   §2.1 stops at Diff′(3)); methodological precedent cited: [27], App. A.
+   Declared scope: leading order only; Wess–Zumino terms outside.

@@ -180,14 +180,17 @@ print("C5c: omega^2(Mp2=1) - formula exacta de la acta (esperado 0):",
       sp.simplify(W2.subs(Mp2, 1) - W2_acta))
 
 # C5d: dispersion con TODOS los NLO (sigma, rho_op) contra la acta, Mp2=1
-# NOTA (auditoria del texto, 2026-07-21): este chequeo imprime un residuo NO nulo
-# ~ m1^2 * p^4 * rho_op^2 con "esperado 0". PENDIENTE DE DIRIMIR (block list del paper):
-# (a) puede ser un chequeo obsoleto frente a la correccion que el acta incorporo
-#     (el termino 4*sigma^2*p^4/Mp2^2 del verificador en gamma(p)), o
-# (b) una mezcla de convenciones rho (acta escalar, entra en omega^2) vs rho_op
-#     (acta acople, entra en gamma(p)) — son acoples NLO distintos.
-# La formula omega^2(p) del paper es la del acta del ESCALAR, verificada por el
-# pipeline independiente de escalar/verificador/ (alli m1^2 se cancela exacto).
+# ESTADO (DIRIMIDO 2026-07-27, ver C5d_dirimido.py en esta carpeta): el residuo
+# -m1^2*p^4*rho_op^2/[2(-2-al+3be+al^2+3al*be)(m1^2+2kap*p^2)] es un ARTEFACTO
+# DEL METODO de este chequeo, no fisica: con rho_op != 0 el operador trK*R3
+# genera un acople G*psi*Edot en L_red (G ~ rho_op) y -coeff(psi) del psi_dd
+# crudo deja de ser omega^2; omite exactamente -G^2/(4AF-D^2), que ES el residuo
+# (identidad simbolica, chequeo [3d] de C5d_dirimido.py). La omega^2 fisica del
+# MISMO Ltot4 (Routh con Pi_E conservado, o det 4x4: colA_cierre.py D1)
+# reproduce EXACTA la formula del acta escalar y cumple d(omega^2)/d(m1^2) = 0.
+# Ademas rho == rho_op (mismo operador trK*R3/4, misma normalizacion, cotejo
+# termino a termino [7a]/[7b]). Se conserva el print de abajo como registro
+# historico del artefacto.
 Ltot4 = sp.expand(Mp2 * LEH_can + Lmass + DLfull)
 elphi4 = sp.expand(sp.diff(Ltot4, phi)); elB4 = sp.expand(sp.diff(Ltot4, B))
 solc4 = sp.solve([elphi4, elB4], [phi, B], dict=True)[0]
