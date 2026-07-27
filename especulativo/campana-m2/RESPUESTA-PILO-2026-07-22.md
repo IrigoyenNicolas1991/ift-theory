@@ -42,8 +42,8 @@ el permiso explícito de Pilo (ya pedido).
 
 ## Respuesta enviada (estado)
 
-Redactada por Fable el 2026-07-25 y dejada como **borrador en el Gmail de Nicolás**
-(reply en el hilo, CC a Comelli — la envía Nicolás). Contenido: agradecimiento;
+Redactada por Fable el 2026-07-25 y **enviada por Nicolás ese mismo día**
+(reply en el hilo, CC a Comelli). Contenido: agradecimiento;
 (a) pedido de permiso de cita formal; (b) pregunta de si planean erratum;
 (c) respuesta a su pregunta: sí — resumen de tres frases del resultado U(X,Y)
 (fila faltante de su Tabla 2 → fase protegida de Dubovsky sin ajuste fino, lema
@@ -53,7 +53,9 @@ primer correo salió envuelto por el redirector de Gmail).
 
 ## Pendientes que abre
 
-- [ ] Nico envía la respuesta (borrador listo en su Gmail).
+- [x] Respuesta enviada por Nico (2026-07-25, junto con la respuesta al Balseiro).
+  Sin contestación al 2026-07-27 (los correos salieron un sábado); fase espera,
+  no insistir.
 - [ ] Si Pilo autoriza la cita → referencia formal en §2 del paper y en el
   marcador; si además mandan erratum a PRD, citarlo en lugar de la comunicación
   privada.

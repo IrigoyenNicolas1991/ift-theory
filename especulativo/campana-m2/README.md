@@ -75,8 +75,8 @@ comparable (eco lejano: Tajmar–de Matos cond-mat/0602591, superconductores de 
 mapeo nota 10 (tarea 5, la fase de ahí era m₀=0 ∧ m₂=0, no la misma), y selección de
 estado del medio (la pregunta nueva). **El correo BCP ya se envió (Nico, 21/7) y fue
 RESPONDIDO: Pilo confirmó la errata el 22/7** — ver `RESPUESTA-PILO-2026-07-22.md`;
-la respuesta nuestra quedó como borrador en el Gmail de Nico (pide permiso de cita
-formal + pregunta por erratum de PRD + ofrece la nota missing-row).
+la respuesta nuestra fue ENVIADA por Nico el 25/7 (pide permiso de cita
+formal + pregunta por erratum de PRD + ofrece la nota missing-row); fase espera.
 **DATO NUEVO 2026-07-21: la medición del frame dragging que el paper esperaba YA SE PUBLICÓ**
 — Ciufolini et al., Nature (julio 2026, doi:10.1038/s41586-026-10715-0): LARES-2+LAGEOS+GRACE,
 acuerdo con RG al 0.2% reclamado (error budget disputado por Iorio, 2503.07264/Universe 9:211).
