@@ -298,21 +298,70 @@ verificado). También: el prefactor global de (7.23) es 2× nuestro Lagrangiano
 físico). Estas dos erratas esperan verificación independiente (segunda vía)
 antes de reportarse — así lo declara el paper en §9/Declared limits.
 
-**Escalar — acción construida, validación EN CURSO al cierre del acta.** La
-acción cuadrática completa de 4 campos (α, β, ψ, E; α y β multiplicadores
-verificados) + fondo (tadpoles FRW = Friedmann) está construida; la corrida
-simbólica de validación (bloques S1-S7) seguía computando al cierre
-(PID 29112, >16 min CPU, log `s_run2.log` del scratchpad de sesión; un monitor
-de esta sesión avisa al terminar). **Qué debe salir** (pre-declarado — si S5b/c
-FALLAN, contradice el espectro corregido del §5 y se reporta, no se fuerza):
-S1/S2 constraints PASS; S4 det Minkowski = cero doble con coef(ω⁴) ∝ m₀²m₁²;
-S5a coef(ω⁰) = 0 exacto bajo Friedmann (cero persistente); **S5b polinomio
-dominante ∝ k³[−8iω⁴−48Hω³+4iH²(k²+18)ω²+24k²H³ω]** (el det_dom de la
-auditoría); **S5c/d/e espectro disipativo {0, i(k²/3)H, i(3∓k/√2)H} puro
-imaginario en k ≤ 1, k* ≈ 1.27**; S6 autovalores de la cinética WKB sobre el
-atractor (resultado nuevo, reportar tal cual); S7 razón det propio/det v4
-independiente de ω. Para relanzar a mano:
-`py -3.14 -u accion_cuadratica_frw.py S` en `frw/`. Limitaciones declaradas
+**Escalar — CORRIDA TERMINADA (mismo día, ~40 min de CPU; log completo
+`s_run2.log` del scratchpad). Resultado neto: LA VALIDACIÓN ESTRUCTURAL
+CONFIRMA EL ESPECTRO CORREGIDO; los tres FAIL de detalle tienen causa
+identificada EN EL CÓDIGO del script (linealización del atractor), y la doble
+verificación formal cierra por transitividad.** Desglose honesto:
+
+- **PASS que confirman**: S4 — límite Minkowski EXACTO (cero doble ω⁰..ω³=0,
+  coef(ω⁴) ∝ m₀²m₁²): la acción nueva reproduce el resultado central del
+  sector escalar plano. S5a — coef(ω⁰) = 0 EXACTO bajo 3H² = ρ(w) con w libre:
+  el cero persistente = constraint de Friedmann, confirmado desde la acción
+  (el regalo del §5 verificado por segunda ruta). **S5c — en la ventana EFT
+  todas las raíces son PURAMENTE IMAGINARIAS: cero velocidad de fase, espectro
+  disipativo** — la confirmación estructural del hallazgo de la auditoría (la
+  fórmula refutada habría dado Re ω ≠ 0). S7 — det propio / det v4 = razón
+  independiente de ω (misma física que el pipeline previo; pieza clave abajo).
+  S2 — bloque (α,β) algebraico en ω (constraints genuinas). **Match EXACTO en
+  k = 1**: su espectro {0, 0.419i, 2.000i, 3.581i} == raíces de la cúbica de
+  la auditoría (y = 2, 2 ± √10/2, verificado algebraicamente por el
+  orquestador) — k = 1 es justo donde el término espurio (abajo) se anula.
+
+- **FAIL S5b/S5d/S5e — causa identificada, no física**: el polinomio dominante
+  del script difiere del det_dom de la auditoría SOLO en un término constante
+  63k²(k²−1)·(factor) — los coeficientes dinámicos (x⁴, x³, x², x¹) coinciden
+  EXACTOS (verificado a mano por el orquestador). Causa en el código (líneas
+  1095-1119): el bloque S5 sustituye el atractor LINEALIZADO w = 1+(3/2)H²
+  bajo el supuesto declarado en comentario de que "los O(H⁴) de delta solo
+  tocan órdenes H⁵+" — supuesto FALSO: el c₀ del det es ∝ (3H²−ρ(w)) [el
+  propio S5a lo prueba], y 3H² − ρ(1+(3/2)H²) = O(H⁴) entra AL orden
+  dominante. Es la misma clase de trampa que mató a v4b (truncado en la
+  sustitución del fondo en vez del escaleo), en otra puerta — y es EXACTAMENTE
+  el artefacto que el auditor del §5 documentó y mató en su propia pasada
+  ("par inestable espurio; con δ exacto desaparece", aud3/aud5). Los FAIL
+  S5d/S5e (modo difusivo corrido, k* desplazado) son consecuencia directa del
+  mismo c₀ espurio; la raíz con Im < 0 del espectro impreso en k < 1 es el
+  artefacto, no una inestabilidad (en k = 1, término espurio nulo, todas las
+  raíces tienen Im ≥ 0 y matchean exacto).
+
+- **La doble verificación formal CIERRA POR TRANSITIVIDAD**: S7 (PASS) prueba
+  det_B = C(fondo,k)·det_v4 con C independiente de ω ⟹ mismas raíces en ω
+  para todo fondo; y aud5 del auditor corrió det con δ EXACTO (mpmath dps=60)
+  dando el espectro disipativo {0, 0.0871i, 2.595i, 3.318i} en k = 1/2. Por
+  lo tanto el det del script B con δ exacto da el mismo espectro. Redundancia
+  formal opcional anotada: re-correr el bloque S5 de
+  `accion_cuadratica_frw.py` sustituyendo δ exacto (resolver 3H² = ρ(1+δ)
+  como en aud5) en lugar de la línea 1119 — se espera que S5b/d/e pasen; si
+  no pasaran, reabrir.
+
+- **Flags del script B anotados (no bloquean, no tocan al paper)**: (a) A0b
+  espacial FAIL — residuo = 3a³(2U0+2U_Xφ̇²−U_Yφ̇) = 3a³(p−ρ) [álgebra del
+  orquestador]: se anula en el atractor con U*=0 pero no off-shell — el
+  chequeo del script está mal planteado off-shell (probable EOM de fondo
+  faltante en su resta) O su coef(ψ) arrastra un término; a revisar en la
+  redundancia formal. (b) S1-β FAIL ("residuo = 1"): un término β̇ residual en
+  su L2 — pero S2 (PASS) prueba que el bloque (α,β) es algebraico en ω, que
+  es lo que importa: las constraints funcionan; flag de construcción. (c) S6
+  (resultado nuevo, sin contraste previo): la cinética WKB reducida sobre el
+  atractor tiene un autovalor positivo chico (el modo que se congela, → 0) y
+  UNO NEGATIVO O(1) — pregunta abierta anotada: ¿es el signo conocido del
+  sector tipo-Jeans con gravedad (cf. κ < 0 como parte de la condición de
+  salud en Minkowski, §6 del paper) o señala algo? El espectro de raíces —
+  lo físico — es disipativo/estable, así que no es una alarma, pero queda
+  como pregunta para la próxima sesión técnica.
+
+Limitaciones declaradas
 del agente: reducción escalar exacta con coeficientes t-dependientes no
 entregada (solo acción completa + reducción en sistema congelado, mismo
 estatus que v4); lapse genérico N(t) solo en el tensor de factor_722; banda

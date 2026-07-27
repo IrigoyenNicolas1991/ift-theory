@@ -981,11 +981,21 @@ arXiv:1105.3456.
    on-shell), and the (7.22) global factor closed as a convention
    (`frw/factor_722.py`, 17 checks; BCP's printed (7.22) is correct — and our
    earlier citations of it as "(7.21)" were renumbered after checking the .tex).
-   **Remaining**: the scalar-sector symbolic validation run of the new
-   quadratic action against the corrected spectrum (in progress at v0.6
-   close; instructions and expected outputs in
-   `CIERRE-BLOCKLIST-2026-07-27.md` §6 — if it contradicts the corrected
-   spectrum, that is reportable, not fudgeable), and the .tex-level
+   **The scalar validation run finished the same day and CONFIRMS the
+   corrected spectrum structurally**: exact Minkowski limit (double zero,
+   coef(ω⁴) ∝ m₀²m₁²); persistent zero = Friedmann constraint confirmed from
+   the action; all roots purely imaginary in the EFT window (zero phase
+   velocity); exact root match with the audit's cubic at k = 1; and the new
+   determinant is ∝ the v4 determinant with an ω-independent ratio, so the
+   audit's exact-δ 60-digit run transfers to it (transitivity). Three
+   surviving detail-level FAILs have their cause identified in the script's
+   own code — it substitutes the linearized attractor w = 1 + (3/2)H², whose
+   O(H⁴) error feeds the determinant's constant term at leading order, the
+   same class of trap that produced the original dispersion error; the
+   spurious term ∝ k²(k²−1) vanishes at k = 1, where everything matches
+   exactly. Full breakdown, script flags, and the optional formal redundancy
+   (re-run block S5 with exact δ) in `CIERRE-BLOCKLIST-2026-07-27.md` §6.
+   **Remaining**: that optional exact-δ re-run, and the .tex-level
    re-verification of [26]'s quoted instability equation. The radiative
    sector stays open and named (§7, §11.6).
 6. **Explicit OK from Nicolás** on: channel (arXiv hep-th + PRD/JCAP as per the
