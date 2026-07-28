@@ -121,3 +121,17 @@ informe completo (transcripto en la bitácora de sesión).
 
 *Acta escrita el mismo día del barrido. Citas textuales re-verificables contra
 los .tex guardados antes de transcribir a cualquier paper.*
+
+---
+
+## ERRATA DE ESTA ACTA — 2026-07-28 (cazada por el cotejo de fidelidad de la 4ª auditoría del paper)
+
+Esta acta (y la síntesis y el comentario del script `colA/a4_numeros.py`, que
+la heredaron) dice **"ACLM+Thaler hep-ph/0507120"**: el quinto autor de
+"Dynamics of Gravity in a Higgs Phase" (JHEP 01 (2007) 036) es **Toby
+WISEMAN**, no Thaler — verificado contra arXiv el 2026-07-28. El contenido
+citado (§Nonlinear Energy Loss, §Fluid Picture, la tasa Ė ~ αM²v³ y la
+irrotacionalidad) es correcto y no cambia. El paper missing-row cita [9] con
+los autores correctos desde antes de esta errata. Registro intacto arriba;
+esta adenda es la corrección fechada (regla de la casa: las actas no se
+reescriben).

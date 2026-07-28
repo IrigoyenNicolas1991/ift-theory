@@ -21,8 +21,10 @@ content checks — record in `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`;
 **v0.7 integrates the state-selection campaign of 2026-07-27/28** — a
 superselection theorem decides the two-branch question that v0.1–v0.6 carried
 as the paper's central open caveat, in the direction that *suppresses* the
-paper's own falsifiable signature: §8 rewritten, abstract, scoreboard, §§1, 9,
-10, 11 updated, and the title changed accordingly (it read "…and a screened
+paper's own falsifiable signature: §8 rewritten; abstract, scoreboard, §§1, 3,
+6, 7, 9, 10, 11, Reproducibility, Novelty search and references updated; and
+the
+title changed accordingly (it read "…and a screened
 frame-dragging signature" through v0.6) — campaign record: three independent
 columns plus a final adversarial verifier with its own pipeline,
 `campana-m2/seleccion-estado/` — `SINTESIS-SELECCION-2026-07-28.md`,
@@ -40,8 +42,8 @@ program. **Not submitted anywhere.** The five technical legs (dictionary,
 scalar sector, matter coupling, FRW, state selection) each passed an
 independent adversarial verification pass (independent re-derivation pipelines,
 including a blind refuter for the dictionary leg and a five-flank attack for
-the state-selection leg; none refuted — the FRW leg's
-2026-07-27 pass corrected one of its published formulas, declared in §9); this
+the state-selection leg; no leg was refuted as a block — the FRW pass did
+refute and correct one published formula, declared in §9); this
 text has passed three audit passes (a fourth, over the v0.7 rewrite, is on the
 block list);
 **what remains before any submission is on the block list at the end** (the
@@ -67,8 +69,8 @@ Each row states whose work each piece is.
 | **Exclusion lemma: on-shell m₁² = 2K_T, m₂² = −2G_T — protecting the graviton mass ⟺ switching off the medium's shear phonons (at leading order)** | **New in this framework** (the mass ↔ rigidity link is known in other settings [17, 18]) | this paper |
 | **The exact scalar dispersion ω²(p) of this phase with gravitational mixing** (Dubovsky's leading-order freeze-out made quantitative; the p⁴ coefficient is NLO and UV-sensitive) | **New (first explicit form)** | this paper |
 | **Causal theorem: with conserved sources the leading-order solution is exactly GR; γ_PPN = 1 exact; the mass only selects the gauge** | **New for this phase** (mechanism anticipated qualitatively by Dubovsky's "gauge-fixing" remark [1]) | this paper |
-| **Frame dragging has two branches: relaxed medium ⟹ Yukawa-screened (gravitomagnetic Meissner); co-rotating medium ⟹ GR (up to δ ~ 10⁻⁴³, below). The would-be signature — screened Lense–Thirring, with LARES-2 [23] giving Λ < 1.12 MeV on the relaxed branch — is suppressed by the superselection theorem of the next row: the phase predicts GR gravitomagnetism, and those bounds stand as counterfactuals of the unpopulated branch** | **New; no prior computation of rotating sources in any m₁² ≠ 0 phase found** | this paper |
-| **Superselection theorem: the internal charge of the residual symmetry has no spatial current (P_aⁱ = 0 — an exact off-shell identity, verified four independent ways), so its density is frozen pointwise, with the inversion corollary P_a⁰(x) = 0 ⟺ g₀ₐ(x) = 0. The two branches are disconnected superselection sectors; cosmological initial conditions populate the co-rotating (zero-charge) one, universally; NLO opens no backdoor (δ = −ĉ(Λ/M̄_Pl)² ≤ 1.7×10⁻⁴³; charge leak ≤ 10⁻¹⁴ per Hubble time on a deliberately broken bound)** | **New, machine-verified (three campaign columns + adversarial verifier with its own pipeline)** | this paper |
+| **Frame dragging has two branches: relaxed medium ⟹ Yukawa-screened (gravitomagnetic Meissner); co-rotating medium ⟹ GR (up to δ ≲ 10⁻⁴¹, below). The would-be signature — screened Lense–Thirring, with LARES-2 [23] giving Λ < 1.12 MeV on the relaxed branch — is suppressed by the superselection theorem of the next row: the phase predicts GR gravitomagnetism, and those bounds stand as counterfactuals of the unpopulated branch** | **New; no prior computation of rotating sources in any m₁² ≠ 0 phase found** | this paper |
+| **Superselection theorem: the internal charge of the residual symmetry has no spatial current (P_aⁱ = 0 — an exact off-shell identity, verified four independent ways), so its density is frozen pointwise, with the inversion corollary P_a⁰(x) = 0 ⟺ g₀ₐ(x) = 0. The two branches are disconnected superselection sectors; cosmological initial conditions populate the co-rotating (zero-charge) one, universally; NLO opens no backdoor (δ = −ĉ(Λ/M̄_Pl)², ≥30 orders below sensitivity everywhere in the declared windows; charge leak ≤ 3×10⁻¹⁴ over the age of the universe on a deliberately broken bound). Hypotheses declared, §8/§10** | **New, machine-verified (three campaign columns + adversarial verifier with its own pipeline)** | this paper |
 | **FRW: the tensor masslessness is an FLRW identity (and so is the vector freezing — both potentials ∝ the Friedmann-II combination, from the full quadratic action); the protected Minkowski vacuum is the cosmological attractor (in the mirror phase it is not [10]); vacuum-form stress on the attractor (w = −1 whenever U* ≠ 0); transient = exact dust; scalar stays frozen — the attractor spectrum is purely damped, zero phase velocity (the earlier ω = ±(H/√2)k + 3iH was refuted by this paper's own 2026-07-27 audit and corrected in §9)** | **New as a package (mechanism from [8, 10], current known to [5] as entropy; §9 audited 2026-07-27 — one formula corrected, the correction strengthens the freeze-out; rest survived + the quadratic-action pass confirmed tensor and closed vector)** | this paper |
 | Misprint in BCP eqs. (7.6)–(7.7) — **confirmed by L. Pilo** (email to N.I., 22 Jul 2026, cc D. Comelli, after re-checking their original notebooks; formal private-communication citation pending permission); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP case), then confirmed by L. Pilo | this paper |
 | The Einstein–Hilbert kinetic term | **Assumed, not derived** (as in [1, 4, 5]; Weinberg–Witten out of scope) | — |
@@ -109,8 +111,10 @@ phase does in the lab. The scalar sector is frozen at leading order (a double ze
 matching the content of Dubovsky's eq. 99); the ω² ∝ p⁴ dispersion turns on only through
 next-to-leading-order operators, with a UV-sensitive coefficient, and with
 gravitational mixing the infrared is a slow Jeans instability — in that sector the
-medium is exactly a ghost condensate (dictionary M⁴ = 2m₀², κ = −M̄²/2), because
-m₁² cancels there. The sector where m₁² does not cancel is gravitomagnetism:
+medium is exactly a ghost condensate (dictionary M⁴ = 2m₀², κ = −M̄²/2, in
+ACLM's notation), because
+m₁² cancels there. The
+sector where m₁² does not cancel is gravitomagnetism:
 with conserved sources the static and orbital predictions are exactly GR
 (γ_PPN = 1 exact, by a causal theorem: the mass term only selects the
 synchronous gauge and costs zero action on-shell), and the vector sector has
@@ -118,24 +122,29 @@ synchronous gauge and costs zero action on-shell), and the vector sector has
 gravitomagnetic potential obeys (∇² − μ²)Sᵢ = 16πG̃τᵢ — a gravitomagnetic
 Meissner effect, Lense–Thirring precession screened by (1 + μa)e^(−μa) with
 μ = 2Λ²/M̄_Pl; if the medium co-rotates (a persistent-current state), the
-prediction is GR. Which branch nature picks turned out to be **decidable at
-quadratic order, and decided — by a superselection theorem**: the internal
+prediction is GR. Which branch nature picks turned out to be **decidable — and
+decided — by a superselection theorem**: the internal
 charge of the residual symmetry Φᵃ → Φᵃ + ξᵃ(Φ⃗) has no spatial current
 (P_aⁱ = 0, an exact off-shell identity of the full nonlinear theory, verified
 four independent ways), so its density is frozen pointwise, with the inversion
-corollary P_a⁰(x) = 0 ⟺ g₀ₐ(x) = 0: the two branches are disconnected
+corollary P_a⁰(x) = 0 ⟺ g₀ₐ(x) = 0 (U_Y ≠ 0): the two branches are disconnected
 superselection sectors. Cosmological initial conditions — the FRW attractor of
 this same paper — populate the zero-charge, co-rotating sector, universally
 (S = 0 solves the source switch-on exactly for arbitrary history, moving
 sources included); the screened branch is unreachable, because the current
 that would transport the charge into it does not exist. Next-to-leading-order
 operators open no backdoor: the surviving correction is a universal
-renormalization of the gravitomagnetic coupling, δ = −ĉ(Λ/M̄_Pl)² ≈
-10⁻⁶¹–10⁻⁴³ across the viability window, some forty orders of magnitude below
-current sensitivity, and the charge-leak rate is bounded ≥14 orders below one
-charge per Hubble time on an estimate deliberately broken against us. **The
+renormalization of the gravitomagnetic coupling, |δ| = ĉ(Λ/M̄_Pl)² ≈
+10⁻⁶¹–10⁻⁴¹ across the conservative viability window (≤ 10⁻³³ even at its
+100 GeV extreme) — ≥30 orders of magnitude below
+current sensitivity everywhere in the declared windows — and the charge-leak
+rate is Γ·t_age ≤ 3×10⁻¹⁴, more than thirteen orders below one
+charge over the age of the universe, on an estimate deliberately broken
+against us. **The
 phase therefore predicts GR gravitomagnetism outright — not because the medium
-hides well, but because a conservation law forbids it to show.** The screened
+hides well, but because a conservation law forbids it to show** (under the
+hypotheses declared in §8: universal coupling, smooth Φᵃ, the structural NLO
+basis). The screened
 Lense–Thirring signature that earlier versions of this work announced as the
 falsifiable prediction is thereby suppressed, and we say so with the same
 prominence: the LAGEOS/LARES bounds it would have implied (Λ ≲ 2.0–2.6 MeV,
@@ -163,7 +172,7 @@ the mass-parameter weights of BCP eqs. (7.6)–(7.7) — with the correct weight
 established five independent ways and since confirmed by L. Pilo (email,
 22 Jul 2026, cc D. Comelli) — and two minor misprints in Dubovsky's
 eqs. (73) and (99). All results are
-symbolic (SymPy) and public; individual scripts run in seconds to about two
+symbolic (SymPy) and public; individual scripts run in seconds to a few
 minutes.
 
 ---
@@ -217,22 +226,31 @@ best measured — the radiative sector is open (§11) — and whose one computed
 candidate deviation, a two-branch gravitomagnetic response (itself new: all
 prior source computations in this class live in the mirror family m₁² = 0, and
 nothing exists for m₁² ≠ 0 — searches declared below), is closed by a second,
-sharper theorem: a superselection argument freezes the medium in the branch
-indistinguishable from Einstein (§8). The paper's observational content is
-therefore a clean structural prediction — GR everywhere measured, enforced by
-conservation laws rather than tuning — together with the two-branch structure
+sharper result: a superselection theorem freezes the medium in the branch
+indistinguishable from Einstein (up to δ ≲ 10⁻⁴¹, §8). The paper's
+observational content is
+therefore a clean structural prediction — GR in every static and orbital
+regime measured, and in gravitomagnetism, enforced by
+conservation laws rather than tuning (the radiative sector stays open, §11) —
+together with the two-branch structure
 and the theorem that decides it, both new.
 
 Everything below is machine-verified symbolic algebra (SymPy; exact rational
 arithmetic; no truncations except the declared perturbative orders), reproducible
-in seconds to minutes from the public scripts (§ Reproducibility). The four
+in seconds to minutes from the public scripts (§ Reproducibility). The five
 technical
-blocks (dictionary + misprint; scalar sector; matter coupling; FRW cosmology §9)
+blocks (dictionary + misprint; scalar sector; matter coupling; FRW cosmology
+§9; state selection §8)
 were each
 re-derived from scratch by an independent adversarial pipeline that shared no
 code with the original derivation — plus, for the dictionary leg, a blind
-refutation attempt; none refuted (the verifiers did catch five minor slips —
-four in the scalar leg, one omitted term in the matter leg — all incorporated
+refutation attempt, and, for the state-selection leg, a five-flank adversarial
+verifier with its own third pipeline; none refuted (the verifiers did catch
+minor slips —
+four in the scalar leg, one omitted term in the matter leg, and two
+bookkeeping blemishes in the state-selection leg (a script's closing print at
+odds with its own table, and one internal inconsistency about which bound
+governs) — all incorporated
 and on record).
 
 ## 2. Conventions, the calibrated dictionary, and a misprint in BCP
@@ -528,7 +546,9 @@ here. Mode counting: 2 (LO), 2+1 (NLO), matching Dubovsky.
 
 The one thing the ghost condensate is *forbidden* to have — by its own residual
 symmetry, verified textually — is m₁² ≠ 0. That is the one sector where this
-medium is distinguishable, and it is the subject of the next two sections.
+medium is structurally distinct from the ghost condensate — and §8 shows that
+what the distinction buys is a conservation law, not a signature. It is the
+subject of the next two sections.
 
 ## 7. Matter coupling: Einstein by theorem, not by tuning
 
@@ -597,10 +617,12 @@ in the space of stationary vector states. The physical consequences bifurcate:
   with the μ → 0 limit reproducing linearized Kerr exactly. Nodal precession of
   a satellite at semi-major axis a is suppressed by 𝒮 = (1 + x)e^(−x), x = μa —
   note **no linear term** (the Yukawa dipole cancels it); the gyroscope factor —
-  GP-B's observable [28] — is (1 + x − x²)e^(−x). Ω⃗_nodo ∥ J⃗ holds for arbitrary inclination.
+  GP-B's observable [28] — is (1 + x − x²)e^(−x). Ω⃗_node ∥ J⃗ holds for arbitrary inclination.
 
-- **Co-rotating branch.** The exact solution is **GR in disguise**: the medium
-  co-rotates with the frames and the screening is invisible. Its Hamiltonian
+- **Co-rotating branch.** The exact solution at leading order is **GR in
+  disguise**: the medium
+  co-rotates with the frames and the screening is invisible (the NLO shift it
+  does acquire is quantified below). Its Hamiltonian
   lies above the relaxed branch's (verified, robust to boundary terms) — but
   the comparison, as the theorem below shows, is between states of *different
   superselection sectors*: within its own sector the co-rotating state is the
@@ -608,22 +630,30 @@ in the space of stationary vector states. The physical consequences bifurcate:
   that the mass term here acts as a gauge fixing [1] describes this branch;
   the relaxed branch, and the choice between them, are new.
 
+A bookkeeping note on the co-rotating solution (from the adversarial pass): in
+unitary gauge it shows a linearly growing h_xz ∝ t. This is pure label winding
+— a shear deformation that U(X,Y) does not see (the gauge-invariant transverse
+profile σ ≡ S − Ḟ stays constant) — removable by passing to physical
+coordinates, where the state is exactly linearized Kerr for all t; the large-t
+description belongs in those coordinates.
+
 **The superselection theorem.** The residual symmetry protects more than the
 graviton mass. For √−g U(X,Y) + EH, the Noether current of the internal
 transformations Φᵃ → Φᵃ + ξᵃ(Φ⃗) has **no spatial components**:
 
-    P_aⁱ = 0   identically,   P_aᵘ ≡ ∂(√−g U)/∂(∂_μΦᵃ)
+    P_aⁱ = 0   identically,   P_a^μ ≡ ∂(√−g U)/∂(∂_μΦᵃ)
 
 — an *off-shell algebraic identity* of the full nonlinear theory, exact at
 every order in h. The reason is structural: the finite GL(3) action on the
 Gram matrix of the ∂Φ^A leaves Y invariant as a statement of block linear
-algebra, so the infinitesimal corollary P_aᵘ∂_μΦᵇ = 0 holds off-shell, and in
-unitary gauge (∂_μΦᵇ = δᵇ_μ) it collapses to P_aᵇ = 0 with no computation
-left. Verified **four independent ways** (two derivation routes in the
-campaign columns — an exact solve-u elimination and a Levi-Civita closed form
-— plus a third parametrization by Gram determinants and an explicit
-vertex-by-vertex expansion in the adversarial pass: all 36 components of the
-h²∂ᵢπ cubic vertices vanish; the spatial current with the Goldstone excited is
+algebra, so the infinitesimal corollary P_a^μ∂_μΦᵇ = 0 holds off-shell, and in
+unitary gauge (∂_μΦᵇ = δᵇ_μ) it collapses to P_a^b = 0 with no computation
+left. Verified **four independent ways**: an exact solve-u elimination
+(charge column), a Levi-Civita closed form (vertex column), a third
+parametrization by Gram determinants (the adversarial verifier's own), and —
+at the cubic order where the first backdoor would live — an explicit
+vertex-by-vertex expansion (vertex column: all 36 components of the
+h²∂ᵢπ vertices vanish; the spatial current with the Goldstone excited is
 pure advection, slaved to the density — charge rides *with* the medium, never
 *through* it). The transformation leaves g_μν and matter untouched, so the
 current has no Einstein–Hilbert or boundary piece (δL_EH = δL_mat = 0
@@ -642,20 +672,26 @@ identity), with C = 0 exactly on the co-rotating branch (in *its own*
 coordinates the medium sees no shift) and C ≠ 0 mode by mode on the relaxed
 one (a dipolar distribution, zero net charge). Passing from one to the other
 would transport charge between points — **and the current that would do it
-does not exist**. The branches are disconnected superselection sectors. The
+does not exist**. The branches are disconnected superselection sectors (we use
+"superselection" in the dynamical sense: no operator of the theory transports
+the charge between points, so no physical process connects the sectors). The
 escape "relaxed profile plus a compensating charge cloud" fails too: the
-constrained system {constraint, C = 0, σ = σ_relaxed} has no solution
+constrained system {constraint, C = 0, σ = σ_relaxed} — σ the gauge-invariant
+transverse profile defined above — has no solution
 (verified) — the co-rotating state is the *only* stationary state of the
 zero-charge sector. Its "extra energy" cannot be released either: on the
-verified mode H(C; τ) = C²/(4m₁²) + (τ−C)²/(4Ap²) is minimized by the relaxed
+verified mode H(C; τ) = C²/(4m₁²) + (τ−C)²/(4Ap²) — A the modal kinetic
+coefficient (≈ M̄_Pl² in the campaign's conventions), p the mode wavenumber —
+is minimized by the relaxed
 charge, but lowering H requires changing C — no channel.
 
 **Population is universal.** Which sector does nature fill? S = 0 solves the
 source switch-on problem **exactly** for arbitrary source history τ(t) — fast,
-slow, non-monotonic; the plane mode is first-order holonomic (zero
+slow, non-monotonic; the plane-mode dynamics is first order in time (zero
 eigenfrequencies), so the state is labeled by the charge alone (closed-form
 general solution; RK4 control across switch-on times spanning six decades:
-S_final ~ 10⁻¹³ against S_relaxed = −0.909) — and even for a source that
+|S_final/S_relaxed| ~ 10⁻¹³, consistent with integrator error — the symbolic
+solution is exactly zero) — and even for a source that
 **moves while it grows**: with T⁰ˣ = τ(t)cos(p(z − z₀(t))), τ(t) and z₀(t)
 arbitrary and the stress completed by conservation, S ≡ 0 solves all four
 equations exactly (two quadratures; the matter transports its own momentum,
@@ -666,7 +702,8 @@ this same structure — and any primordial charge dilutes as a⁻³. Earth's
 non-axisymmetric, time-dependent rotation cannot pump the mode either: the
 response has no poles (transfer function bounded, no resonance at 2Ω⊕ and no
 non-resonant secularity; symbolic S = 0 exact, RK4 over 200 revolutions:
-max|S| ~ 3×10⁻¹¹). **The formation of a planet leaves the medium co-rotating.
+max|S| ~ 3×10⁻¹¹, integrator-level). **The formation of a planet leaves the
+medium co-rotating.
 Always.** The state that through v0.6 we called "excited" is the one the
 universe prepares — and the theorem forbids it to decay.
 
@@ -687,22 +724,30 @@ leak estimate — a dimensional chain, declared as such, built from the actual
 drives (v_drag ≈ 7.2×10⁻¹⁶ at Earth's surface; the J₂₂ ≈ 1.8×10⁻⁶ forcing at
 2Ω⊕; pole-free response; cubic rectification) — gives Γ·t_age ≤ 3.5×10⁻³⁵,
 and ≤ 2.7×10⁻¹⁴ on a version of the bound *deliberately broken against us*
-(oscillating flux counted as coherent drain): ≥14 orders of magnitude below
-one charge per Hubble time on the broken bound. **The co-rotating sector does
+(oscillating flux counted as coherent drain): more than thirteen orders of
+magnitude below one charge over the age of the universe even on the broken
+bound (thirty-four on the structural one). **The co-rotating sector does
 not drain.** What NLO does do is shift the co-rotating state off exact GR: the
 surviving correction is a **universal renormalization of the gravitomagnetic
 coupling** — momentum-independent at leading order, no Yukawa resurrection —
 
-    δ_ret = −ĉ (Λ/M̄_Pl)² = −1.7×10⁻⁶¹ … −1.7×10⁻⁴³   (Λ = 10⁻³ eV … 1 MeV; ĉ the
-    O(1) UV-sensitive NLO coefficient; conventions as in the Numbers paragraph)
+    δ_ret = −ĉ (Λ/M̄_Pl)² ;  |δ_ret| = 1.7×10⁻⁶¹ … 1.7×10⁻⁴¹ at |ĉ| = 1 (either
+    sign) across the conservative window Λ = 10⁻³ eV … 10 MeV — the campaign's
+    numerical scan ran to Λ = 1 MeV, where |δ_ret| ≤ 1.7×10⁻⁴³, and the formula
+    extends monotonically; even at §6's 100 GeV twinkling extreme it reaches
+    only 1.7×10⁻³³. (ĉ is the O(1) UV-sensitive NLO coefficient; conventions
+    as in the Numbers paragraph.)
 
-with LARES-2's 2×10⁻³ sensitivity ≥40 orders away (reviving observability
-would need ĉ ~ 10⁴⁰, i.e. a UV cutoff near 10¹⁷ GeV inside a medium whose own
-cutoff is ≤ MeV; the NLO shift of the relaxed branch is < 10⁻²¹, so the
+LARES-2's 2×10⁻³ sensitivity sits ≥38 orders away across the conservative
+window, ≥30 even at the 100 GeV extreme (reviving observability
+would need a UV cutoff near 10¹⁷ GeV — ĉ ~ 10⁴⁰ at Λ = 1 MeV, ~10³⁰ at
+100 GeV, the same cutoff either way — inside a medium whose own
+cutoff is at the Λ scale; the NLO shift of the relaxed branch is < 10⁻²¹
+across the campaign's full scan, so the
 branches stay sharply distinct). This δ_ret settles what would otherwise be
 the open problem of NLO frame dragging on the co-rotating branch: the first
 observable distinguishing the persistent current from GR proper *exists*, and
-is unobservable by some forty orders of magnitude. No pathology accompanies
+is unobservable by thirty-plus orders of magnitude. No pathology accompanies
 it: the modal Hamiltonian stays positive across the EFT window for either sign
 of ĉ, the flat direction survives as ω² = 0 (not ω² < 0), and the one apparent
 Ostrogradsky ghost (from the acceleration operator) is an artifact of
@@ -713,22 +758,35 @@ coefficient, no order reduction).
 **The remaining channels die by imported physics.** (i) *Vortices / phase
 slips of Φᵃ* — the one genuinely non-perturbative escape, since a non-smooth
 Φᵃ evades the theorem — face the standard persistent-current barrier physics
-[32]: the half-ring barrier E_b = E_R − P_R·v scales as 1/v, **divergent at
-low drive**, and the drive here is v_drag ~ 10⁻¹⁵; real superfluids far below
-criticality hold their currents on cosmological times (the framework's own
-cracks near v_c, declared in the literature, are irrelevant at v/v_c ~ 0).
-There is also no thermal bath to activate them. (ii) *Scalar Cherenkov* — the
+[32]: the half-ring barrier — the maximum of E_R − P_R·v over ring size —
+scales as 1/v, **divergent at
+low drive**, and the drive here is v_drag ~ 10⁻¹⁵; persistent currents in
+superconductors are measured stable beyond ~10⁵ yr, and superfluid rings far
+below criticality decay only near v_c (the framework's declared limitations
+near v_c are irrelevant at v/v_c ~ 0 [32]).
+There is also no known thermal bath to activate them. (ii) *Scalar Cherenkov*
+— the
 one gapless channel — carries energy but no charge (it cannot change the
 sector label), and its rate is imported and negligible: the moving-source
 problem of the ghost condensate was solved in 2004–2007 — the wake structure
 [29], the co-moving observer recovering Newton [30], and the energy-loss rate
-Ė ~ αM²v³ of [9] ("completely negligible for macroscopic objects"; their own
+Ė ~ αM²v³ of [9] (their α and M — the condensate scale — not the NLO
+couplings of §6; textually "completely negligible for macroscopic objects",
+with their own
 Sun estimate ~20 W, reproduced here as 24.3 W). Applied to Earth's rotating
 non-axisymmetry (a declared proxy: the translational rate evaluated on the
 rotational drive), the implied spin-down is ≤ 2.8×10⁻¹⁵ W at Λ = 1 MeV against
-a free margin of ~3.6×10¹¹ W — 26 orders. (iii) *Superradiance of the gapped
-sector* is kinematically forbidden below the gap: no medium mode exists at
-ω = mΩ < m₁ to absorb into. One structural point closes the circle: the ghost
+a free margin of ~3.6×10¹¹ W — the campaign's declared allowance of 10% of
+Earth's measured tidal-dissipation budget (provenance in `a4_numeros.py`) —
+26 orders. (iii) *Superradiance of the gapped
+sector* is kinematically forbidden: with gravitational mixing the vector
+sector propagates no mode at all at this order (§6), and in the
+Goldstone-sector reading its modes are gapped at m₁ — either way, nothing
+exists at ω = m_az Ω ≪ m₁ to absorb into (m_az the azimuthal number).
+(iv) *UV tunneling* — "hole" nucleation in the condensate [33] — has a rate
+that is exponentially sensitive to the UV completion: inherited with the
+ghost-condensate scalar sector, declared as an uncertainty, not computed in
+the EFT. One structural point closes the circle: the ghost
 condensate itself could never face our branch question, because its flow is
 **irrotational** (u ∝ ∂φ [9]) — it *cannot* co-rotate. Co-rotation requires
 the vector sector that m₁² ≠ 0 provides; the question, and the theorem that
@@ -737,8 +795,12 @@ ghost-condensate phenomenology never met it.
 
 **Numbers, and what the measurement now means.** Restoring units,
 μ = 2Λ²/M̄_Pl with M̄_Pl the reduced Planck mass —
-the conventions of the campaign scripts: Λ is normalized by U = Λ⁴Û with
-Û_X = 1 at the vacuum (so m₁² = 2Λ⁴), and M_Pl² ≡ 1/16πG = M̄_Pl²/2 — i.e.
+the conventions of the coupling-campaign scripts: Λ is normalized by U = Λ⁴Û
+with
+Û_X = 1 at the vacuum (so m₁² = 2Λ⁴), and M_Pl² ≡ 1/16πG = M̄_Pl²/2. (The
+state-selection scripts normalize m₁² = 4Λ⁴ instead; the O(1) rescaling is
+absorbed in the UV-sensitive ĉ and changes no number quoted here — checked.)
+I.e.
 
     ℓ₁ = 2.40×10⁸ m · (MeV/Λ)²   — at Λ = 1 MeV, roughly the Earth–Moon distance.
 
@@ -752,7 +814,8 @@ that to Λ < 1.12 MeV, i.e. ℓ₁ > 30 R⊕, with a predicted nodal deviation o
 0.13% at Λ = 1 MeV (semi-major axis a = 1.227×10⁷ m, as in the campaign
 scripts). **By the theorem above, those numbers are counterfactuals of a
 branch nature does not populate.** For this phase the measurement is a passed
-consistency test — predicted deviation δ_ret ≤ 1.7×10⁻⁴³ — not a bound on Λ:
+consistency test — predicted deviation |δ_ret| ≤ 1.7×10⁻⁴¹ across the
+conservative window (≤ 1.7×10⁻⁴³ over the campaign's scan) — not a bound on Λ:
 the viability window is set by the scalar sector alone (§6: Λ ≲ 10 MeV
 conservatively, ~100 GeV with percent-level lumping [9]). The counterfactual
 retains one sharp use: a nodal deficit with the specific screened profile
@@ -768,20 +831,17 @@ used a criterion with a spurious linear term; the corrected suppression factor
 weakens the counterfactual bound by 2.7× in Λ — the correction is part of this
 paper's record. [23] is verified here against its openly served primary
 material: abstract, reference list, Extended Data Tables 1–3 — the 0.2% is the
-Total-RSS of Table 2(b), with μ = 1.0001 ± 0.0019 and the LARES-2 semi-major
-axis 12 264 567 m confirming the value used above — the Supplementary
+Total-RSS of Table 2(b), with the frame-dragging parameter
+μ_LT = 1.0001 ± 0.0019 (their notation — unrelated to our screening mass μ)
+and the LARES-2 semi-major
+axis 12 264 567 m — which rounds to 1.2265×10⁷, 0.04% off the scripts' input
+1.227×10⁷ m, negligible at the 0.13% level — the Supplementary
 Information, and the 88-page Peer Review File. The paywalled main text
 (pp. 332–335) remains unread and stays on the block list.)
 
-**Bookkeeping note** (from the adversarial pass): in unitary gauge the
-co-rotating solution shows a linearly growing h_xz ∝ t. This is pure label
-winding — a shear deformation that U(X,Y) does not see (σ stays constant) —
-removable by passing to physical coordinates, where the state is exactly
-linearized Kerr for all t; the large-t description belongs in those
-coordinates.
-
-**Hypotheses of the theorem** (all declared elsewhere in this paper, none
-new to it): (1) L = √−g U(X,Y) + EH at leading order, with NLO built from the
+**Hypotheses of the theorem** (all declared in this paper — the smoothness of
+Φᵃ, implicit in any EFT of smooth fields, is made explicit here): (1)
+L = √−g U(X,Y) + EH at leading order, with NLO built from the
 flow invariants — the basis {θ, σ, ω, a} as a structural argument, not a
 formal completeness theorem (§11); (2) universal coupling — matter does not
 touch Φᵃ directly (assumed throughout, §7); (3) Φᵃ smooth — no vortices; if
@@ -789,12 +849,12 @@ nucleated anyway, the barrier physics above applies; (4) U_Y ≠ 0 and a regular
 metric (for the inversion corollary); (5) negligible primordial vector
 perturbations (§9's identity plus a⁻³ dilution; a conspiracy would need the
 dipolar profile *correlated with the source*). Verification chain: three
-independent campaign columns (charge/population; vertices/NLO/numbers;
-primary-source bibliography) plus a final adversarial verifier with its own
+independent campaign columns (A: vertices/NLO/numbers; B: charge/population;
+C: primary-source bibliography — the `colA`/`colB` scripts of
+§ Reproducibility) plus a final adversarial verifier with its own
 third pipeline — different parametrization of Y, different EH construction —
 that reproduced every column run and attacked the theorem on five flanks
-without breaking it; scripts and records in `campana-m2/seleccion-estado/`
-(§ Reproducibility).
+without breaking it; scripts and records in `campana-m2/seleccion-estado/`.
 
 **Prior literature (searches declared).** Every computation of sources we could
 find in Lorentz-violating massive gravity lives in the *mirror* family m₁² = 0
@@ -859,7 +919,7 @@ arbitrary U(X,Y) and a(t) — leaving a nonpropagating constrained mode (the
 exact FLRW generalization of the Minkowski double zero of §6), verified by
 three routes and, term by term on-shell, against BCP's printed vector-sector
 Lagrangian (their (7.23), arXiv v2 numbering). This identity is also the
-cosmological initial condition on which the superselection argument of §8
+cosmological initial condition on which the superselection theorem of §8
 rests: g₀ₐ = 0 at every epoch means, by the inversion corollary, that the
 universe hands every forming source a zero-charge medium. (That fluids
 and superfluids
@@ -992,7 +1052,8 @@ author's decision on the next letter.
   sharpest candidate — the two-branch structure of §8 reopens with all its
   formulas intact, screened profile included. What is *not* conditional: the
   branch equations themselves, the charge bookkeeping, and the identity
-  P_aⁱ = 0 at leading order.
+  P_aⁱ = 0 of the leading-order Lagrangian (exact to all orders in h; the NLO
+  currents are the conditional part).
 - **It does not validate the TCI program.** It answers one open question of the
   massive-gravity literature with one medium and its phenomenology. Within our
   own program the result *constrains*: by the exclusion lemma, any medium of
@@ -1012,7 +1073,7 @@ author's decision on the next letter.
 state-selection campaign: state selection itself — answered by the
 superselection theorem of §8 — and NLO frame dragging on the co-rotating
 branch — answered there too: the observable exists, δ_ret = −ĉ(Λ/M̄_Pl)², and
-is unobservable by ~40 orders.)*
+is unobservable by ≥30 orders everywhere in the declared windows.)*
 
 1. **FRW cosmology** of U(X,Y): done at background + quadratic-action level
    (§9); remaining: the no-ghost analysis beyond the frozen-coefficient window
@@ -1099,7 +1160,8 @@ NPPR arXiv:1501.03845 (§2.1, stops at Diff′(3)), plus web sweeps for the
 unrestricted case — no prior classification found. The state-selection claims
 of §8 rest on the 2026-07-27 bibliographic column (record in
 `campana-m2/seleccion-estado/BIBLIOGRAFIA-SELECCION-2026-07-27.md`, primary
-sources read at the .tex level): a dedicated INSPIRE sweep (seven queries
+sources read at the .tex level, exceptions declared in the record): a
+dedicated INSPIRE sweep (seven queries
 declared there) found no discussion of metastability or state selection of
 Stückelberg-medium configurations around rotating sources in any m₁² ≠ 0
 phase; the moving-source problem is solved in the literature only for the
@@ -1197,6 +1259,8 @@ arXiv:gr-qc/0406086 (unpublished, to our records).
 helium: Some offshoots", Rev. Mod. Phys. 87 (2015) 803, arXiv:1406.5629
 (persistent-current stability, phase-slip barriers, and the near-threshold
 caveats used in §8).
+[33] D. Krotov, C. Rebbi, V. Rubakov, V. Zakharov, "Holes in the ghost
+condensate", Phys. Rev. D 71 (2005) 045014, arXiv:hep-ph/0407081.
 
 ## Pre-publication block list (nothing leaves the repo before these)
 
@@ -1205,11 +1269,19 @@ caveats used in §8).
    `campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`; 2026-07-27: third pass on
    the full v0.5 text — 30 findings, applied in v0.6 together with the §9
    physics audit — record in `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`).
-   Remaining: a **fourth text-audit pass over the v0.7 rewrite** (the
-   2026-07-28 state-selection integration touched the title, abstract,
-   scoreboard, §§1, 7–11, Reproducibility, Novelty search and references —
-   §8 is substantially new text and has not yet been through a text audit),
-   plus one final short read of the assembled text before submission.
+   The **fourth text-audit pass over the v0.7 rewrite ran the same day**
+   (2026-07-28, two independent agents: an adversarial text audit — 31
+   findings: 4 high, 11 medium, 16 low — and a fidelity check of every number,
+   formula, attribution and reference of the new text against the campaign
+   records — 7 findings; all applied except those explicitly deferred, record
+   in `campana-m2/AUDITORIA-TEXTO-v0.7-2026-07-28.md`; the state-selection
+   integration touched the title, abstract,
+   scoreboard, §§1, 3, 6, 7–11, Reproducibility, Novelty search and
+   references).
+   Remaining: one final short read of the assembled text before submission,
+   and a ~250-word submission abstract (the current one is an extended
+   summary, several times arXiv's metadata limit — flagged by the fourth
+   audit, deferred to the channel decision).
 2. **Experimental accuracies — closed to the paywall line 2026-07-27**: primary
    references cited ([21]–[24], [28]) with complete bibliographic data (INSPIRE
    pass; two corrections caught: [19] author order, [24]'s second item is EPJ
@@ -1264,7 +1336,7 @@ caveats used in §8).
    (re-run block S5 with exact δ) in `CIERRE-BLOCKLIST-2026-07-27.md` §6.
    **Remaining**: that optional exact-δ re-run, and the .tex-level
    re-verification of [26]'s quoted instability equation. The radiative
-   sector stays open and named (§7, §11.6).
+   sector stays open and named (§7, §11.4).
 6. **Explicit OK from Nicolás** on: channel (arXiv hep-th + PRD/JCAP as per the
    campaign plan), timing, and the final text. House policy: nothing public
    without per-piece sign-off.
