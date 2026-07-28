@@ -74,6 +74,10 @@ auditorías que cada uno declara adentro):
 **5. LAS CARAS VISIBLES** (divulgación semi-oculta, fuentes acá):
 `libro2/` (fuente de /mar-y-nudos/), `em/` (fuente de /taller-electromagnetico/),
 `sotano-web/` (fuente de /sotano-del-mar/),
+`eter-sin-viento/` (fuente de /eter-sin-viento/ — el teorema de superselección contado
+para humanos, 5 sims con física verificada por su `test_fisica.js`; construida 2026-07-28
+desde `campana-m2/BRIEFING-DIVULGACION-ETER-SIN-VIENTO-2026-07-28.md`, pendiente OK de
+Nico para publicar en main),
 `LIBRO2.md` + `LIBRO2-esqueleto.md` (el texto completo del libro 2, en el cajón).
 
 **6. EL RESTO DE LOS SCRIPTS** (cada uno nació de una batalla; la sección de la
