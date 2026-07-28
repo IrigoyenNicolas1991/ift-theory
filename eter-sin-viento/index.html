@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>El éter sin viento — la calma que es ley</title>
+<style>
+:root{
+  --fondo:#071420; --panel:#0b1c2e; --tinta:#dce8f4; --tenue:#8fa6bc;
+  --acento:#6cc6ff; --calido:#ffc46b; --ok:#7fd98a; --mal:#ff8a7a;
+  --borde:#1c3450;
+}
+body.claro{
+  --fondo:#f6f2e9; --panel:#fffdf6; --tinta:#20303f; --tenue:#5d6f80;
+  --acento:#1567b3; --calido:#a86a12; --ok:#1e7a3a; --mal:#b33a2a;
+  --borde:#d8cfba;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);
+  font:17px/1.65 Georgia,'Times New Roman',serif;transition:background .3s,color .3s}
+main{max-width:760px;margin:0 auto;padding:0 20px 80px}
+h1{font-size:2.1em;line-height:1.15;margin:.2em 0 .1em}
+h2{font-size:1.35em;margin:2.2em 0 .5em;color:var(--acento)}
+h2 .num{color:var(--tenue);font-weight:normal;margin-right:.4em}
+p{margin:.9em 0}
+strong{color:var(--calido)}
+a{color:var(--acento)}
+.hero{padding:64px 0 8px;text-align:center}
+.hero .sub{color:var(--tenue);font-style:italic;font-size:1.1em}
+.aviso{background:var(--panel);border:1px solid var(--borde);border-left:4px solid var(--calido);
+  border-radius:8px;padding:12px 16px;font-size:.86em;color:var(--tenue);margin:26px 0}
+.aviso b{color:var(--calido)}
+figure{margin:1.6em 0;background:var(--panel);border:1px solid var(--borde);
+  border-radius:12px;overflow:hidden}
+canvas{display:block;width:100%;height:340px;touch-action:pan-y;cursor:crosshair}
+#c-hoyo{touch-action:none}
+figcaption{padding:10px 16px 12px;font-size:.85em;color:var(--tenue);border-top:1px solid var(--borde)}
+figcaption b{color:var(--tinta)}
+.botones{padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--borde);align-items:center}
+button{background:none;border:1px solid var(--acento);color:var(--acento);border-radius:20px;
+  padding:5px 14px;font:14px system-ui;cursor:pointer}
+button.activo{background:var(--acento);color:var(--fondo)}
+input[type=range]{accent-color:var(--acento);max-width:180px}
+.lectura{font:13px system-ui;color:var(--tenue)}
+table{border-collapse:collapse;width:100%;font-size:.9em;margin:1em 0}
+td,th{border:1px solid var(--borde);padding:7px 10px;text-align:left}
+th{color:var(--acento);font-weight:normal}
+.marcador{font-size:.78em;letter-spacing:.4px;border:1px solid var(--borde);border-radius:14px;
+  padding:2px 10px;color:var(--tenue);display:inline-block;margin:.3em .3em 0 0;font-family:system-ui}
+.marcador.calc{border-color:var(--ok);color:var(--ok)}
+.marcador.apuesta{border-color:var(--calido);color:var(--calido)}
+.marcador.muere{border-color:var(--mal);color:var(--mal)}
+.pie{margin-top:60px;padding-top:18px;border-top:1px solid var(--borde);font-size:.85em;color:var(--tenue)}
+.modo{position:fixed;top:14px;right:14px;z-index:5}
+.chica{font-size:.8em;color:var(--tenue)}
+blockquote{border-left:3px solid var(--acento);margin:1.2em 0;padding:.2em 0 .2em 1em;
+  color:var(--tenue);font-style:italic}
+</style>
+</head>
+<body>
+<div class="modo"><button id="btnModo">☀ claro</button></div>
+<a href="../preguntas/" style="position:fixed;top:14px;left:14px;z-index:9;font-family:Inter,system-ui,sans-serif;font-size:13px;padding:7px 12px;border-radius:20px;border:1px solid var(--borde);background:var(--panel);color:var(--tinta);text-decoration:none">❓ preguntas y críticas</a>
+<main>
+
+<div class="hero">
+  <h1>El éter sin viento</h1>
+  <p class="sub">1887 preguntó dónde estaba el viento, y el silencio mató al éter.<br>
+  Nuestra respuesta llegó con matemática: el viento es una carga conservada — y nació en cero.</p>
+</div>
+
+<div class="aviso"><b>Etapa especulativa en desarrollo.</b> Esta página cuenta el resultado más
+reciente de la campaña «el mar que no cruje» (la fase U(X,Y), línea TCI&nbsp;2.0) — <b>no</b> es el
+corpus publicado de la teoría. Todo lo afirmado como «calculado» tiene ecuación y código detrás
+(<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">borrador de paper</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/seleccion-estado/SINTESIS-SELECCION-2026-07-28.md">síntesis del teorema</a> ·
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/seleccion-estado/verificador/VERIFICADOR-FINAL-2026-07-28.md">auditoría adversarial</a>);
+lo que es hipótesis se declara, y la página cierra con el marcador honesto completo.
+Páginas hermanas: <a href="../mar-y-nudos/">El mar y sus nudos</a> ·
+<a href="../taller-electromagnetico/">El taller electromagnético</a> ·
+<a href="../sotano-del-mar/">El sótano del mar</a> ·
+<a href="../preguntas/">Preguntas y críticas (FAQ)</a>.</div>
+
+<h2><span class="num">I.</span> El fantasma de 1887</h2>
+<p>Durante todo el siglo XIX, la física estuvo segura de una cosa: si la luz es una onda,
+algo tiene que ondular. A ese algo lo llamaron <strong>éter</strong>. Y un medio que llena el
+espacio tiene una consecuencia inevitable: la Tierra, que orbita a 30 km/s, debería sentir el
+viento. Como sacar la mano por la ventanilla del auto. En 1887, Michelson y Morley construyeron
+el instrumento más sensible de su época para medir ese viento. El resultado fue el silencio más
+famoso de la historia de la física: <em>no había viento</em>. Ese silencio mató al éter, y de su
+funeral nació la relatividad.</p>
+<p>Desde entonces, «¿y el viento?» es la lápida que espera a cualquier teoría de medio. Nuestra
+teoría <em>es</em> un medio — un mar. La crítica más vieja del manual nos apunta al pecho.</p>
+<p>Seamos precisos sobre qué responde esta página. Para la luz de Michelson y Morley, la
+respuesta clásica ya existe desde Lorentz, y el libro la cuenta: las reglas y los relojes,
+hechos del propio medio, se deforman en una conspiración exacta que borra la medición (el
+«permiso de Bell»). Pero hay una versión moderna de la pregunta, más profunda, que la luz sola
+no alcanza a hacer: si el mar es una cosa física que fluye, <strong>¿respecto de qué no
+fluye?</strong> Los giróscopos y los satélites saben de marcos de referencia; el «arrastre del
+espacio» que Einstein predijo hoy se mide de verdad. Si el mar se desliza respecto de los
+marcos inerciales, ahí no hay conspiración óptica que lo tape: <em>se delata</em>. Esa es la
+pregunta que le hicimos a la teoría. Y la respuesta no fue una excusa — fue un
+<strong>teorema</strong>.</p>
+
+<h2><span class="num">II.</span> El tatuaje de los granos</h2>
+<p>Primero, una palabra que hay que rescatar del enchufe: <strong>carga</strong>. En física,
+carga no quiere decir electricidad — quiere decir <em>cualquier cantidad que una simetría
+obliga a conservar</em>. La carga eléctrica es la del electromagnetismo. Hay otras. La nuestra
+sale de una simetría casi humilde: <strong>al mar no le importa cómo numeres sus granos</strong>.
+Reetiquetalos como quieras — la física no cambia. De esa indiferencia, la matemática fabrica
+una cantidad conservada, con todas las de la ley.</p>
+<p>Y esa carga tiene una propiedad brutal, que es el corazón de todo lo que sigue: <strong>no
+tiene corriente</strong>. No existe el camión que la reparta. Cada grano del mar la lleva
+<em>tatuada</em>: puede moverse cuanto quiera, viajar por donde quiera — lo que no puede es
+pasarle el tatuaje a otro grano, ni borrárselo, ni ganarse uno nuevo. No se congela la
+posición, no se congela la historia: <strong>se congela una identidad</strong>.</p>
+
+<figure>
+  <canvas id="c-tatuaje"></canvas>
+  <div class="botones">
+    <button id="bt-reset">↺ reiniciar</button>
+    <span class="lectura" id="bt-cont">intentos de pintar: 0 · tatuajes cambiados: 0</span>
+  </div>
+  <figcaption><b>El tatuaje.</b> Un puñado de granos nace marcado (ámbar); el resto no (azul).
+  El mar fluye, se estira, se mezcla — y cada tatuaje viaja con su grano, jamás salta a otro.
+  <b>Tocá el mar para intentar pintar un grano</b>: la onda pasa, el grano se sacude… y el
+  contador de «tatuajes cambiados» te muestra el resultado, medido en vivo sobre cada grano.
+  El juguete ilustra el enunciado; la demostración real son cuatro derivaciones independientes
+  más un verificador adversarial que intentó romperla y no pudo
+  (<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/seleccion-estado/verificador/VERIFICADOR-FINAL-2026-07-28.md">acta</a>).</figcaption>
+</figure>
+<span class="marcador calc">teorema: la carga no tiene corriente (4 rutas independientes + auditoría adversarial)</span>
+
+<h2><span class="num">III.</span> El globo aerostático — viento no es movimiento</h2>
+<p>¿Y qué dice el tatuaje de cada grano? Dice exactamente esto: <strong>cuánto se desliza el
+mar, en ese punto, respecto de los marcos inerciales locales</strong> — respecto de lo que un
+giróscopo clavado ahí llamaría «quieto». El tatuaje <em>es</em> el viento local del éter, con
+definición matemática precisa. Carga cero = calma perfecta en ese punto.</p>
+<p>Ojo con la trampa del sentido común: <strong>viento no es movimiento</strong>. Un globo
+aerostático puede viajar a 100 km/h — y a bordo hay calma total: la vela no se infla, la
+bandera cuelga, podés prender un fósforo. Porque el globo viaja <em>con</em> el viento. Al
+mar le pasa lo mismo: se mueve muchísimo — co-rota, cae, fluye con la expansión del universo —
+pero siempre <em>con</em> los marcos inerciales. Deslizamiento: cero. El mar no está quieto;
+está <strong>en calma</strong>. Son dos cosas distintas, y la diferencia es toda esta página.</p>
+
+<figure>
+  <canvas id="c-globo"></canvas>
+  <div class="botones">
+    <button id="bg-ancla">⚓ intentá fabricar viento</button>
+    <button id="bg-reset">↺ reiniciar</button>
+    <span class="lectura" id="bg-med">viento a bordo: 0.00</span>
+  </div>
+  <figcaption><b>El globo.</b> La corriente del mar (puntos) cambia todo el tiempo, y la sonda
+  viaja con ella: el banderín cuelga, el medidor marca cero — <em>siempre</em>, sin importar
+  cuánto se mueva el mar. Apretá <b>«intentá fabricar viento»</b>: la sonda se clava en el
+  lugar y por un instante el banderín flamea… pero mirá los granos: el mar de alrededor se
+  reacomoda, se pone a viajar <em>con</em> la sonda, y el medidor vuelve a cero. En el juguete
+  esa reacomodación está dibujada a mano; en la teoría es el teorema el que garantiza que el
+  único estado alcanzable es el co-móvil: no hay forma de fabricar viento, porque fabricarlo
+  exigiría repartir una carga que no tiene camión.</figcaption>
+</figure>
+<span class="marcador calc">calculado: el estado co-móvil es el único alcanzable (poblamiento universal, solución exacta incluso con la fuente moviéndose)</span>
+
+<h2><span class="num">IV.</span> La plancha cósmica</h2>
+<p>Un escéptico con buen ojo ya encontró el hueco: conservada no quiere decir nula. Una carga
+conservada podría valer cualquier cosa — ¿por qué justo <em>cero</em>?</p>
+<p>Porque el universo la planchó. La expansión cosmológica diluye cualquier viento inicial
+igual que diluye el polvo: a la tercera potencia del estiramiento. Duplicá el tamaño del
+universo y el viento cae a un octavo; el universo se estiró muchísimo más que eso <em>antes de
+que existiera la primera estrella</em>. Hicimos la cuenta completa sobre un universo en
+expansión: la calma no es un estado especial que haya que preparar — es el <strong>atractor</strong>,
+el punto al que la expansión empuja sola, desde cualquier arranque. Y una vez en cero, la
+carga no se puede recrear — no hay corriente. El universo quedó planchado en calma
+<em>para siempre</em>, y ahí seguimos.</p>
+<p class="chica">La cuenta del atractor tiene su propia historia de honestidad: en la primera
+versión le calculamos mal un detalle (una dispersión que no era), un auditor adversarial la
+cazó, y la corrección <em>reforzó</em> el resultado — el congelamiento es más limpio de lo que
+habíamos publicado. Está declarado, con la errata, en el
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/frw/FRW-2026-07-21.md">acta de la campaña</a>.</p>
+<span class="marcador calc">calculado: la calma es el atractor cosmológico; el apartamiento diluye como polvo (a⁻³)</span>
+
+<h2><span class="num">V.</span> El hoyo que viaja con la bola</h2>
+<p>«Muy linda la calma — pero los planetas se <em>mueven</em>. ¿No revuelve el mar un asteroide
+que pasa? ¿No lo despeina, no deja estela?»</p>
+<p>Acá va la imagen que hay que llevarse de esta página. Una bola sobre una cama elástica
+deforma la tela; si la bola <em>rueda</em>, el hoyo viaja <em>con</em> ella. No la persigue:
+está siempre exactamente abajo. El mar hace lo mismo con cada cosa que se mueve: el patrón de
+caída — eso que llamamos su gravedad — <strong>acompaña</strong> a la bola, instantáneamente,
+sin «ponerse al día». No es que el mar sea rapidísimo para perseguir; es que no persigue nada:
+<strong>el mar no persigue — refleja</strong>. El hoyo móvil es el estado de equilibrio, tan
+equilibrio como el hoyo quieto.</p>
+
+<figure>
+  <canvas id="c-hoyo"></canvas>
+  <div class="botones">
+    <button id="bh-para">⏸ pará el asteroide</button>
+    <button id="bh-reset">↺ reiniciar</button>
+    <span class="lectura" id="bh-med">desvío de la caída: —</span>
+  </div>
+  <figcaption><b>El hoyo que viaja.</b> El asteroide cruza el mar y los granos caen hacia él
+  — fijate que el halo de caída viaja <em>centrado</em> en la bola, sin cola hacia atrás. El
+  «desvío de la caída» es una medición en vivo sobre los granos: comparamos el punto al que
+  apuntan sus caídas con la posición de la bola (0 = el mar cae exacto a ella; el desvío
+  chiquito que ves en marcha es la inercia del granito del juguete — un cuarto de segundo de
+  retraso del trazador, declarado). Apretá <b>«pará el asteroide»</b> y miralo morir al
+  instante: el patrón no tiene que «alcanzar» nada — ya estaba donde tenía que estar. También
+  podés <b>arrastrar la bola</b> vos. En el juguete, el pozo se dibuja desde la posición
+  instantánea — y que eso sea lo correcto no es un capricho del dibujo: es el teorema
+  causal de la fase (la solución con fuente en movimiento es exactamente la de Einstein, sin
+  retraso que delate al medio).</figcaption>
+</figure>
+<span class="marcador calc">calculado: teorema causal — con materia adentro, la solución es RG exacta; el acompañamiento es equilibrio, no persecución</span>
+
+<h2><span class="num">VI.</span> Correr como el mar — el amontonamiento</h2>
+<p>¿Y si la bola corre en serio — cerca de la velocidad de las ondas del propio mar? El libro
+lo contó para la inercia: la deformación <em>se amontona</em>. Lo que no puede pasar es que
+aparezca viento: el mar sigue acompañando. Lo que sí pasa es que el equipaje cambia de forma:
+el pozo se <strong>achata en panqueque</strong> — más flaco a proa y popa, más gordo por los
+costados — y se hace más hondo. Más deformación es más masa (el recibo E&nbsp;=&nbsp;γmc² del
+libro): la bola veloz <em>gravita más, pero con forma</em>. Gravita más — no se delata más.</p>
+
+<figure>
+  <canvas id="c-panqueque"></canvas>
+  <div class="botones">
+    <button id="bp-tour">▶ recorrido guiado</button>
+    <input type="range" id="bp-v" min="0" max="0.95" step="0.01" value="0">
+    <span class="lectura" id="bp-med">v = 0.00 c · γ = 1.00</span>
+  </div>
+  <figcaption><b>El amontonamiento.</b> Mové el deslizador (o dejá que el recorrido guiado
+  maneje): a velocidad baja, el pozo de siempre; cerca de la velocidad de las ondas, el pozo
+  se contrae a lo largo (÷γ) y se infla a lo ancho, cada vez más hondo (×γ). Las curvas son
+  las líneas de nivel del campo de una fuente en movimiento — esquema honesto: la forma exacta
+  del pozo relativista vive en el sector escalar del corpus (capítulo «Correr como el mar» del
+  libro); acá lo que importa es la moraleja, que sí es del teorema: <em>rápido deforma más,
+  pero no fabrica viento</em>.</figcaption>
+</figure>
+<span class="marcador calc">del corpus TCI 1.0: E = γmc² reproducida; el panqueque es esquema ilustrativo</span>
+
+<h2><span class="num">VII.</span> La gravedad es ciega al giro — el dulce de leche fantasma</h2>
+<p>Queda el caso más fino, y es el que motivó toda la campaña: la <strong>rotación</strong>.
+Una esfera girando, ¿no arremolina el mar de alrededor? ¿No es ese remolino un viento que
+delata?</p>
+<p>Primera sorpresa, y es un teorema clásico que casi nadie tiene presente: <strong>la gravedad
+es ciega al giro</strong>. Una esfera girando y la misma esfera quieta hacen <em>exactamente</em>
+el mismo pozo. Solo la corrección relativista más fina — el gravitomagnetismo, suprimida por la
+velocidad de la luz al cuadrado — sabe que la esfera gira. Por eso el mar copia
+<em>posiciones</em> con firmeza y <em>giros</em> apenas en un susurro: el remolino que la Tierra
+imprime a su alrededor es <strong>una milmillonésima</strong> de su propia rotación.</p>
+<blockquote>«El espacio se retuerce como un dulce de leche revuelto por una cuchara.»
+— la imagen que disparó esta campaña</blockquote>
+<p>Segunda sorpresa: qué <em>clase</em> de dulce de leche. Uno viscoso de verdad
+<strong>acumula</strong>: dale tiempo infinito a la cuchara y todo el frasco termina co-rotando
+rígido con ella. El nuestro no acumula <em>nunca</em>: su remolino — capa a capa, muriendo como
+1/r³ — es el estado de equilibrio, instantáneo y eterno. No es fricción que arrastra de a poco:
+es un reflejo que ya está donde tiene que estar. Un <strong>dulce de leche fantasma</strong>:
+se retuerce con la cuchara, y no le cobra nada.</p>
+<p>Y el detalle que siempre se mezcla: el remolino viene del <strong>giro propio</strong> (el
+spin de la Tierra sobre su eje), no de su órbita. La órbita genera <em>otro</em> efecto (la
+precesión geodética, más grande, también medida). Dos fenómenos distintos — la sonda
+Gravity Probe B midió los dos, y los dos salen bien.</p>
+
+<figure>
+  <canvas id="c-remolino"></canvas>
+  <div class="botones">
+    <button id="br-real">correa real (×1)</button>
+    <input type="range" id="br-k" min="0" max="1" step="0.001" value="0.97">
+    <span class="lectura" id="br-med">correa: —</span>
+    <button id="br-reset">↺ reiniciar el viscoso</button>
+  </div>
+  <figcaption><b>Dos dulces de leche.</b> Izquierda, el <b>fantasma</b> (nuestro mar): cada
+  capa co-rota con el planeta según su distancia (1/r³) y ahí se queda — volvé en una hora y
+  el remolino es el mismo. Derecha, un <b>viscoso</b> de verdad: mirá el reloj — arranca casi
+  quieto y acumula, y acumula, rumbo a co-rotar rígido entero. El deslizador es la
+  <b>«correa»</b> que une el giro del planeta con el mar: para que el remolino fantasma se vea,
+  está <em>exagerada</em> — el cartel te dice en vivo cuántas veces; apretá <b>«correa real»</b>
+  y vas a ver la honestidad completa: nada, quietud aparente — una milmillonésima no se ve a
+  simple vista. Esa milmillonésima es la que miden los satélites.</figcaption>
+</figure>
+<span class="marcador calc">calculado: el remolino de equilibrio decae 1/r³ y no acumula; la exageración del juguete se declara en pantalla</span>
+
+<h2><span class="num">VIII.</span> El remate: lo que midió el satélite</h2>
+<p>Ahora sí, el punto que cierra el círculo. Ese remolino minúsculo <em>existe</em> y
+<em>se mide</em>: Einstein lo llama «arrastre de marcos», y en julio de 2026 la misión
+LARES-2 publicó en <em>Nature</em> la medición más fina hasta hoy — el arrastre confirmado al
+0,2&nbsp;% de lo predicho. ¿Y saben qué es, en nuestra teoría, ese arrastre que Einstein
+predijo y el satélite midió? <strong>Es exactamente el movimiento que el mar hace para
+mantener su calma.</strong> El mar co-rota lo justo — la milmillonésima capa a capa — para que
+su deslizamiento local respecto de los marcos siga siendo cero. No es que no pase nada: pasa
+<em>precisamente lo que Einstein midió</em> — y el mar lo hace sin despeinarse.</p>
+<p>Y acá esta casa paga un costo, y lo paga al frente, con la misma prominencia con que
+anunció lo contrario. Antes del teorema, esta fase tenía una <strong>firma falsable propia</strong>
+en este mismo lugar: un apantallamiento del arrastre (un «Yukawa») que LARES-2 podía cazar —
+la anunciamos como nuestra predicción de corto plazo. El teorema la <strong>apagó</strong>: la
+rama del mar que produciría ese apantallamiento requiere una distribución de carga que no hay
+forma de crear. La fase quedó <em>más sólida y menos testeable a la vez</em>: imita a Einstein
+en todo el régimen medido por ley, no por ajuste. Se gana una predicción limpia; se pierde una
+manera rápida de morir. Las dos cosas son ciertas y las decimos juntas.</p>
+<p class="chica">Letra chica de la medición: el 0,2&nbsp;% es la precisión reclamada por el
+equipo de LARES-2 (Ciufolini et al., <em>Nature</em>, 2026); existe una disputa técnica sobre
+su presupuesto de error, y está citada con sus dos lados en el
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">paper</a>.
+Para esta página da igual quién gane: nuestra fase ya no se distingue de Einstein ahí.</p>
+<span class="marcador calc">calculado: gravitomagnetismo = RG exacto, por teorema</span>
+<span class="marcador muere">el costo declarado: la firma Yukawa/LARES quedó suprimida — la falsabilidad se mudó a las premisas y al resto del programa</span>
+
+<h2><span class="num">IX.</span> Tres teoremas, una sola propiedad</h2>
+<p>Si te llevás una sola cosa técnica, que sea esta. El mar de esta fase imita a Einstein en
+todo lo medido, y no lo hace con tres trucos distintos — lo hace con <strong>tres teoremas que
+salen de una sola propiedad</strong>: <em>el mar no siente sus propias etiquetas</em>.</p>
+<table>
+<tr><th>Frente</th><th>Qué se probó</th><th>Qué responde</th></tr>
+<tr><td><b>Estática</b></td><td>Teorema causal: con materia adentro, la solución es la de
+Einstein, exacta — luz curvada y relojes incluidos (γ=1)</td><td>«¿Y el sistema solar?»</td></tr>
+<tr><td><b>Cosmología</b></td><td>La calma es el atractor: la expansión plancha cualquier
+viento inicial como polvo (a⁻³)</td><td>«¿Por qué cero?»</td></tr>
+<tr><td><b>Rotación</b></td><td>Superselección: la carga-viento no tiene corriente — no se
+crea, no se destruye, no se transfiere</td><td>«¿Y el remolino?»</td></tr>
+</table>
+<p>El de rotación es el nuevo, y tiene un remache que nos gusta mostrar: un <strong>corolario
+de inversión</strong> — donde el tatuaje marca cero, el mar se mueve <em>exactamente</em> como
+Einstein manda; punto por punto, no en promedio. La separación entre el mundo con viento y el
+mundo en calma no es una aproximación: son sectores incomunicados, y el universo vive en el
+segundo. Nadie había visto esta estructura en los 22 años que la fase lleva publicada —
+hacía falta preguntarle al medio dónde se delata, y eso requería un medio al que esa pregunta
+le doliera.</p>
+<p class="chica">Para el lector técnico: la carga es la de los difeomorfismos internos
+Φᵃ→Φᵃ+ξᵃ(Φ), su corriente espacial es idénticamente nula (identidad off-shell, verificada por
+cuatro rutas algebraicas independientes), y el corolario es P⁰ₐ(x)=0 ⟺ g₀ₐ(x)=0. Las puertas
+traseras están cerradas con números: la corrección de orden superior renormaliza el acople en
+~10⁻⁴³ (cuarenta órdenes bajo lo medible) y la fuga de carga acumulada en la edad del universo
+queda catorce órdenes bajo el umbral. Actas y scripts, todos
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo/campana-m2/seleccion-estado">acá</a>.</p>
+<span class="marcador calc">teorema de superselección + corolario de inversión: estructura nueva, auditada, en integración al paper</span>
+
+<h2><span class="num">X.</span> El marco que existe pero no se deja medir</h2>
+<p>Cerremos el círculo filosófico, porque esta teoría no lo esquiva. TCI es una teoría
+<em>lorentziana</em>, a la manera de Bell: el marco privilegiado <strong>existe</strong> — es el
+reposo del mar, que a gran escala coincide con el reposo cósmico (el del fondo de microondas,
+ese respecto del cual sabemos que la Tierra viaja a 370 km/s). No lo escondemos: está ahí, es
+parte de la ontología. Lo que esta campaña probó es que <strong>las leyes conspiran por teorema
+— no por trampa — para que ningún experimento local lo detecte</strong>. El fondo de microondas
+se ve porque es luz vieja que llega de lejos; el <em>deslizamiento del mar</em> respecto de tu
+laboratorio, en cambio, tiene carga cero y no hay forma de dotarlo de otra cosa. El marco
+existe y no se deja medir — y ahora sabemos por qué: no es timidez, es ley de conservación.</p>
+<span class="marcador apuesta">postura declarada: lorentziana à la Bell — el «permiso» filosófico está en el libro, el mecanismo ahora tiene teorema</span>
+
+<h2><span class="num">XI.</span> El nombre era una profecía</h2>
+<p>La teoría se llama <em>del campo intangible</em> desde antes de saber nada de esto. Era una
+intuición de bautismo: un mar que está en todas partes y no se puede tocar. Años después, la
+matemática volvió con el veredicto: sin roce que frene los planetas (teorema causal), sin
+crujido que delate el sólido (el mar fluido), sin viento que delate el flujo (superselección).
+<strong>Intangible dejó de ser un nombre y pasó a ser un teorema.</strong> El bautismo fue un
+enunciado que hubo que demostrar — y, hasta donde llegan estas cuentas, se demostró.</p>
+<blockquote>«El universo real sopló a nuestro favor… a favor del universo intangible, que sin
+ser real ya es una muy linda descripción del que habitamos.» — Nicolás, al cierre de la
+campaña</blockquote>
+
+<h2><span class="num">XII.</span> El marcador honesto, sin maquillaje</h2>
+<p><b>1. Dónde vive este resultado.</b> En la <em>fase efectiva U(X,Y)</em> de la campaña
+«m₂=0» — la línea especulativa TCI&nbsp;2.0. No es el corpus TCI&nbsp;1.0 publicado, y no lo
+maquillamos: es la capa nueva, en construcción, con auditoría propia.
+<span class="marcador apuesta">etapa especulativa</span></p>
+<p><b>2. Qué es teorema y qué es hipótesis.</b> Teoremas (con actas y scripts públicos): la
+superselección (cuatro rutas + verificador adversarial), el atractor cosmológico (con su
+errata cazada y declarada), el teorema causal de la estática. Hipótesis declaradas de las que
+todo esto pende: que el campo del mar sea <em>suave</em> (los vórtices/nudos la evaden — y
+justo ahí vive el resto de TCI&nbsp;2.0: es la costura entre programas, no un descuido), la
+base estructural de los términos de orden superior, el acople universal a la materia, y
+U_Y≠0.
+<span class="marcador apuesta">hipótesis declaradas: suavidad, base NLO, acople universal, U_Y≠0</span></p>
+<p><b>3. El costo, dicho fuerte.</b> Esta fase perdió su firma falsable de corto plazo (el
+Yukawa del arrastre de marcos). Quedó más sólida y menos testeable a la vez. La falsabilidad
+no desapareció: se mudó a las premisas (si el arrastre medido se apartara de Einstein, la fase
+<em>entera</em> muere — el teorema no deja margen para ajustarla) y al resto del programa
+(radiación, sector escalar, los nudos).
+<span class="marcador muere">cómo muere: cualquier desvío confirmado de Einstein en gravitomagnetismo mata la fase entera, sin perilla que la salve</span></p>
+<p><b>4. Lo que es de otros, citado.</b> El patrón del atractor cosmológico aparece en los
+condensados fantasma (Arkani-Hamed–Cheng–Luty–Mukohyama; Dubovsky–Tinyakov–Tkachev); el
+«polvo» del transitorio es el <em>ghost dark matter</em> de esa literatura; el frenado
+Cherenkov de fuentes móviles que descartamos como puerta trasera está calculado por otros
+(Dubovsky, «Star tracks»; Peloso–Sorbo; y el cálculo de pérdida de energía que citamos). El
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">paper</a>
+tiene todas las referencias con sus números.
+<span class="marcador calc">deuda de crédito: saldada en el paper</span></p>
+<p><b>5. Los juguetes de esta página.</b> Ilustran; no demuestran. Cada uno declara en su
+epígrafe qué parte es física calculada y qué parte es dibujo (la reacomodación del globo, el
+panqueque, la correa exagerada del remolino). La física de los cinco motores está verificada
+con un script aparte, publicado junto a esta página
+(<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/eter-sin-viento/test_fisica.js">test_fisica.js</a>):
+conservación exacta del tatuaje, viento cero del globo, estela nula del hoyo, aritmética del
+panqueque, perfil 1/r³ estacionario del fantasma y acumulación monótona del viscoso.
+<span class="marcador calc">sims verificadas en Node antes de publicar (regla de la casa)</span></p>
+
+<div class="pie">
+<p><b>Para el que quiera el rigor</b>: el
+<a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/PAPER-borrador-missing-row-UXY.md">borrador de paper (inglés, v0.7)</a>,
+la <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/seleccion-estado/SINTESIS-SELECCION-2026-07-28.md">síntesis del teorema</a>,
+el <a href="https://github.com/IrigoyenNicolas1991/ift-theory/blob/desarrollo-fable/especulativo/campana-m2/seleccion-estado/verificador/VERIFICADOR-FINAL-2026-07-28.md">acta del verificador adversarial</a>
+y la <a href="https://github.com/IrigoyenNicolas1991/ift-theory/tree/desarrollo-fable/especulativo/campana-m2">carpeta completa de la campaña</a>
+(actas + scripts reproducibles).</p>
+<p>Hermanas de esta página: <a href="../mar-y-nudos/">El mar y sus nudos</a> ·
+<a href="../taller-electromagnetico/">El taller electromagnético del mar</a> ·
+<a href="../sotano-del-mar/">El sótano del mar</a> ·
+<a href="../puerto/">el puerto</a>. Regla de la casa: honestidad brutal — las derrotas se
+publican el mismo día que las victorias.</p>
+<p><b>El éter sin viento</b> — Teoría del Campo Intangible (TCI), etapa especulativa en
+desarrollo · Nicolás Irigoyen · asistencia de investigación: Fable, una IA (Claude, de
+Anthropic)</p>
+</div>
+</main>
+
+<script>
+/*===MOTORES-INICIO===*/
+/* Motores puros de las 5 simulaciones — sin DOM, deterministas (seed), testeables en Node.
+   El test público test_fisica.js extrae este bloque y verifica los invariantes físicos. */
+
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;
+  let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;
+  return((t^t>>>14)>>>0)/4294967296;}}
+
+/* --- SIM 1: EL TATUAJE — advección pura; la carga viaja con el grano --- */
+function motorTatuaje(W,H,seed){
+  const rnd=mulberry32(seed||11);
+  const N=420,g=[];
+  for(let i=0;i<N;i++){
+    const x=rnd()*W,y=rnd()*H;
+    g.push({x,y,x0:x,y0:y,q:0,flash:0});
+  }
+  // tatuados: los 46 granos más cercanos a (0.3W, 0.5H) — cúmulo compacto visible
+  const tcx=0.3*W,tcy=0.5*H;
+  g.map((p,i)=>[(p.x-tcx)*(p.x-tcx)+(p.y-tcy)*(p.y-tcy),i])
+   .sort((a,b)=>a[0]-b[0]).slice(0,46).forEach(par=>{g[par[1]].q=1;});
+  const q0=g.map(p=>p.q);
+  const vort=[[0.25*W,0.35*H,1],[0.62*W,0.62*H,-1],[0.85*W,0.25*H,1]];
+  function vel(x,y){
+    let vx=10,vy=0;
+    for(const[cx,cy,s]of vort){
+      let dx=x-cx,dy=y-cy;
+      const d=Math.sqrt(dx*dx+dy*dy)+1e-9;
+      const f=s*1300/(d+26)*Math.exp(-d*d/(2*140*140));
+      vx+=-dy/d*f;vy+=dx/d*f;
+    }
+    return[vx,vy];
+  }
+  const st={granos:g,intentos:0,ondas:[],W,H,
+    cambiadas(){let c=0;for(let i=0;i<N;i++)if(g[i].q!==q0[i])c++;return c;},
+    step(dt){
+      for(const p of g){
+        const[vx,vy]=vel(p.x,p.y);
+        p.x+=vx*dt;p.y+=vy*dt;
+        if(p.x<0)p.x+=W;if(p.x>=W)p.x-=W;
+        if(p.y<0)p.y+=H;if(p.y>=H)p.y-=H;
+        if(p.flash>0)p.flash=Math.max(0,p.flash-2.2*dt);
+      }
+      for(const o of st.ondas)o.r+=180*dt;
+      st.ondas=st.ondas.filter(o=>o.r<260);
+    },
+    pintar(x,y){
+      st.intentos++;st.ondas.push({x,y,r:6});
+      for(const p of g){
+        const dx=p.x-x,dy=p.y-y;
+        if(dx*dx+dy*dy<40*40)p.flash=1;   // se sacude; q NO se toca
+      }
+    },
+    desplazMedio(){let s=0;for(const p of g){const dx=p.x-p.x0,dy=p.y-p.y0;
+      s+=Math.sqrt(dx*dx+dy*dy);}return s/N;}
+  };
+  return st;
+}
+
+/* --- SIM 2: EL GLOBO — viento cero; anclar dispara la reacomodación del mar --- */
+function motorGlobo(W,H,seed){
+  const rnd=mulberry32(seed||22);
+  const N=500,g=[];
+  for(let i=0;i<N;i++)g.push({x:rnd()*W,y:rnd()*H});
+  const st={granos:g,t:0,W,H,
+    sonda:{x:0.45*W,y:0.5*H},anclada:false,tAncla:-1,amp:0,
+    U(x,y,t){ // corriente de fondo, cambiante y con cizalla suave
+      return[22+16*Math.sin(2*Math.PI*t/9),
+             10*Math.sin(2*Math.PI*t/13+2.2*y/H)];
+    },
+    marLocal(x,y){ // corriente efectiva: fondo × remanso alrededor de la sonda anclada
+      const[ux,uy]=st.U(x,y,st.t);
+      const dx=x-st.sonda.x,dy=y-st.sonda.y;
+      const f=1-st.amp*Math.exp(-(dx*dx+dy*dy)/(2*70*70));
+      return[ux*f,uy*f];
+    },
+    viento(){ // |v_sonda − v_mar_local(sonda)|
+      const[mx,my]=st.marLocal(st.sonda.x,st.sonda.y);
+      const[vx,vy]=st.anclada?[0,0]:[mx,my];
+      return Math.hypot(vx-mx,vy-my);
+    },
+    step(dt){
+      st.t+=dt;
+      if(st.anclada)st.amp=Math.min(1,st.amp+dt/1.1);
+      else st.amp=Math.max(0,st.amp-dt/0.5);
+      if(!st.anclada){
+        const[mx,my]=st.marLocal(st.sonda.x,st.sonda.y);
+        st.sonda.x+=mx*dt;st.sonda.y+=my*dt;
+        if(st.sonda.x<0)st.sonda.x+=W;if(st.sonda.x>=W)st.sonda.x-=W;
+        if(st.sonda.y<20)st.sonda.y=20;if(st.sonda.y>H-20)st.sonda.y=H-20;
+      }
+      for(const p of g){
+        const[vx,vy]=st.marLocal(p.x,p.y);
+        p.x+=vx*dt;p.y+=vy*dt;
+        if(p.x<0)p.x+=W;if(p.x>=W)p.x-=W;
+        if(p.y<0)p.y+=H;if(p.y>=H)p.y-=H;
+      }
+    },
+    ancla(on){st.anclada=on;if(on)st.tAncla=st.t;}
+  };
+  return st;
+}
+
+/* --- SIM 3: EL HOYO QUE VIAJA — caída hacia pozo móvil, sin estela --- */
+function motorHoyo(W,H,seed){
+  const rnd=mulberry32(seed||33);
+  const N=520,g=[];
+  for(let i=0;i<N;i++)g.push({x:rnd()*W,y:rnd()*H,vx:0,vy:0,fl:0});
+  const st={granos:g,W,H,
+    bola:{x:0.3*W,y:0.5*H,vx:85,vy:0,r:13},pausada:false,drag:false,dir:{x:1,y:0},
+    step(dt){
+      const b=st.bola;
+      const vb0=Math.hypot(b.vx,b.vy);
+      if(vb0>1){st.dir.x=b.vx/vb0;st.dir.y=b.vy/vb0;}
+      if(!st.pausada&&!st.drag){
+        b.x+=b.vx*dt;b.y+=b.vy*dt;
+        if(b.x<60){b.x=60;b.vx=Math.abs(b.vx);}
+        if(b.x>W-60){b.x=W-60;b.vx=-Math.abs(b.vx);}
+        if(b.y<40){b.y=40;b.vy=Math.abs(b.vy);}
+        if(b.y>H-40){b.y=H-40;b.vy=-Math.abs(b.vy);}
+      }
+      for(const p of g){
+        let dx=b.x-p.x,dy=b.y-p.y;
+        const d=Math.sqrt(dx*dx+dy*dy)+1e-9;
+        const a=5200/(d+80);           // caída hacia la posición INSTANTÁNEA del pozo
+        p.vx+=(dx/d*a-4*p.vx)*dt;      // fricción fuerte: el grano es esclavo del campo
+        p.vy+=(dy/d*a-4*p.vy)*dt;
+        p.x+=p.vx*dt;p.y+=p.vy*dt;
+        if(p.fl>0)p.fl=Math.max(0,p.fl-3*dt);
+        if(d<b.r+6){ // reciclaje: renace en anillo exterior, uniforme en ángulo
+          const th=rnd()*2*Math.PI,rr=260+rnd()*80;
+          p.x=b.x+Math.cos(th)*rr;p.y=b.y+Math.sin(th)*rr;
+          p.vx=0;p.vy=0;p.fl=1;
+        }
+      }
+    },
+    sesgo(){ // ¿hacia dónde cae el mar? desvío entre el punto al que apuntan las caídas
+             // y la bola, proyectado en la dirección de marcha (0 = caen exacto a ella)
+      const b=st.bola;let ex=0,w=0;
+      for(const p of g){
+        const dx=p.x-b.x,dy=p.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d>180||d<b.r+10)continue;
+        const spd=Math.hypot(p.vx,p.vy);
+        if(spd<3)continue;
+        const ux=p.vx/spd,uy=p.vy/spd;
+        const bx=b.x-p.x,by=b.y-p.y;
+        const t=bx*ux+by*uy;
+        if(t<=0)continue;             // cae alejándose: reciclado fresco, no cuenta
+        const mx=bx-t*ux,my=by-t*uy;  // error perpendicular del rayo de caída
+        ex+=(mx*st.dir.x+my*st.dir.y)*spd;w+=spd;
+      }
+      return w?ex/w/180:0;
+    }
+  };
+  return st;
+}
+
+/* --- SIM 4: EL AMONTONAMIENTO — aritmética del panqueque (pura) --- */
+const motorPanqueque={
+  gamma(v){return 1/Math.sqrt(1-v*v);},
+  // niveles del campo de una fuente en movimiento (esquema): r(θ) sobre nivel base R
+  radioNivel(R,v,th){
+    const b2=v*v;
+    return R*Math.sqrt((1-b2)/Math.pow(1-b2*Math.sin(th)*Math.sin(th),1.5));
+  },
+  ejeLargo(R,v){return this.radioNivel(R,v,0);},        // → R·√(1−β²)  (÷γ)
+  ejeAncho(R,v){return this.radioNivel(R,v,Math.PI/2);} // → R·(1−β²)^(−1/4) (×√γ)
+};
+
+/* --- SIM 5: EL REMOLINO — fantasma 1/r³ estacionario vs viscoso que acumula --- */
+function motorRemolino(W,H,seed){
+  const rnd=mulberry32(seed||55);
+  const R=34,OM=0.9,NL=260;
+  function nube(cx,cy){
+    const a=[];
+    for(let i=0;i<NL;i++){
+      const d=R+8+Math.pow(rnd(),0.7)*(Math.min(W/4,H/2)-R-16);
+      a.push({d,th:rnd()*2*Math.PI,cx,cy});
+    }
+    return a;
+  }
+  const st={W,H,R,OM,K:0.35,t:0,fase:0,
+    fant:nube(W*0.25,H*0.52),visc:nube(W*0.75,H*0.52),
+    wFant(d){return OM*st.K*Math.pow(R/d,3);},              // equilibrio instantáneo, eterno
+    wVisc(d,t){return OM*(1-Math.exp(-t/(2.2*(d/R)*(d/R))));}, // acumula hacia co-rotación rígida
+    step(dt){
+      st.t+=dt;st.fase+=OM*dt;
+      for(const p of st.fant)p.th+=st.wFant(p.d)*dt;
+      for(const p of st.visc)p.th+=st.wVisc(p.d,st.t)*dt;
+    },
+    reiniciarVisc(){st.t=0;}
+  };
+  return st;
+}
+
+const Motores={motorTatuaje,motorGlobo,motorHoyo,motorPanqueque,motorRemolino,mulberry32};
+if(typeof module!=='undefined'&&module.exports)module.exports=Motores;
+/*===MOTORES-FIN===*/
+
+/* ================= render y conexión (solo browser) ================= */
+if(typeof document!=='undefined'){(function(){
+
+const btnModo=document.getElementById('btnModo');
+if(localStorage.getItem('eterModo')==='claro')document.body.classList.add('claro');
+syncModo();
+btnModo.onclick=()=>{document.body.classList.toggle('claro');
+  localStorage.setItem('eterModo',document.body.classList.contains('claro')?'claro':'oscuro');syncModo();};
+function syncModo(){btnModo.textContent=document.body.classList.contains('claro')?'☾ oscuro':'☀ claro';}
+function cssVar(n){return getComputedStyle(document.body).getPropertyValue(n).trim();}
+
+function setupCanvas(c){
+  const dpr=window.devicePixelRatio||1;
+  const w=c.clientWidth,h=c.clientHeight;   // lección de la casa: medir clientHeight
+  c.width=w*dpr;c.height=h*dpr;
+  const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);
+  return[ctx,w,h];
+}
+// registro de sims: cada una {c, draw, motor}; solo animan las visibles
+const vivas=new Map();
+const io=('IntersectionObserver'in window)?new IntersectionObserver(es=>{
+  for(const e of es){const s=vivas.get(e.target);if(s)s.activa=e.isIntersecting;}
+},{threshold:0.05}):null;
+function registrar(c,obj){obj.c=c;vivas.set(c,obj);if(io)io.observe(c);else obj.activa=true;}
+let tPrev=performance.now();
+function loop(tNow){
+  const dt=Math.min(0.05,(tNow-tPrev)/1000);tPrev=tNow;
+  if(!document.hidden)for(const s of vivas.values()){
+    const c=s.c,dpr=window.devicePixelRatio||1;
+    // si el canvas nació sin ancho (pestaña oculta) o cambió de tamaño: rearmar
+    if(c.clientWidth>0&&Math.abs(c.clientWidth*dpr-c.width)>1&&s.reinit)s.reinit();
+    if(s.activa&&c.width>0){s.motor.step(dt);s.draw(dt);}
+  }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+function puntero(c,fn){ // coords de canvas para click/drag
+  const pos=ev=>{const r=c.getBoundingClientRect();
+    return[ev.clientX-r.left,ev.clientY-r.top];};
+  return{pos,on(tipo,f){c.addEventListener(tipo,ev=>{f(...pos(ev),ev);});}};
+}
+
+/* ---------- TATUAJE ---------- */
+(function(){
+const c=document.getElementById('c-tatuaje');
+let ctx,W,H,m;
+function inicia(){[ctx,W,H]=setupCanvas(c);m=motorTatuaje(W,H,11);}
+inicia();
+const cont=document.getElementById('bt-cont');
+document.getElementById('bt-reset').onclick=()=>{m=motorTatuaje(W,H,11);};
+c.addEventListener('pointerdown',ev=>{
+  const r=c.getBoundingClientRect();
+  m.pintar(ev.clientX-r.left,ev.clientY-r.top);
+});
+function draw(){
+  ctx.fillStyle=cssVar('--panel');ctx.fillRect(0,0,W,H);
+  const tinta=cssVar('--tinta'),acento=cssVar('--acento');
+  for(const o of m.ondas){
+    ctx.globalAlpha=0.35*(1-o.r/260);ctx.strokeStyle=tinta;
+    ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,7);ctx.stroke();
+  }
+  for(const p of m.granos){
+    if(p.flash>0){ctx.globalAlpha=0.25+0.6*p.flash;ctx.fillStyle=tinta;
+      ctx.fillRect(p.x-1.6,p.y-1.6,3.2,3.2);continue;}
+    if(p.q){ctx.globalAlpha=1;ctx.fillStyle=cssVar('--calido');
+      ctx.beginPath();ctx.arc(p.x,p.y,2.4,0,7);ctx.fill();}
+    else{ctx.globalAlpha=0.5;ctx.fillStyle=acento;
+      ctx.fillRect(p.x-1.1,p.y-1.1,2.2,2.2);}
+  }
+  ctx.globalAlpha=1;
+  cont.textContent='intentos de pintar: '+m.intentos+' · tatuajes cambiados: '+m.cambiadas();
+}
+const S={draw,activa:false,reinit:inicia};
+Object.defineProperty(S,'motor',{get:()=>m});
+registrar(c,S);
+})();
+
+/* ---------- GLOBO ---------- */
+(function(){
+const c=document.getElementById('c-globo');
+let ctx,W,H,m;
+function inicia(){[ctx,W,H]=setupCanvas(c);m=motorGlobo(W,H,22);}
+inicia();
+const med=document.getElementById('bg-med');
+const bAncla=document.getElementById('bg-ancla');
+bAncla.onclick=()=>{m.ancla(!m.anclada);
+  bAncla.classList.toggle('activo',m.anclada);
+  bAncla.textContent=m.anclada?'⚓ soltá la sonda':'⚓ intentá fabricar viento';};
+document.getElementById('bg-reset').onclick=()=>{m=motorGlobo(W,H,22);
+  bAncla.classList.remove('activo');bAncla.textContent='⚓ intentá fabricar viento';};
+function draw(){
+  ctx.fillStyle=cssVar('--panel');ctx.fillRect(0,0,W,H);
+  ctx.globalAlpha=0.4;ctx.strokeStyle=cssVar('--acento');
+  for(const p of m.granos){
+    const[vx,vy]=m.marLocal(p.x,p.y);
+    ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x-vx*0.14,p.y-vy*0.14);ctx.stroke();
+  }
+  ctx.globalAlpha=1;
+  const s=m.sonda,v=m.viento();
+  // remanso visible
+  if(m.amp>0.02){ctx.globalAlpha=0.15*m.amp;ctx.strokeStyle=cssVar('--tinta');
+    ctx.beginPath();ctx.arc(s.x,s.y,70,0,7);ctx.stroke();ctx.globalAlpha=1;}
+  // globo: canasta + esfera + banderín según viento
+  ctx.fillStyle=cssVar('--calido');
+  ctx.beginPath();ctx.arc(s.x,s.y-6,11,0,7);ctx.fill();
+  ctx.fillStyle=cssVar('--tinta');ctx.fillRect(s.x-3.5,s.y+8,7,5);
+  ctx.strokeStyle=cssVar('--tenue');
+  ctx.beginPath();ctx.moveTo(s.x-6,s.y+2);ctx.lineTo(s.x-3.5,s.y+8);
+  ctx.moveTo(s.x+6,s.y+2);ctx.lineTo(s.x+3.5,s.y+8);ctx.stroke();
+  const ang=Math.min(1,v/30);
+  ctx.strokeStyle=cssVar('--acento');ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(s.x,s.y-17);
+  ctx.lineTo(s.x+16*ang+2*(1-ang)*Math.sin(m.t*3),s.y-17+12*(1-ang));
+  ctx.stroke();ctx.lineWidth=1;
+  med.textContent='viento a bordo: '+v.toFixed(2)+(v<0.05?' — calma':'');
+}
+const S={draw,activa:false,reinit:inicia};
+Object.defineProperty(S,'motor',{get:()=>m});
+registrar(c,S);
+})();
+
+/* ---------- HOYO ---------- */
+(function(){
+const c=document.getElementById('c-hoyo');
+let ctx,W,H,m;
+function inicia(){[ctx,W,H]=setupCanvas(c);m=motorHoyo(W,H,33);}
+inicia();
+const med=document.getElementById('bh-med');
+const bPara=document.getElementById('bh-para');
+bPara.onclick=()=>{m.pausada=!m.pausada;
+  if(m.pausada){m.bola.vx=0;m.bola.vy=0;}else{m.bola.vx=85;m.bola.vy=0;}
+  bPara.classList.toggle('activo',m.pausada);
+  bPara.textContent=m.pausada?'▶ soltá el asteroide':'⏸ pará el asteroide';};
+document.getElementById('bh-reset').onclick=()=>{m=motorHoyo(W,H,33);
+  bPara.classList.remove('activo');bPara.textContent='⏸ pará el asteroide';};
+let px=0,py=0,pt=0;
+c.addEventListener('pointerdown',ev=>{
+  const r=c.getBoundingClientRect();
+  const x=ev.clientX-r.left,y=ev.clientY-r.top;
+  const dx=x-m.bola.x,dy=y-m.bola.y;
+  if(dx*dx+dy*dy<40*40){m.drag=true;c.setPointerCapture(ev.pointerId);
+    px=x;py=y;pt=performance.now();}
+});
+c.addEventListener('pointermove',ev=>{
+  if(!m.drag)return;
+  const r=c.getBoundingClientRect();
+  const x=ev.clientX-r.left,y=ev.clientY-r.top;
+  const tn=performance.now(),dt=Math.max(8,tn-pt)/1000;
+  m.bola.vx=(x-px)/dt*0.55;m.bola.vy=(y-py)/dt*0.55;
+  m.bola.x=x;m.bola.y=y;px=x;py=y;pt=tn;
+});
+c.addEventListener('pointerup',()=>{
+  if(!m.drag)return;m.drag=false;
+  const v=Math.hypot(m.bola.vx,m.bola.vy);
+  if(v>160){m.bola.vx*=160/v;m.bola.vy*=160/v;}
+  if(m.pausada){m.bola.vx=0;m.bola.vy=0;}
+});
+let tMed=0,sesgoEMA=null;
+function draw(dt){
+  tMed+=dt;
+  ctx.fillStyle=cssVar('--panel');ctx.fillRect(0,0,W,H);
+  const tinta=cssVar('--tinta'),acento=cssVar('--acento');
+  for(const p of m.granos){
+    const spd=Math.hypot(p.vx,p.vy);
+    if(p.fl>0){ctx.globalAlpha=0.3*p.fl;ctx.fillStyle=tinta;}
+    else{ctx.globalAlpha=Math.min(0.85,0.18+spd/60);ctx.fillStyle=acento;}
+    ctx.fillRect(p.x-1.2,p.y-1.2,2.4,2.4);
+  }
+  ctx.globalAlpha=1;
+  const b=m.bola;
+  ctx.fillStyle=cssVar('--calido');
+  ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,7);ctx.fill();
+  const s=m.sesgo();
+  sesgoEMA=sesgoEMA===null?s:sesgoEMA*0.96+s*0.04;
+  if(tMed>0.4){const a=Math.abs(sesgoEMA);
+    med.textContent='desvío de la caída: '+a.toFixed(2)+
+      (a<0.05?' — exacto a la bola':' — inercia del trazador');tMed=0;}
+}
+const S={draw,activa:false,reinit:inicia};
+Object.defineProperty(S,'motor',{get:()=>m});
+registrar(c,S);
+})();
+
+/* ---------- PANQUEQUE ---------- */
+(function(){
+const c=document.getElementById('c-panqueque');
+const slider=document.getElementById('bp-v');
+const med=document.getElementById('bp-med');
+const bTour=document.getElementById('bp-tour');
+let ctx,W,H,rnd,granos,bx,tour=-1,txt='';
+function inicia(){
+  [ctx,W,H]=setupCanvas(c);
+  rnd=mulberry32(44);
+  granos=[];for(let i=0;i<240;i++)granos.push({x:rnd()*W,y:rnd()*H});
+  bx=W*0.5;
+}
+inicia();
+const etapas=[[0,'v = 0 — el hoyo de siempre, redondo'],
+  [0.5,'v = 0,5 c — el amontonamiento empieza a notarse'],
+  [0.8,'v = 0,8 c — γ = 1,7: gravita 1,7 veces más, y en panqueque'],
+  [0.92,'v = 0,92 c — γ = 2,6: casi todo el peso es amontonamiento — E = γmc²']];
+bTour.onclick=()=>{tour=0;bTour.classList.add('activo');};
+const motor={step(dt){
+  if(tour>=0){
+    tour+=dt;
+    const v=Math.min(0.92,tour/18*0.92);
+    slider.value=v;
+    for(const[u,s]of etapas)if(v>=u-0.005)txt=s;
+    if(tour>19){tour=-1;bTour.classList.remove('activo');}
+  }else txt='';
+  const v=parseFloat(slider.value);
+  bx+=(30+v*140)*dt;if(bx>W+120)bx=-120;
+  const g=motorPanqueque.gamma(v);
+  for(const p of granos){ // caída anisótropa hacia la bola (peso ∝ intensidad del campo)
+    let dx=bx-p.x,dy=H*0.5-p.y;
+    const d=Math.sqrt(dx*dx+dy*dy)+1e-9;
+    const th=Math.atan2(dy,dx);
+    const b2=v*v;
+    const w=(1-b2)/Math.pow(1-b2*Math.sin(th)*Math.sin(th),1.5);
+    const a=2600*w*g/(d+70);
+    p.x+=dx/d*a*dt*0.06;p.y+=dy/d*a*dt*0.06;
+    if(d<26){p.x=rnd()*W;p.y=rnd()*H;}
+  }
+}};
+function draw(){
+  const v=parseFloat(slider.value),g=motorPanqueque.gamma(v);
+  ctx.fillStyle=cssVar('--panel');ctx.fillRect(0,0,W,H);
+  ctx.globalAlpha=0.5;ctx.fillStyle=cssVar('--acento');
+  for(const p of granos){
+    ctx.fillRect(p.x-1.2,p.y-1.2,2.4,2.4);
+  }
+  ctx.globalAlpha=1;
+  const cy=H*0.5;
+  for(let k=1;k<=4;k++){
+    const R=26+34*k;
+    ctx.globalAlpha=Math.min(0.85,0.22+0.1*(g-1));
+    ctx.strokeStyle=cssVar('--calido');
+    ctx.beginPath();
+    for(let i=0;i<=72;i++){
+      const th=i/72*2*Math.PI;
+      const r=motorPanqueque.radioNivel(R,v,th);
+      const x=bx+Math.cos(th)*r,y=cy+Math.sin(th)*r;
+      i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+    }
+    ctx.stroke();
+  }
+  ctx.globalAlpha=1;
+  ctx.fillStyle=cssVar('--calido');
+  ctx.beginPath();ctx.arc(bx,cy,10,0,7);ctx.fill();
+  med.textContent='v = '+v.toFixed(2)+' c · γ = '+g.toFixed(2);
+  if(txt){ctx.fillStyle=cssVar('--tinta');ctx.font='14px system-ui';
+    ctx.textAlign='center';ctx.fillText(txt,W/2,26);ctx.textAlign='left';}
+}
+registrar(c,{motor,draw,activa:false,reinit:inicia});
+})();
+
+/* ---------- REMOLINO ---------- */
+(function(){
+const c=document.getElementById('c-remolino');
+const med=document.getElementById('br-med');
+const slider=document.getElementById('br-k');
+const KMIN=1e-9,KMAX=1.0;
+function leerK(){ // slider log: 0 → 1e-9 (real), 1 → correa perfecta
+  const u=parseFloat(slider.value);
+  return KMIN*Math.pow(KMAX/KMIN,u);
+}
+let ctx,W,H,m;
+function inicia(){[ctx,W,H]=setupCanvas(c);m=motorRemolino(W,H,55);m.K=leerK();}
+inicia();
+slider.oninput=()=>{m.K=leerK();};
+document.getElementById('br-real').onclick=()=>{slider.value=0;m.K=KMIN;};
+document.getElementById('br-reset').onclick=()=>{m.reiniciarVisc();};
+function planeta(cx,cy){
+  ctx.fillStyle=cssVar('--calido');
+  ctx.beginPath();ctx.arc(cx,cy,m.R,0,7);ctx.fill();
+  ctx.fillStyle='rgba(0,0,0,0.35)';
+  for(let i=0;i<3;i++){
+    const a=m.fase+i*2.09;
+    ctx.beginPath();ctx.arc(cx+Math.cos(a)*m.R*0.6,cy+Math.sin(a)*m.R*0.6,3.4,0,7);ctx.fill();
+  }
+}
+function nube(arr,wDe){
+  const tinta=cssVar('--tinta'),acento=cssVar('--acento');
+  for(const p of arr){
+    const x=p.cx+Math.cos(p.th)*p.d,y=p.cy+Math.sin(p.th)*p.d;
+    const w=wDe(p);
+    const L=Math.min(14,w*p.d*0.35);  // cometa ∝ velocidad tangencial
+    ctx.globalAlpha=0.55;ctx.strokeStyle=acento;
+    ctx.beginPath();ctx.moveTo(x,y);
+    ctx.lineTo(x+Math.sin(p.th)*L,y-Math.cos(p.th)*L);ctx.stroke();
+    ctx.globalAlpha=0.8;ctx.fillStyle=tinta;
+    ctx.fillRect(x-1.2,y-1.2,2.4,2.4);
+  }
+  ctx.globalAlpha=1;
+}
+function draw(){
+  ctx.fillStyle=cssVar('--panel');ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle=cssVar('--borde');
+  ctx.beginPath();ctx.moveTo(W/2,8);ctx.lineTo(W/2,H-8);ctx.stroke();
+  ctx.font='13px system-ui';ctx.fillStyle=cssVar('--tenue');
+  ctx.fillText('FANTASMA — equilibrio eterno',12,20);
+  ctx.fillText('VISCOSO — acumula · t = '+m.t.toFixed(0)+' s',W/2+12,20);
+  planeta(W*0.25,H*0.52);planeta(W*0.75,H*0.52);
+  nube(m.fant,p=>m.wFant(p.d));
+  nube(m.visc,p=>m.wVisc(p.d,m.t));
+  const x=m.K/KMIN;
+  med.textContent=x<2?'correa: ×1 (la real — una milmillonésima)':
+    'correa: ×'+x.toExponential(1).replace('e+','·10^')+' del real (exagerada para verla)';
+}
+const S={draw,activa:false,reinit:inicia};
+Object.defineProperty(S,'motor',{get:()=>m});
+registrar(c,S);
+})();
+
+})();}
+</script>
+</body>
+</html>
