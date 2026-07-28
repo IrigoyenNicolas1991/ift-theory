@@ -20,7 +20,9 @@ la sexta con tensor/vector/factor cerrados y una validación escalar en curso
 §9/acta FRW era FALSA y la cazamos nosotros; la corrección REFUERZA el
 congelamiento que la sección afirma. Se publica igual que las victorias,
 regla de la casa. Bonus inesperados: el vector congelado sobre FLRW como
-identidad nueva, y dos erratas más de BCP §8 en la gatera.**
+identidad nueva, y dos erratas más de BCP §8 — CONFIRMADAS el mismo día por
+la campaña dedicada del §8 de esta acta (tres vías cada una), listas para el
+próximo correo a Pilo.**
 
 ---
 
@@ -282,11 +284,20 @@ simbólico, la (7.22) impresa da residuo 0 exacto: **la (7.22) de BCP es
 CORRECTA, no hay factor 2** — la razón 2 del acta FRW era la lectura con
 M_pl² = 1. Caveat 2 del acta FRW-2026-07-21: SALDADO.
 
-**Corrección de numeración de cita (aplicada al paper)**: la fórmula
-M₂² = Σn²a^(−2(n−1))U_τₙ que citábamos como "(7.21)" es la **(7.22)** del
-PDF/tex publicado (verificado contando entornos equation/align del fuente con
-tres anclas — (7.3) = masst, (7.5)-(7.7) = masas — que cuadran con las citas ya
-verificadas). (7.23) [GW] es la acción tensorial; (7.24)-(7.25) el vector.
+**Corrección de numeración de cita — REVERTIDA EL MISMO DÍA (la corrección
+estaba mal)**: este agente re-numeró nuestras citas "(7.21)" → "(7.22)" para la
+fórmula de masa contando entornos equation/align del .tex. La campaña de
+verificación de erratas §8 (abajo, §8 de esta acta) inspeccionó el PDF del
+arXiv v2 directamente y el orquestador lo confirmó con sus propios ojos sobre
+el texto extraído: **la fórmula de masa ES la (7.21) del arXiv v2; la acción
+tensorial es la (7.22); el vector la (7.23)** — el conteo de entornos estaba
+corrido en +1 (método frágil: ecuaciones sin numerar/subecuaciones). La cita
+original del paper era correcta. Todas las citas del paper llevan ahora
+"arXiv v2 numbering" explícito (el PDF de la revista sigue inaccesible).
+Lección de proceso: numeración de ecuaciones se verifica contra el PDF, no
+contando entornos del fuente. El contenido físico de la Tarea B de este agente
+(el factor = convención de M_Pl²; la fórmula impresa correcta) NO cambia — los
+labels estaban enredados, las fórmulas comparadas eran las correctas.
 
 **Bonus — DOS ERRATAS INTERNAS MÁS en BCP §8, verificadas por una vía**
 (reportables a Pilo si se reabre el canal; SIN consecuencia para nuestra fila,
@@ -385,7 +396,121 @@ estatus que v4); lapse genérico N(t) solo en el tensor de factor_722; banda
   6 → OK de Nicolás: único bloqueo humano.
 - Pendientes que esta campaña ABRE: permiso de cita de Pilo (pedido 25-jul,
   respuesta pendiente); erratum de PRD (decisión de ellos); las DOS erratas
-  nuevas de BCP §8 (§6 de esta acta) esperan segunda vía de verificación —
-  si pasan, son material natural para el próximo correo a Pilo; lectura
-  final del ensamblado antes del canal; resultado de la corrida escalar
-  (si contradice el espectro corregido: reportar, no forzar).
+  nuevas de BCP §8 quedaron CONFIRMADAS por la campaña dedicada (§8 de esta
+  acta, tres vías cada una) — párrafo del correo redactado, el envío espera
+  la decisión de Nico sobre el próximo mail a Pilo; lectura final del
+  ensamblado antes del canal; la corrida escalar terminó y CONFIRMÓ (§6).
+
+---
+
+## 8. Campaña de verificación de las erratas de BCP §8 (mismo día, 2 agentes)
+
+**Encargo**: las dos presuntas erratas del sector tensorial cosmológico de BCP
+halladas por el pase de acción cuadrática (§6) tenían UNA sola vía de
+evidencia; el estándar de la casa exige al menos dos antes de reportar nada a
+los autores. Dos agentes independientes: un REFUTADOR (derivación propia desde
+la acción de BCP, con orden explícita de intentar voltear las claims y de no
+leer el cálculo de ayer) y un BIBLIÓGRAFO (evidencia externa en la literatura).
+Autorización de Nico: "dale manda esa campaña ahora".
+
+### Veredicto: AMBAS ERRATAS CONFIRMADAS — tres vías cada una (se pedían dos)
+
+**(A) Signo de k² en la acción de GW de §8** [(8.17) del PDF arXiv v2, label
+GW2]: impresa (2M₂² + k²); correcta (2M₂² − k²). La cuenta que la mata sola:
+con M₂² = 0 la impresa da χ″ + 2ℋχ′ − k²χ = 0 — SIN ondas, viola el límite GR;
+el signo relativo cinético/gradiente es invariante bajo toda redefinición
+(χ→λχ, χ→f(t)χ, signatura, normalización): **no existe convención que la
+salve**. Vías: (1) sustitución literal N→a en la (7.22) del propio paper —
+que su §8.2 declara textualmente como la fuente ("The dynamics of
+gravitational waves is governed by (7.22)"): una sustitución no puede voltear
+un signo — contradicción textual interna; (2) derivación fundamental completa
+del refutador (abajo); (3) los tres papers posteriores del grupo (1704.00322,
+1712.04827, 1907.11784) escriben esa acción con el signo correcto.
+
+**(B) Masa a la mitad en la EOM de propagación** [(8.18) arXiv v2]: impresa
+χ″ + 2ℋχ′ + (k² − M₂²)χ = 0; correcta (k² − **2M₂²**). El riesgo adversarial
+real — que el "2" espurio estuviera en la acción (7.22) y la EOM impresa fuera
+la sana — fue descartado por tres vías convergentes: (1) derivación FLRW
+completa del refutador con N(t) genérico desde la acción fundamental LAllb
+(χ TT explícito, Ricci exacto, EOM de fondo re-derivadas por mini-superspace
+que reproducen EXACTAS las impresas — control de maquinaria; cancelación
+exacta de U, U_b, U_X, U_Y on-shell; los pesos n² de la masa emergen como
+n(n+1)/2 − n/2); (2) **modelo discriminante de sólido estático exacto**
+(U = λ(τ₃−3) − 6λ(b−1), fondo Minkowski exacto sin EOM dinámicas): dispersión
+por estacionariedad ω² = k² − 18λ/M_pl² = k² − 2M₂² — la EOM impresa
+predeciría la mitad; (3) el follow-up de los propios autores (1704.00322,
+mismas variables, cita a BCP): su EOM con su diccionario de masas
+(M₂^CCP = −2a²·M₂²_BCP, mapeo algebraico exacto) es χ″ + 2ℋχ′ + (k²−2M₂²)χ=0.
+
+**Evidencia externa adicional (bibliógrafo)**: nadie fuera del grupo reproduce
+esas dos ecuaciones específicas (37 citantes barridos por INSPIRE, 16 con
+full-text tensorial revisados: todos mudos); la vara canónica independiente de
+GW masivas sobre FLRW (Dubovsky-Flauger-Starobinsky-Tkachev PRD 81 023523;
+Gümrükçüoğlu et al. CQG 29 235026; de Rham et al. RMP 89 025004) confirma la
+estructura con masa entera; y la cadena de papers del grupo 2017→2025
+(1704 → 1712 → 1907 → 2103.10402/2202.04968 → 2503.03589) muestra que NUNCA
+volvieron a usar la convención impresa de §8 — sugiere corrección silenciosa
+en 2017 sin marcar la errata. El di Donato-Pilo 2025 (PRD 111 064081) mantiene
+la estructura canónica (k² + a²M₂).
+
+### Cierre de círculo: el refutador re-descubrió A CIEGAS la errata original
+
+Su "hallazgo lateral" — los pesos del m₂² impreso en la expansión de masas de
+§7 dan 4(n+1) donde su derivación y el follow-up dan 2n(n+1) — **ES la errata
+de (7.6)-(7.7) que L. Pilo ya confirmó por correo el 22-jul**. El refutador no
+la conocía (tenía prohibido leer las actas para preservar independencia) y la
+re-derivó por su cuenta: cuarta vía independiente de la errata original, y
+prueba de que el blindaje de independencia de la campaña funcionó de verdad.
+
+### Numeración de ecuaciones — el enredo, saldado
+
+El pase de ayer (§6) re-numeró nuestras citas contando entornos del .tex y se
+corrió +1; esta campaña lo cazó y lo corrigió contra el PDF (ver la corrección
+en §6). Numeración firme (arXiv v2, verificada por bibliógrafo + orquestador
+sobre el PDF): **(7.21) = fórmula de M₂²; (7.22) = acción tensorial [GW];
+(7.23) = sector vectorial; (8.16) = slip; (8.17) = acción GW en Fourier
+[GW2]; (8.18) = EOM de propagación**. El PDF de la revista sigue inaccesible
+(paywall); el fuente .tex del arXiv se llama "PRD23Nov.tex", lo que sugiere
+que coincide con la versión publicada, pero no lo afirmamos.
+
+### Material listo para el próximo correo a Pilo
+
+El refutador dejó el borrador del párrafo en inglés (factual, humilde, con el
+límite GR como argumento y el follow-up de ellos como confirmación — la misma
+jugada que selló la primera errata). Queda en este registro para ensamblar el
+próximo correo cuando Nico lo decida (contexto natural: junto con la nota
+missing-row y/o la respuesta al permiso de cita):
+
+> While working with the tensor sector of your Sec. VIII ("Gravitational
+> waves"), we believe we found two further typos, closely related to each
+> other. Substituting N(t)=a(t) in the quadratic tensor Lagrangian of Sec.
+> VII, L = (M_pl²/2)[(a³/N) χ′ᵢⱼχ′ᵢⱼ + N a (2M₂² − k²) χᵢⱼχᵢⱼ], the
+> Fourier-space action in Sec. VIII should read a²[χ′ᵢⱼχ′ᵢⱼ +
+> (2M₂² − k²)χᵢⱼχᵢⱼ], whereas the printed equation has (2M₂² + k²); as
+> printed, the M₂²→0 limit would not reproduce standard wave propagation.
+> Likewise, the propagation equation that follows should then be
+> χ″ᵢⱼ + 2ℋχ′ᵢⱼ + (k² − 2M₂²)χᵢⱼ = 0, while the printed version has
+> (k² − M₂²), i.e. half the mass term. We re-derived the tensor Lagrangian
+> directly from your action S = M_pl²∫√−g R + ∫√−g U with the definitions of
+> Table I, and we recover exactly your Sec. VII expression (2M₂² − k²), so
+> the Lagrangian itself appears correct and only the two Sec. VIII equations
+> seem affected. Reassuringly, both corrected expressions also match the
+> tensor sector of your later paper JCAP 09 (2017) 036, where
+> M₂^there = −2a²M₂²^here via its Appendix A. We would be happy to share our
+> derivation (a short symbolic-algebra script) if useful.
+
+### Reproducibilidad
+
+Script del refutador movido al repo:
+`campana-m2/erratas-bcp-s8/verificacion_erratas_bcp_s8.py` — 30 chequeos, 0
+fallos, ~2-3 min (`py -3.14 verificacion_erratas_bcp_s8.py`): PARTE 1 cadena
+impresa, 2-5 derivación FLRW completa, 6 EOM y convenciones, 7 sólido
+estático discriminante, 8 mapeo al follow-up. Los .tex descargados (BCP y
+1704.00322) quedan FUERA del repo, como manda la política. La nota de
+convención declarada: el prefactor global M_pl²/2 de (7.22) es 2× el cinético
+canónico — convención inocua de BCP, idéntica en su follow-up, sin efecto en
+EOM (trampa tipo-factor-(7.21) descartada explícitamente).
+
+**Estado**: las dos erratas pasan de "en la gatera" a **REPORTABLES** — la
+frase del paper §9/Declared limits queda actualizada. El reporte efectivo a
+los autores espera la decisión de Nico sobre el próximo correo.

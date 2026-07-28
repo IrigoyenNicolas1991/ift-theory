@@ -14,7 +14,8 @@ block-list-closure campaign** — third text audit (30 findings), §9's own
 adversarial physics audit (one formula refuted and corrected in place: the
 attractor dispersion; the correction strengthens the freeze-out), the full
 quadratic FRW action (tensor confirmed, vector closed as a new identity,
-(7.22) factor closed as a convention), the {X,Y} completeness proof (§3), the
+tensor-mass global factor closed as a convention), the {X,Y} completeness
+proof (§3), the
 C5d reconciliation, the reference-verification pass, and the [16]–[18]
 content checks — record in `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`).
 First written form of the
@@ -231,9 +232,10 @@ access to our files) that rederived the weights four ways and confirmed them —
 including the structural observation that δyₙ is *exactly* uniform in n at O(h²)
 (Z is already O(h²)), so the printed weight 2n·U_yₙ would annihilate the n = 0
 term that BCP's printed sum explicitly includes; (4) internal consistency of BCP
-itself: their tensor-sector mass formula — their eq. (7.22); we had cited it as
-(7.21) until the equation numbering was verified against the .tex source on
-2026-07-27 — M₂² = Σn²U_τₙ (quoted at a = 1; the full
+itself: their tensor-sector mass formula, their eq. (7.21) — arXiv v2
+numbering throughout this paper, checked against the arXiv PDF on 2026-07-27
+(the journal PDF was never accessible to us; their quadratic tensor Lagrangian
+is their (7.22)) — M₂² = Σn²U_τₙ (quoted at a = 1; the full
 expression carries a^(−2(n−1))), is compatible with our weights and not with
 their printed (7.7); (5) the appendices of the later papers
 of the same group [5, 6, 7] use precisely our weights (flat in yₙ from n = 0, n²
@@ -644,14 +646,16 @@ FRW) and the standard 3H friction (H ≡ ȧ/a). Re-derived independently from th
 full quadratic action (2026-07-27, `frw/accion_cuadratica_frw.py`): the tensor
 mass coefficient is proportional to U + 2ä/a + H², which vanishes by
 Friedmann II alone — and the same pass settled the apparent global factor 2
-against BCP's (7.22): their printed formula is **correct**, the factor was
+against BCP's tensor-mass formula (their (7.21), arXiv v2 numbering): their
+printed formula is **correct**, the factor was
 their M_Pl² = 1/16πG convention (no ½ on R) versus ours
 (`frw/factor_722.py`, 17 checks). **The vector sector is frozen on any FLRW
 too**: from the same quadratic action, the vector potential is proportional to
 the very same Friedmann-II combination — identically zero on-shell for
 arbitrary U(X,Y) and a(t) — leaving a nonpropagating constrained mode (the
 exact FLRW generalization of the Minkowski double zero of §6), verified by
-three routes and, term by term on-shell, against BCP's (7.24). (That fluids
+three routes and, term by term on-shell, against BCP's printed vector-sector
+Lagrangian (their (7.23), arXiv v2 numbering). (That fluids
 and superfluids
 have massless cosmological tensors is BCP's and CCP's general statement [4, 5];
 the reading for this row, the vector-freezing identity, and the consequence —
@@ -743,15 +747,24 @@ irrelevant to the attractor, listed for completeness. The scalar analysis uses
 frozen
 coefficients (valid for ω ≫ H; the ω ~ H band, where all the attractor roots
 live, is indicative). The full quadratic FRW action is now derived
-(2026-07-27): tensor and vector sectors closed as identities and the (7.22)
+(2026-07-27): tensor and vector sectors closed as identities and the
+tensor-mass
 factor question closed as a convention (see above); the scalar sector's
 four-field action is built, its constraints verified, and its symbolic
 validation run against the corrected spectrum is in progress — that last run
 is the remaining FRW item on the block list. Two further internal misprints
-in BCP's §8 (a flipped k² sign in their GW2 and a factor-2 slip in their
-printed propagation equation) were flagged in the same pass; they do not
-affect our row (M₂² ≡ 0 identically) and await an independent check before
-being reported (campaign acta).
+in BCP's §8 — a flipped k² sign in their Fourier-space GW action ((8.17),
+arXiv v2 numbering) and a factor-2 slip in their printed propagation equation
+(8.18) — were flagged in the same pass and **confirmed the same day by a
+dedicated two-agent verification campaign** (an independent full re-derivation
+from BCP's fundamental action with three routes including an exact static-solid
+discriminant, plus the external evidence that the authors' own follow-up JCAP
+09 (2017) 036 prints both corrected forms; as printed, the M₂² → 0 limit of
+(8.17) would not propagate waves). They do not affect our row (M₂² ≡ 0
+identically); record and the drafted query paragraph in the campaign acta §8
+(`campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`, script in
+`campana-m2/erratas-bcp-s8/`). Reporting them to the authors awaits the
+author's decision on the next letter.
 
 ## 10. What this paper does not claim
 
@@ -833,7 +846,7 @@ exact checks; see block-list item 7.)
 | Matter coupling | `acople/estatico/*`, `acople/frame-dragging/*`, `acople/verificador/*` | causal theorem; γ(p); two branches; rotating-sphere exterior; precession factors; bounds — again with a disjoint verification pipeline |
 | C5d reconciliation | `acople/estatico/C5d_dirimido.py` | the C5d residue as an extraction artifact (symbolic identity); physical dispersion by Routhian and 4×4 determinant = scalar-pipeline formula; ∂ω²/∂m₁² = 0; ρ_op ≡ ρ term by term |
 | Completeness of {X, Y} | `exhaustividad_XY.py` | chain-rule pointwise reduction; normal form and explicit connecting group elements; orbit count 10−8 = 2; symbolic Schur; candidate invariants dismissed (incl. Z_ε); sl(3) calibration (recovers BCP's superfluid row); no-clock corollary |
-| FRW (§9) | `frw/fondo_frw.py`, `frw/verificador/v1_fondo_covariante.py`–`v4b_escalar_frw_analisis.py`, `frw/accion_cuadratica_frw.py`, `frw/factor_722.py` | three-route background; FLRW tensor identity + BCP (7.22) control; fixed-point map and basins; frozen-coefficient scalar analysis; full quadratic action (tensor/vector closed as identities, 17-check (7.22)-convention audit; scalar validation run in progress, block list) |
+| FRW (§9) | `frw/fondo_frw.py`, `frw/verificador/v1_fondo_covariante.py`–`v4b_escalar_frw_analisis.py`, `frw/accion_cuadratica_frw.py`, `frw/factor_722.py` | three-route background; FLRW tensor identity + control against BCP's mass formula (their (7.21), arXiv v2 numbering); fixed-point map and basins; frozen-coefficient scalar analysis; full quadratic action (tensor/vector closed as identities, 17-check convention audit of the tensor-mass factor; scalar validation confirmed the corrected spectrum, see block list 5) |
 
 ## Novelty search (method declared)
 
@@ -977,10 +990,17 @@ arXiv:1105.3456.
    the freeze-out) and confirmed the rest by independent re-derivation. The
    full quadratic FRW action was then derived
    (`frw/accion_cuadratica_frw.py`): tensor and vector closed as FLRW
-   identities (vector: new result, three routes + BCP (7.24) term-by-term
-   on-shell), and the (7.22) global factor closed as a convention
-   (`frw/factor_722.py`, 17 checks; BCP's printed (7.22) is correct — and our
-   earlier citations of it as "(7.21)" were renumbered after checking the .tex).
+   identities (vector: new result, three routes + BCP's vector Lagrangian,
+   their (7.23), term-by-term
+   on-shell), and the tensor-mass global factor closed as a convention
+   (`frw/factor_722.py`, 17 checks; BCP's printed mass formula — their (7.21),
+   arXiv v2 numbering — is correct). Audit-trail note, declared because the
+   trail matters: the quadratic-action agent re-numbered our (7.21) citations
+   to "(7.22)" by counting .tex environments; the same day's external-evidence
+   pass and direct inspection of the arXiv PDF showed that renumbering was
+   itself wrong — (7.21) is the mass formula, (7.22) the tensor action — and
+   all citations now carry the arXiv v2 numbering explicitly (the journal PDF
+   remains inaccessible to us).
    **The scalar validation run finished the same day and CONFIRMS the
    corrected spectrum structurally**: exact Minkowski limit (double zero,
    coef(ω⁴) ∝ m₀²m₁²); persistent zero = Friedmann constraint confirmed from
