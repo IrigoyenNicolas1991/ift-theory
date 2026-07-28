@@ -113,3 +113,39 @@ Minkowski es estructural). Respuesta a la objeción Λ-media/di Donato-Pilo: su
 inestabilidad es el cero doble sin curar — el NLO k⁴ (diccionario GC) la cura.
 **La sección entró al paper como §9 (→ v0.4)**; pendiente: auditoría propia de §9,
 acción cuadrática FRW completa, factor 2 global vs (7.22) de BCP.
+
+**CAMPAÑA CIERRE-BLOCKLIST 2026-07-27 → paper v0.6** (acta
+`CIERRE-BLOCKLIST-2026-07-27.md`, 6 agentes): C5d dirimido, completitud {X,Y}
+probada (`exhaustividad_XY.py`, →§3 del paper), bibliografía verificada hasta
+el paywall de Nature ([16]-[18] respaldan; Peer Review File de LARES-2 leído),
+3ª auditoría de texto (30 hallazgos), auditoría física de §9 (refutó la
+dispersión del atractor — el espectro real es puramente disipativo; la
+corrección REFUERZA el congelamiento y quedó declarada en el paper), acción
+cuadrática FRW completa (tensor identidad; vector congelado = identidad NUEVA;
+factor 2 = convención de M_Pl², BCP (7.21) impresa correcta), y 2 erratas
+nuevas de BCP §8 confirmadas por campaña dedicada (material para el próximo
+mail a Pilo; script en `erratas-bcp-s8/`).
+
+**CAMPAÑA SELECCIÓN DE ESTADO 2026-07-27/28 — CERRADA CON D2: TEOREMA DE
+SUPERSELECCIÓN → paper v0.7 RETITULADO** (carpeta `seleccion-estado/`:
+`APERTURA` con criterios pre-declarados, 3 columnas — A vértices/NLO/números,
+B carga/poblamiento, C bibliografía de fuentes primarias — y verificador
+adversarial final con pipeline propio que atacó por 5 flancos sin romperlo;
+síntesis en `SINTESIS-SELECCION-2026-07-28.md`, veredicto en
+`verificador/VERIFICADOR-FINAL-2026-07-28.md`). La carga interna de
+Φᵃ→Φᵃ+ξᵃ(Φ⃗) no tiene corriente espacial (P_aⁱ=0, identidad off-shell exacta,
+4 rutas independientes); corolario de inversión P_a⁰=0 ⟺ g₀ₐ=0 punto a punto;
+las dos ramas del frame dragging son sectores de superselección desconectados;
+las CI cosmológicas pueblan SIEMPRE la co-rotante (IVP universal exacto,
+incluso con fuente en movimiento); NLO sin puerta trasera (δ_ret =
+−ĉ(Λ/M̄_Pl)² ≤ 1.7×10⁻⁴³; fuga ≥14 órdenes bajo una carga por edad del
+universo). **Consecuencia: la fase predice RG en gravitomagnetismo por
+teorema; la firma del apantallamiento — la "firma falsable propia" de esta
+crónica — queda SUPRIMIDA y se publica igual (regla de la casa); las cotas
+Λ≲2.0–2.6 / <1.12 MeV pasan a contrafácticas de la rama no poblada; la ventana
+de Λ vuelve al sector escalar.** El acta ACOPLE lleva adenda de corrección
+fechada; el paper pasó a v0.7 con título nuevo — "…and a superselection
+theorem for frame dragging" (era "…and a screened frame-dragging signature") —
+§8 reescrita, refs nuevas [29]-[32] verificadas. Pendiente del paper: 4ª
+auditoría de texto sobre la reescritura + OK de canal de Nico (block list
+adentro del paper).
