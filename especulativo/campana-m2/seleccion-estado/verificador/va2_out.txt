@@ -1,0 +1,58 @@
+﻿========================================================================
+VA2 - JUGUETE DE CAMPO PROPIO (accion Gamma-Gamma, primer orden)
+========================================================================
+[G0] signo fisico: sgn = 1 ; L_TT = -p**2*qm(t)**2/4 + Derivative(qm(t), t)**2/4  (cinetica qmdot^2 POSITIVA: convencion anclada a no-fantasma TT)
+[chk] conservacion fuente: d_t T0x + d_z Tzx = 0
+[G1] EL(L_modal - L_canonica) en S y F = 0 (mod derivada total)? True
+     [derivado desde MI Gamma-Gamma: sin segundas derivadas => la carga
+      de Noether de aca abajo es la ESTANDAR, sin correccion Ostrogradsky]
+[G2] 2*eqS - (A p^2 sig + m12 S + tau) = 0
+[G2] 2*eqF - dC/dt = 0   => C conservada ON-SHELL con tau(t) ARBITRARIA
+[G2] on-shell (eqS = 0): C = -m12*S  (el puente carga modal <-> P_a^0)
+[G3] rama relajada   : eqS = 0, eqF = 0, C = m12*tau_c/(m12 + p**2*(Mp2 + alpha))
+[G3] rama co-rotante : eqS = 0, eqF = 0, C = 0
+[G4] corriente local de xi^x = eps cos(pz) (delta V = 0, delta W = -p eps sin(pz)):
+     dL - [EL_W dW + d_mu(pi^mu_W dW)] = 0  (identidad: debe ser 0)
+     K^mu hallado (coefs no nulos): {c1: 1}
+     dL - d_mu K^mu = 0  (0 => cuasi-invariancia off-shell EXACTA)
+     d_t J^t + d_z J^z + EL_W dW = 0  => conservada ON-SHELL (EL_W = 0)
+     J^z(t,z)/eps sobre el modo = 0
+     <J^t>_z/eps sobre el modo = -Mp2*p**2*S(t)/2 + Mp2*p**2*Derivative(F(t), t)/2 - alpha*p**2*S(t)/2 + alpha*p**2*Derivative(F(t), t)/2 - tau(t)/2
+     <J^t>/eps + C/2 = 0  (0 => la carga local promediada ES -C/2)
+     LECTURA (corregida por el calculo): K^mu resulto SOLO la pieza de
+     la fuente externa (c1 = 1) -- mi Gamma-Gamma es EXACTAMENTE
+     invariante bajo el residual estatico -- y J^z sobre el modo dio
+     CERO: en este sector NI SIQUIERA hay flujo gravitatorio local.
+     La carga del residual (con su pieza EH en pi^t_W) coincide
+     on-shell con la interna (-C/2). El teorema no omitio piezas.
+[G5] existe estado estacionario con C = 0 y sigma = sigma_relajada?
+     sistema {vinculo = 0, C = 0, sigma = sigma_rel}: solucion = []
+     sistema {vinculo = 0, C = 0} (sin forzar sigma): [{S_sol: 0, v: tau_c/(Mp2*p**2 + alpha*p**2)}]  => sigma = -tau_c/(A p^2): EL co-rotante, UNICO. No hay nube compensante
+     estacionaria en el sector C = 0 del modo: es su fundamental (y unico).
+[G6] H(C; tau) por Legendre de MI L modal:
+     H(pi=(tau-C)/2) - [C^2/(4 m12) + (tau-C)^2/(4 A p^2) - F taudot/2] = 0
+     argmin_C H = m12*tau(t)/(Mp2*p**2 + alpha*p**2 + m12)  = C_relajada? True
+     => el minimo GLOBAL es la relajada, PERO C esta congelada: dentro del
+        sector C = 0 el co-rotante es el fundamental (y unico estacionario,
+        G5). E_ret > E_fund compara SECTORES distintos: blanco 4 de B, OK.
+[G7] IVP con tau(t) ARBITRARIA, solucion general simbolica:
+     S = -C0/m12, Fdot = -C0/m12 - (C0 - tau)/(A p^2):  eqS = 0 , eqF = 0
+     => SOLUCION GENERAL EXACTA para tau(t) arbitraria: S constante,
+        etiquetada SOLO por C0. Con C0 = 0 (FRW): S(t) = 0 IDENTICO --
+        el encendido (cualquier historia) deja el medio CO-ROTANTE.
+        [mas fuerte que el RK4 de colB: es la solucion general cerrada]
+
+[VEREDICTO VA2]
+ * Mi Gamma-Gamma reproduce la forma canonica de la campania (G1): la
+   estructura del juguete NO es artefacto del pipeline de las columnas.
+ * Vinculo, carga conservada con tau(t) arbitraria, C = -m12 S, ramas y
+   Delta C: todo reproducido (G2, G3).
+ * Ataque 1b RESPONDIDO con calculo: la corriente COMPLETA del residual
+   en gauge unitario (pieza EH incluida via pi^t_W) tiene J^z = 0 sobre
+   el modo (ni flujo local en este sector) y su carga coincide on-shell
+   con la interna (-C/2). La superseleccion no depende de que carga se use.
+ * El escape "relajada + nube compensante" NO existe como estacionario del
+   sector C = 0 en el modo (G5).
+ * Energia: reinterpretacion de B correcta (G6). IVP: solucion general
+   cerrada, universal (G7).
+t = 2.1 s

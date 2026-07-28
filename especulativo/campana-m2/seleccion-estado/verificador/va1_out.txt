@@ -1,0 +1,59 @@
+﻿========================================================================
+VA1 - EL TEOREMA, PIPELINE PROPIO (determinantes de la matriz de Gram)
+========================================================================
+[V0] trial 0: Y2_dets - Y2_nullspace = 0
+[V0] trial 1: Y2_dets - Y2_nullspace = 0
+[V0] trial 2: Y2_dets - Y2_nullspace = 0
+[V0] forma cerrada Y^2 = -detC/detB validada por ruta independiente: OK
+[V1] (MCM^T)_esp - E C_esp E^T = todas 0
+[V1] spot-check racional: det(MCM^T)-detE^2 detC = 0 ; bloque esp: 0
+[V1] det(MCM^T) = detE^2 detC (multiplicatividad) y det((MCM^T)_esp) =
+     detE^2 det(C_esp) (bloques + multiplicatividad 3x3)
+     => Y^2 = -detC/detB INVARIANTE GL(3) FINITO EXACTO, C GENERICA
+        (off-shell, toda metrica, todo orden): OK
+     corolario infinitesimal (deriv. en E = I + s e_ab de una identidad):
+     P_a^mu d_mu Phi^b = 0. En gauge unitario d_mu Phi^b = delta^b_mu
+     => P_a^b = 0 para b = 1,2,3: corriente espacial interna CERO.
+[J0] det(adj(g)_esp) - g_00 detg^2 = 0   (Jacobi => Y^2|_unitario = -1/g_00)
+[V2] dY^2/d(d_i Phi^a) = 0 (9 comps, g exacta simbolica, via detW): OK
+     => P_a^i = sqrt(-g) U_Y (1/2Y) d(Y^2)/d(d_i Phi^a) = 0 IDENTICAMENTE.
+[V3] a=1: d(detW)/ds + 2 g_{0a} detg^2 = 0
+[V3] a=2: d(detW)/ds + 2 g_{0a} detg^2 = 0
+[V3] a=3: d(detW)/ds + 2 g_{0a} detg^2 = 0
+[V3] formula cerrada P_a^0 = sqrt(-g) U_Y g_{0a}/(g_00 sqrt(-g_00)): OK
+[V3] linealizacion (sobre el claim verificado): d(Y^2)/d(d_0 Phi^1)|_lin = -2*h01 -> P_1^0 = -U_Y h_01 + O(h^2); con tadpole U_Y = 2U_X = m1^2 => P_a^0 = -m1^2 h_0a: OK
+[V4] Noether completo de Phi^a -> Phi^a + xi^a(Phi_vec), g y materia FIJAS:
+     - delta g_{mu nu} = 0 por definicion (transformacion interna)
+       => delta L_EH = 0 IDENTICAMENTE (EH no contiene Phi). Sin pieza EH.
+     - materia minimamente acoplada (solo via g; acople universal,
+       hipotesis declarada): delta L_mat = 0 IDENTICAMENTE. Sin pieza.
+     - delta U: X = C^00 no contiene dPhi^a (estructural); Y^2 = -detC/detB
+       invariante EXACTO PUNTUAL (V1: identidad, no mod derivada total)
+       => K^mu = 0: NO hay termino de borde de Noether.
+     - X e Y contienen Phi^a SOLO derivado => dL/dPhi^a = 0 =>
+       EOM(Phi^a)  ==  d_mu P_a^mu = 0  con P_a^mu = dL/d(d_mu Phi^a).
+     => J^mu[xi] = P_a^mu xi^a(Phi) es la corriente COMPLETA. Con P_a^i = 0
+        (V2): d_t P_a^0 = 0 punto a punto on-shell. El teorema NO omitio
+        piezas: la pieza gravitatoria del juguete modal pertenece a la
+        REALIZACION unitaria (difeo compensador x^i -> x^i + xi^i), otra
+        ley, que va2 coteja on-shell contra esta.
+[V5] P_a^0 = sqrt(-g) U_Y g_{0a}/(g_00 sqrt(-g_00)): con sqrt(-g) != 0,
+     U_Y != 0, g_00 < 0: el factor de g_{0a} es NO NULO =>
+     P_a^0(x) = 0  <=>  g_{0a}(x) = 0  EXACTO punto a punto.
+     P0(h0a=0) = 0 ; dP0/dh0a|_0 = -U_Y/(1 - h00)**(3/2) != 0 (h00<1).
+     => la etiqueta de sector (P_a^0 congelado) equivale al perfil COMPLETO
+        g_{0a}(x) en comoviles: la separacion co-rotante (g_0a = 0) vs
+        relajada (g_0a != 0) es NO PERTURBATIVA y de campo completo, no un
+        artefacto del modo unico. [Supuestos: U_Y != 0 (fase m1 != 0),
+        metrica regular; vortices/Phi no suave FUERA, como declarado.]
+[V6] FRW: g_{0a} = [0, 0, 0] => P_a^0 = 0 exacto en toda epoca (formula V3). CI cosmologicas: carga 0.
+
+[VEREDICTO VA1] El teorema del congelamiento RESISTE mi pipeline:
+ * Y^2 = -detC/detB (forma nueva, validada); invariancia GL(3) finita =
+   identidad de bloques + multiplicatividad del det: off-shell, todo orden.
+ * P_a^i = 0 en gauge unitario con g exacta; P_a^0 cerrado y linealizado
+   coinciden con las columnas.
+ * Noether completo: sin pieza EH, sin borde (K = 0), bajo acople universal.
+ * Corolario de inversion (nuevo): P = 0 <=> g_{0a} = 0 punto a punto:
+   la superseleccion es exacta y de campo completo.
+t = 50.2 s

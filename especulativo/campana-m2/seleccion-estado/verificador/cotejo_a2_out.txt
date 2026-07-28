@@ -1,0 +1,39 @@
+﻿========================================================================
+A2 - VERTICES CUBICOS DE sqrt(-g) U(X,Y): la corriente interna, explicita
+========================================================================
+
+[C1] J^mu_a = dL/d(d_mu pi^a)|_{pi=0} orden por orden en h:
+  J^i_a = 0 en h^0, h^1 y h^2 (36 componentes espaciales x ordenes): OK - NINGUN vertice cubico transporta carga
+
+[C2] identidad P_a^mu d_mu Phi^b = 0 con pi^a encendido (orden e^2,
+     usa los vertices cubicos de L):
+  identidad off-shell verificada a orden e^2 (9 pares a,b): OK
+
+[C2b] estructura advectiva: P_a^i = -P_a^mu d_mu pi^i (esclava de P_a^0):
+   a=1: P_a^x|_(e2) + [P_a^mu d_mu pi^x]|_(e2) = 0
+   a=2: P_a^x|_(e2) + [P_a^mu d_mu pi^x]|_(e2) = 0
+   a=3: P_a^x|_(e2) + [P_a^mu d_mu pi^x]|_(e2) = 0
+[C2c] con pi^0 generico encendido, J^i_a|_{pi=0} sigue = 0 (h^0..h^2): OK
+
+[C3] los vertices que SI existen: J^0_a = dL/d(d_0 pi^a)|_{pi=0}
+  orden h^0 : 0
+  orden h^1 : -2*U_X*h01
+  orden h^2 (sector vectorial h0i,hij; tadpoles impuestos):
+     0
+
+[C4] el modo del juguete: h_{0x} = S cos(pz), h_{xz} = -p F sin(pz):
+  P_x^0 a orden h = -2*S*U_X*cos(p*z)   con m1^2 = 2 U_X
+  => amplitud-modo = -(2U_X) S = -m1^2 S == C on-shell del vinculo de B (B4): OK
+  correccion O(h^2) sobre el modo (cuan grande es el error del orden lineal):
+    P_x^0|_(h^2) = 0
+
+[VEREDICTO A2] Vertices cubicos derivados independientemente:
+ * NO EXISTE ningun vertice cubico h^2 (d_i pi^a): J^i_a|_{pi=0} = 0 a
+   ordenes h^0, h^1, h^2 (C1). El teorema de B pasa la verificacion
+   explicita vertice a vertice a orden cubico.
+ * Con pi encendido, la corriente espacial es advecccion pura esclava de
+   P_a^0 (C2/C2b): la carga solo viaja CON el medio, nunca a traves.
+ * Los vertices cubicos que existen involucran d_0 pi^a (C3): renormalizan
+   la densidad, no crean corriente.
+ * La amplitud del modo reproduce el vinculo C = -m1^2 S de B (C4).
+t = 150.2 s

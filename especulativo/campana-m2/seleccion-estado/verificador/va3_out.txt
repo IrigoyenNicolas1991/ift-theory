@@ -1,0 +1,47 @@
+﻿========================================================================
+VA3 - FUERA DEL JUGUETE: fuente movil, dos modos, retroaccion
+========================================================================
+
+[X1] fuente movil: T0x = tau(t) cos(p(z - z0(t))), tau y z0 ARBITRARIAS
+     d_t T0x + d_z Tzx = 0  (fuente conservada para tau(t), z0(t) arbitrarias)
+     con S1 = S2 = 0: eqW dan Wddot = {Derivative(W1(t), (t, 2)): p*tau(t)*sin(p*z0(t))*Derivative(z0(t), t)/(Mp2*p + alpha*p) - cos(p*z0(t))*Derivative(tau(t), t)/(Mp2*p + alpha*p), Derivative(W2(t), (t, 2)): p*tau(t)*cos(p*z0(t))*Derivative(z0(t), t)/(Mp2*p + alpha*p) + sin(p*z0(t))*Derivative(tau(t), t)/(Mp2*p + alpha*p)}
+     candidata S = 0, W1dot = -tau_c/(A p), W2dot = +tau_s/(A p):
+     residuos: eqS1 = 0, eqS2 = 0, eqW1 = 0, eqW2 = 0
+     => S(t) = 0 EXACTO con fuente que CRECE y SE MUEVE arbitrariamente: OK - el IVP universal sobrevive al desplazamiento
+     dL/dW1 + d_t[tc/(2p)] = 0  ; dL/dW2 - d_t[ts/(2p)] = 0
+     eqW1 + dQ1/dt = 0  ; eqW2 + dQ2/dt = 0  (0 => Q_i conservadas EXACTAS, fuente movil incluida)
+     Q1 sobre la candidata = 0  ; Q2 = 0  => ambas cuadraturas con carga de la co-rotante. La fuente movil
+        transporta SU momento (Tzx != 0) pero no inyecta carga al medio.
+
+[X2] dos modos p y 2p con NLO c_sigma, c_omega (pi = 0):
+     d^2 L / d(modo a) d(modo b) (9 pares, NLO incluido): todas 0 => L SEPARA
+     2 eqFa - dC_a/dt = 0  ; 2 eqFb - dC_b/dt = 0
+     => cargas corregidas C_tilde(p) y C_tilde(2p) conservadas POR
+        SEPARADO con fuentes arbitrarias: NO hay fuga inter-modo a
+        orden cuadratico (LO + NLO). El acople inter-modo empieza en
+        los cubicos; para la CARGA los cubre el teorema exacto (va1:
+        P_a^i = 0 con g EXACTA, todo orden). Blanco 2 de colA: CERRADO.
+
+[X3] caracter de vinculo de eqS con NLO:
+     con c_a = 0: eqS contiene S_ddot? False  => S sigue siendo VINCULO (algebraico) con c_sigma, c_omega
+     con c_a != 0: eqS contiene S_ddot? True  -- el termino c_a a^2 SI genera dinamica espuria para S;
+     masa del modo espurio ~ sqrt(|coef S| / |coef Sdd|):
+       coef(S_ddot) = -c_a  ; coef(S)|_{c=0} = Mp2*p**2/2 + alpha*p**2/2 + c_omega*p**2/2 + m12/2
+       => omega^2 ~ m1^2/(2 c_a) ~ Lambda^4/Lambda^2 = Lambda^2: EN EL
+          CORTE de la EFT => fantasma de Ostrogradsky ESPURIO (estandar).
+     Lo DECISIVO (va4): las ramas ESTACIONARIAS no dependen de c_a
+     (a = V_t = 0 sobre estacionarias): el veredicto no usa la reduccion.
+     Retroaccion no lineal completa: cubierta por el corolario de
+     inversion (va1-V5): P congelado = 0 <=> g_{0a}(x,t) = 0 EXACTO;
+     la evolucion no lineal de h_ij/h_00 no puede regenerar shift
+     comovil sin violar la EOM exacta de Phi^a.
+
+[VEREDICTO VA3]
+ * X1: el IVP universal SOBREVIVE a la fuente que se desplaza (S = 0
+   exacto con tau(t) y z0(t) arbitrarias; la materia mueve su momento,
+   el medio queda en C = 0).
+ * X2: sin fuga inter-modo a orden cuadratico NLO; los cubicos no
+   transportan carga (teorema exacto). Blanco 2 de colA cerrado.
+ * X3: S es vinculo con c_sigma/c_omega; c_a genera un espurio EN EL
+   CORTE que no toca las estacionarias (va4 lo cuantifica).
+t = 6.9 s

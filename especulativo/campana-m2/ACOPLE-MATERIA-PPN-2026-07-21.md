@@ -96,3 +96,30 @@ Todos corridos con Python 3.14 + sympy en esta máquina, 2026-07-21.
 *Escrita el mismo día, como manda la casa. El medio pasó su tercer examen: imita a
 Einstein donde Einstein está medido, y se delata exactamente en un lugar — el arrastre
 de marcos — donde nadie miró nunca y un satélite ya en órbita podría mirar.*
+
+---
+
+## ADENDA DE CORRECCIÓN — 2026-07-28 (campaña "selección de estado")
+
+**La pregunta abierta que esta acta declaró quedó RESPONDIDA — y tres de sus
+frases quedan corregidas** (campaña completa con verificador adversarial en
+`seleccion-estado/`; síntesis en `seleccion-estado/SINTESIS-SELECCION-2026-07-28.md`):
+
+1. **«el estado co-rotante… decae al Yukawa con cualquier disipación» — REFUTADA.**
+   Teorema de superselección (4 rutas independientes): la carga interna de la
+   simetría residual no tiene corriente espacial (P_aⁱ = 0, identidad exacta);
+   las dos ramas viven en sectores desconectados y NINGUNA disipación
+   perturbativa suave conecta una con otra.
+2. **«genuinamente excitado» / «fundamental» — REINTERPRETADAS.** E_ret > E_fund
+   compara estados de sectores de carga DISTINTOS; dentro del sector C = 0 (el
+   único poblado por las condiciones iniciales cosmológicas), el co-rotante es
+   el único estado estacionario — su fundamental.
+3. **«decidir la relajación excede el orden cuadrático» — CORREGIDA**: lo
+   decidió una ley de conservación exacta DEL orden cuadrático (más su
+   verificación a orden cúbico y NLO). Veredicto: **gana la CO-ROTANTE (D2)**,
+   uniforme en Λ. La fase predice RG en el gravitomagnetismo; la firma del
+   apantallamiento queda SUPRIMIDA; las cotas Λ ≲ 2.0–2.6 MeV y Λ < 1.12 MeV
+   de esta acta pasan a ser contrafácticas de una rama que no se puebla, y la
+   ventana de Λ vuelve a regirse por el sector escalar. La «pregunta abierta
+   central del paper» está cerrada — en la dirección que suprime la firma, y
+   se publica igual, como manda la casa.

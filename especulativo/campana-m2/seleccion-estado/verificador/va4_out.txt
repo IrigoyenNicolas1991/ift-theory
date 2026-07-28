@@ -1,0 +1,69 @@
+﻿========================================================================
+VA4 - NUMEROS PROPIOS: estacionarias con c_a, transferencia, fuga, spin-down
+========================================================================
+
+[N1] sistema modal NLO con c_a SIN reducir (mi derivacion, va3/X3):
+     2*eqF - d/dt[C_tilde] = 0   [C_tilde = A p^2 sig - c_s p^2 Fdot + tau; c_a NO entra en la carga]
+     eqS estacionaria contiene c_a? False  (Sdot = Sddot = 0 sobre estacionarias)
+     sigma_ret = -tau_c*(c_omega*p**2 + c_sigma*p**2 + m12)/(p**2*(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12))
+     delta_ret (exacta) = -c_sigma*(c_omega*p**2 + m12)/(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)    [c_a AUSENTE]
+     delta_ret a O(c) = -c_sigma/A   [claim colA: -c_sigma/A]
+     delta_rel (exacta) = -c_omega*p**2/(A*p**2 + c_omega*p**2 + m12)    [c_a AUSENTE]
+     => VEREDICTO N1: c_a NO toca ninguna rama estacionaria ni delta: OK - el "fantasma" solo vive en transitorios al corte; la reduccion
+        de orden de colA era INNECESARIA para el veredicto (mas robusto).
+
+[N2] respuesta forzada del modo (tau -> tau_c + eps e^{i w t}):
+     sigma_hat/tau_hat = -(2*c_a*omega**2 + c_omega*p**2 + c_sigma*p**2 + m12)/(p**2*(2*A*c_a*omega**2 + A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + 2*c_a*c_sigma*omega**2 + c_omega*c_sigma*p**2 + c_sigma*m12))
+     polos en omega: [sqrt(2)*sqrt((-A*c_omega*p**2 - A*c_sigma*p**2 - A*m12 - c_omega*c_sigma*p**2 - c_sigma*m12)/(c_a*(A + c_sigma)))/2, -sqrt(2)*sqrt(-(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)/(c_a*(A + c_sigma)))/2]
+     => con c_a = 0: verificar que el UNICO polo posible este en w = 0
+     denominador (c_a = 0) = p**2*(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)
+     la transferencia a w != 0 es finita: SIN resonancia a w = 2 Omega_E,
+     la respuesta al forzante J22 es del tamano ESTATICO (sin polos):
+     |sigma/tau|(w=0) = (-c_omega*p**2 - c_sigma*p**2 - m12)/(p**2*(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12))  = 1/(A p^2) x O(1): el paso
+     "delta_u <= J22 v_drag" de colA es LEGITIMO (transferencia acotada).
+     Secularidad: sin polos reales => la solucion particular con forzante
+     periodico es periodica: SIN crecimiento secular no resonante.
+
+[N3] delta_ret en numeros (chat = 1):
+     Lambda     |delta_ret|    cp^2/m1^2@R    chat p/LARES2
+     1e-3 eV    1.69e-61       2.4e-22        1.19e+58    
+     1 eV       1.69e-55       2.4e-28        1.19e+52    
+     1 keV      1.69e-49       2.4e-34        1.19e+46    
+     1 MeV      1.69e-43       2.4e-40        1.19e+40    
+     cotejo colA: 1.7e-61 (1e-3 eV) ... 1.7e-43 (1 MeV); chat_nec ~ 1e40.
+
+[N4] fuga de carga (mis constantes, cadena de colA):
+     v_drag = 7.146e-16  [colA: 7.2e-16]
+     Lambda     Gm_burda*t_edad  Gm_estr*t_edad  
+     1e-3 eV    2.74e-14         3.52e-35        
+     1 eV       2.74e-20         3.52e-41        
+     1 keV      2.74e-26         3.52e-47        
+     1 MeV      2.74e-32         3.52e-53        
+     peor caso: burda = 2.74e-14 [acta A: 2.7e-14] ; estructural = 3.52e-35
+     [acta A: 3.5e-35]. NOTA: el texto del veredicto interno de a4.py dice
+     "6e-14 / 7e-36": los numeros del ACTA (tabla) son los correctos;
+     los del parrafo final del script son erratas de redaccion.
+     Sensibilidad: para Gamma t_edad ~ 1 haria falta errar la cadena en
+     10^14 (burda). Sin polos (N2) ni secularidad, no hay enhancement
+     parametrico conocido que lo haga. La estimacion es dimensional (no
+     un calculo de vertices): DEBIL como numero, ROBUSTA como veredicto.
+
+[N5] spin-down Cherenkov (formula importada ACLM+Thaler):
+     validacion Sol (M = 10 MeV, v = 1e-3): Edot = 24.34 W [ellos: ~20 W]
+     v_ec = 1.55e-06 ; RS_eff = 1.596e-08 m ; supresion = 1.089e-06
+     Lambda = 1 MeV: Edot = 2.789e-15 W ; margen = 3.602e+11 W ; ordenes = 26.1
+     COTEJO: Edot(1 MeV) = 2.789e-15 W = EL NUMERO DEL ACTA (2.8e-15 W,
+     26 ordenes bajo el margen). Mi "discrepancia 1e3" preliminar era un
+     error MIO de exponente en v_ec (a mano); cazado por este script.
+     El acta de colA queda REPRODUCIDA tal cual en el spin-down.
+
+[VEREDICTO VA4]
+ * delta_ret = -c_s/A a O(c) REPRODUCIDO con c_a generico sin reducir:
+   el fantasma espurio NO toca el veredicto (mas fuerte que colA).
+ * Transferencia sin polos y sin secularidad: el eslabon "delta_u <=
+   J22 v_drag" es legitimo.
+ * Numeros de fuga del ACTA reproducidos (2.7e-14 / 3.5e-35); los del
+   parrafo final del script a4 (6e-14 / 7e-36) son erratas de redaccion.
+ * Spin-down: acta REPRODUCIDA exacta (2.789e-15 W, 26.1 ordenes; Sol
+   24.3 W). Mi acusacion preliminar de typo era un error mio, retirada.
+t = 2.0 s

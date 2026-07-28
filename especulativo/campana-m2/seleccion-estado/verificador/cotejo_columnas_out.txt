@@ -1,0 +1,418 @@
+﻿=== COTEJO: corridas de los scripts de las columnas ===
+
+########## colB\t1_carga_noether.py ##########
+================ PARTE A: carga covariante de U(X,Y) ================
+[A1] trial 0: Y[M.dP] - Y[dP] = 0
+[A1] trial 1: Y[M.dP] - Y[dP] = 0
+[A1] trial 2: Y[M.dP] - Y[dP] = 0
+[A1] invariancia GL(3) finita de Y: OK
+[A2] identidad P_a^mu d_mu Phi^b = 0 (via dY, U_Y factor comun):
+[A2] las 9 contracciones dan 0: OK
+     (X = C^00 no contiene dPhi^a => la identidad vale para todo U(X,Y))
+[A3] gauge unitario: dY/d(d_i Phi^a) = 0 para las 9 componentes: OK
+     => P_a^i = sqrt(-g) U_Y dY/d(d_i Phi^a) = 0 IDENTICAMENTE (metrica exacta
+        arbitraria): la carga interna NO TIENE corriente espacial en las
+        coordenadas comoviles del medio. d_t P_a^0 = 0 punto a punto on-shell.
+[A4] P_a^0 en gauge unitario (metrica exacta):
+   dY/d(d_0 Phi^1) - g_{0a}/(g_00 sqrt(-g_00)) = 0
+   dY/d(d_0 Phi^2) - g_{0a}/(g_00 sqrt(-g_00)) = 0
+   dY/d(d_0 Phi^3) - g_{0a}/(g_00 sqrt(-g_00)) = 0
+[A4] dY/d(d_0 Phi^1) a orden h  = -h01   (claim: -h01)
+[A4] => P_a^0 = sqrt(-g) U_Y dY/d(d_0 Phi^a) = -U_Y h_{0a} + O(h^2)
+[A4] con tadpole U_Y = 2U_X = m1^2:   P_a^0 = -m1^2 h_{0a} + O(h^2)
+
+================ PARTE B: la carga en el modo vectorial con fuente ================
+[B1] L_tot == forma canonica (mod dt), tau(t) arbitraria ? True
+[B2] eqF / dC/dt = 1/2   con C := A p^2 sigma + tau
+[B3] delta L_can bajo F -> F + eps = epsilon*Derivative(tau(t), t)/2  (claim eps*taudot/2 => K = eps*tau/2)
+[B3] Q := pi_F - tau/2 ; Q + C/2 = 0  (claim 0: Q = -C/2, misma ley que B2)
+[B4] 2*eqS - (A p^2 sigma + m1^2 S + tau) = 0
+[B4] => on-shell (eqS=0):  C = -m1^2 S  == amplitud-modo de P_a^0 = -m1^2 h_{0a}
+     (PARTE A4). La carga del gauge unitario ES la carga interna covariante
+     del medio; EH+materia se reabsorben con el vinculo. [cuidado gravitatorio OK]
+[B5] C_relajada  = m12*tau_c/(m12 + p**2*(Mp2 + alpha))   (= m1^2 tau_c/(A p^2 + m1^2), != 0)
+[B5] C_corotante = 0
+[B5] Delta C = C_rel - C_ret = m12*tau_c/(m12 + p**2*(Mp2 + alpha))  POR MODO p
+     control rama relajada: eqS = 0, eqF = 0
+     control rama co-rotante: eqS = 0, eqF = 0
+[B6] p -> 0 de Delta C con tau(p) el perfil de Fourier de la fuente:
+     lim_{p->0} Delta C(p) = tauhat0  = tauhat(0) = int d^3x T_{0i}(x) = momento lineal total de la fuente
+     int dOmega (omega x x) = [0, 0, 0]  => tauhat(0) = 0: carga NETA = 0
+     int dOmega x_hat = [0, 0, 0]  => int d^3x Delta rho_i = 0: la diferencia es PURA REDISTRIBUCION (dipolar)
+
+[VEREDICTO TAREA 1]
+ * La carga conservada exacta es la densidad interna P_a^0(x), con corriente
+   espacial P_a^i IDENTICAMENTE NULA en comoviles (A3): congelada punto a punto.
+ * Las dos ramas difieren en DISTRIBUCION de carga (Delta C(p) != 0 modo a modo,
+   B5) pero NO en carga neta global (B6): es una redistribucion dipolar.
+ * Pasar de una rama a otra requiere transportar densidad de carga de un punto
+   a otro; el transporte esta prohibido a LO por P_a^i = 0 (no hay corriente que
+   lo haga). NO es "libre" ni "permitido con redistribucion suave": esta
+   congelado salvo (i) NLO con derivadas superiores, (ii) defectos (vortices).
+t = 1.5 s
+
+########## colB\t2_ivp_adiabatico.py ##########
+[S1] S=0, F=int tau/(A p^2) con tau(t) ARBITRARIA: eqS = 0 , eqF = 0
+     => la co-rotante instantanea es solucion EXACTA para CUALQUIER historia,
+        rapida o lenta: no es un limite adiabatico, es una identidad.
+[S2] vinculo: S = (Mp2*p**2*Derivative(F(t), t) + alpha*p**2*Derivative(F(t), t) - tau(t))/(Mp2*p**2 + alpha*p**2 + m12)
+[S2] eqF reducida / (Fddot - taudot/(A p^2)) = m12*p**2*(-Mp2 - alpha)/(2*(Mp2*p**2 + alpha*p**2 + m12))
+[S2] S a lo largo de la solucion general = (Fdot0*Mp2*p**2 + Fdot0*alpha*p**2 - tau0)/(Mp2*p**2 + alpha*p**2 + m12)
+[S2] C a lo largo de la solucion general = m12*(-Fdot0*Mp2*p**2 - Fdot0*alpha*p**2 + tau0)/(Mp2*p**2 + alpha*p**2 + m12)  (constante) ;
+     -m1^2 * S_gen = m12*(-Fdot0*Mp2*p**2 - Fdot0*alpha*p**2 + tau0)/(Mp2*p**2 + alpha*p**2 + m12)   => S = -C/m1^2 SIEMPRE.
+     La historia f y la escala T NO aparecen: el estado esta 1-1 con la carga C.
+[S3] H(pi,F;t) - claim = 0
+[S3] pidot = -dH/dF = Derivative(tau(t), t)/2  => pi(t) = pi0 + [tau(t)-tau(0)]/2 EXACTA, cualquier historia.
+[S3] con CI relajadas (pi0=0, tau(0)=0): pi(t) = tau(t)/2 = rama co-rotante
+     INSTANTANEA en todo t (v2b: pi_ret = tau/2). El medio "sigue" a la fuente.
+[S4] RK4 del sistema canonico (Fdot = dH/dpi, pidot = taudot/2):
+     (S_relajada = -0.909091 seria la firma Yukawa; S_corotante = 0)
+     historia       T          S_final      Fdot*Ap2/tau-1 max|pi-tau/2|
+     coseno-suave   1          9.370e-13    1.031e-12    4.696e-14   
+     coseno-suave   10         -5.973e-13   -6.570e-13   3.963e-14   
+     coseno-suave   1000       -9.992e-15   -1.099e-14   7.216e-16   
+     coseno-suave   1e+06      -9.992e-15   -1.099e-14   7.216e-16   
+     rampa-lineal   1          -8.238e-13   -9.062e-13   0.000e+00   
+     rampa-lineal   10         -8.238e-13   -9.062e-13   5.773e-14   
+     rampa-lineal   1000       -8.238e-13   -9.062e-13   4.119e-14   
+     rampa-lineal   1e+06      -8.238e-13   -9.062e-13   4.119e-14   
+     tanh           1          2.398e-13    2.638e-13    1.327e-14   
+     tanh           10         1.332e-14    1.465e-14    7.772e-15   
+     tanh           1000       -4.108e-14   -4.519e-14   2.165e-15   
+     tanh           1e+06      -4.108e-14   -4.519e-14   2.165e-15   
+     no-monotona    1          2.887e-13    3.175e-13    5.562e-14   
+     no-monotona    10         9.992e-14    1.099e-13    3.048e-14   
+     no-monotona    1000       -1.887e-14   -2.076e-14   2.617e-14   
+     no-monotona    1e+06      -1.776e-14   -1.954e-14   2.612e-14   
+[S4] estado final = CO-ROTANTE para toda historia y todo T ? True
+     max|pi - tau/2| ~ error RK4: el sistema esta en la co-rotante instantanea
+     DURANTE todo el encendido, no solo al final. UNIVERSAL: no depende de T
+     ni de f. (El teorema adiabatico no hace falta: no hay dinamica propia.)
+[S4b] CI no relajadas pi0 != 0 (carga C = -2 pi0 congelada):
+      pi0=+0.050: S_final = +1.000000 ; -C/m1^2 = +1.000000 ; dif = 8.9e-16
+      pi0=-0.020: S_final = -0.400000 ; -C/m1^2 = -0.400000 ; dif = 1.7e-14
+      => el estado final esta etiquetado por C y NADA MAS.
+[S5] H(C;tau) = (C**2*p**2*(Mp2 + alpha) + m12*(C - tau)**2)/(4*m12*p**2*(Mp2 + alpha))  = C^2/(4m1^2) + (tau-C)^2/(4Ap^2) ? True
+[S5] argmin_C H = m12*tau/(Mp2*p**2 + alpha*p**2 + m12)  = C_relajada (t1 [B5]) ? True
+[S5] H(C=0) = 0.25  (= H_ret 0.250 de v2b) ; H(C_rel) = 0.227273  (= H_min 0.227 de v2b)
+[S5] la "energia extra" del co-rotante vive en OTRO sector de carga: no es
+     un estado excitado sobre el mismo vacio, es el FUNDAMENTAL del sector C=0.
+     Liberarla exige cambiar C: prohibido a LO (t1). Sin canal, no hay decaimiento.
+
+[VEREDICTO TAREA 2] El encendido LENTO (y el rapido, y cualquiera) termina en
+la CO-ROTANTE: resultado UNIVERSAL, independiente de T y de la historia f.
+No hay teorema adiabatico porque no hace falta: el modo plano no tiene dinamica
+propia (holonomico); su estado es esclavo de la carga conservada, y la carga
+inicial cosmologica es CERO = la carga de la co-rotante.
+t = 1.7 s
+
+########## colB\t3_condiciones_iniciales.py ##########
+[F1] dY/d(d_0 Phi^a) sobre FRW (las 3 componentes) = 0 ? True
+     => P_a^0 = 0 EXACTO en todo FRW, toda epoca, todo a(t): el universo en
+        expansion entrega el medio con carga vectorial IDENTICAMENTE NULA.
+     (formula cerrada: P_a^0 prop g_{0a} = 0 en FRW; y el acta FRW ya dio el
+      fondo relajado J=0 para la carga del reloj: CI totales = carga cero.)
+[F2] d_mu(rho a^3 u^mu) = 0  => Eq(rho(t), C1/a(t)**3)  => rho prop a^-3: cualquier carga
+     vectorial primordial se diluye con la expansion (mismo destino que la J
+     del reloj en el acta FRW). Refuerza: C(t_formacion) = 0.
+[F3] P_a^0 exacto prop g_{0a}:
+     co-rotante: h_{0i} = 0 (S=0)  => P_a^0 = 0  PUNTO A PUNTO, EXACTO (no hay nada que compensar: densidad nula).
+     relajada:   P_a^0 = -S*U_Y*cos(p*z)  + O(S^2) != 0 localmente
+     (con S = -tau_c/(A p^2 + m1^2): perfil dipolar, neta global 0, t1[B6]).
+     => la RELAJADA es la redistribucion; la CO-ROTANTE es carga cero genuina.
+     Poblar la relajada desde carga 0 = transportar carga entre puntos, y
+     P_a^i = 0 (t1[A3]): NO EXISTE la corriente que lo haga a LO.
+[F4] conservacion materia: d_t T^{0x} + d_z T^{zx} = 0  con T^{zx} != 0 mientras taudot != 0:
+     la materia redistribuye SU momento al formarse la Tierra; la carga del
+     medio no tiene vehiculo. El medio queda en su sector C=0: co-rotante.
+
+[VEREDICTO TAREA 3] La historia cosmologica (FRW relajado, carga cero exacta,
+F1-F2) + el encendido de la fuente (universal, t2) seleccionan la CO-ROTANTE,
+sin invocar disipacion. El matiz del acta queda respondido AL REVES del temor
+de la apertura: la co-rotante NO es la que requiere carga (requiere carga CERO,
+que es lo que hay); la RELAJADA es la redistribucion imposible de crear
+suavemente. El argumento de conservacion SI cortocircuita -- hacia D2, no D1.
+Puertas que quedan (declaradas): NLO con derivadas superiores (corriente de
+carga de orden superior), defectos/vortices de Phi (no perturbativo), y estados
+"relajada + nube compensante estacionaria" (no son la rama Yukawa limpia y no
+resultan de ningun decaimiento suave del co-rotante).
+t = 0.5 s
+
+########## colB\t4_robustez.py ##########
+[R1] bajo el gauge residual del modo (F -> F + eps, S -> S):
+     delta sigma = 0  ; delta C = 0
+     y delta h_{0a} = d_t xi_a = 0 (xi indep. de t) => delta P_a^0 = 0.
+     El observable (sigma, curvatura K_xz = p sigma) y la carga son gauge-inv.
+[R2] delta L_raw - eps*dK/dt = 0   (K = tau/2 - Mp2 p^2 Fdot: el shift genera una derivada total extra)
+[R2] Q_raw - Q_can = 0  (0 => la carga NO depende del ordenamiento IBP; sin anomalia de borde)
+[R2] Q_can + C/2 = 0  (la ley es la misma de t1[B3])
+     rama relajada   : Q_raw = -m12*tau_c/(2*Mp2*p**2 + 2*alpha*p**2 + 2*m12) ; Q_can = -m12*tau_c/(2*Mp2*p**2 + 2*alpha*p**2 + 2*m12)
+     rama co-rotante : Q_raw = 0 ; Q_can = 0
+     => Delta Q entre ramas identica por ambas rutas: robusto a bordes.
+[R3] tau(t) = tau_c(1 + eps2 sin(Omega t)): S=0, F=int tau/(A p^2):
+     eqS = 0  ; eqF = 0  => S(t) = 0 EXACTO con fuente oscilante.
+     C(t) = 0 se mantiene; sigma(t) = -tau(t)/(A p^2) sigue la fuente SIN
+     retardo ni resonancia: Fdot(omega) = tau(omega)/(A p^2), sin polos
+     (no hay frecuencia propia en la direccion plana). Sin secularidad.
+     RK4 200 vueltas (eps2 = 1e-2): max|S(t)| = 3.40e-11  (error numerico puro; S_rel seria -0.909)
+     La Tierra real (J22 ~ 1e-5, mareas) NO puebla la relajada a orden lineal;
+     su efecto entra recien por vertices no lineales (frente Cherenkov) o NLO.
+[R4] Hipotesis del congelamiento P_a^i = 0 / d_t P_a^0 = 0, y sus puertas:
+     (i)   L = sqrt(-g) U(X,Y) a LO: la identidad GL(3) es del termino Y;
+           X no contiene dPhi^a. EH y materia no contienen Phi^a. EXACTO
+           con gravedad no lineal completa (t1[A3] usa metrica arbitraria).
+     (ii)  acople universal: la materia no toca Phi^a directamente. Si algun
+           sector acoplara a Phi^a, su EOM tendria fuente y la carga fluiria.
+     (iii) Phi^a(x) difeo suave global (gauge unitario global): los VORTICES
+           / phase slips lo evaden -- unica via no perturbativa conocida;
+           tasa ~ e^{-S_barrera} (columna de analogias He-II / Langer-Fisher).
+     (iv)  NLO con derivadas superiores: la corriente de Noether gana el
+           termino [dL/d(d_mu d_nu Phi^a)] d_nu xi^a, que NO se anula =>
+           flujo de carga posible, suprimido por potencias de (grad/Lambda)
+           y por no-linealidad (a orden lineal, el propio NLO alpha K^2 del
+           juguete RESPETA la conservacion modo a modo: eqF la contiene).
+           Cuantificar ese flujo residual = tarea para el frente de vertices.
+     El chequeo R2 descarta ademas que Delta C sea artefacto de bordes/IBP.
+
+[VEREDICTO TAREA 4] La conclusion (la conservacion selecciona la co-rotante)
+es robusta a: eleccion de gauge residual (R1), ordenamiento IBP / terminos de
+borde tipo Ostrogradsky (R2), y perturbaciones no axisimetricas/oscilantes de
+la fuente a orden lineal (R3). Sus limites son los declarados en R4.
+t = 1.2 s
+
+########## colA\a1_teorema_via_schur.py ##########
+========================================================================
+A1 - TEOREMA DEL CONGELAMIENTO VIA FORMA EPSILON (ruta indep. de col. B)
+========================================================================
+[S1] det(C) - [det(B)*X - V.adj(B).V] = 0
+     => (C^-1)_00 = det(B)/det(C) = 1/(X - V.B^-1.V):  Y_schur^2 = W - X
+        esta bien definida sin resolver u (complemento de Schur).
+[S2] u_un(E.dPhi) - det(E)*u_un(dPhi) = [0, 0, 0, 0]  (dPhi y E GENERICAS)
+[S2] det(E.dPhi)|_espacial - det(E)*det(dPhi) = 0
+     => Y = det(dPhi)/sqrt(-u_un.g.u_un) es invariante GL+(3) FINITO
+        MANIFIESTO (el cociente es homogeneo grado 0 en det(E)).
+     => dY/d(d_mu Phi^a) * d_mu Phi^b = deriv. direccional (E = I + s e_ab)
+        de un invariante = 0  ==  P_a^mu d_mu Phi^b = 0  (teorema de B),
+        OFF-SHELL, exacto en metrica y configuracion, a todo orden.
+[S3] trial 0: Y_de(B)-Y_eps = 0 ; Y_schur-Y_eps = 0
+[S3] trial 1: Y_de(B)-Y_eps = 0 ; Y_schur-Y_eps = 0
+[S3] trial 2: Y_de(B)-Y_eps = 0 ; Y_schur-Y_eps = 0
+[S3] tres formas funcionales coinciden (racional exacto): OK
+[S4] fondo unitario: u_un = [1, 0, 0, 0] ; Y^2 = -1/g_00: True
+[S4] d(Y^2)/d(d_i Phi^a) = 0 (9 comps, g EXACTA simbolica): OK
+     => P_a^i = sqrt(-g) U_Y (1/2Y) d(Y^2)/d(d_i Phi^a) = 0 IDENTICAMENTE.
+[S4] d(Y^2)/d(d_0 Phi^1) + 2 g_{01}/g_00^2 = 0
+[S4] d(Y^2)/d(d_0 Phi^2) + 2 g_{02}/g_00^2 = 0
+[S4] d(Y^2)/d(d_0 Phi^3) + 2 g_{03}/g_00^2 = 0
+[S4] formula cerrada del acta (P_a^0 = sqrt(-g) U_Y g_{0a}/(g_00 sqrt(-g_00)))
+     [via P_a^0 = U_Y sqrt(-g) dY^2/ds / (2Y)]: OK
+[S5] d(Y^2)/d(d_0 Phi^1) a orden h = -2*h01  => P_1^0 = U_Y*(-2*h01)/2
+     claim del acta: P_a^0 = -U_Y h_{0a} + O(h^2): OK
+
+[VEREDICTO A1] Teorema de B verificado por ruta epsilon (independiente):
+ * Y tiene forma POLINOMIAL cerrada Y = det(dPhi)/sqrt(-u_un.g.u_un), con
+   u_un^mu = eps^{mu nu rho si} d_nu Phi^1 d_rho Phi^2 d_si Phi^3 (S2+S3).
+ * P_a^mu d_mu Phi^b = 0 es la invariancia GL+(3) FINITA manifiesta del
+   cociente: vale off-shell, con metrica exacta, a TODO orden perturbativo
+   (cubico incluido: es identidad algebraica, no orden a orden).
+ * En gauge unitario: P_a^i = 0 con g exacta (S4a); P_a^0 cerrado y
+   linealizado coinciden con el acta de B (S4b, S5).
+t = 4.0 s
+
+########## colA\a3_nlo_flujo.py ##########
+========================================================================
+A3 - EL CANAL NLO: corriente de carga con derivadas superiores del medio
+========================================================================
+[N1] u^mu del sector = [0, -Derivative(f(t, z), t), 0, 0]  * e + (1,0,0,0);  u_mu|_(e) = [0, V(t, z) - Derivative(f(t, z), t), 0, 0]
+     la velocidad fisica relativa medio-marcos: u_x = V - f_t (gauge-inv del modo)
+[N1] invariantes a orden lineal (catalogo):
+     theta = 0
+     sigma_xz = Derivative(W(t, z), t)/2 - Derivative(f(t, z), t, z)/2    (= d_t(W - f_z)/2: shear material)
+     omega_zx = Derivative(V(t, z), z)/2 - Derivative(f(t, z), t, z)/2    (= d_z(V - f_t)/2: vorticidad fisica)
+     a_x = Derivative(V(t, z), t) - Derivative(f(t, z), (t, 2))    (= d_t(V - f_t): aceleracion)
+[N2] derivadas de f que aparecen en los invariantes: [Derivative(f(t, z), (t, 2)), Derivative(f(t, z), t, z)]
+[N2] invariancia bajo pi -> pi + xi(x) (residual, = Psi(Phi) exacta): OK
+     => L_NLO(u) depende de f SOLO via f_t: la corriente espacial interna
+        es J^i_x = -d_t[ dL/d(d_i f_t) ]  (el termino del acta de B:
+        dL/d(dd Phi) EXISTE), pero es una derivada temporal TOTAL:
+        SE ANULA sobre configuraciones estacionarias.
+
+[N3] corriente interna espacial NLO en pi=0 (campo general V,W):
+     J^z_x = c_omega*Derivative(V(t, z), t, z) + c_sigma*Derivative(W(t, z), (t, 2))
+     J^z_x sobre la rama co-rotante  = 0
+     J^z_x sobre la rama relajada    = 0
+     (formacion: con Fdot = Fdot(t) no estacionario, J^z_x != 0: transitorio)
+     J^z_x con W = -p Fint(t) sin(pz): -c_sigma*p*sin(p*z)*Derivative(Fint(t), (t, 2))
+
+[N4] juguete modal extendido (S(t), F(t); pi=0; c_a reducido por EFT):
+     L_NLO del modo (c_a -> 0 por reduccion) = c_omega*p**2*S(t)**2/4 + c_sigma*p**2*Derivative(F(t), t)**2/4
+     delta L bajo F -> F + eps = epsilon*Derivative(tau(t), t)/2  (= eps*taudot/2 => Noether sobrevive)
+     2*eqF - d/dt[A p^2 sigma - c_sigma p^2 Fdot + tau] = 0   => C_tilde := A p^2 sigma - c_sigma p^2 Fdot + tau CONSERVADA (tau(t) arbitraria)
+     eqS = Mp2*p**2*S(t)/2 - Mp2*p**2*Derivative(F(t), t)/2 + alpha*p**2*S(t)/2 - alpha*p**2*Derivative(F(t), t)/2 + c_omega*p**2*S(t)/2 + m12*S(t)/2 + tau(t)/2   (algebraica en S: sigue de primer orden)
+     eqS estacionaria: Mp2*S*p**2/2 - Mp2*p**2*v/2 + S*alpha*p**2/2 + S*c_omega*p**2/2 + S*m12/2 - alpha*p**2*v/2 + tau_c/2  | eqF estacionaria: 0  (0 = familia 1-parametrica en v: dir. plana VIVA)
+     S(v) = (Mp2*p**2*v + alpha*p**2*v - tau_c)/(Mp2*p**2 + alpha*p**2 + c_omega*p**2 + m12)
+     co-rotante corregido: v = tau_c*(c_omega*p**2 + m12)/(p**2*(Mp2*c_omega*p**2 + Mp2*c_sigma*p**2 + Mp2*m12 + alpha*c_omega*p**2 + alpha*c_sigma*p**2 + alpha*m12 + c_omega*c_sigma*p**2 + c_sigma*m12))
+                           S_ret = -c_sigma*tau_c/(Mp2*c_omega*p**2 + Mp2*c_sigma*p**2 + Mp2*m12 + alpha*c_omega*p**2 + alpha*c_sigma*p**2 + alpha*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)   <-- YA NO ES RG EXACTO (O(c) residual)
+     S_ret a primer orden en c: -chat_s*lam*tau_c/(Mp2*m12 + alpha*m12)
+     relajada corregida:  S_rel = -tau_c/(Mp2*p**2 + alpha*p**2 + c_omega*p**2 + m12)
+     C_tilde de la relajada corregida = tau_c*(c_omega*p**2 + m12)/(Mp2*p**2 + alpha*p**2 + c_omega*p**2 + m12)  != 0:
+     la SUPERSELECCION persiste con NLO (Delta C_tilde != 0 modo a modo).
+     det de dispersion (sin fuente) = omega**2*p**2*(Mp2*c_omega*p**2 + Mp2*c_sigma*p**2 + Mp2*m12 + alpha*c_omega*p**2 + alpha*c_sigma*p**2 + alpha*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)/4
+     => factor omega^2 y NINGUNA raiz nueva: la rama plana omega=0
+        sobrevive EXACTA a los NLO para todo p (la carga no gana dinamica
+        lineal); S sigue siendo vinculo. Consistente con el acta del
+        escalar: la raiz omega^2=0 protegida por xi^i(x) sobrevive NLO.
+
+[N5] IVP extendido con tau(t) ARBITRARIA (la formacion de la Tierra):
+     S(Fdot, tau) = (Fdot_s*Mp2*p**2 + Fdot_s*alpha*p**2 - tau(t))/(Mp2*p**2 + alpha*p**2 + c_omega*p**2 + m12)
+     Fdot(C0, tau) = (-C0*Mp2*p**2 - C0*alpha*p**2 - C0*c_omega*p**2 - C0*m12 + c_omega*p**2*tau(t) + m12*tau(t))/(p**2*(Mp2*c_omega*p**2 + Mp2*c_sigma*p**2 + Mp2*m12 + alpha*c_omega*p**2 + alpha*c_sigma*p**2 + alpha*m12 + c_omega*c_sigma*p**2 + c_sigma*m12))
+     con C0 = 0 (CI cosmologicas relajadas): S(t) = -c_sigma*tau(t)/(Mp2*c_omega*p**2 + Mp2*c_sigma*p**2 + Mp2*m12 + alpha*c_omega*p**2 + alpha*c_sigma*p**2 + alpha*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)
+     => S(t) = S_ret_corr * [tau(t)/tau_c] EN TODO INSTANTE, para CUALQUIER
+        historia tau(t): el IVP adiabatico de B SOBREVIVE a los NLO;
+        la formacion deja al medio en el co-rotante corregido. NO hay
+        fuga ni siquiera durante el transitorio, a nivel modal-lineal.
+     control: S_final(tau=tau_c) - S_ret_corr = 0
+
+[VEREDICTO A3 / TAREA 2, parte simbolica]
+ * El termino de corriente del acta de B EXISTE: J^i = -d_t[dL/d(d_i f_t)]
+   con dL/d(dd f) != 0 (c_sigma, c_omega). CONFIRMADO explicitamente.
+ * PERO es una derivada temporal total de un objeto local: sobre
+   configuraciones ESTACIONARIAS (co-rotante y relajada) J^i = 0 EXACTO.
+   Razon estructural: pi -> pi + xi(x) es una transformacion interna
+   Psi(Phi) exacta => NINGUN invariante del medio contiene d_i pi sin
+   d_t: toda corriente espacial interna viene con d_t delante.
+ * La rama plana omega=0 sobrevive a los NLO; la carga corregida
+   C_tilde = A p^2 sigma - c_sigma p^2 Fdot + tau se conserva con tau(t)
+   arbitraria; el IVP deja SIEMPRE al medio en el co-rotante corregido.
+   FUGA LINEAL (estacionaria Y transitoria): CERO EXACTO en el modo.
+ * Efecto fisico NUEVO: el co-rotante corregido tiene S_ret != 0 de orden
+   -c_sigma tau_c/(A (m1^2 + (c_s+c_w)p^2)): "RG exacto" gana correccion NLO
+   (numeros en a4); la relajada tambien se corrige (c_omega).
+ * La fuga de carga sobreviviente es (no lineal) x (NLO): dos supresiones
+   simultaneas; estimacion con potencias declaradas en a4.
+t = 1.7 s
+
+########## colA\a4_numeros.py ##########
+========================================================================
+A4 - NUMEROS: co-rotante corregido, fuga de carga, spin-down
+========================================================================
+
+[P1] sistema modal NLO estacionario, EXACTO en (c_sigma, c_omega)
+     L_NLO del modo = c_omega*p**2*S(t)**2/4 + c_sigma*p**2*Derivative(F(t), t)**2/4    [control: = cs p^2 Fdot^2/4 + cw p^2 S^2/4]
+     2*eqF - d/dt[C_tilde] = 0   [C_tilde = A p^2 sigma - c_s p^2 Fdot + tau: la de a3]
+     S_ret     = -c_sigma*tau_c/(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)
+     sigma_ret = -tau_c*(c_omega*p**2 + c_sigma*p**2 + m12)/(p**2*(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12))
+     S_ret a O(c) = -c_sigma*tau_c/(A*m12)   [a3 reporto -c_s tau_c/(A(m1^2+(c_s+c_w)p^2)); a O(c): -c_s tau_c/(A m1^2)]
+     sigma_rel = -tau_c/(A*p**2 + c_omega*p**2 + m12)   [= -tau_c/(A p^2 + m1^2 + c_w p^2): mu_eff^2 = (m1^2+c_w p^2)/A]
+     delta_ret (exacta) = -c_sigma*(c_omega*p**2 + m12)/(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)
+     delta_ret a O(c)   = -c_sigma/A
+     => EL RESULTADO ESTRUCTURAL: delta_ret = -(c_s/A) * [m1^2 + O(c p^2)]/[m1^2 + O(c p^2)]
+        ~= -c_sigma/A, INDEPENDIENTE de p a orden dominante: una
+        renormalizacion finita universal del acople gravitomagnetico
+        en la rama co-rotante. El apantallamiento Yukawa NO reaparece
+        (no hay termino m1^2/(A p^2) en delta_ret).
+     delta_rel a O(c) = -c_omega*p**2/(A*p**2 + m12)  [corrimiento de la firma Yukawa]
+
+[P1b] patologia ("muerte fea" de la apertura): H del modo sobre el vinculo
+     H(vinculo) = p**2*v_**2*(A*c_omega*p**2 + A*c_sigma*p**2 + A*m12 + c_omega*c_sigma*p**2 + c_sigma*m12)/(4*(A*p**2 + c_omega*p**2 + m12))
+     => positiva sii  A(m1^2 + c_w p^2) + c_s(A p^2 + m1^2 + c_w p^2) > 0.
+        Con |c| = chat Lambda^2 y p << Lambda (validez EFT): |c| p^2 << m1^2
+        y |c| << A => H > 0 para CUALQUIER signo O(1) de chat: sin muerte
+        fea en el sector NLO. (S es multiplicador tipo N_i: su H off-shell
+        del vinculo no es fisica; sobre el vinculo, positiva.)
+     [dispersion sin raices nuevas: det ~ omega^2, verificado en a3/N4;
+      vertices cubicos existentes renormalizan densidad (a2/C3): tampoco
+      generan potencial runaway; el vinculo S sobrevive: m1^2+c_w p^2 != 0]
+
+[P2] delta_ret en numeros: c_sigma = chat * Lambda^2 (SUPUESTO U2, chat=1)
+     delta_ret ~= chat * (Lambda/Mbar_Pl)^2 ; factor exacto [(m1^2+cw p^2)/(m1^2+(cs+cw)p^2)]
+     con m1^2 = 4 Lambda^4 (U1,U3): c p^2/m1^2 = chat p^2/(4 Lambda^2) -> se imprime
+     Lambda     l1 [m]       |delta_ret|  cp^2/m1^2@R    chat p/ 0.2%
+     1e-3 eV    2.4e+26      1.69e-61     2.4e-22        1.19e+58    
+     1 eV       2.4e+20      1.69e-55     2.4e-28        1.19e+52    
+     1 keV      2.4e+14      1.69e-49     2.4e-34        1.19e+46    
+     1 MeV      2.4e+08      1.69e-43     2.4e-40        1.19e+40    
+     independencia de p verificada: el factor difiere de 1 en c p^2/m1^2
+     (< 1e-21 en todo el barrido, p = 1/R_earth o 1/a_LARES2: da igual).
+     VEREDICTO P2: la desviacion residual del co-rotante respecto de RG es
+     |delta| = chat (Lambda/Mbar_Pl)^2 <= 1.7e-43 (Lambda <= 1 MeV, chat=1).
+     LARES-2 (2e-3) esta a >= 40 ORDENES: la firma NO revive como efecto NLO.
+     SENSIBILIDAD UV: para |delta| = 2e-3 haria falta c_sigma ~ 1e-3 Mbar_Pl^2,
+     i.e. chat ~ 1e40 (Lambda=1MeV) o un corte UV del NLO ~ 1e17 GeV: eso NO
+     es un NLO del medio (Lambda <= MeV), es modificar la gravedad misma.
+     El corrimiento NLO de la firma RELAJADA es c_w p^2/m1^2 ~ chat p^2/(4Lambda^2)
+     < 1e-21: la prediccion Yukawa de la rama relajada tampoco se corre.
+     [extra] v_drag(superficie) = 7.15e-16 (adim); S_ret,abs ~ (c p^2/m1^2)*v_drag
+             ~ 1.71e-37 a Lambda=1e-3 eV: el h_0x residual del co-rotante.
+
+[P3] fuga de carga del co-rotante: (no lineal) x (NLO), potencias declaradas
+     CADENA DIMENSIONAL (cada factor declarado):
+     - carga a drenar (por modo):     Delta_C ~ m1^2 * v_drag        [B: C=-m1^2 S]
+     - corriente NLO (a3): J^i = -d_t[dL/d(d_i f_t)] ~ c_s * d_t d_i (delta_u):
+       solo la parte NO estacionaria del flujo contribuye (a3/N3).
+     - forzante no estacionario: la no-axisimetria rotante de la Tierra,
+       h_0i^(22) ~ J22 * v_drag a omega = 2*Omega; respuesta del medio SIN
+       polos (B: la transferencia no tiene resonancia) => delta_u <= J22*v_drag.
+     - d_t -> 2*Omega ; d_i -> p ~ 1/R (campo cercano, cota superior).
+     - RECTIFICACION: J = d_t[...] oscilante tiene promedio CERO por ciclo;
+       el drenaje DC exige un vertice no lineal mas (a2: existen, renormalizan
+       densidad): J_DC ~ c_s * (2Omega) * p * (J22 v_drag)^2.
+     - Gamma = p * J_DC / Delta_C  con  c_s/m1^2 = chat/(4 Lambda^2).
+     Gamma_estructural ~ Omega * J22^2 * v_drag * chat/(2 (Lambda R)^2)
+     COTA BURDA (fisicamente rota a proposito: como si el flujo oscilante
+     drenara coherente, sin rectificar): Gamma_burda ~ Omega * J22 * chat/(2(Lambda R)^2)
+     Lambda     Gm_burda[1/s]  Gm_b*t_edad    Gm_estr[1/s]   Gm_e*t_edad   
+     1e-3 eV    6.3e-32        2.74e-14       8.1e-53        3.52e-35      
+     1 eV       6.3e-38        2.74e-20       8.1e-59        3.52e-41      
+     1 keV      6.3e-44        2.74e-26       8.1e-65        3.52e-47      
+     1 MeV      6.3e-50        2.74e-32       8.1e-71        3.52e-53      
+     VEREDICTO P3: incluso la cota deliberadamente rota da Gamma*t_edad <= 6e-14
+     (peor caso Lambda=1e-3 eV); la estimacion estructural da <= 7e-36.
+     La carga del co-rotante NO se drena en la edad del universo para NINGUN
+     Lambda del rango, con 14 a 35 ordenes de margen. SENSIBILIDAD UV: lineal
+     en chat; ni chat ~ 1e13 (absurdo) cambia el veredicto de la cota burda.
+     [el transitorio de formacion: fuga modal-lineal = 0 EXACTO (a3/N5);
+      el (no lineal)x(NLO) con d_t ~ 1/t_form << Omega es aun menor que esto]
+
+[P4] spin-down: Cherenkov escalar (ACLM+Thaler 0507120, Edot ~ alpha M^2 v^3)
+     validacion: Sol M=10MeV v=1e-3: Edot = 24.3 W  [ACLM+Thaler: ~20 W: OK]
+     SUPUESTOS del canal rotacional (estiramiento declarado: la formula de
+     ACLM es TRASLACIONAL; el caso rotante no esta calculado en la literatura
+     -- acta C blanco 3 --; la uso como proxy de orden de magnitud):
+     - una esfera axisimetrica estacionaria NO radia (apertura, mec. 1):
+       radia la masa NO axisimetrica ~ J22*M_earth a v = Omega R/c (borde,
+       cota superior).
+     - M^2_ACLM = 2 sqrt(2) Lambda^2 (U7, diccionario mu = m_ACLM exacto).
+     - supresion de fuente extensa debil (0507120): (R_S_eff/(v^2 R))^2 con
+       R_S_eff = 2 G (J22 M_earth)/c^2 (la protuberancia no arrastra el
+       condensado: r_drag < R).
+     v_ecuador = 1.55e-06 ; R_S_eff = 1.6e-08 m ; supresion extensa = 1.09e-06
+     spin-down medido: Edot_rot = 3.6e+12 W (2.3 ms/siglo, mareas lo explican);
+     margen libre ~10%: 3.6e+11 W ; torque margen = 4.94e+15 N m
+     Lambda     M_ACLM [eV]    Edot [W]       Edot/margen      torque [N m]  
+     1e-3 eV    0.00168        2.79e-33       7.74e-45         3.82e-29      
+     1 eV       1.68           2.79e-27       7.74e-39         3.82e-23      
+     1 keV      1.68e+03       2.79e-21       7.74e-33         3.82e-17      
+     1 MeV      1.68e+06       2.79e-15       7.74e-27         3.82e-11      
+     control de robustez: SIN supresion de fuente extensa (protuberancia
+     tratada como puntual): Edot(1 MeV) = 2.56e-09 W: sigue 20 ordenes bajo el margen.
+     Lambda que saturaria el margen: 1.14e+19 eV = 1.14e+10 GeV -> l1 = 1.86e-18 m:
+     VEREDICTO P4: el canal Cherenkov saca energia de la rotacion pero es
+     DESPRECIABLE en todo el rango viable (Lambda <= 2.6 MeV por la cota
+     nodal): Edot <= 3e-15 W vs margen 3.6e+11 W (26 ordenes). NO da cota
+     nueva sobre Lambda: la cota que manda sigue siendo la nodal. Consistente
+     con B/C: este canal lleva ENERGIA, no carga -- no decide la rama.
+
+[VEREDICTO A4]
+ (a) delta_ret = -chat (Lambda/Mbar_Pl)^2: <= 1.7e-43 en todo el barrido.
+     La firma NO revive como efecto NLO: el co-rotante es "RG exacto" hasta
+     una parte en 1e43. LARES-2 (2e-3) no la ve ni con chat ~ 1e40 (UV absurdo).
+     La firma de la rama RELAJADA tampoco se corre (< 1e-21): las dos ramas
+     quedan nitidas y distinguibles; la seleccion de estado decide TODO.
+ (b) fuga (no lineal)x(NLO): Gamma*t_edad <= 6e-14 (cota rota a proposito),
+     <= 7e-36 (estructural): el co-rotante NO se vacia. Refuerza D2 si el
+     teorema de B pasa el verificador.
+ (c) spin-down: Edot <= 3e-15 W (26 ordenes bajo el margen de mareas):
+     sin cota nueva; el canal de energia no decide nada terrestre.
+t = 0.8 s
+FIN COTEJO (sin a2, va aparte)
