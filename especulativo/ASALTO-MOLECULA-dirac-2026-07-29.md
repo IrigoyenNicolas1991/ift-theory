@@ -161,8 +161,9 @@ cables (acta bibliográfica §2, hueco #6).
 
 `asalto_molecula.py` (modos: especieB / especieA_sw / molecula; GL heredado del
 Paso A y BdG del Paso B, textuales, con autotests re-corridos en cada modo) +
-`asalto_verifica_espB.py` (perfil radial en los cruces) + verificadores de
-scratchpad (fino central, caja 100 — reproducibles del acta §2). Recibos:
+`asalto_verifica_espB.py` (perfil radial en los cruces) +
+`asalto_fino_central_B.py` (el barrido fino que recuperó el cruce central) +
+`asalto_cajagrande_B.py` (la caja N=100 con London empalmado). Recibos:
 `asalto_resultados_*.json` (especieB con las 3 semillas y los 10 eventos del
 grueso; especieA_sw; molecula con los 2 cruces y el espejo). Campos npz locales
 regenerables (excluidos de git). Python 3.14 + numpy + scipy 1.18, esta máquina,
