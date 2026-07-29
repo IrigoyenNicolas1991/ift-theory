@@ -1872,3 +1872,61 @@ no dice nada nuevo de Newton (M1 sigue con su confrontación pendiente); y el
 juguete numérico tiene sus límites declarados (caja finita con splitting
 core-borde 4×10⁻⁵, zona nodal |k_z|≳0.7 donde la separación core/bulk se
 disuelve — ahí el conteo del vaciado fabrica pares, siempre cancelados).
+
+## 36. EL FERMIÓN DE LA RED, PRIMER ASALTO (2026-07-29, mismo día que §35) —
+## la molécula de Dirac: el portador del U(1) existe
+
+**Régimen**: continuación inmediata de la compuerta (§35); acta dedicada
+`ASALTO-MOLECULA-dirac-2026-07-29.md` + acta bibliográfica previa
+`ASALTO-MOLECULA-bibliografia-2026-07-29.md` (16 papers en fuente primaria,
+escrita ANTES de los veredictos numéricos). Pregunta pre-declarada: ¿la
+quiralidad de la rama sigue a la FASE (molécula = Dirac quiral cargado) o al
+MARCO (molécula estéril)?
+
+- **La molécula del mar es ASIMÉTRICA**: E_B = 9.29373 (atractor de 3 semillas
+  a 7 dígitos) ≠ E_A = 11.88573 (confirmado con 8ª semilla — el Paso A queda
+  MÁS blindado). Ninguna simetría del funcional conecta las especies (el div
+  las distingue) — un cable caro y uno barato por molécula.
+- **C_B = −1 = C_A: LA FASE MANDA.** Verificado en tres capas (perfil radial
+  de los eventos del barrido grueso, barrido fino central que recuperó el cruce
+  que el grueso se comió, y caja N=100 donde los tres cruces sobreviven — los
+  laterales apenas corridos ⟹ topológicos). La anatomía difiere (el A cruza
+  una vez, el B tres con neto −1); el invariante coincide.
+- **★ LA MOLÉCULA: C_mol = −2, espejo +2 EXACTO** — dos Majoranas quirales
+  co-móviles = **un fermión de Dirac QUIRAL CARGADO** deslocalizado en el par.
+  Aditividad topológica C_mol = C_A + C_B pese a la sorpresa: **los cores se
+  REORGANIZAN al ligarse** (ambos eligen el relleno nuevo {+1: 0.47, −1: 0.46}
+  — la cíclica acostada, el div acoplando al gradiente del compañero) — cambian
+  de vestido, no de carga. Y la molécula está **LIGADA fuerte**
+  (E_mol − E_A − E_B = −1.93 con gradiente completo; el §30 con K₁ solo la
+  tenía marginal).
+- **Consecuencia**: el FALTA 1 del §34.A saldado en su mitad numérica (falta el
+  inflow formal — Callan-Harvey verificado en fuentes ampara: bulk gapeado +
+  winding basta, sin Chern de bulk); el FALTA 2 (Gauss en las uniones) sigue
+  abierto y es virgen — NADIE obtuvo fotón U(1) de redes de cables (las
+  publicadas dan semimetal u orden gapeado; el único fotón 3D emergente
+  verificado es bosónico, Motrunich-Senthil).
+- **Novedad barrida ANTES de calcular** (agente bibliográfico, con intención de
+  refutar): 6 huecos reclamables — el central: la serie Masaki-Mizushima-Nitta
+  (nuestro sistema EXACTO: D₄-BN, HQV (½,±¼), molécula) se detiene en k_z=0 en
+  toda su obra; ε(k_z), el flujo espectral y el mecanismo del relleno no
+  existen publicados.
+- **Erratas de la sesión: 2, ambas cazadas el mismo día** (acta §4): (1) mi
+  argumento de degeneración K∘T — refutado por el propio control numérico en
+  7 min (K∘T mapea A→A; la asimetría es física); (2) el barrido grueso se comió
+  el cruce central del B (rama ultra-plana + resonancia de borde en el origen)
+  — cazado por perfil radial + fino. **Regla nueva a la caja de herramientas:
+  rama ultra-plana (|E| ≪ minigap en toda la ventana) ⟹ el conteo exige
+  barrido fino + verificación de caja; el neto del pipeline grueso no basta.**
+
+### Marcador honesto §36
+
+**Qué es**: el portador cargado del U(1) de la red, calculado y triplemente
+verificado (espejo exacto, aditividad, caja grande); la regla "la fase manda"
+para windings fraccionarios de marco; tres sorpresas físicas medidas
+(asimetría de especies, reorganización de cores, ligadura fuerte); novedad
+barrida en fuentes ANTES de los veredictos. **Qué NO es**: no es el fotón (el
+U(1) colectivo necesita la ley de Gauss en las uniones — FALTA 2 intacto y
+ambicioso); no es el inflow formal (etapa de papel pendiente con marco
+verificado); no es el anillo; y la comparación de ligaduras §30 vs hoy es
+entre modelos distintos (K₁ vs gradiente completo), declarada como dato.
