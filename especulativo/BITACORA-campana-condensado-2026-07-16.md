@@ -1796,3 +1796,79 @@ jornada, textual del crítico: «avanzó en mapa, retrocedió en evidencia, sin
 grieta letal — el programa pasó de muchos frentes a una sola compuerta que
 decide casi todo, y esa compuerta todavía no tiene ni un número confiable. La
 próxima sesión no debe abrir frentes: debe cerrar ESA compuerta.»
+
+## 35. LA COMPUERTA, CERRADA (2026-07-21 / 2026-07-29) — el nudo trae su materia:
+## una rama quiral, con el signo del nudo
+
+**Régimen**: la compuerta única del §34.D, ejecutada en sus dos pasos, sin
+agentes. Actas dedicadas (los detalles y los recibos viven ahí):
+`PASO-A-bisagra-core-2026-07-21.md` y `PASO-B-bdg-core-2026-07-29.md`.
+
+### A) Paso A (2026-07-21): la bisagra energética, del lado bueno
+
+El core del HQV del D₄-BN se llena espontáneamente con la mezcla FM+cíclica
+ALINEADA (C₃ ∥ eje, L esclavo del winding), desde cualquier semilla que rompa
+la simetría; el "FM puro" refutado ni siquiera es mínimo local; ΔE = 0.454 =
+×40 el número de la errata #12; QA completo de la regla nueva (norma de
+gradiente, espejo exacto, semillas inclinadas, control de h). **El pinning es
+DURO** (primer gatillo del criterio de muerte: descartado). Lección física: la
+bisagra vive en el término div (K₂=K₃) — sin él colapsa 60×. Perla: el core
+rompe la axisimetría combinada del HQV (windings enteros donde la regla de
+selección pedía fraccionarios) ⟹ el gap fermiónico no es axisimétrico y el
+Paso B debió comer el campo 2D completo.
+
+### B) Paso B (2026-07-29): el conteo — C_neto = −1
+
+BdG del ³P₂ en la sección del tubo (Nambu×spin, pairing d = Δ₀·A(r)·k con el
+campo REAL del Paso A; hermiticidad y PH exactas), flujo espectral en k_z con
+tracking por solapamiento y separación core/borde POR PESO (§33.E):
+
+- **Controles (todos PASS)**: FHS en la red reproduce el conteo del §33 (la
+  cíclica da el perfil (1,−2,1,0)-like con nodos 1-3-3-1 y cargas alternadas;
+  el D₄ es mudo con nodos SOLO polares en ±√μ — la clase DIII hecha números);
+  uniformes sin defecto ⟹ cero ramas de core (el detector no inventa); el
+  borde DIII aparece donde debe.
+- **El HQV real: C_neto = −1.** UNA rama de core (peso 0.85-0.89), IMPAR exacta
+  en k_z (self-conjugada bajo PH), cuasi-plana (|E|max ≈ 0.005, quince veces
+  bajo el minigap CdGM ~0.075), velocidad v ≈ −0.009 (v/v_F ≈ 0.006 — materia
+  quiral LENTA), que cruza E=0 una sola vez en k_z=0 y muere deslocalizándose
+  en los nodos polares del fondo (±0.8) — una rama tipo Callan-Harvey
+  conectando las proyecciones de los dos nodos del D₄.
+- **Espejo: C_neto = +1** (inversión exacta, pesos idénticos a 10⁻¹³) — la
+  quiralidad de la materia es esclava del winding, ahora a nivel fermiónico.
+- **Estabilidad: C_neto = −1 en las 4 deformaciones** (Δ₀×0.7/×1.4, μ×0.8/×1.2)
+  — el conteo es topológico en el régimen declarado.
+- **★ EL MECANISMO, probado por vaciado** (control bonus): el fondo D₄ tiene
+  columna z NULA ⟹ PH de rebanada ⟹ el HQV desnudo (proyección m∈{±2}) tiene
+  su Majorana PLANO en E≈0 — existe pero no fluye (C_neto = 0; los únicos
+  eventos son 14 pares (+1,−1) cancelados en el mismo k_z, rotaciones de
+  carácter del par core-borde). **La rama quiral neta nace del RELLENO CÍCLICO
+  del core** (columna z no nula ⟹ rompe la PH de rebanada dentro del core ⟹
+  inclina la rama): la bisagra del Paso A es condición necesaria Y suficiente
+  de la materia del tubo. Las dos mitades de la compuerta se sostienen
+  mutuamente.
+
+### C) Consecuencias y deudas
+
+El criterio de muerte pre-declarado NO se gatilla: **no hay 10ª lápida — los
+tubos del D₄-BN vienen poblados de serie** con media materia de Dirac (una rama
+Majorana quiral) por nudo, el refinamiento "winding fraccionario ⟹ conteo a la
+Majorana" del §33.F calculado. Quedan EN PIE los dos FALTA duros del U(1)
+fermiónico de la red (§34.A: fermión entero por tubo vía anomaly inflow +
+Gauss en las uniones — ahora CON portador concreto), el paso tubo→anillo
+(discretización de la rama en el lazo, twist como número cuántico, §33.D), la
+anisotropía de la energía de línea, el espectro de fluctuación del tetraedro,
+y el examen de Carlip al fondo. Erratas de producción del Paso B: cero (dos
+defectos de herramienta cazados antes de correr, declarados en el acta §8).
+
+### D) Marcador honesto §35
+
+**Qué es**: la compuerta binaria del §34 cerrada del lado vivo con QA completo,
+controles pre-declarados todos PASS, mecanismo identificado y probado por
+ablación, y el primer número de materia fermiónica del programa (C_neto = −1
+por nudo, v/v_F ≈ 0.006). **Qué NO es**: no es todavía el fotón de la red (los
+dos FALTA del §34.A siguen); no es el anillo (partícula) — es el tubo recto;
+no dice nada nuevo de Newton (M1 sigue con su confrontación pendiente); y el
+juguete numérico tiene sus límites declarados (caja finita con splitting
+core-borde 4×10⁻⁵, zona nodal |k_z|≳0.7 donde la separación core/bulk se
+disuelve — ahí el conteo del vaciado fabrica pares, siempre cancelados).

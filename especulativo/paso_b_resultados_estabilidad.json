@@ -1,0 +1,24 @@
+{
+ "estabilidad": {
+  "D0x0.7": {
+   "C_neto": -1,
+   "cruces": 1,
+   "anticruces": 0
+  },
+  "D0x1.4": {
+   "C_neto": -1,
+   "cruces": 1,
+   "anticruces": 0
+  },
+  "mux0.8": {
+   "C_neto": -1,
+   "cruces": 1,
+   "anticruces": 0
+  },
+  "mux1.2": {
+   "C_neto": -1,
+   "cruces": 1,
+   "anticruces": 0
+  }
+ }
+}
