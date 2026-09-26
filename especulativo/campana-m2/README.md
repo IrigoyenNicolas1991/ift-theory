@@ -41,7 +41,8 @@ Los 3 scripts extraídos del handoff corren con Python 3.14 + SymPy 1.14 y repro
    usan nuestros pesos). El correo salió el 21/7 (lo envió Nico) y **L. Pilo
    respondió en menos de 24 horas confirmando los misprints en m₁² y m₂² tras
    revisar sus notebooks originales** — acta y alcance exacto en
-   `RESPUESTA-PILO-2026-07-22.md` (cita formal pendiente de permiso).
+   `RESPUESTA-PILO-2026-07-22.md`; **permiso de cita concedido el 15/9** —
+   `RESPUESTA-PILO-2-2026-09-15.md` (referencia [34] del paper v0.8).
 3. **El barrido de novedad de la fila U(X,Y) sigue siendo de la sesión externa** —
    antes de cualquier claim público aplica el estándar propio: barrido INSPIRE
    full-text (pendiente; el barrido del 21/7 cubrió solo la errata).
@@ -76,7 +77,12 @@ mapeo nota 10 (tarea 5, la fase de ahí era m₀=0 ∧ m₂=0, no la misma), y s
 estado del medio (la pregunta nueva). **El correo BCP ya se envió (Nico, 21/7) y fue
 RESPONDIDO: Pilo confirmó la errata el 22/7** — ver `RESPUESTA-PILO-2026-07-22.md`;
 la respuesta nuestra fue ENVIADA por Nico el 25/7 (pide permiso de cita
-formal + pregunta por erratum de PRD + ofrece la nota missing-row); fase espera.
+formal + pregunta por erratum de PRD + ofrece la nota missing-row). **2/9: segundo
+correo con la nota v0.7 (PDF por link) + las dos erratas de su §8
+(`CORREO-PILO-2-2026-09-02.md`). 15/9: PILO RESPONDIÓ — permiso de cita concedido,
+errata (8.17) confirmada, sobre (8.18) habló del signo (convención) y no del
+factor 2, y la nota le pareció "very interesting" en lectura rápida, la va a leer
+en detalle (`RESPUESTA-PILO-2-2026-09-15.md`; paper → v0.8 con la referencia [34]).**
 **DATO NUEVO 2026-07-21: la medición del frame dragging que el paper esperaba YA SE PUBLICÓ**
 — Ciufolini et al., Nature (julio 2026, doi:10.1038/s41586-026-10715-0): LARES-2+LAGEOS+GRACE,
 acuerdo con RG al 0.2% reclamado (error budget disputado por Iorio, 2503.07264/Universe 9:211).
@@ -123,8 +129,9 @@ dispersión del atractor — el espectro real es puramente disipativo; la
 corrección REFUERZA el congelamiento y quedó declarada en el paper), acción
 cuadrática FRW completa (tensor identidad; vector congelado = identidad NUEVA;
 factor 2 = convención de M_Pl², BCP (7.21) impresa correcta), y 2 erratas
-nuevas de BCP §8 confirmadas por campaña dedicada (material para el próximo
-mail a Pilo; script en `erratas-bcp-s8/`).
+nuevas de BCP §8 confirmadas por campaña dedicada (reportadas a Pilo el 2/9;
+(8.17) confirmada por él el 15/9, (8.18) aclaración enviada; script en
+`erratas-bcp-s8/`).
 
 **CAMPAÑA SELECCIÓN DE ESTADO 2026-07-27/28 — CERRADA CON D2: TEOREMA DE
 SUPERSELECCIÓN → paper v0.7 RETITULADO** (carpeta `seleccion-estado/`:

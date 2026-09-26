@@ -56,8 +56,10 @@ primer correo salió envuelto por el redirector de Gmail).
 - [x] Respuesta enviada por Nico (2026-07-25, junto con la respuesta al Balseiro).
   Sin contestación al 2026-07-27 (los correos salieron un sábado); fase espera,
   no insistir.
-- [ ] Si Pilo autoriza la cita → referencia formal en §2 del paper y en el
-  marcador; si además mandan erratum a PRD, citarlo en lugar de la comunicación
-  privada.
-- [ ] Cuando el paper pase la auditoría de §9 y el resto de la lista de bloqueo →
-  mandarles la nota (ellos la pidieron implícitamente; Nico decide el momento).
+- [x] **Pilo autorizó la cita (15/9/2026)** → referencia formal [34] en §2, marcador,
+  §9, §10, agradecimientos y block list (paper v0.8, 26/9); si además mandan
+  erratum a PRD, citarlo en lugar de la comunicación privada. Acta:
+  `RESPUESTA-PILO-2-2026-09-15.md`.
+- [x] Nota enviada el 2/9 (v0.7, `CORREO-PILO-2-2026-09-02.md`); Pilo la leyó
+  rápido ("very interesting") y la va a leer en detalle
+  (`RESPUESTA-PILO-2-2026-09-15.md`).

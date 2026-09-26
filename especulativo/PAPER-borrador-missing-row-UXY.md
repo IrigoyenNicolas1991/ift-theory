@@ -2,7 +2,7 @@
 
 **Nicolás Irigoyen**
 
-*Draft v0.7 — 2026-07-28 (v0.1 through v0.4 on 2026-07-21; v0.2 applied the 31
+*Draft v0.8 — 2026-09-26 (v0.1 through v0.4 on 2026-07-21; v0.2 applied the 31
 findings of the first in-house adversarial audit of the text, v0.3 the 12
 findings of the second — record and both reports in
 `campana-m2/AUDITORIA-TEXTO-PAPER-2026-07-21.md`; v0.4 added the FRW section §9
@@ -28,7 +28,13 @@ title changed accordingly (it read "…and a screened
 frame-dragging signature" through v0.6) — campaign record: three independent
 columns plus a final adversarial verifier with its own pipeline,
 `campana-m2/seleccion-estado/` — `SINTESIS-SELECCION-2026-07-28.md`,
-`verificador/VERIFICADOR-FINAL-2026-07-28.md`).
+`verificador/VERIFICADOR-FINAL-2026-07-28.md`). **v0.8 (2026-09-26)**: the
+BCP exchange is now cited with permission — L. Pilo's email of 15 Sep 2026
+grants it, confirms the k² sign of their (8.17) and comments on the sign
+convention of the tensor mass; formal reference [34] added and §2, §9, §10,
+scoreboard, acknowledgments and block list updated; the factor-2 point in
+their (8.18) stays on record as ours (three-route verified), with a
+clarification sent — record in `campana-m2/RESPUESTA-PILO-2-2026-09-15.md`.
 First written form of the
 results of the m₂ = 0 campaign (2026-07-20/21; campaign records and full
 verification chain in `especulativo/campana-m2/`:
@@ -44,10 +50,10 @@ independent adversarial verification pass (independent re-derivation pipelines,
 including a blind refuter for the dictionary leg and a five-flank attack for
 the state-selection leg; no leg was refuted as a block — the FRW pass did
 refute and correct one published formula, declared in §9); this
-text has passed three audit passes (a fourth, over the v0.7 rewrite, is on the
-block list);
-**what remains before any submission is on the block list at the end** (the
-fourth text-audit pass, one final read of the assembled text, and
+text has passed four audit passes (the fourth, over the v0.7 rewrite, on
+2026-07-28);
+**what remains before any submission is on the block list at the end** (one
+final read of the assembled text, a ~250-word submission abstract, and
 the author's explicit sign-off). Honesty rules of the house apply: every
 assumption declared, every "exactly" backed by a reproducible computation,
 negative results stated with the same prominence as positive ones.*
@@ -72,7 +78,7 @@ Each row states whose work each piece is.
 | **Frame dragging has two branches: relaxed medium ⟹ Yukawa-screened (gravitomagnetic Meissner); co-rotating medium ⟹ GR (up to δ ≲ 10⁻⁴¹, below). The would-be signature — screened Lense–Thirring, with LARES-2 [23] giving Λ < 1.12 MeV on the relaxed branch — is suppressed by the superselection theorem of the next row: the phase predicts GR gravitomagnetism, and those bounds stand as counterfactuals of the unpopulated branch** | **New; no prior computation of rotating sources in any m₁² ≠ 0 phase found** | this paper |
 | **Superselection theorem: the internal charge of the residual symmetry has no spatial current (P_aⁱ = 0 — an exact off-shell identity, verified four independent ways), so its density is frozen pointwise, with the inversion corollary P_a⁰(x) = 0 ⟺ g₀ₐ(x) = 0. The two branches are disconnected superselection sectors; cosmological initial conditions populate the co-rotating (zero-charge) one, universally; NLO opens no backdoor (δ = −ĉ(Λ/M̄_Pl)², ≥30 orders below sensitivity everywhere in the declared windows; charge leak ≤ 3×10⁻¹⁴ over the age of the universe on a deliberately broken bound). Hypotheses declared, §8/§10** | **New, machine-verified (three campaign columns + adversarial verifier with its own pipeline)** | this paper |
 | **FRW: the tensor masslessness is an FLRW identity (and so is the vector freezing — both potentials ∝ the Friedmann-II combination, from the full quadratic action); the protected Minkowski vacuum is the cosmological attractor (in the mirror phase it is not [10]); vacuum-form stress on the attractor (w = −1 whenever U* ≠ 0); transient = exact dust; scalar stays frozen — the attractor spectrum is purely damped, zero phase velocity (the earlier ω = ±(H/√2)k + 3iH was refuted by this paper's own 2026-07-27 audit and corrected in §9)** | **New as a package (mechanism from [8, 10], current known to [5] as entropy; §9 audited 2026-07-27 — one formula corrected, the correction strengthens the freeze-out; rest survived + the quadratic-action pass confirmed tensor and closed vector)** | this paper |
-| Misprint in BCP eqs. (7.6)–(7.7) — **confirmed by L. Pilo** (email to N.I., 22 Jul 2026, cc D. Comelli, after re-checking their original notebooks; formal private-communication citation pending permission); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP case), then confirmed by L. Pilo | this paper |
+| Misprint in BCP eqs. (7.6)–(7.7) — **confirmed by L. Pilo** [34] (email, 22 Jul 2026, cc D. Comelli, after re-checking their original notebooks; cited with permission granted 15 Sep 2026); two further misprints in BCP §8, eqs. (8.17)–(8.18) — the k² sign of (8.17) **confirmed by L. Pilo** [34] (15 Sep 2026), the factor 2 in (8.18) ours (three routes, §9); two misprints in Dubovsky eqs. (73), (99) | Found and cross-checked five independent ways (BCP (7.6)–(7.7)), then confirmed by L. Pilo; (8.17) confirmed by L. Pilo; (8.18) three-route verified, clarification sent to the authors | this paper |
 | The Einstein–Hilbert kinetic term | **Assumed, not derived** (as in [1, 4, 5]; Weinberg–Witten out of scope) | — |
 
 No death criterion of the campaign was triggered. The price of the result — the
@@ -169,8 +175,9 @@ transient redshifts as exact dust, reproducing the ghost condensate's
 cosmological-constant-plus-dark-matter phenomenology. As by-products, we
 report a misprint in
 the mass-parameter weights of BCP eqs. (7.6)–(7.7) — with the correct weights
-established five independent ways and since confirmed by L. Pilo (email,
-22 Jul 2026, cc D. Comelli) — and two minor misprints in Dubovsky's
+established five independent ways and since confirmed by L. Pilo [34] — two
+further misprints in BCP's §8, eqs. (8.17)–(8.18), the first also confirmed
+by L. Pilo [34] — and two minor misprints in Dubovsky's
 eqs. (73) and (99). All results are
 symbolic (SymPy) and public; individual scripts run in seconds to a few
 minutes.
@@ -299,12 +306,13 @@ expression carries a^(−2(n−1))), is compatible with our weights and not with
 their printed (7.7); (5) the appendices of the later papers
 of the same group [5, 6, 7] use precisely our weights (flat in yₙ from n = 0, n²
 in τₙ). No erratum of PRD 94, 124023 exists; the equations are unchanged between
-arXiv v1 and v2. **Confirmed by L. Pilo**: the query letter was sent on
+arXiv v1 and v2. **Confirmed by L. Pilo** [34]: the query letter was sent on
 21 Jul 2026, and L. Pilo (email, 22 Jul 2026, cc D. Comelli), after re-checking
 the original Mathematica notebooks, confirmed the misprints in m₁² and m₂² and
-agreed with our expressions (paraphrase; permission for a formal
-private-communication citation has been requested; whether a PRD erratum will be
-filed is the authors' call — record in `campana-m2/RESPUESTA-PILO-2026-07-22.md`).
+agreed with our expressions (cited with permission, granted on 15 Sep 2026;
+whether a PRD erratum will be filed is the authors' call — records in
+`campana-m2/RESPUESTA-PILO-2026-07-22.md` and
+`campana-m2/RESPUESTA-PILO-2-2026-09-15.md`).
 Caveats: the comparison was made at
 a = N = 1; the journal PDF itself was not accessible to us (paywall).
 
@@ -1029,8 +1037,18 @@ discriminant, plus the external evidence that the authors' own follow-up JCAP
 (8.17) would not propagate waves). They do not affect our row (M₂² ≡ 0
 identically); record and the drafted query paragraph in the campaign acta §8
 (`campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`, script in
-`campana-m2/erratas-bcp-s8/`). Reporting them to the authors awaits the
-author's decision on the next letter.
+`campana-m2/erratas-bcp-s8/`). Both were reported to the authors on
+2 Sep 2026. **L. Pilo confirmed the k² sign of (8.17)** (email, 15 Sep 2026
+[34]); on (8.18) he remarked that the sign of the mass term depends on the
+overall sign of U and on the definition of m₂² in (7.3), and that the genuine
+graviton mass must enter as ω² = k² + m₂² — with which we agree: in the
+variable of (7.3) that is exactly the dispersion, and the relation fixed by
+BCP's own (7.22) is m₂² = −2M₂², with M₂² the tensor-mass coefficient of
+(7.21) (the same relation as Appendix A of [5], M₂^there = −2a²M₂²^here).
+Our point about (8.18) concerns only the coefficient of that M₂² — 2M₂², not
+M₂² — independently of any sign convention; it rests on the three-route
+verification above, and a clarification was sent to the authors (record in
+`campana-m2/RESPUESTA-PILO-2-2026-09-15.md`).
 
 ## 10. What this paper does not claim
 
@@ -1062,10 +1080,12 @@ author's decision on the next letter.
   the program's record.)
 - **The BCP misprint is no longer provisional**: L. Pilo confirmed it
   (email, 22 Jul 2026, cc D. Comelli, after re-checking their original
-  notebooks).
+  notebooks; cited with permission [34]).
   Our own results never hinged on
   it (U(X,Y) involves neither τₙ nor yₙ; the lemma's weights are the
-  five-times-verified ones, now author-confirmed).
+  five-times-verified ones, now author-confirmed). Nothing here should be
+  read as an endorsement of this paper's content by the BCP authors: the
+  exchange cited in [34] concerns misprints in their own paper.
 
 ## 11. Open problems
 
@@ -1085,7 +1105,8 @@ is unobservable by ≥30 orders everywhere in the declared windows.)*
    earlier note of our program (m₀ = 0 ∧ m₂ = 0); the exact relation remains to
    be written.
 3. **Independent CAS re-derivation** (xAct/cadabra) of the dictionary — desirable
-   redundancy (L. Pilo has since confirmed the misprints, §2), not load-bearing.
+   redundancy (L. Pilo has since confirmed the misprints, §2 and [34]), not
+   load-bearing.
 4. **The radiative sector**: binary-pulsar damping (Hulse–Taylor) is untouched
    here. The tensor sector is GR's at this order, which suggests standard
    quadrupole radiation, but the vector/scalar bookkeeping with time-dependent
@@ -1099,6 +1120,8 @@ is unobservable by ≥30 orders everywhere in the declared windows.)*
 
 ## Acknowledgments
 
+The author thanks L. Pilo for re-checking the original notebooks of [4], for
+confirming the misprints, and for permission to cite the exchange [34].
 The derivations, the code and the drafting of this paper were developed in
 collaboration with an AI system (Claude, Anthropic — working name *Fable*),
 under the author's direction. All numerical and symbolic results are
@@ -1261,6 +1284,10 @@ helium: Some offshoots", Rev. Mod. Phys. 87 (2015) 803, arXiv:1406.5629
 caveats used in §8).
 [33] D. Krotov, C. Rebbi, V. Rubakov, V. Zakharov, "Holes in the ghost
 condensate", Phys. Rev. D 71 (2005) 045014, arXiv:hep-ph/0407081.
+[34] L. Pilo, private communication (emails to the author, 22 Jul 2026 and
+15 Sep 2026, cc D. Comelli): confirmation, after re-checking the original
+notebooks, of the misprints in eqs. (7.6)–(7.7) of [4], and of the k² sign in
+eq. (8.17) of [4]; permission to cite the exchange granted on 15 Sep 2026.
 
 ## Pre-publication block list (nothing leaves the repo before these)
 
@@ -1291,10 +1318,12 @@ condensate", Phys. Rev. D 71 (2005) 045014, arXiv:hep-ph/0407081.
    quantitative reply to the injection-accuracy objection). Remaining: the
    paywalled main text of [23] (pp. 332–335, no preprint exists); full titles
    for [2], [5]; journal data for [8], [25], [26] if published.
-3. **BCP misprint — RESOLVED 2026-07-22**: the letter was sent by the author on
+3. **BCP misprint — RESOLVED 2026-07-22; citation permission GRANTED
+   2026-09-15**: the letter was sent by the author on
    21 Jul 2026 and L. Pilo confirmed the misprints the next day (email, cc
-   D. Comelli), agreeing with our expressions. Remaining: their permission for
-   a formal private-communication citation (requested 25 Jul 2026); a PRD
+   D. Comelli), agreeing with our expressions; permission to cite the exchange
+   was granted on 15 Sep 2026 (reference [34]), together with the confirmation
+   of the k² sign of (8.17). Remaining on our side: nothing; a PRD
    erratum is their call; an xAct/cadabra run remains desirable redundancy.
 4. **Reference data — RESOLVED 2026-07-27** (INSPIRE-HEP verification pass,
    record in `campana-m2/CIERRE-BLOCKLIST-2026-07-27.md`): [7] verified in
