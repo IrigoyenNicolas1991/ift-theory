@@ -91,10 +91,12 @@ Pilo tiene razón en lo que dice, y lo que dice no discute lo nuestro:
   conviene, además, esperar los comentarios detallados de Pilo antes de
   someter — lector externo gratis del área, la crítica que el paper pide).
 
-## Respuesta nuestra (borrador dejado en el Gmail de Nico el 2026-09-26)
+## Respuesta nuestra — ENVIADA por Nico el 2026-09-26 (tal cual el borrador, con el párrafo del endorsement)
 
-Redactada por Fable; queda como **borrador en la casilla** (reply en el hilo,
-To Pilo, CC Comelli) para que Nico la mande — o la retoque — cuando quiera.
+Redactada por Fable como borrador en la casilla (reply en el hilo, To Pilo,
+CC Comelli); **Nico la envió el mismo día sin cambios** («lo dejé como estaba,
+me pareció perfecto»). Verificado en el hilo: mensaje 1a0dd12c33138b36,
+26/9 09:36 UTC, etiqueta SENT.
 Contenido: (1) gracias por el permiso, la revisión de §8 y la lectura rápida;
 crítica bienvenida, sin apuro; (2) la nota ya cita el intercambio formalmente
 y el PDF v0.8 va por link plano; (3) aclaración breve del factor 2 en su
@@ -143,8 +145,8 @@ removible).
 
 ## Próximos pasos
 
-- [ ] Nico manda la respuesta (o la ajusta: el párrafo del endorsement es
-      suyo de decidir). Después: fase espera, cero pings.
+- [x] Nico mandó la respuesta el 26/9, con el párrafo del endorsement incluido.
+      Desde ahora: fase espera, cero pings.
 - [ ] Lectura final de Nico del paper (gate de submission, en curso desde el
       2/9) — ahora sobre v0.8.
 - [ ] Si Pilo comenta la nota en detalle → procesar CON Nico (oro puro);

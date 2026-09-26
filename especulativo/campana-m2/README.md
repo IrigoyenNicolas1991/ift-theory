@@ -82,7 +82,9 @@ correo con la nota v0.7 (PDF por link) + las dos erratas de su §8
 (`CORREO-PILO-2-2026-09-02.md`). 15/9: PILO RESPONDIÓ — permiso de cita concedido,
 errata (8.17) confirmada, sobre (8.18) habló del signo (convención) y no del
 factor 2, y la nota le pareció "very interesting" en lectura rápida, la va a leer
-en detalle (`RESPUESTA-PILO-2-2026-09-15.md`; paper → v0.8 con la referencia [34]).**
+en detalle (`RESPUESTA-PILO-2-2026-09-15.md`; paper → v0.8 con la referencia [34]). 26/9: respuesta
+nuestra ENVIADA por Nico (gracias + PDF v0.8 + aclaración del factor 2 + pedido de
+endorsement arXiv sin obligación); fase espera, cero pings.**
 **DATO NUEVO 2026-07-21: la medición del frame dragging que el paper esperaba YA SE PUBLICÓ**
 — Ciufolini et al., Nature (julio 2026, doi:10.1038/s41586-026-10715-0): LARES-2+LAGEOS+GRACE,
 acuerdo con RG al 0.2% reclamado (error budget disputado por Iorio, 2503.07264/Universe 9:211).
